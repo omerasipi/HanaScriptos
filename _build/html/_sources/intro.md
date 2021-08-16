@@ -1,16 +1,10 @@
-# Welcome to your Jupyter Book
+# Höhere Analysis und Numerik
 
-This is a small sample book to give you a feel for how book content is
-structured.
+Das Skript zum Modul "Höhere Analysis und Numerik" ist ein interaktives Skript. Die Codes sind direkt ausführbar.
 
 :::{note}
-Here is a note!
+Das Skript zum Modul ist am entstehen.
 :::
 
-And here is a code block:
+Der erste Teil des Skripts folgt dem Buch [] ...
 
-```
-e = mc^2
-```
-
-Check out the content pages bundled with this sample book to see more.

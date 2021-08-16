@@ -3,6 +3,21 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: markdown
-- file: notebooks
+parts:
+  - caption: Software
+    chapters:
+    - file: Software/Python.md
+    - file: Software/NGSolve.md
+  - caption: Teil 1
+    chapters:
+    - file: Funktionalanalysis/Funktionalanalysis.md
+    - file: Funktionalanalysis/Beispiele.ipynb
+  - caption: Teil 2
+    chapters:
+    - file: PDE/IntroPDE.md
+  - caption: Teil 3
+    chapters:
+    - file: NumerikPDE/NumerikPDE.md
+  - caption: Teil 4
+    chapters:
+    - file: Applications/Applications.md
