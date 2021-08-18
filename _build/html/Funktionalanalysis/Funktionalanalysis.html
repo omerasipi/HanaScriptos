@@ -161,6 +161,18 @@
   </a>
  </li>
 </ul>
+<p class="caption">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix.html">
+   Literaturverzeichnis
+  </a>
+ </li>
+</ul>
 
     </div>
 </nav> <!-- To handle the deprecated key -->
@@ -278,6 +290,11 @@
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#cauchy-folge">
        Cauchy-Folge
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bestapproximation-in-metrischen-raumen">
+       Bestapproximation in metrischen Räumen
       </a>
      </li>
     </ul>
@@ -729,8 +746,8 @@
 </li>
 </ol>
 <p>Dagegen ist <span class="math notranslate nohighlight">\(C[a,b]\)</span> bezüglich der Integralmetrik</p>
-<div class="math notranslate nohighlight">
-\[d(x,y) = \left(\int_a^b |x(t)-y(t)|^p dt \right)^{1/p},\quad 1\le p &lt; \infty\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-lpmetrik">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-lpmetrik" title="Permalink to this equation">¶</a></span>\[d(x,y) = \left(\int_a^b |x(t)-y(t)|^p dt \right)^{1/p},\quad 1\le p &lt; \infty\]</div>
 <p><strong>nicht</strong> vollständig. Wir betrachten dazu für <span class="math notranslate nohighlight">\(p=2\)</span> auf <span class="math notranslate nohighlight">\(C[0,1]\)</span> folgendes Gegenbeispiel:</p>
 <p>Sei <span class="math notranslate nohighlight">\(t\in[0,1]\)</span></p>
 <div class="math notranslate nohighlight">
@@ -761,6 +778,55 @@ n^\alpha\quad\text{für}\ t \le 1/n\\
 <div class="cell_output docutils container">
 <img alt="../_images/Funktionalanalysis_13_0.png" src="../_images/Funktionalanalysis_13_0.png" />
 </div>
+</div>
+<p>Es gilt <span class="math notranslate nohighlight">\(x_n \in C[0,1]\)</span> für alle <span class="math notranslate nohighlight">\(n\in\mathbb{N}\)</span> und</p>
+<div class="math notranslate nohighlight">
+\[d(x_n,x)^2 = \int_0^1 |x_n(t)-x(t)|^2 dt = \int_0^{1/n} (n^\alpha - t^{-\alpha})^2 dt.\]</div>
+<p>Mit Hilfe der Ungleichung <span class="math notranslate nohighlight">\((a-b)^2 \le 2 (a^2+b^2)\)</span> folgt</p>
+<div class="math notranslate nohighlight">
+\[d(x_n,x)^2 \le 2 \int_0^{1/n} (n^{2\alpha} + t^{-2\alpha})^2 dt = \frac{2}{n^{1-2\alpha}} + \frac{2}{1-2\alpha} \frac{1}{n^{1-2\alpha}} \to 0 \quad \text{für}\ n\to\infty\]</div>
+<p>da <span class="math notranslate nohighlight">\(1-2\alpha &gt; 0\)</span> gilt. Mit dem  konviergiert die Folge <span class="math notranslate nohighlight">\(\{x_n\}\)</span> gegen <span class="math notranslate nohighlight">\(x\)</span> in der Integralmetrik (<span class="math notranslate nohighlight">\(p=2\)</span>). Wir zeigen, dass <span class="math notranslate nohighlight">\(\{x_n(t)\}\)</span> keine auf <span class="math notranslate nohighlight">\([0,1]\)</span> stetige Grenzfunktion besitzt. Dazu nehmen wir an, dass <span class="math notranslate nohighlight">\(y(t)\in C[0,1]\)</span> sei Grenzfunktion der Folge <span class="math notranslate nohighlight">\(\{x_n(t)\}\)</span>. Wir setzen</p>
+<div class="math notranslate nohighlight">
+\[M = \max{0\le t\le 1} |y(t)|.\]</div>
+<p>(Muss für eine wohl definierte Obersumme endlich sein!)
+Für <span class="math notranslate nohighlight">\(t \le (2M)^{-1/\alpha}\)</span> und <span class="math notranslate nohighlight">\(n &gt; (2M)^{1/\alpha}\)</span> gilt</p>
+<div class="math notranslate nohighlight">
+\[x_n(t) - y(t) \ge M\quad \text{für}\quad t\le (2M)^{-1/\alpha}\]</div>
+<p>und somit</p>
+<div class="math notranslate nohighlight">
+\[d^2(x_n,y) = \int_0^1 |x_n(t)-y(t)|^2 dt \ge \int_0^{(2M)^{-1/\alpha}} |x_n(t)-y(t)|^2 dt \ge (2M)^{-1/\alpha}\cdot M^2 &gt; 0, \quad \text{für}\quad n &gt; (2M)^{1/\alpha}\]</div>
+<p>im Widerspruch zur Annahme, dass <span class="math notranslate nohighlight">\(\{x_n(t)\}\)</span> gegen <span class="math notranslate nohighlight">\(y(t)\)</span> konvergiert. Damit ist die Behauptung bewiesen. <span class="math notranslate nohighlight">\(\Box\)</span></p>
+<p>Die Tatsache, daß <span class="math notranslate nohighlight">\(C[a,b]\)</span>, versehen mit einer Integralmetrik, kein vollständiger metrischer Raum ist, bedeutet einen schwerwiegenden Mangel dieses Raumes. Jedoch gibt es mehrere Wege der Vervollständigung:</p>
+<ol class="simple">
+<li><p>Man erweitert die Klasse <span class="math notranslate nohighlight">\(C[a,b]\)</span> zur Klasse der auf <span class="math notranslate nohighlight">\([a,b]\)</span> Lebesgue-integrierbaren Funktionen und interpretiert das in <a class="reference internal" href="#equation-eq-lpmetrik">(2)</a> auftretende Integral im Lebesgueschen Sinn. Dadurch gelangt man zum vollständigen metrischen Raum <span class="math notranslate nohighlight">\(L_p[a, b]\)</span> (vgl. <span id="id1">[<a class="reference internal" href="../Appendix.html#id3">Heu08</a>]</span>, S. 109).</p></li>
+<li><p>Ein anderer Weg besteht darin, dass der vollständige Erweiterungsraum als Menge von linearen Funktionalen auf einem geeigneten Grundraum nach dem Vorbild der Distributionentheorie aufgefasst wird.</p></li>
+<li><p>Ein weiterer Weg besteht in der abstrakten Konstruktion eines vollständigen Erweiterungsraums mit Hilfe von Cauchy-Folgen. Auf diese Weise lässt sich <strong>jeder</strong> nichtvollständige metrische Raum vervollständigen (vgl. <span id="id2">[<a class="reference internal" href="../Appendix.html#id4">Heu06</a>]</span>, S. 251)</p></li>
+</ol>
+<p>Wir definieren kompakt für metrische Räume wie folgt</p>
+<div class="admonition-definition-kompakt admonition">
+<p class="admonition-title">Definition: Kompakt</p>
+<p>Sein <span class="math notranslate nohighlight">\(X\)</span> ein metrischer Raum. <span class="math notranslate nohighlight">\(A \subset X\)</span> heisst <em>kompakt</em>, wenn jede Folge <span class="math notranslate nohighlight">\(\{x_n\}\)</span> aus <span class="math notranslate nohighlight">\(A\)</span> eine Teilfolge enthält, die gegen ein Grenzelement <span class="math notranslate nohighlight">\(x\in A\)</span> konvergiert.</p>
+</div>
+<div class="admonition-satz admonition">
+<p class="admonition-title">Satz</p>
+<p>Jede kompakte Teilmenge <span class="math notranslate nohighlight">\(A\)</span> eines metrischen Raumes <span class="math notranslate nohighlight">\(X\)</span> ist beschränkt und abgeschlossen.</p>
+</div>
+<p>Die Umkehrung gilt im allgemeinen nicht.</p>
+</div>
+<div class="section" id="bestapproximation-in-metrischen-raumen">
+<h4>Bestapproximation in metrischen Räumen<a class="headerlink" href="#bestapproximation-in-metrischen-raumen" title="Permalink to this headline">¶</a></h4>
+<p>In der Approximationstheorie stellt sich das Grundproblem: In einem metrischen Raum <span class="math notranslate nohighlight">\(X\)</span> sei eine Teilmenge <span class="math notranslate nohighlight">\(A\)</span> und ein fester Punkt <span class="math notranslate nohighlight">\(y\in X\)</span> vorgegeben. Zu bestimmen ist ein Punkt <span class="math notranslate nohighlight">\(x_0 \in A\)</span>, der von <span class="math notranslate nohighlight">\(y\)</span> minimalen Abstand hat. Das Problem beginnt schon damit, dass es nicht klar, ist, dass es einen solchen Punkt überhaupt gibt:</p>
+<blockquote>
+<div><p>Betrachte den Raum <span class="math notranslate nohighlight">\((\mathbb{R}, d)\)</span> mit <span class="math notranslate nohighlight">\(d(x_1,x_2) = |x_1-x_2|\)</span>. Die Teilmenge <span class="math notranslate nohighlight">\(A\)</span> sei gegeben durch <span class="math notranslate nohighlight">\(A = (0,1)\)</span> und <span class="math notranslate nohighlight">\(y=2\)</span>. In <span class="math notranslate nohighlight">\(A\)</span> gibt es keinen Punkt <span class="math notranslate nohighlight">\(x_0\)</span>, für den <span class="math notranslate nohighlight">\(d(x_0,2)\)</span> minimal ist (<span class="math notranslate nohighlight">\(1\not\in A\)</span>).</p>
+</div></blockquote>
+<p>Zur Erinnerung:</p>
+<div class="admonition-definition-supremum-infimum admonition">
+<p class="admonition-title">Definition: Supremum, Infimum</p>
+<p>Sei <span class="math notranslate nohighlight">\(A\subset \mathbb{R}\)</span>, dann bezeichnet man mit dem <em>Supremum</em> von <span class="math notranslate nohighlight">\(A\)</span> die kleinste reelle Zahl <span class="math notranslate nohighlight">\(\lambda\)</span> mit <span class="math notranslate nohighlight">\(x\le \lambda\)</span> für alle <span class="math notranslate nohighlight">\(x\in A\)</span>. Analog bezeichnet man mit dem <em>Infimum</em> die grösste reelle Zahl <span class="math notranslate nohighlight">\(\mu\)</span> mit <span class="math notranslate nohighlight">\(x\ge \mu\)</span> für alle <span class="math notranslate nohighlight">\(x\in A\)</span>.</p>
+</div>
+<div class="admonition-satz admonition">
+<p class="admonition-title">Satz</p>
+<p>Es sei <span class="math notranslate nohighlight">\(X\)</span> ein metrischer Raum und <span class="math notranslate nohighlight">\(A\)</span> eine <strong>kompakte</strong> Teilmenge von <span class="math notranslate nohighlight">\(X\)</span>. Dann gibt es zu jedem festen Punkt <span class="math notranslate nohighlight">\(y \in X\)</span> einen Punkt <span class="math notranslate nohighlight">\(x_0 \in A\)</span>, der von <span class="math notranslate nohighlight">\(y\)</span> kleinsten Abstand hat.</p>
 </div>
 </div>
 </div>

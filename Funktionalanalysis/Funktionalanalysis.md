@@ -416,7 +416,7 @@ Betrachten wir ein paar Beispiele:
 
 Dagegen ist $C[a,b]$ bezüglich der Integralmetrik
 
-$$d(x,y) = \left(\int_a^b |x(t)-y(t)|^p dt \right)^{1/p},\quad 1\le p < \infty$$
+$$d(x,y) = \left(\int_a^b |x(t)-y(t)|^p dt \right)^{1/p},\quad 1\le p < \infty$$ (eq:LpMetrik)
 
 **nicht** vollständig. Wir betrachten dazu für $p=2$ auf $C[0,1]$ folgendes Gegenbeispiel:
 
@@ -448,7 +448,68 @@ plt.ylim(0,4)
 plt.show()
 ```
 
+Es gilt $x_n \in C[0,1]$ für alle $n\in\mathbb{N}$ und
+
+$$d(x_n,x)^2 = \int_0^1 |x_n(t)-x(t)|^2 dt = \int_0^{1/n} (n^\alpha - t^{-\alpha})^2 dt.$$
+
+Mit Hilfe der Ungleichung $(a-b)^2 \le 2 (a^2+b^2)$ folgt
+
+$$d(x_n,x)^2 \le 2 \int_0^{1/n} (n^{2\alpha} + t^{-2\alpha})^2 dt = \frac{2}{n^{1-2\alpha}} + \frac{2}{1-2\alpha} \frac{1}{n^{1-2\alpha}} \to 0 \quad \text{für}\ n\to\infty$$
+
+da $1-2\alpha > 0$ gilt. Mit dem  konviergiert die Folge $\{x_n\}$ gegen $x$ in der Integralmetrik ($p=2$). Wir zeigen, dass $\{x_n(t)\}$ keine auf $[0,1]$ stetige Grenzfunktion besitzt. Dazu nehmen wir an, dass $y(t)\in C[0,1]$ sei Grenzfunktion der Folge $\{x_n(t)\}$. Wir setzen
+
+$$M = \max{0\le t\le 1} |y(t)|.$$
+
+(Muss für eine wohl definierte Obersumme endlich sein!)
+Für $t \le (2M)^{-1/\alpha}$ und $n > (2M)^{1/\alpha}$ gilt
+
+$$x_n(t) - y(t) \ge M\quad \text{für}\quad t\le (2M)^{-1/\alpha}$$
+
+und somit
+
+$$d^2(x_n,y) = \int_0^1 |x_n(t)-y(t)|^2 dt \ge \int_0^{(2M)^{-1/\alpha}} |x_n(t)-y(t)|^2 dt \ge (2M)^{-1/\alpha}\cdot M^2 > 0, \quad \text{für}\quad n > (2M)^{1/\alpha}$$
+
+im Widerspruch zur Annahme, dass $\{x_n(t)\}$ gegen $y(t)$ konvergiert. Damit ist die Behauptung bewiesen. $\Box$
+
+Die Tatsache, daß $C[a,b]$, versehen mit einer Integralmetrik, kein vollständiger metrischer Raum ist, bedeutet einen schwerwiegenden Mangel dieses Raumes. Jedoch gibt es mehrere Wege der Vervollständigung:
+
+1. Man erweitert die Klasse $C[a,b]$ zur Klasse der auf $[a,b]$ Lebesgue-integrierbaren Funktionen und interpretiert das in {eq}`eq:LpMetrik` auftretende Integral im Lebesgueschen Sinn. Dadurch gelangt man zum vollständigen metrischen Raum $L_p[a, b]$ (vgl. {cite:p}`heuser_Analysis2`, S. 109).
+2. Ein anderer Weg besteht darin, dass der vollständige Erweiterungsraum als Menge von linearen Funktionalen auf einem geeigneten Grundraum nach dem Vorbild der Distributionentheorie aufgefasst wird.
+3. Ein weiterer Weg besteht in der abstrakten Konstruktion eines vollständigen Erweiterungsraums mit Hilfe von Cauchy-Folgen. Auf diese Weise lässt sich **jeder** nichtvollständige metrische Raum vervollständigen (vgl. {cite:p}`heuser_FA`, S. 251)
+
+Wir definieren kompakt für metrische Räume wie folgt
+
+```{admonition} Definition: Kompakt
+Sein $X$ ein metrischer Raum. $A \subset X$ heisst *kompakt*, wenn jede Folge $\{x_n\}$ aus $A$ eine Teilfolge enthält, die gegen ein Grenzelement $x\in A$ konvergiert.
+```
+
+```{admonition} Satz
+Jede kompakte Teilmenge $A$ eines metrischen Raumes $X$ ist beschränkt und abgeschlossen.
+````
+
+Die Umkehrung gilt im allgemeinen nicht. 
+
+#### Bestapproximation in metrischen Räumen
+
+In der Approximationstheorie stellt sich das Grundproblem: In einem metrischen Raum $X$ sei eine Teilmenge $A$ und ein fester Punkt $y\in X$ vorgegeben. Zu bestimmen ist ein Punkt $x_0 \in A$, der von $y$ minimalen Abstand hat. Das Problem beginnt schon damit, dass es nicht klar, ist, dass es einen solchen Punkt überhaupt gibt:
+
+> Betrachte den Raum $(\mathbb{R}, d)$ mit $d(x_1,x_2) = |x_1-x_2|$. Die Teilmenge $A$ sei gegeben durch $A = (0,1)$ und $y=2$. In $A$ gibt es keinen Punkt $x_0$, für den $d(x_0,2)$ minimal ist ($1\not\in A$). 
+
+Zur Erinnerung:
+
+```{admonition} Definition: Supremum, Infimum
+Sei $A\subset \mathbb{R}$, dann bezeichnet man mit dem *Supremum* von $A$ die kleinste reelle Zahl $\lambda$ mit $x\le \lambda$ für alle $x\in A$. Analog bezeichnet man mit dem *Infimum* die grösste reelle Zahl $\mu$ mit $x\ge \mu$ für alle $x\in A$.
+```
+
+```{admonition} Satz
+Es sei $X$ ein metrischer Raum und $A$ eine **kompakte** Teilmenge von $X$. Dann gibt es zu jedem festen Punkt $y \in X$ einen Punkt $x_0 \in A$, der von $y$ kleinsten Abstand hat.
+````
+
+
+
 ### Normierte Räume. Banachräume
+
+
 
 ### Skalarprodukträume. Hilberträume
 

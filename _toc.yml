@@ -21,3 +21,6 @@ parts:
   - caption: Teil 4
     chapters:
     - file: Applications/Applications.md
+  - caption: Appendix
+    chapters:
+    - file: Appendix.md
