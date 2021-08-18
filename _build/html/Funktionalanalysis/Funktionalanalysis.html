@@ -199,7 +199,10 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
+        <a class="dropdown-buttons"
+            href="../_sources/Funktionalanalysis/Funktionalanalysis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="../_sources/Funktionalanalysis/Funktionalanalysis.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
@@ -253,9 +256,31 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vektorraume">
+     Vektorräume
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#metrische-raume">
      Metrische Räume
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metrik">
+       Metrik
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#funktionenfolgen">
+       Funktionenfolgen
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cauchy-folge">
+       Cauchy-Folge
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#normierte-raume-banachraume">
@@ -273,13 +298,11 @@
   <a class="reference internal nav-link" href="#lineare-operationen">
    Lineare Operationen
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#beschrankte-lineare-operatoren">
-     Beschränkte lineare Operatoren
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beschrankte-lineare-operatoren">
+   Beschränkte lineare Operatoren
+  </a>
  </li>
 </ul>
 
@@ -297,6 +320,8 @@
 <p>In diesem Kapitel wird das notwendige Rüstzeug für die Behandlung partieller Differentialgleichungen und numerischen Methoden bereit gestellt.</p>
 <div class="section" id="grundlegende-raume">
 <h2>Grundlegende Räume<a class="headerlink" href="#grundlegende-raume" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vektorraume">
+<h3>Vektorräume<a class="headerlink" href="#vektorraume" title="Permalink to this headline">¶</a></h3>
 <p>In den Modulen linearen Algebra, Analysis und Numerik wurden Vektorräume und Normen mit dem <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> eingeführt und benutzt. Wir definieren hier der Vollständigkeit halber die Begriffe nochmals und erweitern die Anwendung auf allgemeinere Räume, insbesondere müssen diese nicht endlich dimensional sein.</p>
 <p>Beginnen wir mit dem Begriff der Vektorräume. Um diesen definieren zu können, benötigen wir einen Zahlenkörper. In aller Regel benutzen wir die reellen Zahlen <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>. Wir legen mit dem folgenden Axiom fest, was die reellen Zahlen sind:</p>
 <div class="admonition-definition-reelle-zahlen admonition">
@@ -319,7 +344,7 @@
 <li><p>Kommutativgesetze</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{split}
-    a+b &amp; = b + a \quad \forall\ a,b \in \mathbb{R}\\
+    a + b &amp; = b + a \quad \forall\ a,b \in \mathbb{R}\\
     a\cdot b &amp; = b \cdot a\quad \forall\ a,b \in \mathbb{R}
     \end{split}\end{split}\]</div>
 </li>
@@ -338,8 +363,10 @@
     \end{split}\end{split}\]</div>
 <p>Schreibweise: <span class="math notranslate nohighlight">\(-a := a', a - a := a + (-a), \frac{1}{a} := \tilde{a}, \frac{a}{a} := a\cdot \frac{1}{a}\)</span></p>
 </li>
-<li><p>Distributivgesetz
-$<span class="math notranslate nohighlight">\(a\cdot (b+c) = a\cdot b + a\cdot c\)</span>$</p></li>
+<li><p>Distributivgesetz</p>
+<div class="math notranslate nohighlight">
+\[a\cdot (b+c) = a\cdot b + a\cdot c\]</div>
+</li>
 </ul>
 </li>
 <li><p><span class="math notranslate nohighlight">\(\mathbb{R}\)</span> ist geordnet, d.h. es existiert eine Relation <span class="math notranslate nohighlight">\(\le\)</span> so, dass gilt</p>
@@ -371,11 +398,370 @@ $<span class="math notranslate nohighlight">\(a\cdot (b+c) = a\cdot b + a\cdot c
 <li><p><span class="math notranslate nohighlight">\(\mathbb{R}\)</span> ist vollständig. Das heisst, dass jede nicht leere nach oben beschränkte Menge reeller Zahlen eine kleinste obere Schranke besitzt.</p></li>
 </ul>
 </div>
+<p>Im Allgemeinen ist ein (Zahlen)-Körper über eine Gruppe wie folgt definiert:</p>
+<div class="admonition-definition-gruppe admonition">
+<p class="admonition-title">Definition: Gruppe</p>
+<p>Ein Tupel <span class="math notranslate nohighlight">\((G, \cdot)\)</span> bestehend aus einer Menge <span class="math notranslate nohighlight">\(G\)</span> und einer Verknüpfung <span class="math notranslate nohighlight">\(\cdot : G \to G\)</span> heisst <em>Gruppe</em>, falls die Verknüpfung assoziativ ist, ein neutrales Element <span class="math notranslate nohighlight">\(e\in G\)</span> existiert und für alle <span class="math notranslate nohighlight">\(a \in G\)</span> ein <span class="math notranslate nohighlight">\(b\in G\)</span> exisitert so dass <span class="math notranslate nohighlight">\(a\cdot b = b\cdot a = e\)</span> gilt. Ist die Verknüpfung kommutativ, nennt man die Gruppe kommutativ.</p>
+</div>
+<p>Ein Körper lässt sich somit wie folgt allgemein definieren:</p>
+<div class="admonition-definition-korper admonition">
+<p class="admonition-title">Definition: Körper</p>
+<p>Ein <em>Körper</em> ist eine Tripel <span class="math notranslate nohighlight">\((K, +, \cdot)\)</span> mit folgenden Eigenschaften:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((K, +)\)</span> ist eine kommutative Gruppe mit neutralem Element <span class="math notranslate nohighlight">\(0_K\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\((K, \cdot)\)</span> ist eine kommutative Gruppe mit neutralem Element <span class="math notranslate nohighlight">\(1_K\)</span>.</p></li>
+<li><p>(Distributivgesetz) Für alle <span class="math notranslate nohighlight">\(a,b,c\in K\)</span> gilt</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}a\cdot (b+c) &amp; = a\cdot b + a\cdot c\\
+(a+b)\cdot c &amp; = (a\cdot c) + (b\cdot c)\end{split}\end{split}\]</div>
+</div>
+<p>Beispiele für Körper sind folgende Tupel</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((\mathbb{R}, +, \cdot)\)</span> und <span class="math notranslate nohighlight">\((\mathbb{Q}, +, \cdot)\)</span>  mit der üblichen Addition und Multiplikation,</p></li>
+<li><p><span class="math notranslate nohighlight">\((\mathbb{Z}, +, \cdot)\)</span> bildet <strong>keine</strong> Gruppe.</p></li>
+</ul>
+<p>Mit Hilfe eines Körpers können wir nun einen <span class="math notranslate nohighlight">\(\mathbb{K}\)</span>-Vektorraum wie folgt definieren:</p>
+<div class="admonition-definition-mathbb-k-vektorraum admonition">
+<p class="admonition-title">Definition: <span class="math notranslate nohighlight">\(\mathbb{K}-Vektorraum\)</span></p>
+<p>Ein <span class="math notranslate nohighlight">\(\mathbb{K}\)</span>-Vektorraum ist ein Tripel <span class="math notranslate nohighlight">\((V, +, \cdot)\)</span> mit den Eigenschaften</p>
+<ol>
+<li><p><span class="math notranslate nohighlight">\((V,+)\)</span> ist eine kommutative Gruppe</p></li>
+<li><p>Die Abbildung <span class="math notranslate nohighlight">\(\cdot : \mathbb{K} \times V \to V\)</span> genügt den Eigenschaften</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha\cdot (\beta\cdot x) = (\alpha\cdot \beta)\cdot x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\cdot (x+y) = (\alpha\cdot x) + (\alpha\cdot y)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\alpha+\beta)\cdot x = (\alpha\cdot x) + (\beta\cdot x)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(1_K \cdot x = x\)</span></p></li>
+</ul>
+<p>wobei <span class="math notranslate nohighlight">\(\alpha, \beta\in\mathbb{K},\ x, y\in V\)</span>.</p>
+</li>
+</ol>
+</div>
+<div class="admonition-bemerkung admonition">
+<p class="admonition-title">Bemerkung</p>
+<p>Wenn man in einem allgemeinen Kontext von Vektoren spricht, so meint man damit die Elemente eines Vektorraumes. Spricht man von Skalaren, so sind die Elemente des zugrundeliegenden Körpers gemeint.</p>
+</div>
+<p><strong>Beispiele</strong>:</p>
+<ul>
+<li><p>Vektorraum <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span></p>
+<p>Anwendung in python:</p>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x+y=&#39;</span><span class="p">,</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;5*(x+y)=&#39;</span><span class="p">,</span><span class="mi">5</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">),</span><span class="s1">&#39;= 5*x+5*y = &#39;</span><span class="p">,</span><span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x+y= [-3 -1  1  3]
+5*(x+y)= [-15  -5   5  15] = 5*x+5*y =  [-15  -5   5  15]
+</pre></div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Vektorraum der stetigen Funktionen.</p>
+<p>Sei <span class="math notranslate nohighlight">\(\alpha \in \mathbb{R}\)</span> und <span class="math notranslate nohighlight">\(u,v : [a,b]\subset \mathbb{R} \to \mathbb{R}\)</span> zwei stetige Funktionen. Zeige, dass die Summe zweier stetiger Funktionen <span class="math notranslate nohighlight">\((u+v)\)</span> wieder stetig ist und dass das Vielfache einer stetigen Funktion <span class="math notranslate nohighlight">\((\alpha u)\)</span> ebenso stetig ist.</p>
+<div class="admonition-aufgabe admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Beweise die Aussage.</p>
+</div>
+</li>
+</ul>
+</div>
 <div class="section" id="metrische-raume">
 <h3>Metrische Räume<a class="headerlink" href="#metrische-raume" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-definition admonition">
-<p class="admonition-title">Definition</p>
-<p>Hier definieren wir eine Metrik.</p>
+<div class="section" id="metrik">
+<h4>Metrik<a class="headerlink" href="#metrik" title="Permalink to this headline">¶</a></h4>
+<p>In der Analysis will man oft eine Distanz zwischen zwei Elemente eines Vektorraumes angeben. Insbesondere bei Konvergenzbetrachtungen ist der Abstand zweier Elemente existentiell wichtig. Der Konvergenzbegriff in <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> unter Hinzunahme der folgenden Distanzfunktion</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split} d : \mathbb{R}\times\mathbb{R} &amp; \to \mathbb{R}^+\\
+(x,y) &amp; \mapsto  d = d(x,y) := |x-y|\end{split}\end{split}\]</div>
+<p>lautet wie folgt: Die Folge <span class="math notranslate nohighlight">\(\{x_n\}\)</span> aus <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> heisst konvergent gegen <span class="math notranslate nohighlight">\(x_0\in\mathbb{R}\)</span>, wenn es zu jedem <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span> eine natürliche Zahl <span class="math notranslate nohighlight">\(n_0 = n_0(\varepsilon)\)</span> gibt, so dass</p>
+<div class="math notranslate nohighlight">
+\[d(x_n,x_0) = |x_n-x_0| &lt; \varepsilon\]</div>
+<p>für alle <span class="math notranslate nohighlight">\(n \ge n_0\)</span> gilt.</p>
+<div class="admonition-definition-metrik admonition">
+<p class="admonition-title">Definition: Metrik</p>
+<p>Eine nichtleere Menge <span class="math notranslate nohighlight">\(X\)</span> mit <em>Elemente</em> <span class="math notranslate nohighlight">\(x, y, z, \ldots\)</span> heisst ein <em>metrischer Raum</em>, wenn jedem Paar <span class="math notranslate nohighlight">\(x, y \in X\)</span> eine reelle Zahl <span class="math notranslate nohighlight">\(d(x,y)\)</span>, genannt <em>Abstand</em> oder <em>Metrik</em>, zugeordnet ist, mit den Eigenschaften: Für alle <span class="math notranslate nohighlight">\(x,y,z\in X\)</span> gilt</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(d(x,y) \ge 0,\ d(x,y) = 0\)</span> genau dann, wenn <span class="math notranslate nohighlight">\(x=y\)</span> ist</p></li>
+<li><p><span class="math notranslate nohighlight">\(d(x,y) = d(y,x)\)</span> <em>Symmetrieeigenschaft</em></p></li>
+<li><p><span class="math notranslate nohighlight">\(d(x,y) \le d(x,z) + d(z,y)\)</span> <em>Dreiecksungleichung</em>.</p></li>
+</ol>
+</div>
+<p>Für metrische Räume verwenden wir wieder die Schreibweisen: <span class="math notranslate nohighlight">\((X, d)\)</span> oder kurz <span class="math notranslate nohighlight">\(X\)</span>, falls der Kontext klar ist.</p>
+<div class="admonition-aufgabe admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Zeige, dass für <span class="math notranslate nohighlight">\(X = C[0,1]\)</span>, den stetigen Funktionen auf dem Intervall <span class="math notranslate nohighlight">\([0,1]\)</span> die Abbildung</p>
+<div class="math notranslate nohighlight" id="equation-eq-maxnorm">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-maxnorm" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{split}d_{\text{max}} : X \times X &amp; \to \mathbb{R}^+\\
+(x,y) &amp; \mapsto d_{\text{max}}(x,y) := \max_{t\in[0,1]} |x(t)-y(t)|\end{split}\end{split}\]</div>
+<p>eine Metrik definiert (<em>Maximumsmetrik</em>).</p>
+</div>
+<p><strong>Beispiel</strong>:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="p">((</span><span class="n">t</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span><span class="o">/</span><span class="mf">0.02</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$x(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$y(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Funktionalanalysis_3_0.png" src="../_images/Funktionalanalysis_3_0.png" />
+</div>
+</div>
+<p>Die Maximummetrik berechnet die maximale Differenz der beiden Funktionen:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">)),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$|x(t)-y(t)|$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Funktionalanalysis_5_0.png" src="../_images/Funktionalanalysis_5_0.png" />
+</div>
+</div>
+<div class="admonition-aufgabe admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Berechne analytisch den exakten Wert der Maximumsmetrik für die beiden Funktionen <span class="math notranslate nohighlight">\(x,y\)</span> aus obigem Beispiel.</p>
+</div>
+<p>Eine weitere wichtige Metrik ist die <strong>Integralmetrik</strong>. Es sei <span class="math notranslate nohighlight">\(X\)</span> die Menge aller reellwertigen Funktionen, die auf einem (nicht notwendig beschränkten) Intervall <span class="math notranslate nohighlight">\((a,b)\)</span> stetig sind und für die das Integral</p>
+<div class="math notranslate nohighlight">
+\[\int_a^b |x(t)|^p dt, \quad 1\le p &lt; \infty\]</div>
+<p>im Riemannschen Sinne existiert. Setzen wir für <span class="math notranslate nohighlight">\(x(t), y(t)\in X\)</span></p>
+<div class="admonition-definition-integralmetrik admonition">
+<p class="admonition-title">Definition: Integralmetrik</p>
+<div class="math notranslate nohighlight">
+\[d_p(x,y) := \left(\int_a^b |x(t)-y(t)|^p dt\right)^{1/p},\quad 1\le p &lt; \infty\]</div>
+</div>
+<p>so wird <span class="math notranslate nohighlight">\(X\)</span> mit dieser <em>Integralmetrik</em> zu einem metrischen Raum. Der Beweis nutzt die Minkowski-Ungleichung für Integrale</p>
+<div class="math notranslate nohighlight">
+\[\left(\int_a^b |u(t)-v(t)|^p dt\right)^{1/p} \le \left(\int_a^b |u(t)|^p dt\right)^{1/p} + \left(\int_a^b |v(t)|^p dt\right)^{1/p}.\]</div>
+<p><strong>Beispiel</strong>:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$x(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$y(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">y</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$x(t)-y(t)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Funktionalanalysis_7_0.png" src="../_images/Funktionalanalysis_7_0.png" />
+</div>
+</div>
+<div class="admonition-aufgabe admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>Berechne die Integralmetrik für <span class="math notranslate nohighlight">\(p=2\)</span> und <span class="math notranslate nohighlight">\(p=1/2\)</span> für das Beispiel oben.</p>
+</div>
+<div class="admonition-aufgabe admonition">
+<p class="admonition-title">Aufgabe</p>
+<p>In der Codierungstheorie ist ein <span class="math notranslate nohighlight">\(n\)</span>-stelliges Binärwort ein <span class="math notranslate nohighlight">\(n\)</span>-Tuppel <span class="math notranslate nohighlight">\((\xi_1, \ldots, \xi_n)\)</span>, wobei <span class="math notranslate nohighlight">\(\xi_k \in \{0,1\}\)</span> für <span class="math notranslate nohighlight">\(k=1,\ldots, n\)</span>. Bezeichne <span class="math notranslate nohighlight">\(X\)</span> die Menge aller dieser Binärwörter. Für <span class="math notranslate nohighlight">\(x = \xi_1 \xi_2 \ldots \xi_n\)</span>, <span class="math notranslate nohighlight">\(y = \eta_1 \eta_2 \ldots \eta_n\)</span> ist die <em>Hamming-Distanz</em> zwischen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> durch</p>
+<div class="math notranslate nohighlight">
+\[d_H(x,y) := \text{Anzahl der Stellen an denen sich $x$ und $y$ unterscheiden}\]</div>
+<p>definiert. Zeige:</p>
+<ol>
+<li><p><span class="math notranslate nohighlight">\(d_H(x,y)\)</span> lässt sich durch</p>
+<div class="math notranslate nohighlight">
+\[d_H(x,y) := \sum_{k=1}^n [(\xi_k+\eta_k) \mod 2]\]</div>
+<p>darstellen.</p>
+</li>
+<li><p><span class="math notranslate nohighlight">\((X,d_H)\)</span> ist ein metrischer Raum.</p></li>
+</ol>
+</div>
+<p>Die topologischen Begriffe wie <em>offene Kugel</em>, <em>innerer Punkt</em>, <em>Häufungspunkt</em>, <em>abgeschlossen</em>, <em>beschränkt</em> lassen sich mit Hilfe der Metrix <span class="math notranslate nohighlight">\(d\)</span> für einen metrischen Raum <span class="math notranslate nohighlight">\((X,d)\)</span> direkt aus dem aus der Analysis bekannten <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> übertragen.</p>
+<div class="admonition-definition-konvergenz admonition">
+<p class="admonition-title">Definition: Konvergenz</p>
+<p>Eine Folge <span class="math notranslate nohighlight">\(\{x_n\}\subset X\)</span> von Elemente aus <span class="math notranslate nohighlight">\(X\)</span> heisst <em>konvergent</em>, wenn es ein <span class="math notranslate nohighlight">\(x_0\in X\)</span> gibt mit</p>
+<div class="math notranslate nohighlight">
+\[d(x_n,x_0) \to 0\quad \text{für}\quad n\to\infty,\]</div>
+<p>dh. wenn es zu jedem <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span> ein <span class="math notranslate nohighlight">\(n_0 = n(\varepsilon)\in\mathbb{N}\)</span> gibt, mit</p>
+<div class="math notranslate nohighlight">
+\[d(x_n,x_0) &lt; \varepsilon\quad\text{für alle}\quad n\ge n_0.\]</div>
+<p>Schreibweise: <span class="math notranslate nohighlight">\(x_n \to x_0\)</span> für <span class="math notranslate nohighlight">\(n \to \infty\)</span> oder <span class="math notranslate nohighlight">\(\lim_{n\to\infty} x_n = x_0\)</span>, <span class="math notranslate nohighlight">\(x_0\)</span> heisst <em>Grenzwert</em> der Folge <span class="math notranslate nohighlight">\(\{x_n\}\)</span></p>
+</div>
+<p><strong>Der Grenzwert einer konvergenten Folge ist eindeutig bestimmt.</strong> Dies lässt sich per Widerspruch wie folgt leicht zeigen. Seien <span class="math notranslate nohighlight">\(x_0\)</span> und <span class="math notranslate nohighlight">\(y_0\)</span> zwei verschiedene Grenzwerte. Daher gilt</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+0 &lt; d(x_0,y_0) &amp; \le d(x_0, x_n) + d(x_n,y_0)\\
+&amp; = \underbrace{d(x_n,x_0)}_{\to 0\ \text{für}\, n\to 0} + \underbrace{d(x_n,y_0)}_{\to 0\ \text{für}\, n\to 0} \to 0\ \text{für}\, n\to 0.\end{split}\end{split}\]</div>
+<p>Es folgt damit <span class="math notranslate nohighlight">\(d(x_0,y_0)=0\)</span> und damit <span class="math notranslate nohighlight">\(x_0 = y_0\)</span>.</p>
+</div>
+<div class="section" id="funktionenfolgen">
+<h4>Funktionenfolgen<a class="headerlink" href="#funktionenfolgen" title="Permalink to this headline">¶</a></h4>
+<p>Wir starten mit einem intuitiven Begriff der Konvergenz für Funktionenfolgen:</p>
+<div class="admonition-definition-punktweise-konvergenz admonition">
+<p class="admonition-title">Definition: Punktweise Konvergenz</p>
+<p>Man nennt eine Funktionenfolge <span class="math notranslate nohighlight">\(\{x_n(t)\} \subset C[a,b]\)</span> <em>punktweise konvergent</em>, wenn für jedes <span class="math notranslate nohighlight">\(t\in [a,b]\)</span> die Zahlenfolge <span class="math notranslate nohighlight">\(x_1(t), x_2(t), \ldots \)</span> konvergiert. Die <em>Grenzfunktion</em> <span class="math notranslate nohighlight">\(x\)</span> ist dabei durch</p>
+<div class="math notranslate nohighlight">
+\[\lim_{n\to\infty} x_n(t) = x(t)\quad\text{für jedes}\quad t\in [a,b]\]</div>
+<p>gegeben.</p>
+</div>
+<p>Die punktweise Konvergenz erweist sich für die Analysis als zu schwach. Als Beispiel dazu betrachten wir die Folge der Funktionen <span class="math notranslate nohighlight">\(x_n \subset C(\mathbb{R})\)</span></p>
+<div class="math notranslate nohighlight">
+\[x_n(t) = \frac{1}{1+x^{2n}},\quad n=1,2,3,\ldots\]</div>
+<p>Wie im Python Code unten leicht zu sehen ist, konvergiert die Folge punktweise gegen</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x(t) = \begin{cases}
+1,\quad \text{für}\ |t| &lt; 1,\\
+1/2, \quad \text{für}\ |t| = 1,\\
+0, \quad \text{für}\ |t| &gt; 1.\end{cases}\end{split}\]</div>
+<p>Obwohl alle Funktionen <span class="math notranslate nohighlight">\(x_n\)</span> stetig sind, ist die Grenzfunktion <span class="math notranslate nohighlight">\(x\)</span> unstetig und damit nicht in unserem Funktionenraum (oder Vektorraum) <span class="math notranslate nohighlight">\(x\not\in C(\mathbb{R})\)</span>! Das ist für uns unbrauchbar.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="k">return</span> <span class="n">y</span>
+
+<span class="n">xn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">,</span><span class="n">n</span> <span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">t</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">))</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">xn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$xn=1$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">xn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$xn=4$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">xn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$xn=8$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Grenzfunktion&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Funktionalanalysis_9_0.png" src="../_images/Funktionalanalysis_9_0.png" />
+</div>
+</div>
+<p>Das Problem der punktweisen Konvergenz besteht darin, dass für jedes <span class="math notranslate nohighlight">\(t\in\mathbb{R}\)</span> eine eigene Schranke <span class="math notranslate nohighlight">\(\varepsilon = \varepsilon(t)\)</span> gewählt werden kann. Dies ist zu schwach, um garantieren zu können, dass eine konvergente Funktionenfolge wieder stetig ist. Wir benutzen nun die Maximumsmetrik <a class="reference internal" href="#equation-eq-maxnorm">(1)</a>. Daraus folgt, dass zu jedem <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span> es ein <span class="math notranslate nohighlight">\(n_0 = n_0(\varepsilon) \in \mathbb{N}\)</span> mit</p>
+<div class="math notranslate nohighlight">
+\[\max_{t\in\mathbb{R}} |x_n(t) - x(t)| &lt; \varepsilon\quad \text{für alle}\ n \ge n_0\]</div>
+<p>geben muss. Zu jedem <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span> ist hier im Sinne von “beliebig klein” zu verstehen. Der grosse Unterschied zur punktweisen Konvergenz ist, dass hier das <span class="math notranslate nohighlight">\(\varepsilon\)</span> <strong>für alle</strong> <span class="math notranslate nohighlight">\(t\in\mathbb{R}\)</span> das selbe ist. In diesem Sinne ist jedoch die Funktionenfolge <span class="math notranslate nohighlight">\(x_n\)</span> nicht mehr konvergent:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">epsilon</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">xn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$xn=1$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">xn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$xn=4$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">xn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$xn=8$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">),</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Grenzfunktion&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="n">epsilon</span><span class="p">,</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">+</span><span class="n">epsilon</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\varepsilon$-Schranke&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Funktionalanalysis_11_0.png" src="../_images/Funktionalanalysis_11_0.png" />
+</div>
+</div>
+<p>Für ein <span class="math notranslate nohighlight">\(\varepsilon &lt; 1\)</span> (Sprunghöhe) finden wir kein <span class="math notranslate nohighlight">\(n_0\)</span> so, dass der Abstand zur Grenzfunktion der Bedingung genügt. Die Funktionenfolge ist daher nicht konvergent bezüglich der Maximumsmetrik.</p>
+<div class="admonition-definition-gleichmassige-konvergenz admonition">
+<p class="admonition-title">Definition: Gleichmässige Konvergenz</p>
+<p>Die Konvergenz in <span class="math notranslate nohighlight">\((C[a,b],d_{\max})\)</span> nennt man <strong>gleichmässige</strong> Konvergenz auf dem Intervall <span class="math notranslate nohighlight">\([a,b]\)</span>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ist eine stetige Funktionenfolge gleichmässig konvergent, so ist die Grenzfunktion wiederum stetig.</p>
+</div>
+</div>
+<div class="section" id="cauchy-folge">
+<h4>Cauchy-Folge<a class="headerlink" href="#cauchy-folge" title="Permalink to this headline">¶</a></h4>
+<p>Der Begriff der Cauchy-Folge folge kann direkt auf metrische Räume übertragen werden:</p>
+<div class="admonition-definition-cauchy-folge admonition">
+<p class="admonition-title">Definition: Cauchy-Folge</p>
+<p>Eine Folge <span class="math notranslate nohighlight">\(\|x_n\}\)</span> aus dem metrischen Raum <span class="math notranslate nohighlight">\(X\)</span> heisst <em>Cauchy-Folge</em>, wenn</p>
+<div class="math notranslate nohighlight">
+\[\lim_{m,n\to\infty} d(x_n,x_m) = 0\]</div>
+<p>ist, dh. wenn es zu jedem <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span> eine natürliche Zahl <span class="math notranslate nohighlight">\(n_0 = n_0(\varepsilon)\in\mathbb{N}\)</span> git mit</p>
+<div class="math notranslate nohighlight">
+\[d(x_n,x_m) &lt; \varepsilon\quad\text{für alle}\quad n,m \ge n_0.\]</div>
+</div>
+<div class="admonition-satz admonition">
+<p class="admonition-title">Satz</p>
+<p>Jede konvergente Folge im metrischen Raum <span class="math notranslate nohighlight">\(X\)</span> ist auch eine Cauchy-Folge.</p>
+</div>
+<p><strong>Beweis</strong>: Aus der Konvergenz der Folge <span class="math notranslate nohighlight">\(\{x_n\}\)</span> folgt: Zu jedem <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span> gibt es ein <span class="math notranslate nohighlight">\(n_0 = n_0(\varepsilon)\in\mathbb{N}\)</span> und ein <span class="math notranslate nohighlight">\(x_0\in X\)</span> mit</p>
+<div class="math notranslate nohighlight">
+\[d(x_n,x_0) &lt; \varepsilon\quad\text{und}\quad d(x_m,x_0) &lt; \varepsilon\]</div>
+<p>für alle <span class="math notranslate nohighlight">\(n,m \ge n_0\)</span>. Mit Hilfe der Dreiecksungleichung folgt</p>
+<div class="math notranslate nohighlight">
+\[d(x_n,x_m) \le d(x_n,x_0) + d(x_0,x_m) = d(x_n,x_0) + d(x_m,x_0) &lt; 2 \varepsilon\]</div>
+<p>für alle <span class="math notranslate nohighlight">\(n,m \ge n_0\)</span>. <span class="math notranslate nohighlight">\(\Box\)</span></p>
+<p>Die Umkehrung gilt im allgemeinen nicht.</p>
+<p><strong>Beispiel</strong>: Betrachte <span class="math notranslate nohighlight">\(X = (0,1)\)</span> mit der Metrik <span class="math notranslate nohighlight">\(d(x,y) := |x-y|\)</span> und der Folge <span class="math notranslate nohighlight">\(\{x_n\}\)</span> mit <span class="math notranslate nohighlight">\(x_n = \frac{1}{1+n}\)</span>. Die Folge ist eine Cauchy-Folge im metrischen Raum <span class="math notranslate nohighlight">\((X,d)\)</span>, besitzt jedoch keinen Grenzwert in diesem <span class="math notranslate nohighlight">\((0\not\in X)\)</span>.</p>
+<p>Das führt uns zu einem neuen Begriff, der <strong>Vollständigkeit</strong>. Wir interessieren uns insbesondere für diejenigen metrischen Räume, in denen Cauchy-Folgen konvergieren.</p>
+<div class="admonition-definition-vollstandig admonition">
+<p class="admonition-title">Definition: Vollständig</p>
+<p>Ein metrischer Raum <span class="math notranslate nohighlight">\(X\)</span> heisst <em>vollständig</em>, wenn jede Cauchy-Folge in <span class="math notranslate nohighlight">\(X\)</span> gegen ein Element von <span class="math notranslate nohighlight">\(X\)</span> konvergiert.</p>
+</div>
+<p>Betrachten wir ein paar Beispiele:</p>
+<ol>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> mit der euklidischen Metrik</p>
+<div class="math notranslate nohighlight">
+\[d(x,y) = \sqrt{\sum_{k=1}^n |x_k-y_k|^2}\]</div>
+<p>versehen, ist ein vollständiger metrischer Raum. Dies folgt aus dem Cauchyschen Konvergenzkriterium für Punktfolgen.</p>
+</li>
+<li><p><span class="math notranslate nohighlight">\(C[a,b]\)</span> mit der Maximumsmetrik</p>
+<div class="math notranslate nohighlight">
+\[d(x,y) = \max{a\le t\le b} |x(t)-y(t)|\]</div>
+<p>versehen ist vollständig.</p>
+</li>
+</ol>
+<p>Dagegen ist <span class="math notranslate nohighlight">\(C[a,b]\)</span> bezüglich der Integralmetrik</p>
+<div class="math notranslate nohighlight">
+\[d(x,y) = \left(\int_a^b |x(t)-y(t)|^p dt \right)^{1/p},\quad 1\le p &lt; \infty\]</div>
+<p><strong>nicht</strong> vollständig. Wir betrachten dazu für <span class="math notranslate nohighlight">\(p=2\)</span> auf <span class="math notranslate nohighlight">\(C[0,1]\)</span> folgendes Gegenbeispiel:</p>
+<p>Sei <span class="math notranslate nohighlight">\(t\in[0,1]\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}x_n(t) := \begin{cases}
+n^\alpha\quad\text{für}\ t \le 1/n\\
+\frac{1}{t^\alpha}\quad\text{für}\ t &gt; 1/n\end{cases}\end{split}\]</div>
+<p>und <span class="math notranslate nohighlight">\(x(t) = \frac{1}{t^\alpha}\)</span> für <span class="math notranslate nohighlight">\(0&lt;\alpha&lt;1/2\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">xn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">alpha</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">t</span><span class="o">&lt;=</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span><span class="o">**</span><span class="n">alpha</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">t</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">t</span><span class="o">&gt;</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">]</span><span class="o">**</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">y</span>
+<span class="n">x</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="n">t</span><span class="o">**</span><span class="n">alpha</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">xn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$n=3$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">xn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$n=10$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">xn</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$n=20$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span><span class="n">x</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">),</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Grenzfunktion&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\alpha = 1/3$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Funktionalanalysis_13_0.png" src="../_images/Funktionalanalysis_13_0.png" />
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="normierte-raume-banachraume">
@@ -387,9 +773,9 @@ $<span class="math notranslate nohighlight">\(a\cdot (b+c) = a\cdot b + a\cdot c
 </div>
 <div class="section" id="lineare-operationen">
 <h2>Lineare Operationen<a class="headerlink" href="#lineare-operationen" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="beschrankte-lineare-operatoren">
-<h3>Beschränkte lineare Operatoren<a class="headerlink" href="#beschrankte-lineare-operatoren" title="Permalink to this headline">¶</a></h3>
 </div>
+<div class="section" id="beschrankte-lineare-operatoren">
+<h2>Beschränkte lineare Operatoren<a class="headerlink" href="#beschrankte-lineare-operatoren" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
