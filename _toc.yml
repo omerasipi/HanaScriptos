@@ -3,6 +3,8 @@
 
 format: jb-book
 root: intro
+options:
+  numbered: true
 parts:
   - caption: Software
     chapters:
@@ -10,8 +12,11 @@ parts:
     - file: Software/NGSolve.md
   - caption: Teil 1
     chapters:
-    - file: Funktionalanalysis/Funktionalanalysis.md
-    - file: Funktionalanalysis/Beispiele.ipynb
+    - file: Funktionalanalysis/GrundlegendeRaeume.md
+      sections:
+      - file: Funktionalanalysis/BeispielOrthogonalisierungSchmidt.ipynb
+      - file: Funktionalanalysis/BeispielFourierEntwicklung.ipynb
+    - file: Funktionalanalysis/LineareOperatoren.md
   - caption: Teil 2
     chapters:
     - file: PDE/IntroPDE.md

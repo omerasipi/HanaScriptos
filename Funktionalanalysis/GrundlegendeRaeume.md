@@ -845,8 +845,6 @@ Es sei $X$ ein Hilbertraum und $M$ eine beliebige Teilmenge von $X$. Dann ist de
 
 Für den Beweis sei auf {cite:p}`burg_wille_haf_meister_PDE` S. 50 verwiesen.
 
-#### Bestapproximation im Hilbertraum
-
 Wir kommen nun auf das Approximationsproblem aus {ref}`BestapproximationMetrisch` zurück und können die Struktureigenschaften des Hilbertraumes nutzen:
 
 ```{admonition} Satz
@@ -876,7 +874,7 @@ $$(x-x_0,x_i) = (x,x_i) - \sum_{k=1}^n \lambda_k (x_k,x_i) = 0 \quad i = 1, \ldo
 gegeben sind.
 ```
 
-**Bemerkung**: Bildet $x_k$, $k=1,\ldots, n$ ein *Orthogonalsystem*
+**Bemerkung**: Bildet $x_k$, $k=1,\ldots, n$ ein *Orthonormalsystem*
 
 $$(x_i,x_k) = \delta_{i k} = \begin{cases}
 0\quad \text{für}\ i\not= k\\
@@ -889,7 +887,78 @@ Die Koeffzienten $\lambda_i$ nennt man auch Fourierkoeffizienten!
 
 > Wir werden zeigen, dass sich mit Hilfe des Schmidtschen Orthogonalisierungsverfahrens aus $n$ linear unabhängigen Elementen stets ein Orthogonalsystem konstruieren lässt.
 
+```{admonition} Definition: Orthonormalsystem (ONS)
+Es sei $X$ ein Hilbertraum. Man nennt die Folge $\{x_k\}_{k\in\mathbb{N}}$ ein (abzählbares) *Orthonormalsystem* (kurz ONS) von $X$, wenn 
 
-## Lineare Operationen
+$$(x_j, x_k) = \delta_{i k} = \begin{cases}
+0\quad \text{für}\ i\not= k\\
+1\quad \text{für}\ i = k\end{cases}\quad \text{für alle}\ j,k\in\mathbb{N}$$
 
-## Beschränkte lineare Operatoren
+erfüllt ist.
+```
+
+**Beispiele**
+* Im $l_2$ bilden die Folgen $\{1,0,0,\ldots\}$, $\{0,1,0,\ldots\},\ldots $ ein ONS.
+* Für den (nicht vollständigen) reellen Skalarproduktraum $C[0,2\pi]$ bilden die trigonometrischen Funktionen
+
+$$\frac{1}{\sqrt{2\pi}}, \frac{1}{\sqrt{\pi}} \cos t, \frac{1}{\sqrt{\pi}} \sin t, \frac{1}{\sqrt{\pi}} \cos 2t, \frac{1}{\sqrt{\pi}} \sin 2t, \ldots $$
+ein ONS.
+* Weitere Beispiele sind Hermitesche und Legendresche Polynome.
+
+Es gilt ganz allgemein:
+
+```{admonition} Satz: Orthogonalisierungsverfahren nach Erhard Schmidt
+Gegeben sei eine abzählbare (nicht zwingend endliche) linear unabhängige Folge $\{y_k\} \subset X$ aus dem Hilbertraum $X$. Dann gibt es ein ONS aus $n$ bzw. abzählbar unendlich viele Elementen $\{x_k\}$ so, dass der von der Folge $\{y_k\}$ aufgespannte (abgeschlossene) Unterraum mit dem der Folge $\{x_k\}$ aufgespannten (abgeschlossene) Unterraum übereinstimmt.
+```
+
+Der Beweis beruht auf der Konstruktion: sei
+
+$$x_1 = \frac{y_1}{\|y_1\|}$$
+
+so ist $\mathop{span}\{y_1\} = \mathop{span}\{x_1\}$. Wir nehmen nun an, es seien bereits $k$ orthonormierte Elemente $x_1, \ldots, x_k$ mit $\mathop{span}\{y_1, \ldots, y_k\} = \mathop{span}\{x_1,\ldots, x_k\}$ konstruiert. Dann setze
+
+$$z_{k+1} = y_{k+1} - \sum_{j=1}^k (y_{k+1},x_j) x_j.$$
+
+In dem Fall gilt $(z_{k+1},x_i) = 0$ für alle $i = 1, \ldots, k$. Mit
+
+$$x_{k+1} = \frac{z_{k+1}}{\|z_{k+1}\|}$$
+
+folgt $\mathop{span}\{y_1, \ldots, y_{k+1}\} = \mathop{span}\{x_1,\ldots, x_{k+1}\}$.
+
+**Bemerkung**: Das Verfahren wird auch in der Numerik angewandt.
+
+:::{seealso}
+[Beispiel für das Orthogonalisierungsverfahren.](BeispielOrthogonalisierungSchmidt.ipynb)
+:::
+
+Die Elemente eines Hilbertraumes können mit Hilfe eines vollständigen Orthogonalsystems dargestellt werden. Dies gelingt mit Hilfe der _verallgemeinerten Fourierreihen_:
+
+```{admonition} Satz: Fourierentwicklung
+
+Sei $X$ ein Hilbertraum mit einem vollständigen ONS $\{x_k\}_{k\in\mathbb{N}}$.
+* Dann lässt sich jedes $x\in X$ in der Summenform
+
+  $$x = \sum_{k=1}^\infty a_k\,x_k\quad\text{Fourierentwicklung von $x$}$$
+
+  mit eindeutig bestimmten Koeffizienten
+
+  $$a_k = (x,x_k)\in\mathbb{K}$$
+
+  darstellen und die Reihe $\sum_{k=1}^\infty |a_k|^2$ ist konvergent.
+* Umgekehrt gibt es zu jeder Zahlenfolge $\{a_k\}_{k\in\mathbb{N}}$ in $\mathbb{K}$, für die $\sum_{k=1}^\infty |a_k|^2$ konvergiert, genau ein $x\in X$ mit $x=\sum_{k=1}^\infty a_k x_k$.
+```
+
+**Bemerkung**: Aufgrund der Darstellung $x = \sum_{k=1}^\infty a_k\,x_k$ nennt man ein vollständiges ONS auch eine *Hilbertraumbasis*.
+
+```{admonition} Satz: Struktur von Hilberträumen
+Es sei $X$ ein Hilbertraum und $\{x_k\}_{k\in\mathbb{N}}$ ein (abzählbares) ONS in $X$. Dann sind die folgenden Aussagen äquivalent:
+* $X = \overline{\underset{k\in\mathbb{N}}{\bigoplus} \mathop{span}(x_k)}$.
+* Das ONS $\{x_k\}_{k\in\mathbb{N}}$ ist abgeschlossen.
+* Für alle $x\in X$ gilt die *Parsevalsche Gleichung*
+
+  $$\sum_{k=1}^\infty |(x,x_k)|^2 = \|x\|^2\quad\text{(Vollständigkeitsrelation)}$$
+
+* Jedes Element $x\in X$ besitzt die Fourierentwicklung
+
+  $$x = \sum_{k=1}^\infty (x,x_k)\,x_k.$$
+```

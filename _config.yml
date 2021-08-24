@@ -34,6 +34,7 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  use_multitoc_numbering: true
 
 #######################################################################################
 # Launch button settings

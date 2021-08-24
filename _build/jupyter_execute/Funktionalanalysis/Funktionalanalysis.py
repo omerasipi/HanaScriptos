@@ -870,7 +870,7 @@ plt.show()
 # gegeben sind.
 # ```
 # 
-# **Bemerkung**: Bildet $x_k$, $k=1,\ldots, n$ ein *Orthogonalsystem*
+# **Bemerkung**: Bildet $x_k$, $k=1,\ldots, n$ ein *Orthonormalsystem*
 # 
 # $$(x_i,x_k) = \delta_{i k} = \begin{cases}
 # 0\quad \text{für}\ i\not= k\\
@@ -883,7 +883,42 @@ plt.show()
 # 
 # > Wir werden zeigen, dass sich mit Hilfe des Schmidtschen Orthogonalisierungsverfahrens aus $n$ linear unabhängigen Elementen stets ein Orthogonalsystem konstruieren lässt.
 # 
+# ```{admonition} Definition: Orthonormalsystem (ONS)
+# Es sei $X$ ein Hilbertraum. Man nennt die Folge $\{x_k\}_{k\in\mathbb{N}}$ ein (abzählbares) *Orthonormalsystem* (kurz ONS) von $X$, wenn 
 # 
-# ## Lineare Operationen
+# $$(x_j, x_k) = \delta_{i k} = \begin{cases}
+# 0\quad \text{für}\ i\not= k\\
+# 1\quad \text{für}\ i = k\end{cases}\quad \text{für alle}\ j,k\in\mathbb{N}$$
 # 
-# ## Beschränkte lineare Operatoren
+# erfüllt ist.
+# ```
+# 
+# **Beispiele**
+# * Im $l_2$ bilden die Folgen $\{1,0,0,\ldots\}$, $\{0,1,0,\ldots\},\ldots $ ein ONS.
+# * Für den (nicht vollständigen) reellen Skalarproduktraum $C[0,2\pi]$ bilden die trigonometrischen Funktionen
+# 
+# $$\frac{1}{\sqrt{2\pi}}, \frac{1}{\sqrt{\pi}} \cos t, \frac{1}{\sqrt{\pi}} \sin t, \frac{1}{\sqrt{\pi}} \cos 2t, \frac{1}{\sqrt{\pi}} \sin 2t, \ldots $$
+# ein ONS.
+# * Weitere Beispiele sind Hermitesche und Legendresche Polynome.
+# 
+# Es gilt ganz allgemein:
+# 
+# ```{admonition} Satz: Orthogonalisierungsverfahren nach Erhard Schmidt
+# Gegeben sei eine abzählbare (nicht zwingend endliche) linear unabhängige Folge $\{y_k\} \subset X$ aus dem Hilbertraum $X$. Dann gibt es ein ONS aus $n$ bzw. abzählbar unendlich viele Elementen $\{x_k\}$ so, dass der von der Folge $\{y_k\}$ aufgespannte (abgeschlossene) Unterraum mit dem der Folge $\{x_k\}$ aufgespannten (abgeschlossene) Unterraum übereinstimmt.
+# ```
+# 
+# Der Beweis beruht auf der Konstruktion: sei
+# 
+# $$x_1 = \frac{y_1}{\|y_1\|}$$
+# 
+# so ist $\mathop{span}\{y_1\} = \mathop{span}\{x_1\}$. Wir nehmen nun an, es seien bereits $k$ orthonormierte Elemente $x_1, \ldots, x_k$ mit $\mathop{span}\{y_1, \ldots, y_k\} = \mathop{span}\{x_1,\ldots, x_k\}$ konstruiert. Dann setze
+# 
+# $$z_{k+1} = y_{k+1} - \sum_{j=1}^k (y_{k+1},x_j) x_j.$$
+# 
+# In dem Fall gilt $(z_{k+1},x_i) = 0$ für alle $i = 1, \ldots, k$. Mit
+# 
+# $$x_{k+1} = \frac{z_{k+1}}{\|z_{k+1}\|}$$
+# 
+# folgt $\mathop{span}\{y_1, \ldots, y_{k+1}\} = \mathop{span}\{x_1,\ldots, x_{k+1}\}$.
+# 
+# **Bemerkung**: Das Verfahren wird auch in der Numerik angewandt.
