@@ -424,7 +424,7 @@ Sei $t\in[0,1]$
 
 $$x_n(t) := \begin{cases}
 n^\alpha\quad\text{für}\ t \le 1/n\\
-\frac{1}{t^\alpha}\quad\text{für}\ t > 1/n\end{cases}$$
+\frac{1}{t^\alpha}\quad\text{für}\ t > 1/n\end{cases}$$ (eq:Gegenbeispiel)
 
 und $x(t) = \frac{1}{t^\alpha}$ für $0<\alpha<1/2$.
 
@@ -458,7 +458,7 @@ $$d(x_n,x)^2 \le 2 \int_0^{1/n} (n^{2\alpha} + t^{-2\alpha})^2 dt = \frac{2}{n^{
 
 da $1-2\alpha > 0$ gilt. Mit dem  konviergiert die Folge $\{x_n\}$ gegen $x$ in der Integralmetrik ($p=2$). Wir zeigen, dass $\{x_n(t)\}$ keine auf $[0,1]$ stetige Grenzfunktion besitzt. Dazu nehmen wir an, dass $y(t)\in C[0,1]$ sei Grenzfunktion der Folge $\{x_n(t)\}$. Wir setzen
 
-$$M = \max{0\le t\le 1} |y(t)|.$$
+$$M = \max_{0\le t\le 1} |y(t)|.$$
 
 (Muss für eine wohl definierte Obersumme endlich sein!)
 Für $t \le (2M)^{-1/\alpha}$ und $n > (2M)^{1/\alpha}$ gilt
@@ -489,6 +489,7 @@ Jede kompakte Teilmenge $A$ eines metrischen Raumes $X$ ist beschränkt und abge
 
 Die Umkehrung gilt im allgemeinen nicht. 
 
+(BestapproximationMetrisch)=
 #### Bestapproximation in metrischen Räumen
 
 In der Approximationstheorie stellt sich das Grundproblem: In einem metrischen Raum $X$ sei eine Teilmenge $A$ und ein fester Punkt $y\in X$ vorgegeben. Zu bestimmen ist ein Punkt $x_0 \in A$, der von $y$ minimalen Abstand hat. Das Problem beginnt schon damit, dass es nicht klar, ist, dass es einen solchen Punkt überhaupt gibt:
@@ -505,13 +506,389 @@ Sei $A\subset \mathbb{R}$, dann bezeichnet man mit dem *Supremum* von $A$ die kl
 Es sei $X$ ein metrischer Raum und $A$ eine **kompakte** Teilmenge von $X$. Dann gibt es zu jedem festen Punkt $y \in X$ einen Punkt $x_0 \in A$, der von $y$ kleinsten Abstand hat.
 ````
 
+Betrachten wir das obige Beispiel angepasst auf die Voraussetzung im Satz: Sei $A = [0,1] \subset \mathbb{R}$ ein kompaktes Intervall, dann ist der Punkt $x_0 = 1$ bestapproximierendes Element.
+
+% Anwendung!
+
+
+```{figure} Bestapproximation.png
+---
+align: left
+height: 250px
+name: directive-fig
+---
+Bestapproximation
+```
 
 
 ### Normierte Räume. Banachräume
 
+Bis jetzt haben wir sehr wenig Eigenschaften eines Raumes benötigt. Was uns noch fehlt, sind abgesehen vom Abstand der Elemente noch *algebraische* Eigenschaften (addieren, multiplizieren, etc.). Dazu definieren wir den *linearen Raum* (oder *Vektorraum*) wie folgt.
 
+```{admonition} Definition: linearer Raum
+Ein *linearer Raum* (oder *Vektorraum*) über einem Körper $\mathbb{K}$ besteht aus einer nichtleeren Menge $X$, sowie
+
+* einer Vorschrift, die jedem Paar $(x,y)$ mit $x,y \in X$ genau ein Element $x+y\in X$ zuordnet (*Addition*)
+* einer Vorschrift, die jedem Paar $(\lambda,x)$ mit $\lambda\in \mathbb{K}$ und $x \in X$ genau ein element $\lambda x\in X$ zuordnet (*Multiplikation mit Skalaren*), wobei für alle $x,y,z \in X$ und $\lambda, \mu\in\mathbb{K}$ folgende Regeln gelten:
+
+$$\begin{array}{rcll}
+x + (y+z) & = & (x+y) + z & \quad\text{Assoziativgesetz} \\
+x + y & = & y + x & \quad\text{Kommutativgesetz} \\
+x + 0 & = & x & \quad\text{Nullelement} \\
+x + x' & = & 0 & \quad\text{Negatives zu $x$}\\
+(\lambda + \mu) x & = &  \lambda x + \mu x & \quad\text{1. Distributivgesetz}\\
+\lambda (x+y) & = &  \lambda x + \mu x & \quad\text{2. Distributivgesetz}\\
+(\lambda \mu) x & = & \lambda (\mu x) & \quad\text{Assoziativgesetz}\\
+1 x & = & x & \quad\text{mit $1\in\mathbb{K}$}
+\end{array}$$
+```
+
+Beispiele für lineare Räume:
+
+* Die Mengen $\mathbb{R}^n$, \mathbb{C}^n$ sind wohl bekannt.
+* Menge $C[a,b]$ aller reellwertigen *stetigen* Funktionen:
+  
+  $$\begin{split}
+  (x+y)(t) & = x(t) + y(t)\\
+  (\lambda x)(t) & = \lambda x(t)\\
+  0(t) & = 0\\
+  (-x)(t) & = -x(t) \end{split}$$
+
+  mit $t \in [a,b]\subset \mathbb{R}$, $\lambda\in\mathbb{R}$.
+* $C^k[a,b]$ Menge aller reellwertigen $k$-mal stetig differenzierbare Funktionen.
+* $C^{\infty}[a,b]$ Menge aller beliebig oft stetig differenzierbare Funktionen.
+* Menge aller Polynome
+* Menge $l_p$ aller Zahlenfolgen $x = \{x_k\}$, für die $\sum_{k=1}^{\infty} |x_k|^p < \infty$ konvergiert:
+
+  $$\begin{split}
+  x+y & = \{x_k\} + \{y_k\} = \{x_k + y_k\}\\
+  \lambda x & = \lambda \{x_k\} = \{\lambda x_k\},\quad \lambda\in\mathbb{R}\end{split}$$
+  
+Wie in der linearen Algebra sind folgende Begriffe analog definiert
+
+```{admonition} Definition: Unterraum, lineare Mannigfaltigkeit, lineare Hülle / Span, linear unabhängig, Dimension, Basis
+* Eine nicht leere Teilmenge $S$  von $X$ heisst *Unterraum* von $X$, wenn für bel. $x,y \in S$  und $\lambda \in \mathbb{K}$ stets
+
+  $$x+y \in S\quad\text{und}\quad \lambda x \in S$$
+
+  folgt. Insbesondere ist $S$ selbst ein linearer Raum über $\mathbb{K}$.
+* Ist $S$ ein Unterraum von $X$ und $x_0\in X$ beliebig, so nennt man
+
+  $$M = x_0 + S := \{x_0+y\ |\ y\in S\}$$
+  eine *lineare Mannigfaltigkeit* von $X$.
+* Ist $A$ eine beliebige nichtleere Teilmenge von $X$, so bilden alle Linearkombinationen $\sum_{k=1}^m \lambda_k x_k$ mit beliebigem $m \in \mathbb{N}$, $\lambda_k\in\mathbb{K}$, $x_k \in A$ einen Unterraum $S\subset X$. Er wird *lineare Hülle von* $A$ oder $\mathop{span} A := S$ genannt.
+
+  Man sagt: $A$ spannt $S$ auf oder $A$ ist ein *Erzeugendensystem* von $S$. Im Falle $S=X$ spannt $A$ den ganzen Raum $X$ auf.
+* Sind $S$ und $T$ Unterräume von $X$, dann ist die *Summe* $S+T$ definiert durch
+
+  $$S+T := \mathop{span} S \cup T.$$
+* Die (endlich vielen) Elemente $x_1, \ldots, x_n\in X$ heissen *linear unabhängig*, wenn aus
+
+  $$\alpha_1 x_1 + \ldots + \alpha_n x_n = 0\quad\text{stets}\quad \alpha_1 = \ldots = \alpha_n = 0$$
+
+  folgt.
+* Sei $S$ ein Unterraum von $X$. Wir sagen, $S$ besitzt die *Dimension* $n$, $\mathop{dim} S = n$, wenn es $n$ linear unabhängige Elemente von $S$ gibt, aber $n+1$ Elemente von $S$ stets linear abhängig sind.
+
+  $S$ heisst *Basis* von $X$, wenn die Elemente von $S$ linear unabhängigsind und $\mathop{span} S = X$ gilt.
+
+  Besitzt $X$ keine endlich dimensionale Basis, nennt man $X$ *unendlich-dimeansional* ($\mathop{dim} X = \infty$).
+```
+
+**Bemerkungen**: Die oben erwähnten Funktionenräume $C[a,b]$, $C^k[a,b]$, Polynome sind unendlich-dimensional. Ebenso ist der Folgenraum $l_p$ unendlich-dimensional:
+
+> Man betrachte
+>
+> $$x^{(k)} = \{0, \ldots, 0, 1, 0, \ldots \}\in l_p$$
+> mit 1 an der Stelle $k$.
+
+Im folgenden sind wir an Räumen interessiert, für welche eine lineare Struktur und eine Metrik gegeben ist.
+
+```{admonition} Definition: normierter Raum
+Sei $X$ ein metrischer und linearer Raum. Zu dem sei die Metrik $d$ von $X$ *translationsinvariant*
+
+$$d(x+z, y+z) = d(x,y)\quad\forall\ x,y,z\in X$$
+und *homogen*
+
+$$d(\alpha x, \alpha y) = |\alpha| d(x,y)\quad \forall\ \alpha\in\mathbb{K}, x,y\in X.$$
+Dann nennt man $X$ einen *normierten Raum*. Der durch
+
+$$\|x\| := d(x,0)\quad \forall\ x\in X$$
+erklärte Ausdruck heisst *Norm* von $x$.
+```
+
+**Bemerkungen**: 
+* Neben der kurzen Schreibweise $X$, verwendet man häufig auch die Bezeichnung $(X, \|\cdot\|)$. Der Punkt in $\|\cdot\|$ ist als Platzhalter zu verstehen.
+* Führt man den normierten Raum $X$ mit Hilfe einer Norm ein, so ist durch
+
+  $$d(x,y) = \|x-y\|\quad\text{für alle}\ x,y\in X$$
+  eine Metrik in $X$ gegeben.
+
+
+```{admonition} Folgerung
+Ein normierter Raum $(X, \|\cdot\|)$ ist ein linearer Raum, auf dem eine Norm $\|\cdot\|$ erklärt ist, die für alle $x,y\in X$ und $\alpha \in \mathbb{K}$
+
+$$\begin{split}
+\|x\| & \ge 0,\quad \|x\|=0\quad \text{genau dann, wenn $x=0$ ist},\\
+\|\alpha x\| & = |\alpha| \|x\|\\
+\|x + y\| & \le \|x\| + \|y\|\end{split}$$
+erfüllt.
+```
+
+Damit können wir einen wichtigen Begriff der Funktionalanalysis einführen, den Banachraum:
+
+```{admonition} Definition: Banachraum
+*Vollständig normierte* Räume $X$ sind diejenigen, für die jede Cauchy-Folge in $X$ gegen ein Element in $X$ konvergiert.
+
+Ein vollständiger normierter Raum heisst *Banachraum*.
+```
+
+**Beispiele**: Folgende Räume sind Banachräume
+
+* $\mathbb{R}^n$ mit der Norm $\|x\| = \sqrt{\sum_{k=1}^n |x_k|^2}$.
+* $C[a,b]$ mit der Norm $\|x\| := \max_{a\le t \le b} |x(t)|$.
+* $C^k[a,b]$ mit der Norm
+  
+  $$\|x\| := \max_{a\le t \le b} |x(t)| + \max_{a\le t \le b} |x'(t)| + \ldots + \max_{a\le t \le b} |x^{(k)}(t)|.$$
+  
+* $l_p\ (1\le p y \infty)$ mit der Norm $\|x\| = \left(\sum_{k=1}^{\infty} |x_k|^p \right)^{1/p}$
+
+```{admonition} Definition: abzählbare Basis
+Man sagt, dass $X$ eine *abzählbare Basis* $\{x_k\}_{k=1}^{\infty}$ mit $x_k \in X$ besitzt, falls jedes $x\in X$ eindeutig in der Form $x = \sum_{k=1}^{\infty} \alpha_k\,x_k$ darstellbar ist, wobei die Konvergenz bezüglich der Norm von $X$ zu verstehen ist.
+````
+
+Lineare Räume können durchaus verschieden normiert werden. Als Beispiel betrachte dazu den Raum $X=\mathbb{R}^n$ mit den Normen
+
+$$\begin{split}
+\|x\|_1 & = \sum_{k=1}^n |x_k|\quad\text{(Betragsnorm)}\\
+\|x\|_2 & = \sqrt{\sum_{k=1}^n |x_k|^2}\quad\text{(Euklidische Norm, Quadratnorm)}\\
+\|x\|_{\infty} & = \max_{1\le k \le n} |x_k|\quad\text{(Maximumsnorm)}\end{split}$$
+
+```{admonition} Aufgabe
+Stelle den Einheitskreis $K_{*} = \{x\in\mathbb{R}^n\, \big|\, \|x\|_{*} = 1\}$ bezüglich den drei verschiedenen Normen $*$ graphisch dar.
+```
+
+```{code-cell} ipython3
+:tags: [hide-cell]
+
+import numpy as np
+from numpy.linalg import norm
+import matplotlib.pyplot as plt
+
+x,y = np.meshgrid(np.linspace(-1.2,1.2,81),np.linspace(-1.2,1.2,81))
+
+z1 = np.abs(x)+np.abs(y)
+z2 = np.sqrt(x**2+y**2)
+zinf = np.max([np.abs(x),np.abs(y)],axis=0)
+
+fig, (ax1, ax2, ax3)  = plt.subplots(1, 3)
+ax1.contour(x,y,z1-1,0,colors='tab:blue')
+ax2.contour(x,y,z2-1,0,colors='tab:orange')
+ax3.contour(x,y,zinf-1,0,colors='tab:green')
+for a,t in zip((ax1, ax2, ax3),('$K_1$','$K_2$','$K_\infty$')):
+    a.set_aspect(1)
+    a.grid()
+    a.set_title(t)
+plt.tight_layout()
+plt.show()
+```
+
+Die drei verschiedenen Normen führen zur Frage, wie die Normen zusammenhängen.
+
+```{admonition} Defintion: äquivalente Normen
+Zwei Normen $\|\cdot\|_a$ und $\|\cdot\|_b$ heissen *äquivalent*, wenn jede bezüglich der Norm $\|\cdot\|_a$ konvergente Folge auch bezüglich der Norm $\|\cdot\|_b$ konvergent ist und umgekehrt.
+```
+
+Im endlich dimensionalen gilt ein pauschaler Satz:
+
+```{admonition} Satz
+Alle Normen in einem **endlich**-dimensionalen Raum $X$ sind äquivalent.
+```
+
+Dieses Resultat gilt für unendlich-dimensionale Räume **nicht**. Als Beispiel sei der lineare Raum $C[a,b]$ mit der Maximumsnorm und der Quadratnorm erwähnt. Die beiden Normen sind nicht äquivalent, vgl. das Gegenbeispiel {eq}`eq:Gegenbeispiel`. 
+
+Mit diesem Satz folgt
+
+```{admonition} Satz
+Jeder endlich-dimensionale normierte Raum $X$ ist vollständig, also ein Banachraum.
+```
 
 ### Skalarprodukträume. Hilberträume
+
+Das aus der linearen Algebra bekannte Skalarprodukt lässt sich auch auf unendlich-dimensionale Räume übertragen. Wir definieren ganz allgemein
+
+```{admonition} Definition: Skalarprodukt, Skalarproduktraum
+Unter einem *Skalarproduktraum* versteht man einen linearen Raum $X$ über $\mathbb{K}$, in dem ein *Skalarprodukt* $(x,y)$ mit folgenden Eigenschaften definiert ist: Für beliebige $x,y,z \in X$ und $\alpha\in\mathbb{K}$ ist
+
+$$(\cdot, \cdot) : X \times X \to \mathbb{K}$$
+
+und es gilt
+
+$$\begin{split}
+(x,x) & \ge 0, \quad (x,x) = 0\ \Leftrightarrow\ x=0\\
+(x,y) & = \overline{(y,x)}\\
+(\alpha x, y) & = \alpha (x,y)\\
+(x+y,z) & = (x,z) + (y,z).
+\end{split}$$ (eq:eigenschaftenskalarprodukt)
+```
+
+Beispielsweise lässt sich auf $X=C[a,b]$ Menge der reellwertigen stetigen Funktionen auf dem Intervall $[a,b]$ durch
+
+$$(x,y) := \int_a^b x(t)\,y(t) dt\quad x,y \in X$$ (eq:L2SkalarProdukt)
+
+ein Skalarprodukt definieren.
+
+```{admonition} Aufgabe
+Weise die Eigenschaften {eq}`eq:eigenschaftenskalarprodukt` für das Skalarprodukt {eq}`eq:L2SkalarProdukt` nach.
+```
+
+```{admonition} Satz
+Es sei $X$ ein Skalarproduktraum. Für beliebige $x,y,z\in X$ und $\alpha \in \mathbb{K}$ gilt
+
+$$\begin{split}(x, \alpha y) & = \overline{\alpha} (x,y)\\
+(x, y+z) & = (x,y) + (x,z)\end{split}$$
+```
+
+**Beweis**: selber durchführen.
+
+```{admonition} Satz: induzierte Norm
+In jedem Skalarproduktraum $X$ lässt sich durch
+
+$$\|x\| := \sqrt{(x,x)}$$
+
+eine Norm definieren. Man bezeichnet sie als *die durch das Skalarprodukt* $(x,y)$ *induzierte Norm*.
+```
+
+Der Beweis lässt sich einfach mit Hilfe der *Schwarz'schen Ungleichung* durchführen.
+
+```{admonition} Satz: Schwarzsche Ungleichung
+Es sei $X$ ein Skalarproduktraum. Dann gilt für alle $x,y\in X$
+
+$$|(x,y)| \le \|x\|\,\|y\|.$$
+```
+
+Die Beweise sind dem Leser überlassen (vgl. {cite:p}`burg_wille_haf_meister_PDE` S. 43, 44).
+
+```{admonition} Satz
+Sei $X$ ein Skalarproduktraum. Ferner seien $\{x_n\}$ und $\{y_n\}$ Folgen aus $X$ mit $x_n \to x$ und $y_n \to y$ für $n\to\infty$, wobei die Konvergenz im Sinne der induzierten Norm zu verstehen ist. Dann gilt
+
+$$(x_n, y_n) \to (x,y)\quad\text{für}\quad n\to\infty,$$
+
+dh. das Skalarprodukt ist eine stetige Funktion bezüglich der Normkonvergenz.
+```
+
+```{admonition} Definition: Hilbertraum
+Ein Skalarproduktraum $X$, der bezüglich der durch das Skalarprodukt induzierten Norm
+
+$$\|x\| = \sqrt{(x,x)}\quad\text{für}\ x\in X$$
+vollständig ist, heisst *Hilbertraum*.
+```
+
+**Beispiele**:
+
+* $\mathbb{R}^n$ bzw. $\mathbb{C}^n$ sind mit den Skalarprodukte 
+
+  $$(x,y) = \sum_{k=1}^n x_k y_k\quad\text{bzw.}\quad (x,y) = \sum_{k=1}^n x_k \overline{y_k}$$
+
+  Hilberträume.
+
+* $l_2$ ist mit dem Skalarprodukt
+
+  $$(x,y) = \sum_{k=1}^\infty x_k \overline{y_k}$$
+
+  ein Hilbertraum.
+
+* $C[a,b]$ ist bezüglich der Quadratnorm
+
+  $$\|x\|_2 = \sqrt{(x,x)} = \left(\int_a^b |x(t)|^2 dt\right)^{1/2}$$
+
+  **kein** Hilbertraum, da $(C[a,b], \|\cdot\|_2)$ nicht vollständig ist. Der Raum $L_2[a,b]$ erweist sich als Vervollständigung dieses Raumes, welcher jedoch eine Verallgemeinerung des Riemannschen Integralbegriffs (dem Lebesgues Mass) erfordert.
+
+Viele Eigenschaften des euklischen Raumes $\mathbb{R}^n$, die mit dem Skalarprodukt zusammenhängen, können auf einen beliebigen Hilbertraum übertragen werden. Der Begriff der Ortohogonalität ist dabei sehr zentral.
+
+```{admonition} Definition: orthogonal
+Es sei $X$ ein Hilbertraum.
+
+* Zwei Elemente $x,y \in X$ heissen *orthogonal* ($x\perp y$), wenn
+
+  $$(x,y) = 0$$
+  
+  gilt.
+* Zwei Teilmengen $A,B \subset X$ heissen *orthogonal* ($A\perp B$), wenn
+  
+  $$(x,y) = 0 \quad \forall\ x\in A, y\in B$$
+
+  gilt.
+* Sei $M\subset X$, dann heisst
+
+  $$M^\perp := \{y\in X | (x,y)=0\quad\forall\,x\in M\}$$
+
+  *Orthogonalraum* von $M$.
+* Sei $X'$ ein abgeschlossener Unterraum von $X$. $X''$ wird *orthogonales Komplement* von $X'$ genannt, wenn
+
+  $$X''\perp X' \quad \text{und}\quad X' \oplus X'' = X$$
+  gilt. Mit $\oplus$ ist die direkte Summe bezeichnet.
+```
+
+Es gilt
+
+```{admonition} Satz: Pythagoras
+Es sei $X$ ein Hilbertraum und seien $x,y \in X$ mit $x\perp y$. Dann gilt
+
+$$\|x+y\|^2 = \|x\|^2 + \|y\|^2.$$
+```
+
+**Beweis**: Einfaches Nachrechnen.
+
+```{admonition} Satz
+Es sei $X$ ein Hilbertraum und $M$ eine beliebige Teilmenge von $X$. Dann ist der Orthogonalraum $M^\perp$ von $M$ ein abgeschlossener Unterraum von $X$.
+```
+
+Für den Beweis sei auf {cite:p}`burg_wille_haf_meister_PDE` S. 50 verwiesen.
+
+#### Bestapproximation im Hilbertraum
+
+Wir kommen nun auf das Approximationsproblem aus {ref}`BestapproximationMetrisch` zurück und können die Struktureigenschaften des Hilbertraumes nutzen:
+
+```{admonition} Satz
+Es sei $X'$ ein abgeschlossener Unterraum von $X$ und $x\in X$ beliebig. 
+* Dann existiert genau ein $x_0 \in X'$ mit
+
+  $$\|x-x_0\| = \min_{x'\in X'} \|x-x'\|,$$
+
+  dh. zu jedem $x\in X$ gibt es genau ein bestapproximierendes Element bezüglich $X'$.
+* Es gilt $x_0\in X$ ist genau dann bestapproximierend an $x\in X$, wenn
+
+  $$(x-x_0,y) = 0\quad \forall y\in X'$$
+  gilt.
+```
+
+Für den Fall, dass $X'$ endlich-dimensional ist, lässt sich das bestapproximierende Element konstruieren. Es gilt
+
+```{admonition} Satz
+Sei $X'\subset X$ mit $\dim X' < \infty$ ein Unterraum des Hilbertraumes $X$ und sei $x_1, \ldots, x_n$ eine Basis von $X'$. Dann lässt sich das eindeutig bestimmte bestapproximierende Element $x_0\in X'$ an $x\in X$ in der Form
+
+$$x_0 = \sum_{k=1}^n \lambda_k x_k$$
+
+darstellen, wobei die Koeffizienten $\lambda_1, \ldots, \lambda_n$ durch das lineare Gleichungssystem
+
+$$(x-x_0,x_i) = (x,x_i) - \sum_{k=1}^n \lambda_k (x_k,x_i) = 0 \quad i = 1, \ldots, n$$ (eq:bestapproxHilbert)
+
+gegeben sind.
+```
+
+**Bemerkung**: Bildet $x_k$, $k=1,\ldots, n$ ein *Orthogonalsystem*
+
+$$(x_i,x_k) = \delta_{i k} = \begin{cases}
+0\quad \text{für}\ i\not= k\\
+1\quad \text{für}\ i = k\end{cases},$$
+so folgt aus {eq}`eq:bestapproxHilbert` sofort
+
+$$\lambda_i = (x,x_i)\quad i = 1, \ldots,n.$$
+
+Die Koeffzienten $\lambda_i$ nennt man auch Fourierkoeffizienten!
+
+> Wir werden zeigen, dass sich mit Hilfe des Schmidtschen Orthogonalisierungsverfahrens aus $n$ linear unabhängigen Elementen stets ein Orthogonalsystem konstruieren lässt.
+
 
 ## Lineare Operationen
 

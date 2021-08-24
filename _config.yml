@@ -7,15 +7,12 @@ logo: logo.png
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 exclude_patterns            : [Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 # Auto-exclude files not in the toc
-only_build_toc_files        : false
+only_build_toc_files        : true
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
-
-launch_buttons:
-  jupyterhub_url: "simon-xps-8930.local"  # The URL for your JupyterHub. (e.g., https://datahub.berkeley.edu)
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -42,7 +39,7 @@ html:
 # Launch button settings
 launch_buttons:
   notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
-  binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
-  jupyterhub_url            : ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
-  thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
-  colab_url                 : "" # The URL of Google Colab (https://colab.research.google.com)
+  # binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
+  jupyterhub_url            : "http://clt-dsk-t-7307.zhaw.ch"  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
+  # thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
+  # colab_url                 : "" # The URL of Google Colab (https://colab.research.google.com)
