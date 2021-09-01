@@ -36,9 +36,7 @@ def norm(x):
 # In[3]:
 
 
-yi = []
-for i in range(5):
-    yi.append(t**i)
+yi = [t**i for i in range(5)]
 print(yi)
 
 
@@ -47,12 +45,7 @@ print(yi)
 # In[4]:
 
 
-m = []
-for i in range(5):
-    mi = []
-    for j in range(5):
-        mi.append(dot(yi[i],yi[j]))
-    m.append(mi)
+m = [[dot(yi[i],yi[j]) for j in range(5)] for i in range(5)]
 m
 
 
@@ -83,12 +76,7 @@ xi
 # In[7]:
 
 
-m = []
-for i in range(5):
-    mi = []
-    for j in range(5):
-        mi.append(dot(xi[i],xi[j]))
-    m.append(mi)
+m = [[dot(xi[i],xi[j]) for j in range(5)] for i in range(5)]
 np.round(np.array(m,dtype=float),8)
 
 

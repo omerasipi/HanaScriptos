@@ -55,7 +55,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Beispiel zur Fourierentwicklung" href="BeispielFourierEntwicklung.html" />
-    <link rel="prev" title="Funktionalanalysis" href="GrundlegendeRaeume.html" />
+    <link rel="prev" title="Grundlegende Räume" href="GrundlegendeRaeume.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -111,13 +111,13 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Teil 1
+  Funktionalanalysis
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="GrundlegendeRaeume.html">
-   Funktionalanalysis
+   Grundlegende Räume
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -140,6 +140,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="LineareOperatoren.html">
    Lineare Operatoren
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Sobolevraeume.html">
+   Sobolevräume
   </a>
  </li>
 </ul>
@@ -313,9 +318,7 @@
 <p>Wir betrachten die Folge <span class="math notranslate nohighlight">\(\{t^n\}_{n\in\mathbb{N}}\subset L^2[-1,1]\)</span> von Monomen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yi</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="n">yi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yi</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">**</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">yi</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -329,12 +332,7 @@
 <p>Die Monome sind nicht orthogonal, jedoch linear unabhängig. Falls dem so wäre müsste die Einheitsmatrix entstehen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="n">mi</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-        <span class="n">mi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">yi</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">yi</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span>
-    <span class="n">m</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mi</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">[[</span><span class="n">dot</span><span class="p">(</span><span class="n">yi</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">yi</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
 <span class="n">m</span>
 </pre></div>
 </div>
@@ -383,12 +381,7 @@
 <p>Test des Orthonormalsystems ergibt die Einheitsmatrix:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="n">mi</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-        <span class="n">mi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">xi</span><span class="p">[</span><span class="n">j</span><span class="p">]))</span>
-    <span class="n">m</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mi</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="p">[[</span><span class="n">dot</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">xi</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
 <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span><span class="mi">8</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -483,7 +476,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="GrundlegendeRaeume.html" title="previous page">Funktionalanalysis</a>
+    <a class='left-prev' id="prev-link" href="GrundlegendeRaeume.html" title="previous page">Grundlegende Räume</a>
     <a class='right-next' id="next-link" href="BeispielFourierEntwicklung.html" title="next page">Beispiel zur Fourierentwicklung</a>
 
         </div>

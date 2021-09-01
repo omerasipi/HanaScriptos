@@ -36,10 +36,8 @@ def normN(x):
 
 
 # Orthonormalbasis nach Schmidt
-yi = []
 N = 9
-for i in range(N):
-    yi.append(t**i)
+yi = [t**i for i in range(N)]
 xi = [yi[0]/norm(yi[0])]
 for i in range(1,N):
     s = 0
@@ -74,9 +72,7 @@ plt.show()
 # In[7]:
 
 
-alpha = []
-for xii in xi:
-    alpha.append(dotN(f, xii))
+alpha = [dotN(f, xii) for xii in xi]
 alpha
 
 
@@ -142,9 +138,7 @@ xi
 # In[13]:
 
 
-alpha2 = []
-for xii in xi:
-    alpha2.append(dotN(f, xii))
+alpha2 = [dotN(f, xii) for xii in xi]
 alpha2
 
 

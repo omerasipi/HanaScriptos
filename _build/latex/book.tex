@@ -70,7 +70,7 @@
         
 
 \title{Höhere Analysis und Numerik}
-\date{Aug 24, 2021}
+\date{Sep 01, 2021}
 \release{}
 \author{Simon Stingelin}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -142,19 +142,16 @@ Installieren Sie NGSolve auf ihrem Rechner. Die dazu notwendigen Anleitungen fin
 \end{sphinxadmonition}
 
 
-\part{Teil 1}
+\part{Funktionalanalysis}
 
-
-\chapter{Funktionalanalysis}
-\label{\detokenize{Funktionalanalysis/Funktionalanalysis:funktionalanalysis}}\label{\detokenize{Funktionalanalysis/Funktionalanalysis::doc}}
 In diesem Kapitel wird das notwendige Rüstzeug für die Behandlung partieller Differentialgleichungen und numerischen Methoden bereit gestellt.
 
 
-\section{Grundlegende Räume}
-\label{\detokenize{Funktionalanalysis/Funktionalanalysis:grundlegende-raume}}
+\chapter{Grundlegende Räume}
+\label{\detokenize{Funktionalanalysis/GrundlegendeRaeume:grundlegende-raume}}\label{\detokenize{Funktionalanalysis/GrundlegendeRaeume::doc}}
 
-\subsection{Vektorräume}
-\label{\detokenize{Funktionalanalysis/Funktionalanalysis:vektorraume}}
+\section{Vektorräume}
+\label{\detokenize{Funktionalanalysis/GrundlegendeRaeume:vektorraume}}
 In den Modulen linearen Algebra, Analysis und Numerik wurden Vektorräume und Normen mit dem \(\mathbb{R}^n\) eingeführt und benutzt. Wir definieren hier der Vollständigkeit halber die Begriffe nochmals und erweitern die Anwendung auf allgemeinere Räume, insbesondere müssen diese nicht endlich dimensional sein.
 
 Beginnen wir mit dem Begriff der Vektorräume. Um diesen definieren zu können, benötigen wir einen Zahlenkörper. In aller Regel benutzen wir die reellen Zahlen \(\mathbb{R}\). Wir legen mit dem folgenden Axiom fest, was die reellen Zahlen sind:
@@ -369,11 +366,11 @@ Beweise die Aussage.
 \end{itemize}
 
 
-\subsection{Metrische Räume}
-\label{\detokenize{Funktionalanalysis/Funktionalanalysis:metrische-raume}}
+\section{Metrische Räume}
+\label{\detokenize{Funktionalanalysis/GrundlegendeRaeume:metrische-raume}}
 
-\subsubsection{Metrik}
-\label{\detokenize{Funktionalanalysis/Funktionalanalysis:metrik}}
+\subsection{Metrik}
+\label{\detokenize{Funktionalanalysis/GrundlegendeRaeume:metrik}}
 In der Analysis will man oft eine Distanz zwischen zwei Elemente eines Vektorraumes angeben. Insbesondere bei Konvergenzbetrachtungen ist der Abstand zweier Elemente existentiell wichtig. Der Konvergenzbegriff in \(\mathbb{R}\) unter Hinzunahme der folgenden Distanzfunktion
 \begin{equation*}
 \begin{split}\begin{split} d : \mathbb{R}\times\mathbb{R} & \to \mathbb{R}^+\\
@@ -407,7 +404,7 @@ Für metrische Räume verwenden wir wieder die Schreibweisen: \((X, d)\) oder ku
 \begin{sphinxadmonition}{note}{Aufgabe}
 
 Zeige, dass für \(X = C[0,1]\), den stetigen Funktionen auf dem Intervall \([0,1]\) die Abbildung
-\begin{equation}\label{equation:Funktionalanalysis/Funktionalanalysis:eq:maxnorm}
+\begin{equation}\label{equation:Funktionalanalysis/GrundlegendeRaeume:eq:maxnorm}
 \begin{split}\begin{split}d_{\text{max}} : X \times X & \to \mathbb{R}^+\\
 (x,y) & \mapsto d_{\text{max}}(x,y) := \max_{t\in[0,1]} |x(t)-y(t)|\end{split}\end{split}
 \end{equation}
@@ -416,11 +413,11 @@ eine Metrik definiert (\sphinxstyleemphasis{Maximumsmetrik}).
 
 \sphinxstylestrong{Beispiel}:
 
-\noindent\sphinxincludegraphics{{Funktionalanalysis_3_0}.png}
+\noindent\sphinxincludegraphics{{GrundlegendeRaeume_3_0}.png}
 
 Die Maximummetrik berechnet die maximale Differenz der beiden Funktionen:
 
-\noindent\sphinxincludegraphics{{Funktionalanalysis_5_0}.png}
+\noindent\sphinxincludegraphics{{GrundlegendeRaeume_5_0}.png}
 
 \begin{sphinxadmonition}{note}{Aufgabe}
 
@@ -444,7 +441,7 @@ so wird \(X\) mit dieser \sphinxstyleemphasis{Integralmetrik} zu einem metrische
 \end{equation*}
 \sphinxstylestrong{Beispiel}:
 
-\noindent\sphinxincludegraphics{{Funktionalanalysis_7_0}.png}
+\noindent\sphinxincludegraphics{{GrundlegendeRaeume_7_0}.png}
 
 \begin{sphinxadmonition}{note}{Aufgabe}
 
@@ -497,8 +494,8 @@ Schreibweise: \(x_n \to x_0\) für \(n \to \infty\) oder \(\lim_{n\to\infty} x_n
 Es folgt damit \(d(x_0,y_0)=0\) und damit \(x_0 = y_0\).
 
 
-\subsubsection{Funktionenfolgen}
-\label{\detokenize{Funktionalanalysis/Funktionalanalysis:funktionenfolgen}}
+\subsection{Funktionenfolgen}
+\label{\detokenize{Funktionalanalysis/GrundlegendeRaeume:funktionenfolgen}}
 Wir starten mit einem intuitiven Begriff der Konvergenz für Funktionenfolgen:
 
 \begin{sphinxadmonition}{note}{Definition: Punktweise Konvergenz}
@@ -523,15 +520,15 @@ Wie im Python Code unten leicht zu sehen ist, konvergiert die Folge punktweise g
 \end{equation*}
 Obwohl alle Funktionen \(x_n\) stetig sind, ist die Grenzfunktion \(x\) unstetig und damit nicht in unserem Funktionenraum (oder Vektorraum) \(x\not\in C(\mathbb{R})\)! Das ist für uns unbrauchbar.
 
-\noindent\sphinxincludegraphics{{Funktionalanalysis_9_0}.png}
+\noindent\sphinxincludegraphics{{GrundlegendeRaeume_9_0}.png}
 
-Das Problem der punktweisen Konvergenz besteht darin, dass für jedes \(t\in\mathbb{R}\) eine eigene Schranke \(\varepsilon = \varepsilon(t)\) gewählt werden kann. Dies ist zu schwach, um garantieren zu können, dass eine konvergente Funktionenfolge wieder stetig ist. Wir benutzen nun die Maximumsmetrik \eqref{equation:Funktionalanalysis/Funktionalanalysis:eq:maxnorm}. Daraus folgt, dass zu jedem \(\varepsilon > 0\) es ein \(n_0 = n_0(\varepsilon) \in \mathbb{N}\) mit
+Das Problem der punktweisen Konvergenz besteht darin, dass für jedes \(t\in\mathbb{R}\) eine eigene Schranke \(\varepsilon = \varepsilon(t)\) gewählt werden kann. Dies ist zu schwach, um garantieren zu können, dass eine konvergente Funktionenfolge wieder stetig ist. Wir benutzen nun die Maximumsmetrik \eqref{equation:Funktionalanalysis/GrundlegendeRaeume:eq:maxnorm}. Daraus folgt, dass zu jedem \(\varepsilon > 0\) es ein \(n_0 = n_0(\varepsilon) \in \mathbb{N}\) mit
 \begin{equation*}
 \begin{split}\max_{t\in\mathbb{R}} |x_n(t) - x(t)| < \varepsilon\quad \text{für alle}\ n \ge n_0\end{split}
 \end{equation*}
 geben muss. Zu jedem \(\varepsilon > 0\) ist hier im Sinne von “beliebig klein” zu verstehen. Der grosse Unterschied zur punktweisen Konvergenz ist, dass hier das \(\varepsilon\) \sphinxstylestrong{für alle} \(t\in\mathbb{R}\) das selbe ist. In diesem Sinne ist jedoch die Funktionenfolge \(x_n\) nicht mehr konvergent:
 
-\noindent\sphinxincludegraphics{{Funktionalanalysis_11_0}.png}
+\noindent\sphinxincludegraphics{{GrundlegendeRaeume_11_0}.png}
 
 Für ein \(\varepsilon < 1\) (Sprunghöhe) finden wir kein \(n_0\) so, dass der Abstand zur Grenzfunktion der Bedingung genügt. Die Funktionenfolge ist daher nicht konvergent bezüglich der Maximumsmetrik.
 
@@ -545,8 +542,8 @@ Ist eine stetige Funktionenfolge gleichmässig konvergent, so ist die Grenzfunkt
 \end{sphinxadmonition}
 
 
-\subsubsection{Cauchy\sphinxhyphen{}Folge}
-\label{\detokenize{Funktionalanalysis/Funktionalanalysis:cauchy-folge}}
+\subsection{Cauchy\sphinxhyphen{}Folge}
+\label{\detokenize{Funktionalanalysis/GrundlegendeRaeume:cauchy-folge}}
 Der Begriff der Cauchy\sphinxhyphen{}Folge folge kann direkt auf metrische Räume übertragen werden:
 
 \begin{sphinxadmonition}{note}{Definition: Cauchy\sphinxhyphen{}Folge}
@@ -606,20 +603,20 @@ versehen ist vollständig.
 \end{enumerate}
 
 Dagegen ist \(C[a,b]\) bezüglich der Integralmetrik
-\begin{equation}\label{equation:Funktionalanalysis/Funktionalanalysis:eq:LpMetrik}
+\begin{equation}\label{equation:Funktionalanalysis/GrundlegendeRaeume:eq:LpMetrik}
 \begin{split}d(x,y) = \left(\int_a^b |x(t)-y(t)|^p dt \right)^{1/p},\quad 1\le p < \infty\end{split}
 \end{equation}
 \sphinxstylestrong{nicht} vollständig. Wir betrachten dazu für \(p=2\) auf \(C[0,1]\) folgendes Gegenbeispiel:
 
 Sei \(t\in[0,1]\)
-\begin{equation}\label{equation:Funktionalanalysis/Funktionalanalysis:eq:Gegenbeispiel}
+\begin{equation}\label{equation:Funktionalanalysis/GrundlegendeRaeume:eq:Gegenbeispiel}
 \begin{split}x_n(t) := \begin{cases}
 n^\alpha\quad\text{für}\ t \le 1/n\\
 \frac{1}{t^\alpha}\quad\text{für}\ t > 1/n\end{cases}\end{split}
 \end{equation}
 und \(x(t) = \frac{1}{t^\alpha}\) für \(0<\alpha<1/2\).
 
-\noindent\sphinxincludegraphics{{Funktionalanalysis_13_0}.png}
+\noindent\sphinxincludegraphics{{GrundlegendeRaeume_13_0}.png}
 
 Es gilt \(x_n \in C[0,1]\) für alle \(n\in\mathbb{N}\) und
 \begin{equation*}
@@ -648,13 +645,13 @@ Die Tatsache, daß \(C[a,b]\), versehen mit einer Integralmetrik, kein vollstän
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
-Man erweitert die Klasse \(C[a,b]\) zur Klasse der auf \([a,b]\) Lebesgue\sphinxhyphen{}integrierbaren Funktionen und interpretiert das in \eqref{equation:Funktionalanalysis/Funktionalanalysis:eq:LpMetrik} auftretende Integral im Lebesgueschen Sinn. Dadurch gelangt man zum vollständigen metrischen Raum \(L_p[a, b]\) (vgl. {[}\hyperlink{cite.Appendix:id3}{Heu08}{]}, S. 109).
+Man erweitert die Klasse \(C[a,b]\) zur Klasse der auf \([a,b]\) Lebesgue\sphinxhyphen{}integrierbaren Funktionen und interpretiert das in \eqref{equation:Funktionalanalysis/GrundlegendeRaeume:eq:LpMetrik} auftretende Integral im Lebesgueschen Sinn. Dadurch gelangt man zum vollständigen metrischen Raum \(L_p[a, b]\) (vgl. {[}\hyperlink{cite.Appendix:id4}{Heu08}{]}, S. 109).
 
 \item {} 
 Ein anderer Weg besteht darin, dass der vollständige Erweiterungsraum als Menge von linearen Funktionalen auf einem geeigneten Grundraum nach dem Vorbild der Distributionentheorie aufgefasst wird.
 
 \item {} 
-Ein weiterer Weg besteht in der abstrakten Konstruktion eines vollständigen Erweiterungsraums mit Hilfe von Cauchy\sphinxhyphen{}Folgen. Auf diese Weise lässt sich \sphinxstylestrong{jeder} nichtvollständige metrische Raum vervollständigen (vgl. {[}\hyperlink{cite.Appendix:id4}{Heu06}{]}, S. 251)
+Ein weiterer Weg besteht in der abstrakten Konstruktion eines vollständigen Erweiterungsraums mit Hilfe von Cauchy\sphinxhyphen{}Folgen. Auf diese Weise lässt sich \sphinxstylestrong{jeder} nichtvollständige metrische Raum vervollständigen (vgl. {[}\hyperlink{cite.Appendix:id5}{Heu06}{]}, S. 251)
 
 \end{enumerate}
 
@@ -673,8 +670,8 @@ Jede kompakte Teilmenge \(A\) eines metrischen Raumes \(X\) ist beschränkt und 
 Die Umkehrung gilt im allgemeinen nicht.
 
 
-\subsubsection{Bestapproximation in metrischen Räumen}
-\label{\detokenize{Funktionalanalysis/Funktionalanalysis:bestapproximation-in-metrischen-raumen}}
+\subsection{Bestapproximation in metrischen Räumen}
+\label{\detokenize{Funktionalanalysis/GrundlegendeRaeume:bestapproximation-in-metrischen-raumen}}\label{\detokenize{Funktionalanalysis/GrundlegendeRaeume:bestapproximationmetrisch}}
 In der Approximationstheorie stellt sich das Grundproblem: In einem metrischen Raum \(X\) sei eine Teilmenge \(A\) und ein fester Punkt \(y\in X\) vorgegeben. Zu bestimmen ist ein Punkt \(x_0 \in A\), der von \(y\) minimalen Abstand hat. Das Problem beginnt schon damit, dass es nicht klar, ist, dass es einen solchen Punkt überhaupt gibt:
 \begin{quote}
 
@@ -699,11 +696,11 @@ Betrachten wir das obige Beispiel angepasst auf die Voraussetzung im Satz: Sei \
 \begin{wrapfigure}{l}{0pt}
 \centering
 \noindent\sphinxincludegraphics[height=250\sphinxpxdimen]{{Bestapproximation}.png}
-\caption{Bestapproximation}\label{\detokenize{Funktionalanalysis/Funktionalanalysis:directive-fig}}\end{wrapfigure}
+\caption{Bestapproximation}\label{\detokenize{Funktionalanalysis/GrundlegendeRaeume:directive-fig}}\end{wrapfigure}
 
 
-\subsection{Normierte Räume. Banachräume}
-\label{\detokenize{Funktionalanalysis/Funktionalanalysis:normierte-raume-banachraume}}
+\section{Normierte Räume. Banachräume}
+\label{\detokenize{Funktionalanalysis/GrundlegendeRaeume:normierte-raume-banachraume}}
 Bis jetzt haben wir sehr wenig Eigenschaften eines Raumes benötigt. Was uns noch fehlt, sind abgesehen vom Abstand der Elemente noch \sphinxstyleemphasis{algebraische} Eigenschaften (addieren, multiplizieren, etc.). Dazu definieren wir den \sphinxstyleemphasis{linearen Raum} (oder \sphinxstyleemphasis{Vektorraum}) wie folgt.
 
 \begin{sphinxadmonition}{note}{Definition: linearer Raum}
@@ -882,12 +879,10 @@ Ein vollständiger normierter Raum heisst \sphinxstyleemphasis{Banachraum}.
 \(C[a,b]\) mit der Norm \(\|x\| := \max_{a\le t \le b} |x(t)|\).
 
 \item {} 
-\(C^k[a,b]\) mit der Norm
-\begin{equation*}
-\begin{split}\|x\| := \max_{a\le t \le b} |x(t)| + \max_{a\le t \le b} |x'(t)| + \ldots + \max_{a\le t \le b} |x^{(k)}(t)|.\end{split}
-\end{equation*}
+\(C^k[a,b]\) mit der Norm \(\|x\| := \max_{a\le t \le b} |x(t)| + \max_{a\le t \le b} |x'(t)| + \ldots + \max_{a\le t \le b} |x^{(k)}(t)|.\)
+
 \item {} 
-\(l_p\ (1\le p y \infty)\) mit der Norm \(\|x\| = \left(\sum_{k=1}^{\infty} |x_k|^p \right)^{1/p}\)
+\(l_p\ (1\le p < \infty)\) mit der Norm \(\|x\| = \left(\sum_{k=1}^{\infty} |x_k|^p \right)^{1/p}\)
 
 \end{itemize}
 
@@ -922,7 +917,7 @@ Im endlich dimensionalen gilt ein pauschaler Satz:
 Alle Normen in einem \sphinxstylestrong{endlich}\sphinxhyphen{}dimensionalen Raum \(X\) sind äquivalent.
 \end{sphinxadmonition}
 
-Dieses Resultat gilt für unendlich\sphinxhyphen{}dimensionale Räume \sphinxstylestrong{nicht}. Als Beispiel sei der lineare Raum \(C[a,b]\) mit der Maximumsnorm und der Quadratnorm erwähnt. Die beiden Normen sind nicht äquivalent, vgl. das Gegenbeispiel \eqref{equation:Funktionalanalysis/Funktionalanalysis:eq:Gegenbeispiel}.
+Dieses Resultat gilt für unendlich\sphinxhyphen{}dimensionale Räume \sphinxstylestrong{nicht}. Als Beispiel sei der lineare Raum \(C[a,b]\) mit der Maximumsnorm und der Quadratnorm erwähnt. Die beiden Normen sind nicht äquivalent, vgl. das Gegenbeispiel \eqref{equation:Funktionalanalysis/GrundlegendeRaeume:eq:Gegenbeispiel}.
 
 Mit diesem Satz folgt
 
@@ -932,8 +927,8 @@ Jeder endlich\sphinxhyphen{}dimensionale normierte Raum \(X\) ist vollständig, 
 \end{sphinxadmonition}
 
 
-\subsection{Skalarprodukträume. Hilberträume}
-\label{\detokenize{Funktionalanalysis/Funktionalanalysis:skalarproduktraume-hilbertraume}}
+\section{Skalarprodukträume. Hilberträume}
+\label{\detokenize{Funktionalanalysis/GrundlegendeRaeume:skalarproduktraume-hilbertraume}}
 Das aus der linearen Algebra bekannte Skalarprodukt lässt sich auch auf unendlich\sphinxhyphen{}dimensionale Räume übertragen. Wir definieren ganz allgemein
 
 \begin{sphinxadmonition}{note}{Definition: Skalarprodukt, Skalarproduktraum}
@@ -941,46 +936,997 @@ Das aus der linearen Algebra bekannte Skalarprodukt lässt sich auch auf unendli
 Unter einem \sphinxstyleemphasis{Skalarproduktraum} versteht man einen linearen Raum \(X\) über \(\mathbb{K}\), in dem ein \sphinxstyleemphasis{Skalarprodukt} \((x,y)\) mit folgenden Eigenschaften definiert ist: Für beliebige \(x,y,z \in X\) und \(\alpha\in\mathbb{K}\) ist
 \begin{equation*}
 \begin{split}(\cdot, \cdot) : X \times X \to \mathbb{K}\end{split}
+\end{equation*}
+und es gilt
+\begin{equation}\label{equation:Funktionalanalysis/GrundlegendeRaeume:eq:eigenschaftenskalarprodukt}
+\begin{split}\begin{split}
+(x,x) & \ge 0, \quad (x,x) = 0\ \Leftrightarrow\ x=0\\
+(x,y) & = \overline{(y,x)}\\
+(\alpha x, y) & = \alpha (x,y)\\
+(x+y,z) & = (x,z) + (y,z).
+\end{split}\end{split}
+\end{equation}\end{sphinxadmonition}
+
+Beispielsweise lässt sich auf \(X=C[a,b]\) Menge der reellwertigen stetigen Funktionen auf dem Intervall \([a,b]\) durch
+\begin{equation}\label{equation:Funktionalanalysis/GrundlegendeRaeume:eq:L2SkalarProdukt}
+\begin{split}(x,y) := \int_a^b x(t)\,y(t) dt\quad x,y \in X\end{split}
+\end{equation}
+ein Skalarprodukt definieren.
+
+\begin{sphinxadmonition}{note}{Aufgabe}
+
+Weise die Eigenschaften \eqref{equation:Funktionalanalysis/GrundlegendeRaeume:eq:eigenschaftenskalarprodukt} für das Skalarprodukt \eqref{equation:Funktionalanalysis/GrundlegendeRaeume:eq:L2SkalarProdukt} nach.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}{Satz}
+
+Es sei \(X\) ein Skalarproduktraum. Für beliebige \(x,y,z\in X\) und \(\alpha \in \mathbb{K}\) gilt
+\begin{equation*}
+\begin{split}\begin{split}(x, \alpha y) & = \overline{\alpha} (x,y)\\
+(x, y+z) & = (x,y) + (x,z)\end{split}\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxstylestrong{Beweis}: selber durchführen.
+
+\begin{sphinxadmonition}{note}{Satz: induzierte Norm}
+
+In jedem Skalarproduktraum \(X\) lässt sich durch
+\begin{equation*}
+\begin{split}\|x\| := \sqrt{(x,x)}\end{split}
+\end{equation*}
+eine Norm definieren. Man bezeichnet sie als \sphinxstyleemphasis{die durch das Skalarprodukt} \((x,y)\) \sphinxstyleemphasis{induzierte Norm}.
+\end{sphinxadmonition}
+
+Der Beweis lässt sich einfach mit Hilfe der \sphinxstyleemphasis{Schwarz’schen Ungleichung} durchführen.
+
+\begin{sphinxadmonition}{note}{Satz: Schwarzsche Ungleichung}
+
+Es sei \(X\) ein Skalarproduktraum. Dann gilt für alle \(x,y\in X\)
+\begin{equation*}
+\begin{split}|(x,y)| \le \|x\|\,\|y\|.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+Die Beweise sind dem Leser überlassen (vgl. {[}\hyperlink{cite.Appendix:id2}{BWHM10}{]} S. 43, 44).
+
+\begin{sphinxadmonition}{note}{Satz}
+
+Sei \(X\) ein Skalarproduktraum. Ferner seien \(\{x_n\}\) und \(\{y_n\}\) Folgen aus \(X\) mit \(x_n \to x\) und \(y_n \to y\) für \(n\to\infty\), wobei die Konvergenz im Sinne der induzierten Norm zu verstehen ist. Dann gilt
+\begin{equation*}
+\begin{split}(x_n, y_n) \to (x,y)\quad\text{für}\quad n\to\infty,\end{split}
+\end{equation*}
+dh. das Skalarprodukt ist eine stetige Funktion bezüglich der Normkonvergenz.
+\end{sphinxadmonition}
+
+\begin{sphinxadmonition}{note}{Definition: Hilbertraum}
+
+Ein Skalarproduktraum \(X\), der bezüglich der durch das Skalarprodukt induzierten Norm
+\begin{equation*}
+\begin{split}\|x\| = \sqrt{(x,x)}\quad\text{für}\ x\in X\end{split}
+\end{equation*}
+vollständig ist, heisst \sphinxstyleemphasis{Hilbertraum}.
+\end{sphinxadmonition}
+
+\sphinxstylestrong{Beispiele}:
+\begin{itemize}
+\item {} 
+\(\mathbb{R}^n\) bzw. \(\mathbb{C}^n\) sind mit den Skalarprodukte
+\begin{equation*}
+\begin{split}(x,y) = \sum_{k=1}^n x_k y_k\quad\text{bzw.}\quad (x,y) = \sum_{k=1}^n x_k \overline{y_k}\end{split}
+\end{equation*}
+Hilberträume.
+
+\item {} 
+\(l_2\) ist mit dem Skalarprodukt
+\begin{equation*}
+\begin{split}(x,y) = \sum_{k=1}^\infty x_k \overline{y_k}\end{split}
+\end{equation*}
+ein Hilbertraum.
+
+\item {} 
+\(C[a,b]\) ist bezüglich der Quadratnorm
+\begin{equation*}
+\begin{split}\|x\|_2 = \sqrt{(x,x)} = \left(\int_a^b |x(t)|^2 dt\right)^{1/2}\end{split}
+\end{equation*}
+\sphinxstylestrong{kein} Hilbertraum, da \((C[a,b], \|\cdot\|_2)\) nicht vollständig ist. Der Raum \(L_2[a,b]\) erweist sich als Vervollständigung dieses Raumes, welcher jedoch eine Verallgemeinerung des Riemannschen Integralbegriffs (dem Lebesgues Mass) erfordert.
+
+\end{itemize}
+
+Viele Eigenschaften des euklischen Raumes \(\mathbb{R}^n\), die mit dem Skalarprodukt zusammenhängen, können auf einen beliebigen Hilbertraum übertragen werden. Der Begriff der Ortohogonalität ist dabei sehr zentral.
+
+\begin{sphinxadmonition}{note}{Definition: orthogonal}
+
+Es sei \(X\) ein Hilbertraum.
+\begin{itemize}
+\item {} 
+Zwei Elemente \(x,y \in X\) heissen \sphinxstyleemphasis{orthogonal} (\(x\perp y\)), wenn
+\begin{equation*}
+\begin{split}(x,y) = 0\end{split}
+\end{equation*}
+gilt.
+
+\item {} 
+Zwei Teilmengen \(A,B \subset X\) heissen \sphinxstyleemphasis{orthogonal} (\(A\perp B\)), wenn
+\begin{equation*}
+\begin{split}(x,y) = 0 \quad \forall\ x\in A, y\in B\end{split}
+\end{equation*}
+gilt.
+
+\item {} 
+Sei \(M\subset X\), dann heisst
+\begin{equation*}
+\begin{split}M^\perp := \{y\in X | (x,y)=0\quad\forall\,x\in M\}\end{split}
+\end{equation*}
+\sphinxstyleemphasis{Orthogonalraum} von \(M\).
+
+\item {} 
+Sei \(X'\) ein abgeschlossener Unterraum von \(X\). \(X''\) wird \sphinxstyleemphasis{orthogonales Komplement} von \(X'\) genannt, wenn
+\begin{equation*}
+\begin{split}X''\perp X' \quad \text{und}\quad X' \oplus X'' = X\end{split}
+\end{equation*}
+gilt. Mit \(\oplus\) ist die direkte Summe bezeichnet.
+
+\end{itemize}
+\end{sphinxadmonition}
+
+Es gilt
+
+\begin{sphinxadmonition}{note}{Satz: Pythagoras}
+
+Es sei \(X\) ein Hilbertraum und seien \(x,y \in X\) mit \(x\perp y\). Dann gilt
+\begin{equation*}
+\begin{split}\|x+y\|^2 = \|x\|^2 + \|y\|^2.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxstylestrong{Beweis}: Einfaches Nachrechnen.
+
+\begin{sphinxadmonition}{note}{Satz}
+
+Es sei \(X\) ein Hilbertraum und \(M\) eine beliebige Teilmenge von \(X\). Dann ist der Orthogonalraum \(M^\perp\) von \(M\) ein abgeschlossener Unterraum von \(X\).
+\end{sphinxadmonition}
+
+Für den Beweis sei auf {[}\hyperlink{cite.Appendix:id2}{BWHM10}{]} S. 50 verwiesen.
+
+Wir kommen nun auf das Approximationsproblem aus {\hyperref[\detokenize{Funktionalanalysis/GrundlegendeRaeume:bestapproximationmetrisch}]{\sphinxcrossref{\DUrole{std,std-ref}{Bestapproximation in metrischen Räumen}}}} zurück und können die Struktureigenschaften des Hilbertraumes nutzen:
+
+\begin{sphinxadmonition}{note}{Satz}
+
+Es sei \(X'\) ein abgeschlossener Unterraum von \(X\) und \(x\in X\) beliebig.
+\begin{itemize}
+\item {} 
+Dann existiert genau ein \(x_0 \in X'\) mit
+\begin{equation*}
+\begin{split}\|x-x_0\| = \min_{x'\in X'} \|x-x'\|,\end{split}
+\end{equation*}
+dh. zu jedem \(x\in X\) gibt es genau ein bestapproximierendes Element bezüglich \(X'\).
+
+\item {} 
+Es gilt \(x_0\in X\) ist genau dann bestapproximierend an \(x\in X\), wenn
+\begin{equation*}
+\begin{split}(x-x_0,y) = 0\quad \forall y\in X'\end{split}
+\end{equation*}
+gilt.
+
+\end{itemize}
+\end{sphinxadmonition}
+
+Für den Fall, dass \(X'\) endlich\sphinxhyphen{}dimensional ist, lässt sich das bestapproximierende Element konstruieren. Es gilt
+
+\begin{sphinxadmonition}{note}{Satz}
+
+Sei \(X'\subset X\) mit \(\dim X' < \infty\) ein Unterraum des Hilbertraumes \(X\) und sei \(x_1, \ldots, x_n\) eine Basis von \(X'\). Dann lässt sich das eindeutig bestimmte bestapproximierende Element \(x_0\in X'\) an \(x\in X\) in der Form
+\begin{equation*}
+\begin{split}x_0 = \sum_{k=1}^n \lambda_k x_k\end{split}
+\end{equation*}
+darstellen, wobei die Koeffizienten \(\lambda_1, \ldots, \lambda_n\) durch das lineare Gleichungssystem
+\begin{equation}\label{equation:Funktionalanalysis/GrundlegendeRaeume:eq:bestapproxHilbert}
+\begin{split}(x-x_0,x_i) = (x,x_i) - \sum_{k=1}^n \lambda_k (x_k,x_i) = 0 \quad i = 1, \ldots, n\end{split}
+\end{equation}
+gegeben sind.
+\end{sphinxadmonition}
+
+\sphinxstylestrong{Bemerkung}: Bildet \(x_k\), \(k=1,\ldots, n\) ein \sphinxstyleemphasis{Orthonormalsystem}
+\begin{equation*}
+\begin{split}(x_i,x_k) = \delta_{i k} = \begin{cases}
+0\quad \text{für}\ i\not= k\\
+1\quad \text{für}\ i = k\end{cases},\end{split}
+\end{equation*}
+so folgt aus \eqref{equation:Funktionalanalysis/GrundlegendeRaeume:eq:bestapproxHilbert} sofort
+\begin{equation*}
+\begin{split}\lambda_i = (x,x_i)\quad i = 1, \ldots,n.\end{split}
+\end{equation*}
+Die Koeffzienten \(\lambda_i\) nennt man auch Fourierkoeffizienten!
+\begin{quote}
+
+Wir werden zeigen, dass sich mit Hilfe des Schmidtschen Orthogonalisierungsverfahrens aus \(n\) linear unabhängigen Elementen stets ein Orthogonalsystem konstruieren lässt.
+\end{quote}
+
+\begin{sphinxadmonition}{note}{Definition: Orthonormalsystem (ONS)}
+
+Es sei \(X\) ein Hilbertraum. Man nennt die Folge \(\{x_k\}_{k\in\mathbb{N}}\) ein (abzählbares) \sphinxstyleemphasis{Orthonormalsystem} (kurz ONS) von \(X\), wenn
+\begin{equation*}
+\begin{split}(x_j, x_k) = \delta_{i k} = \begin{cases}
+0\quad \text{für}\ i\not= k\\
+1\quad \text{für}\ i = k\end{cases}\quad \text{für alle}\ j,k\in\mathbb{N}\end{split}
+\end{equation*}
+erfüllt ist.
+\end{sphinxadmonition}
+
+\sphinxstylestrong{Beispiele}
+\begin{itemize}
+\item {} 
+Im \(l_2\) bilden die Folgen \(\{1,0,0,\ldots\}\), \(\{0,1,0,\ldots\},\ldots \) ein ONS.
+
+\item {} 
+Für den (nicht vollständigen) reellen Skalarproduktraum \(C[0,2\pi]\) bilden die trigonometrischen Funktionen
+
+\end{itemize}
+\begin{equation*}
+\begin{split}\frac{1}{\sqrt{2\pi}}, \frac{1}{\sqrt{\pi}} \cos t, \frac{1}{\sqrt{\pi}} \sin t, \frac{1}{\sqrt{\pi}} \cos 2t, \frac{1}{\sqrt{\pi}} \sin 2t, \ldots \end{split}
+\end{equation*}
+ein ONS.
+\begin{itemize}
+\item {} 
+Weitere Beispiele sind Hermitesche und Legendresche Polynome.
+
+\end{itemize}
+
+Es gilt ganz allgemein:
+
+\begin{sphinxadmonition}{note}{Satz: Orthogonalisierungsverfahren nach Erhard Schmidt}
+
+Gegeben sei eine abzählbare (nicht zwingend endliche) linear unabhängige Folge \(\{y_k\} \subset X\) aus dem Hilbertraum \(X\). Dann gibt es ein ONS aus \(n\) bzw. abzählbar unendlich viele Elementen \(\{x_k\}\) so, dass der von der Folge \(\{y_k\}\) aufgespannte (abgeschlossene) Unterraum mit dem der Folge \(\{x_k\}\) aufgespannten (abgeschlossene) Unterraum übereinstimmt.
+\end{sphinxadmonition}
+
+Der Beweis beruht auf der Konstruktion: sei
+\begin{equation*}
+\begin{split}x_1 = \frac{y_1}{\|y_1\|}\end{split}
+\end{equation*}
+so ist \(\mathop{span}\{y_1\} = \mathop{span}\{x_1\}\). Wir nehmen nun an, es seien bereits \(k\) orthonormierte Elemente \(x_1, \ldots, x_k\) mit \(\mathop{span}\{y_1, \ldots, y_k\} = \mathop{span}\{x_1,\ldots, x_k\}\) konstruiert. Dann setze
+\begin{equation*}
+\begin{split}z_{k+1} = y_{k+1} - \sum_{j=1}^k (y_{k+1},x_j) x_j.\end{split}
+\end{equation*}
+In dem Fall gilt \((z_{k+1},x_i) = 0\) für alle \(i = 1, \ldots, k\). Mit
+\begin{equation*}
+\begin{split}x_{k+1} = \frac{z_{k+1}}{\|z_{k+1}\|}\end{split}
+\end{equation*}
+folgt \(\mathop{span}\{y_1, \ldots, y_{k+1}\} = \mathop{span}\{x_1,\ldots, x_{k+1}\}\).
+
+\sphinxstylestrong{Bemerkung}: Das Verfahren wird auch in der Numerik angewandt.
+
+
+\sphinxstrong{See also:}
+\nopagebreak
+
+
+{\hyperref[\detokenize{Funktionalanalysis/BeispielOrthogonalisierungSchmidt::doc}]{\sphinxcrossref{\DUrole{doc,std,std-doc}{Beispiel für das Orthogonalisierungsverfahren.}}}}
+
+
+
+Die Elemente eines Hilbertraumes können mit Hilfe eines vollständigen Orthogonalsystems dargestellt werden. Dies gelingt mit Hilfe der \sphinxstyleemphasis{verallgemeinerten Fourierreihen}:
+
+\begin{sphinxadmonition}{note}{Satz: Fourierentwicklung}
+
+Sei \(X\) ein Hilbertraum mit einem vollständigen ONS \(\{x_k\}_{k\in\mathbb{N}}\).
+\begin{itemize}
+\item {} 
+Dann lässt sich jedes \(x\in X\) in der Summenform
+\begin{equation*}
+\begin{split}x = \sum_{k=1}^\infty a_k\,x_k\quad\text{Fourierentwicklung von $x$}\end{split}
+\end{equation*}
+mit eindeutig bestimmten Koeffizienten
+\begin{equation*}
+\begin{split}a_k = (x,x_k)\in\mathbb{K}\end{split}
+\end{equation*}
+darstellen und die Reihe \(\sum_{k=1}^\infty |a_k|^2\) ist konvergent.
+
+\item {} 
+Umgekehrt gibt es zu jeder Zahlenfolge \(\{a_k\}_{k\in\mathbb{N}}\) in \(\mathbb{K}\), für die \(\sum_{k=1}^\infty |a_k|^2\) konvergiert, genau ein \(x\in X\) mit \(x=\sum_{k=1}^\infty a_k x_k\).
+
+\end{itemize}
+\end{sphinxadmonition}
+
+\sphinxstylestrong{Bemerkung}: Aufgrund der Darstellung \(x = \sum_{k=1}^\infty a_k\,x_k\) nennt man ein vollständiges ONS auch eine \sphinxstyleemphasis{Hilbertraumbasis}.
+
+\begin{sphinxadmonition}{note}{Satz: Struktur von Hilberträumen}
+
+Es sei \(X\) ein Hilbertraum und \(\{x_k\}_{k\in\mathbb{N}}\) ein (abzählbares) ONS in \(X\). Dann sind die folgenden Aussagen äquivalent:
+\begin{itemize}
+\item {} 
+\(X = \overline{\underset{k\in\mathbb{N}}{\bigoplus} \mathop{span}(x_k)}\).
+
+\item {} 
+Das ONS \(\{x_k\}_{k\in\mathbb{N}}\) ist abgeschlossen.
+
+\item {} 
+Für alle \(x\in X\) gilt die \sphinxstyleemphasis{Parsevalsche Gleichung}
+\begin{equation*}
+\begin{split}\sum_{k=1}^\infty |(x,x_k)|^2 = \|x\|^2\quad\text{(Vollständigkeitsrelation)}\end{split}
+\end{equation*}
+\item {} 
+Jedes Element \(x\in X\) besitzt die Fourierentwicklung
+\begin{equation*}
+\begin{split}x = \sum_{k=1}^\infty (x,x_k)\,x_k.\end{split}
+\end{equation*}
+\end{itemize}
+\end{sphinxadmonition}
+
+
+\sphinxstrong{See also:}
+\nopagebreak
+
+
+{\hyperref[\detokenize{Funktionalanalysis/BeispielFourierEntwicklung::doc}]{\sphinxcrossref{\DUrole{doc,std,std-doc}{Beispiel zur Fourierentwicklung.}}}}
+
+
+
+
+\section{Beispiel Orthogonalisierungsverfahren}
+\label{\detokenize{Funktionalanalysis/BeispielOrthogonalisierungSchmidt:beispiel-orthogonalisierungsverfahren}}\label{\detokenize{Funktionalanalysis/BeispielOrthogonalisierungSchmidt::doc}}
+nach Erhard Schmidt
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{from} \PYG{n+nn}{sympy} \PYG{k+kn}{import} \PYG{n}{symbols}\PYG{p}{,} \PYG{n}{integrate}\PYG{p}{,} \PYG{n}{lambdify}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+\end{sphinxVerbatim}
+
+Der Raum der quadratisch integrierbaren (nach Lebesgues) Funktionen \(L_2[-1,1]\) ist mit dem Skalarprodukt
+\begin{equation*}
+\begin{split}(x,y) = \int_{-1}^{1} x(t) y(t) dt\end{split}
+\end{equation*}
+und der induzierten Norm
+\begin{equation*}
+\begin{split}\|x\|_2 = \sqrt{(x,x)}\end{split}
+\end{equation*}
+ein Hilbertraum. Wir definieren daher das Skalarprodukt (dot\sphinxhyphen{}product) und die norm wie folgt:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{t} \PYG{o}{=} \PYG{n}{symbols}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{def} \PYG{n+nf}{dot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{n}{integrate}\PYG{p}{(}\PYG{n}{x}\PYG{o}{*}\PYG{n}{y}\PYG{p}{,}\PYG{p}{(}\PYG{n}{t}\PYG{p}{,}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}
+\PYG{k}{def} \PYG{n+nf}{norm}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{n}{dot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{x}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+Wir betrachten die Folge \(\{t^n\}_{n\in\mathbb{N}}\subset L^2[-1,1]\) von Monomen:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{yi} \PYG{o}{=} \PYG{p}{[}\PYG{n}{t}\PYG{o}{*}\PYG{o}{*}\PYG{n}{i} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{]}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{yi}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[1, t, t**2, t**3, t**4]
+\end{sphinxVerbatim}
+
+Die Monome sind nicht orthogonal, jedoch linear unabhängig. Falls dem so wäre müsste die Einheitsmatrix entstehen:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{m} \PYG{o}{=} \PYG{p}{[}\PYG{p}{[}\PYG{n}{dot}\PYG{p}{(}\PYG{n}{yi}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{,}\PYG{n}{yi}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{p}{)} \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{]}
+\PYG{n}{m}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[[2, 0, 2/3, 0, 2/5],
+ [0, 2/3, 0, 2/5, 0],
+ [2/3, 0, 2/5, 0, 2/7],
+ [0, 2/5, 0, 2/7, 0],
+ [2/5, 0, 2/7, 0, 2/9]]
+\end{sphinxVerbatim}
+
+Wir berechnen nun ein orthonormales System, basierend auf den Monomen nach dem Verfahren von Schmidt:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{xi} \PYG{o}{=} \PYG{p}{[}\PYG{n}{yi}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{/}\PYG{n}{norm}\PYG{p}{(}\PYG{n}{yi}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{)}\PYG{p}{]}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{s} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{s} \PYG{o}{+}\PYG{o}{=} \PYG{n}{dot}\PYG{p}{(}\PYG{n}{yi}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{,}\PYG{n}{xi}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{p}{)}\PYG{o}{*}\PYG{n}{xi}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}
+    \PYG{n}{zi}\PYG{o}{=}\PYG{n}{yi}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{s}
+    \PYG{n}{xi}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{zi}\PYG{o}{/}\PYG{n}{norm}\PYG{p}{(}\PYG{n}{zi}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+Das Orthonormalsystem ist damit gegeben durch:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{xi}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[0.707106781186547,
+ 1.22474487139159*t,
+ 2.37170824512628*t**2 \PYGZhy{} 0.790569415042095,
+ 4.67707173346743*t**3 \PYGZhy{} 2.80624304008046*t,
+ 9.2807765030735*t**4 \PYGZhy{} 7.95495128834872*t**2 + 0.795495128834872]
+\end{sphinxVerbatim}
+
+Test des Orthonormalsystems ergibt die Einheitsmatrix:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{m} \PYG{o}{=} \PYG{p}{[}\PYG{p}{[}\PYG{n}{dot}\PYG{p}{(}\PYG{n}{xi}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{,}\PYG{n}{xi}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{p}{)} \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{]}
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{round}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{m}\PYG{p}{,}\PYG{n}{dtype}\PYG{o}{=}\PYG{n+nb}{float}\PYG{p}{)}\PYG{p}{,}\PYG{l+m+mi}{8}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+array([[ 1.,  0.,  0.,  0., \PYGZhy{}0.],
+       [ 0.,  1.,  0.,  0.,  0.],
+       [ 0.,  0.,  1.,  0.,  0.],
+       [ 0.,  0.,  0.,  1.,  0.],
+       [\PYGZhy{}0.,  0.,  0.,  0.,  1.]])
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{tp} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{400}\PYG{p}{)}
+\PYG{n}{n} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{,}\PYG{n}{np}\PYG{o}{.}\PYG{n}{ones\PYGZus{}like}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{)}\PYG{p}{,}\PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}P\PYGZus{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{(t)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{for} \PYG{n}{xii} \PYG{o+ow}{in} \PYG{n}{xi}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{p}{]}\PYG{p}{:}
+    \PYG{n}{n} \PYG{o}{+}\PYG{o}{=} \PYG{l+m+mi}{1}
+    \PYG{n}{f} \PYG{o}{=} \PYG{n}{lambdify}\PYG{p}{(}\PYG{n}{t}\PYG{p}{,}\PYG{n}{xii}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{numpy}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{,} \PYG{n}{f}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{)}\PYG{p}{,}\PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}P\PYGZus{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{(t)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{BeispielOrthogonalisierungSchmidt_14_0}.png}
+
+Das Resultat sind bezüglich der \(L_2\)\sphinxhyphen{}Norm normierte Legendre’sche Polynome. Üblicher weise werden die Polynome mit \(P_n(1) = 1\) normiert:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{tp} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{400}\PYG{p}{)}
+\PYG{n}{n} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{,}\PYG{n}{np}\PYG{o}{.}\PYG{n}{ones\PYGZus{}like}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{)}\PYG{p}{,}\PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}P\PYGZus{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{(t)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{for} \PYG{n}{xii} \PYG{o+ow}{in} \PYG{n}{xi}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{p}{]}\PYG{p}{:}
+    \PYG{n}{n} \PYG{o}{+}\PYG{o}{=} \PYG{l+m+mi}{1}
+    \PYG{n}{f} \PYG{o}{=} \PYG{n}{lambdify}\PYG{p}{(}\PYG{n}{t}\PYG{p}{,}\PYG{n}{xii}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{numpy}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{,} \PYG{n}{f}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{)}\PYG{o}{/}\PYG{n}{f}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{,}\PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZdl{}P\PYGZus{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{(t)\PYGZdl{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{BeispielOrthogonalisierungSchmidt_16_0}.png}
+
+Die ersten fünf Legendre’sche Polynome sind gegeben durch:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{lp} \PYG{o}{=} \PYG{p}{[}\PYG{n}{xii}\PYG{o}{/}\PYG{n}{xii}\PYG{o}{.}\PYG{n}{subs}\PYG{p}{(}\PYG{n}{t}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{k}{for} \PYG{n}{xii} \PYG{o+ow}{in} \PYG{n}{xi}\PYG{p}{]}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{lp}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[1.00000000000000, 1.0*t, 1.5*t**2 \PYGZhy{} 0.5, 2.5*t**3 \PYGZhy{} 1.5*t, 4.375*t**4 \PYGZhy{} 3.75*t**2 + 0.375]
+\end{sphinxVerbatim}
+
+
+\section{Beispiel zur Fourierentwicklung}
+\label{\detokenize{Funktionalanalysis/BeispielFourierEntwicklung:beispiel-zur-fourierentwicklung}}\label{\detokenize{Funktionalanalysis/BeispielFourierEntwicklung::doc}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{from} \PYG{n+nn}{sympy} \PYG{k+kn}{import} \PYG{n}{symbols}\PYG{p}{,} \PYG{n}{integrate}\PYG{p}{,} \PYG{n}{lambdify}\PYG{p}{,} \PYG{n}{exp}\PYG{p}{,} \PYG{n}{sin}\PYG{p}{,} \PYG{n}{cos}\PYG{p}{,} \PYG{n}{pi}
+\PYG{k+kn}{import} \PYG{n+nn}{scipy}\PYG{n+nn}{.}\PYG{n+nn}{integrate} \PYG{k}{as} \PYG{n+nn}{scint}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+\end{sphinxVerbatim}
+
+Für das Beispiel benutzen wir zwei verschiedene orthonormale Basen für den \(L_2[-1,1]\)
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{t} \PYG{o}{=} \PYG{n}{symbols}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{t}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{dot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{n}{integrate}\PYG{p}{(}\PYG{n}{x}\PYG{o}{*}\PYG{n}{y}\PYG{p}{,}\PYG{p}{(}\PYG{n}{t}\PYG{p}{,}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{)}
+\PYG{k}{def} \PYG{n+nf}{norm}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{n}{dot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{x}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{k}{def} \PYG{n+nf}{dotN}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{xy} \PYG{o}{=} \PYG{n}{lambdify}\PYG{p}{(}\PYG{n}{t}\PYG{p}{,} \PYG{n}{x}\PYG{o}{*}\PYG{n}{y}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{numpy}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{scint}\PYG{o}{.}\PYG{n}{quad}\PYG{p}{(}\PYG{n}{xy}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+\PYG{k}{def} \PYG{n+nf}{normN}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{return} \PYG{n}{dotN}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{x}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+
+\subsection{Legendre’sche Polynome}
+\label{\detokenize{Funktionalanalysis/BeispielFourierEntwicklung:legendre-sche-polynome}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Orthonormalbasis nach Schmidt}
+\PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{9}
+\PYG{n}{yi} \PYG{o}{=} \PYG{p}{[}\PYG{n}{t}\PYG{o}{*}\PYG{o}{*}\PYG{n}{i} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{N}\PYG{p}{)}\PYG{p}{]}
+\PYG{n}{xi} \PYG{o}{=} \PYG{p}{[}\PYG{n}{yi}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{/}\PYG{n}{norm}\PYG{p}{(}\PYG{n}{yi}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{)}\PYG{p}{]}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{N}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{s} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{s} \PYG{o}{+}\PYG{o}{=} \PYG{n}{dot}\PYG{p}{(}\PYG{n}{yi}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{,}\PYG{n}{xi}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{p}{)}\PYG{o}{*}\PYG{n}{xi}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}
+    \PYG{n}{zi}\PYG{o}{=}\PYG{n}{yi}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{s}
+    \PYG{n}{xi}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{zi}\PYG{o}{/}\PYG{n}{norm}\PYG{p}{(}\PYG{n}{zi}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{xi}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[0.707106781186547,
+ 1.22474487139159*t,
+ 2.37170824512628*t**2 \PYGZhy{} 0.790569415042095,
+ 4.67707173346743*t**3 \PYGZhy{} 2.80624304008046*t,
+ 9.2807765030735*t**4 \PYGZhy{} 7.95495128834872*t**2 + 0.795495128834872,
+ 18.4685120543048*t**5 \PYGZhy{} 20.5205689492276*t**3 + 4.39726477483448*t,
+ 36.8085471137468*t**6 \PYGZhy{} 50.1934733369281*t**4 + 16.7311577789763*t**2 \PYGZhy{} 0.796721798998898,
+ 73.4290553655431*t**7 \PYGZhy{} 118.616166359723*t**5 + 53.9164392544196*t**3 \PYGZhy{} 5.99071547271328*t,
+ 146.570997825634*t**8 \PYGZhy{} 273.599195941123*t**6 + 157.845689965986*t**4 \PYGZhy{} 28.6992163574405*t**2 + 0.797200454372895]
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{f} \PYG{o}{=} \PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{5}\PYG{o}{*}\PYG{n}{t}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{n}{fn} \PYG{o}{=} \PYG{n}{lambdify}\PYG{p}{(}\PYG{n}{t}\PYG{p}{,} \PYG{n}{f}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{numpy}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{tp} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{400}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{,} \PYG{n}{fn}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{BeispielFourierEntwicklung_8_0}.png}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{alpha} \PYG{o}{=} \PYG{p}{[}\PYG{n}{dotN}\PYG{p}{(}\PYG{n}{f}\PYG{p}{,} \PYG{n}{xii}\PYG{p}{)} \PYG{k}{for} \PYG{n}{xii} \PYG{o+ow}{in} \PYG{n}{xi}\PYG{p}{]}
+\PYG{n}{alpha}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[0.5596217150491691,
+ 0.0,
+ \PYGZhy{}0.4411693576778274,
+ 0.0,
+ 0.2148123794839546,
+ 0.0,
+ \PYGZhy{}0.07762200243541717,
+ 0.0,
+ 0.0221421344164393]
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{s} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{k}{for} \PYG{n}{alphai}\PYG{p}{,} \PYG{n}{xii} \PYG{o+ow}{in} \PYG{n+nb}{zip}\PYG{p}{(}\PYG{n}{alpha}\PYG{p}{,}\PYG{n}{xi}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{s} \PYG{o}{+}\PYG{o}{=} \PYG{n}{alphai}\PYG{o}{*}\PYG{n}{xii}
+\PYG{n}{sn} \PYG{o}{=} \PYG{n}{lambdify}\PYG{p}{(}\PYG{n}{t}\PYG{p}{,} \PYG{n}{s}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{numpy}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{s}
+\end{sphinxVerbatim}
+\begin{equation*}
+\begin{split}\displaystyle 3.24539473540683 t^{8} - 8.91522330646548 t^{6} + 9.38478407796753 t^{4} - 4.68931489413068 t^{2} + 0.994864373177097\end{split}
+\end{equation*}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{tp} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{400}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{,} \PYG{n}{fn}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{)}\PYG{p}{,}\PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{f(t)}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)} 
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{,} \PYG{n}{sn}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{)}\PYG{p}{,}\PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Legendre Basis}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{BeispielFourierEntwicklung_11_0}.png}
+
+Parsevallsche Gleichung (Vollständigkeitsrelation):
+\begin{equation*}
+\begin{split}\sum_{k=1}^N |(x,x_k)|^2 \le \sum_{k=1}^\infty |(x,x_k)|^2 = \|x\|^2\end{split}
+\end{equation*}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{alpha}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{n}{normN}\PYG{p}{(}\PYG{n}{f}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZhy{}2.810714668699532e\PYGZhy{}05
+\end{sphinxVerbatim}
+
+
+\subsection{Trigonometrische Funktionen}
+\label{\detokenize{Funktionalanalysis/BeispielFourierEntwicklung:trigonometrische-funktionen}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Orthonormalbasis nach Schmidt}
+\PYG{n}{yi} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+\PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{5}
+\PYG{n}{yi}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{N}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{yi}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{cos}\PYG{p}{(}\PYG{n}{pi}\PYG{o}{*}\PYG{n}{i}\PYG{o}{*}\PYG{n}{t}\PYG{p}{)}\PYG{p}{)}
+    \PYG{n}{yi}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{pi}\PYG{o}{*}\PYG{n}{i}\PYG{o}{*}\PYG{n}{t}\PYG{p}{)}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Anzahl Basisfunktionen: }\PYG{l+s+s1}{\PYGZsq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{yi}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{xi} \PYG{o}{=} \PYG{p}{[}\PYG{n}{yi}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{/}\PYG{n}{normN}\PYG{p}{(}\PYG{n}{yi}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{)}\PYG{p}{]}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{N}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{s} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{i}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n}{s} \PYG{o}{+}\PYG{o}{=} \PYG{n}{dotN}\PYG{p}{(}\PYG{n}{yi}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{,}\PYG{n}{xi}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{p}{)}\PYG{o}{*}\PYG{n}{xi}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}
+    \PYG{n}{zi}\PYG{o}{=}\PYG{n}{yi}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{s}
+    \PYG{n}{xi}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{zi}\PYG{o}{/}\PYG{n}{normN}\PYG{p}{(}\PYG{n}{zi}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Anzahl Basisfunktionen: 9
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{xi}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[0.7071067811865475,
+ 1.0*cos(pi*t) \PYGZhy{} 9.81307786677359e\PYGZhy{}17,
+ 1.0*sin(pi*t),
+ \PYGZhy{}1.22011185168313e\PYGZhy{}17*cos(pi*t) + 1.0*cos(2*pi*t) + 1.03037317601123e\PYGZhy{}16,
+ \PYGZhy{}9.90337261694782e\PYGZhy{}18*sin(pi*t) + 1.0*sin(2*pi*t),
+ 1.23822596516741e\PYGZhy{}33*cos(pi*t) \PYGZhy{} 1.01484627287186e\PYGZhy{}16*cos(2*pi*t) + 1.0*cos(3*pi*t) \PYGZhy{} 1.58362563377161e\PYGZhy{}17,
+ 2.04850984122971e\PYGZhy{}34*sin(pi*t) \PYGZhy{} 2.0684971882448e\PYGZhy{}17*sin(2*pi*t) + 1.0*sin(3*pi*t),
+ \PYGZhy{}4.42531299261824e\PYGZhy{}17*cos(pi*t) + 1.31330734865152e\PYGZhy{}16*cos(2*pi*t) + 8.86382073502645e\PYGZhy{}17*cos(3*pi*t) + 1.0*cos(4*pi*t) \PYGZhy{} 3.92523114670944e\PYGZhy{}17,
+ 7.95881701368516e\PYGZhy{}17*sin(pi*t) \PYGZhy{} 1.53007052862912e\PYGZhy{}17*sin(2*pi*t) \PYGZhy{} 6.41357085318366e\PYGZhy{}17*sin(3*pi*t) + 1.0*sin(4*pi*t)]
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{alpha2} \PYG{o}{=} \PYG{p}{[}\PYG{n}{dotN}\PYG{p}{(}\PYG{n}{f}\PYG{p}{,} \PYG{n}{xii}\PYG{p}{)} \PYG{k}{for} \PYG{n}{xii} \PYG{o+ow}{in} \PYG{n}{xi}\PYG{p}{]}
+\PYG{n}{alpha2}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[0.5596217150491691,
+ 0.4850805845912827,
+ 0.0,
+ 0.10914699708164807,
+ 0.0,
+ 0.010077740674845966,
+ 0.0,
+ \PYGZhy{}0.00025517128989830523,
+ 0.0]
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{s2} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{k}{for} \PYG{n}{alphai}\PYG{p}{,} \PYG{n}{xii} \PYG{o+ow}{in} \PYG{n+nb}{zip}\PYG{p}{(}\PYG{n}{alpha2}\PYG{p}{,}\PYG{n}{xi}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{s2} \PYG{o}{+}\PYG{o}{=} \PYG{n}{alphai}\PYG{o}{*}\PYG{n}{xii}
+\PYG{n}{s2n} \PYG{o}{=} \PYG{n}{lambdify}\PYG{p}{(}\PYG{n}{t}\PYG{p}{,} \PYG{n}{s2}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{numpy}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{s2}
+\end{sphinxVerbatim}
+\begin{equation*}
+\begin{split}\displaystyle 0.485080584591283 \cos{\left(\pi t \right)} + 0.109146997081648 \cos{\left(2 \pi t \right)} + 0.010077740674846 \cos{\left(3 \pi t \right)} - 0.000255171289898305 \cos{\left(4 \pi t \right)} + 0.395712309610513\end{split}
+\end{equation*}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{tp} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{400}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{,} \PYG{n}{fn}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{)}\PYG{p}{,}\PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{f(t)}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)} 
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{,} \PYG{n}{sn}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{)}\PYG{p}{,}\PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Legendre Basis}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{,} \PYG{n}{s2n}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{)}\PYG{p}{,}\PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{trigonometrische Basis}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{BeispielFourierEntwicklung_19_0}.png}
+
+Parsevallsche Gleichung (Vollständigkeitsrelation):
+\begin{equation*}
+\begin{split}\sum_{k=1}^N |(x,x_k)|^2 \le \sum_{k=1}^\infty |(x,x_k)|^2 = \|x\|^2\end{split}
+\end{equation*}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{alpha2}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{n}{normN}\PYG{p}{(}\PYG{n}{f}\PYG{p}{)}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2}
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYGZhy{}4.505698535384184e\PYGZhy{}07
+\end{sphinxVerbatim}
+
+
+\subsection{Vergleich}
+\label{\detokenize{Funktionalanalysis/BeispielFourierEntwicklung:vergleich}}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{,} \PYG{n}{sn}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{n}{fn}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{)}\PYG{p}{,}\PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Legendre Basis}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{,} \PYG{n}{s2n}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{)}\PYG{o}{\PYGZhy{}}\PYG{n}{fn}\PYG{p}{(}\PYG{n}{tp}\PYG{p}{)}\PYG{p}{,}\PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{trigonometrische Basis}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{BeispielFourierEntwicklung_23_0}.png}
+
+
+\chapter{Lineare Operatoren}
+\label{\detokenize{Funktionalanalysis/LineareOperatoren:lineare-operatoren}}\label{\detokenize{Funktionalanalysis/LineareOperatoren::doc}}
+Viele Aufgaben in der Mathematik und den Anwendungen führen auf Gleichungen der Form
+\begin{equation*}
+\begin{split}T(x) = T x = y,\end{split}
+\end{equation*}
+wobei \(T: X \to Y\) eine “lineare Abbildung”, \(X, Y\) normierte Räume sind und \(y\in Y\) ein gegeben ist.
+
+\begin{sphinxadmonition}{note}{Definition: lineare Abbildung}
+
+Die \sphinxstyleemphasis{Abbildung} \(T\) des normierten Raumes \(X\) in den normierten Raum \(Y\) heisst \sphinxstyleemphasis{linear}, wenn für alle \(x,y \in X\) und alle \(\alpha \in \mathbb{K}\)
+\begin{equation*}
+\begin{split}T(x+y) = T x + T y\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 
-\section{Lineare Operationen}
-\label{\detokenize{Funktionalanalysis/Funktionalanalysis:lineare-operationen}}
-
 \section{Beschränkte lineare Operatoren}
-\label{\detokenize{Funktionalanalysis/Funktionalanalysis:beschrankte-lineare-operatoren}}
+\label{\detokenize{Funktionalanalysis/LineareOperatoren:beschrankte-lineare-operatoren}}
+Analog zum Stetigkeitsbegriff aus der Analysis definiert man die Stetigkeit und Beschränktheit bei linearen Operatoren wie folgt:
 
-\chapter{Beispiele zu normierte Räume}
-\label{\detokenize{Funktionalanalysis/Beispiele:beispiele-zu-normierte-raume}}\label{\detokenize{Funktionalanalysis/Beispiele::doc}}
+\begin{sphinxadmonition}{note}{Definition: stetig}
 
-\section{Vektorraum \protect\(\mathbb{R}^n\protect\)}
-\label{\detokenize{Funktionalanalysis/Beispiele:vektorraum-mathbb-r-n}}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
-\end{sphinxVerbatim}
+Sei \(T: X\to Y\) ein linearer Operator und \(X, Y\) normierte Räume. Der lineare Operator \(T\) heisst \sphinxstyleemphasis{stetig} in \(x_0\in X\), wenn es zu jedem \(\varepsilon > 0\) ein \(\delta = \delta(\epsilon, x_0)>0\) gibt, so dass
+\begin{equation*}
+\begin{split}\| T x- T x_0\|_Y < \varepsilon\quad\text{für alle}\ x\in X \quad\text{mit}\ \|x-x_0\|_X < \delta\end{split}
+\end{equation*}
+gilt. Man nennt \(T\) \sphinxstyleemphasis{stetig in} \(X\), wenn \(T\) in jedem Punkt von \(X\) stetig ist.
+\end{sphinxadmonition}
 
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{)}
-\PYG{n}{y} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{n}{k}\PYG{o}{*}\PYG{o}{*}\PYG{l+m+mi}{2} \PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{4}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
-\end{sphinxVerbatim}
+\begin{sphinxadmonition}{note}{Definition: beschränkt}
 
-Die Addition, Subtraktion zweier Vektoren liefert wieder ein Vektor:
+Es seien \(X, Y\) normierte Räume. Der lineare Operator \(T: X \to Y\) heisst \sphinxstyleemphasis{beschränkt}, wenn es eine Konstante \(C>0\) mit
+\begin{equation}\label{equation:Funktionalanalysis/LineareOperatoren:eq:beschrlinop}
+\begin{split}\|T x\|_Y \le C\, \|x\|_X\quad\forall\,x\in X\end{split}
+\end{equation}
+gibt.
+\end{sphinxadmonition}
 
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{x}\PYG{o}{+}\PYG{n}{y}
-\end{sphinxVerbatim}
+Die Menge aller linearen Abbildungen mit der sogenannten Operatornorm versehen, liefert uns wieder einen normierten Vektorraum. Die Operatornorm (vgl. Matrixnorm aus der Numerik oder linearen Algebra) ist gegeben durch
 
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-array([ 2,  6, 12])
-\end{sphinxVerbatim}
+\begin{sphinxadmonition}{note}{Definition: Operatornorm}
 
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{x}
-\end{sphinxVerbatim}
+Die kleinste Zahl \(C>0\) für die \eqref{equation:Funktionalanalysis/LineareOperatoren:eq:beschrlinop} gilt, heisst \sphinxstyleemphasis{Operatornorm von} \(T\) und ist durch
+\begin{equation}\label{equation:Funktionalanalysis/LineareOperatoren:eq:operatornorm}
+\begin{split}\|T\|_{X\to Y} := \sup_{\substack{x\in X\\x\not= 0}} \frac{\|T x\|_Y}{\|x\|_X}\end{split}
+\end{equation}
+definiert.
+\end{sphinxadmonition}
 
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-array([1, 2, 3])
-\end{sphinxVerbatim}
+\sphinxstylestrong{Bemerkung}: Mit der Norm von \(T\) lässt sich die Ungleichung \eqref{equation:Funktionalanalysis/LineareOperatoren:eq:beschrlinop} auch in der Form
+\begin{equation*}
+\begin{split}\|T x\|_Y \le \|T\|_{X\to Y}\ \|x\|_X\end{split}
+\end{equation*}
+schreiben. Die Operatornorm lässt sich anstelle der Schreibweise \eqref{equation:Funktionalanalysis/LineareOperatoren:eq:operatornorm} auch durch
+\begin{equation*}
+\begin{split}\|T\|_{X\to Y} = \sup_{\substack{x\in X\\x\not= 0}} \frac{\|T x\|_Y}{\|x\|_X} = \sup_{\|x\|_X \le 1} \|T x\|_Y\end{split}
+\end{equation*}
+schreiben.
+
+Zwischen stetigen und beschränkten Operatoren besteht der Zusammenhang
+
+\begin{sphinxadmonition}{note}{Satz}
+
+Sei \(T: X\to Y\) ein linearer Operator und \(X,Y\) normierte Räume. Dann gilt
+\begin{equation*}
+\begin{split}T\ \text{ist beschränkt} \quad\Leftrightarrow \quad T\ \text{ist stetig.}\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxstylestrong{Beweis}:
+a) Sei \(T\) beschränkt durch \(C>0\) und \(x_0\in X\) beliebig. Wir zeigen nun, dass es zu jedem \(\varepsilon>0\) ein \(\delta=\delta(x_0)\) gibt, so dass
+\begin{equation*}
+\begin{split}\| T x - T x_0\|_Y < \epsilon\quad \forall \|x -x_0\|_X < \delta.\end{split}
+\end{equation*}
+Wähle \(\delta = \frac{\epsilon}{C}\), dann folgt
+\begin{equation*}
+\begin{split}\| T x - T x_0\|_Y = \|T (x-x_0)\|_Y \le C \underbrace{\|x-x_0\|_X}_{< \delta} < C \frac{\varepsilon}{C} = \varepsilon\end{split}
+\end{equation*}
+dh. \(T\) ist in \(x_0\) stetig und da \(x_0\in X\) beliebig ist, in ganz \(X\).
+
+b) Sei nun \(T\) auf \(X\) stetig. Wir zeigen im Widerspruch, dass \(T\) beschränkt ist. Daher nehmen wir an: \(T\) sei nicht beschränkt. Also gibt es eine Folge \(\{x_k\} \subset X\) mit \(x_k \not=0\) und \(\frac{\|T x_k\|_Y}{\|x_k\|_X} > k\) für alle \(k\in \mathbb{N}\). Setze nun \(y_k = \frac{x_k}{k \|x_k\|_X}\), so folgt \(y_k\in X\) und
+\begin{equation}\label{equation:Funktionalanalysis/LineareOperatoren:eq:bewstetigbeschraenkt}
+\begin{split}\|T y_k\|_Y = \left\| T\left(\frac{x_k}{k \|x_k\|_X}\right)\right\|_Y = \frac{\|T x_k\|_Y}{k \|x_k\|_X} > 1\end{split}
+\end{equation}
+für alle \(k\in \mathbb{N}\). Andererseits gilt: \(\|y_k\|_X = \frac{1}{k} \to 0\) für \(k\to \infty\) bzw. \(y_k \to 0\). Aus der Stetigkeit von \(T\) in \(0\) folgt \(T y_k \to 0\) für \(k\to\infty\), was im Widerspruch zu \eqref{equation:Funktionalanalysis/LineareOperatoren:eq:bewstetigbeschraenkt} steht. \(\Box\)
+\begin{quote}
+
+Bei linearen Operatoren sind Stetigkeit und Beschränktheit äquivalente Eigenschaften.
+\end{quote}
+
+\sphinxstylestrong{Beispiel}: Sei \(X=Y=C[a,b]\), \(f\in C[a,b]\) und \(\|f\| = \max_{a\le x \le b} |f(x)|\). Betrachte den \sphinxstyleemphasis{Integraloperator} \(T\) mit
+\begin{equation*}
+\begin{split}(T f)(x) := \int_a^b K(x,y) f(y) dy,\quad x\in [a,b]\end{split}
+\end{equation*}
+mit \(K: [a,b] \times [a,b] \to \mathbb{R}\) stetigem \sphinxstyleemphasis{Kern}.
+\begin{itemize}
+\item {} 
+\(T\) ist ein linearer Operator, der \(C[a,b]\) auf sich abbildet.
+
+\item {} 
+Da \(f\) stetig auf \([a,b]\) ist, ist \(f\cdot K\) stetig auf \([a,b]\times [a,b]\) und damit ist auch (vgl. Satz 7.17 in {[}\hyperlink{cite.Appendix:id3}{BWHM17}{]})
+\begin{equation*}
+\begin{split}F(x) := \int_a^b K(x,y) f(y) dy\end{split}
+\end{equation*}
+stetig auf \([a,b]\).
+
+\item {} 
+Da \(K\) stetig auf \([a,b] \times [a,b]\) ist, existiert
+\begin{equation*}
+\begin{split}M = \max_{x,y \in [a,b]} |K(x,y)|\end{split}
+\end{equation*}
+und somit
+\begin{equation*}
+\begin{split}\|T f|| = \max_{x\in[a,b]} |(T f)(x)| \le \max_{x\in[a,b]} \int_a^b |K(x,y)| |f(y)| dy \le M\,\max_{x\in[a,b]} |f(x)|\ \int_a^b 1 dy = M\,(b-a)\,\|f\|.\end{split}
+\end{equation*}
+Damit ist \(T\) bezüglich der Maximumsnorm beschränkt. Es gilt
+\begin{equation*}
+\begin{split}\|T\| = \sup_{\|f\|=1} \|T f\| \le M\, (b-a).\end{split}
+\end{equation*}
+\end{itemize}
+
+\begin{sphinxadmonition}{note}{Satz}
+
+Seien \(X, Y\) normierte Räume und mit \(L(X,Y)\) die Menge aller beschränkten linearen Operatoren von \(X\) in \(Y\) bezeichnet. Dann ist \(L(X,Y)\) bezüglich der Operatornorm
+\begin{equation*}
+\begin{split}\|T\| = \sup_{\substack{x\in X\\x\not= 0}} \frac{\|T x\|_Y}{\|x\|_X}\end{split}
+\end{equation*}
+wieder ein normierter Raum.
+
+Ist \(X\) ein normierter Raum und \(Y\) ein \sphinxstyleemphasis{Banachraum}, dann ist \(L(X,Y)\) ein Banachraum.
+\end{sphinxadmonition}
+
+
+\section{Lineare Funktionale}
+\label{\detokenize{Funktionalanalysis/LineareOperatoren:lineare-funktionale}}
+Wir betrachten nun spezielle lineare Operatoren, welche in den zugrunde liegenden Zahlenkörper abbilden.
+
+\begin{sphinxadmonition}{note}{Definition: lineares Funktional}
+
+Sei \(X\) ein normierter Raum. Dann nennt man den Operator \(F: X \to \mathbb{K}\) (\(\mathbb{R}\) oder \(\mathbb{C}\)) \sphinxstyleemphasis{lineares Funktional}.
+\end{sphinxadmonition}
+
+Normiert man \(\mathbb{K}\) mit
+\begin{equation*}
+\begin{split}\|\alpha\| := |\alpha|,\quad\alpha\in\mathbb{K}\end{split}
+\end{equation*}
+so ist \(\mathbb{K}\) ein Banachraum und damit die Menge aller beschränkten linearen Funktionale auf \(X\) ein Banachraum. Dieser Raum ist insbesondere im Zusammenhang mit partiellen Differentialgleichungen sehr wichtig.
+
+\begin{sphinxadmonition}{note}{Dualraum von \protect\(X\protect\)}
+
+Der Banachraumm \(L(X,\mathbb{K})\) aller beschränkten linearen Funktionale auf \(X\) heisst der zu \(X\) \sphinxstyleemphasis{konjugierte} oder \sphinxstyleemphasis{duale Raum} und wird mit \(X^*\) oder \(X'\) bezeichnet.
+\end{sphinxadmonition}
+
+\sphinxstylestrong{Beispiel}: Sei \(X\) ein Hilbertraum und \(y_0\) ein beliebiges (festes) Element aus \(X\). Für \(x\in X\) wird durch
+\begin{equation*}
+\begin{split}\begin{split}
+F : X & \to \mathbb{R}\\
+ x & \mapsto y = F x := (x,y_0)\end{split}\end{split}
+\end{equation*}
+ein lineares Funktional \(F\) definiert. (Die Linearität folgt direkt aus den Eigenschaften des Skalarprodukts.) Mit Hilfe der Schwarzschen Ungleichung folgt
+\begin{equation*}
+\begin{split}\|F x\| = |F x| = |(x,y_0)| \le \|x\|\,\|y_0\|\quad\forall\ x\in X.\end{split}
+\end{equation*}
+Damit folgt
+\begin{equation*}
+\begin{split}\frac{\|F x\|}{\|x\|} \le \|y_0\|\quad \forall x\in X,\end{split}
+\end{equation*}
+sprich \(F\) ist ein beschränktes lineares Funktional, \(F\in X^*\) mit \(\|F\| \le \|y_0\|\). Da für \(x=y_0\)
+\begin{equation*}
+\begin{split}\|F y_0\| = |(y_0,y_0)| = \|y_0\|^2 = \|y_0\|\, \|y_0\|\end{split}
+\end{equation*}
+gilt, folgt
+\begin{equation*}
+\begin{split}\|F\| = \sup_{\substack{x\in X\\x\not= 0}} \frac{\|F x\|}{\|x\|} = \|y_0\|.\end{split}
+\end{equation*}
+Wir kommen nun zum Rieszschen Darstellungssatz: Beschränkte lineare Funktionale eines Hilbertraumes \(X\) lassen sich besonders einfach darstellen. Die Darstellung aus obigem Beispiel erfasst \sphinxstylestrong{alle} beschränkten linearen Funktionale. Es gilt
+
+\begin{sphinxadmonition}{note}{Satz: Darstellungssatz von Riesz}
+
+Sei \(X\) ein Hilbertraum und \(F\in X^*\) beliebig. Dann gibt es ein \sphinxstyleemphasis{eindeutig} bestimmtes \(y\in X\), so dass \(F\) die Darstellung
+\begin{equation*}
+\begin{split}F x = (x,y)\quad\forall x\in X\end{split}
+\end{equation*}
+besitzt.
+\end{sphinxadmonition}
+
+\sphinxstylestrong{Bemerkung}: Dieser Satz ist das zentrale Ergebnis der Hilbertraum\sphinxhyphen{}Theorie. Neben seiner Bedeutung als Darstellungssatz kann er auch als Existenz\sphinxhyphen{} und Eindeutigkeitsprinzip aufgefasst werden. Diese Bedeutung des Rieszschen Satzes ist Grundlage für die moderne Theorie der elliptischen partiellen Differentialgleichungen.
+
+
+\chapter{Sobolevräume}
+\label{\detokenize{Funktionalanalysis/Sobolevraeume:sobolevraume}}\label{\detokenize{Funktionalanalysis/Sobolevraeume::doc}}
+Im Kapitel stellen wir die für die Behandlung von partiellen Differentialgleichungen geeigneten \sphinxstyleemphasis{Funktionenräume} vor.
+In den Beispielen für Hilberträume wurde erwähnt, dass der Funktionenraum der stetigen Funktionen versehen mit der Quadratnorm \(\|x\|_2 = \sqrt{\int_a^b |x(t)|^2 dt}\) nicht vollständig und damit kein Banachraum ist. Das Problem muss für die Behandlung der partiellen Differentialgleichungen gelöst werden und führt uns zu den sogenannten Sobolevräumen.
+
+
+\section{Hilbertraum \protect\(L_2(\Omega)\protect\)}
+\label{\detokenize{Funktionalanalysis/Sobolevraeume:hilbertraum-l-2-omega}}
+Da der Fokus in der Bearbeitung von partiellen Differentialgleichungen liegt, werden wir im Folgenden Funktionen auf beliebigen \(n\) dimensionalen Gebieten \(\Omega \subset \mathbb{R}^n\) und nicht nur zwingend auf Intervallen \([a,b] \subset \mathbb{R}\) betrachten.
+
+Sei daher das Integrationsgebiet bzw. der Definitionsbereich der Funktion gegeben durch \(\Omega\) eine beliebige (nichtleere) offene Menge in \(\mathbb{R}^n\). Mit \(C(\Omega)\) bezeichnen wir die Menge aller stetigen Funktionen auf \(\Omega\).
+
+\begin{sphinxadmonition}{note}{Definition: Support}
+
+Für \(f\in C(\Omega)\) definieren wir den \sphinxstyleemphasis{Träger} oder \sphinxstyleemphasis{Support} von \(f\) durch
+\begin{equation*}
+\begin{split}\mathop{Tr} f := \overline{\{x\in\mathbb{R}^n | f(x) \not=0 \}}.\end{split}
+\end{equation*}
+wobei mit \(\overline{A}\) die Abschliessung einer Menge \(A \subset \mathbb{R}^n\) bezeichnet.
+\end{sphinxadmonition}
+
+Mit \(C_0(\Omega)\) bezeichnen wir stetige Funktionen mit \sphinxstyleemphasis{beschränktem Support in} \(\Omega\). Das Integral für \(f\in C_0(\Omega)\) existiert: mit \(a>0\) hinreichend gross gilt
+\begin{equation*}
+\begin{split}\int_\Omega f(x)dx = \int_{-a}^a \left(\ldots\int_{-a}^a f(x_1,\ldots, x_n) dx_1 \ldots \right) dx_n.\end{split}
+\end{equation*}
+
+\begin{wrapfigure}{l}{0pt}
+\centering
+\noindent\sphinxincludegraphics[height=250\sphinxpxdimen]{{MehrdimensionalesIntegral}.png}
+\caption{Berechnung von \(\int_\Omega f(x) dx\) in \(\mathbb{R}^2\).}\label{\detokenize{Funktionalanalysis/Sobolevraeume:directive-fig}}\end{wrapfigure}
+
+\begin{sphinxadmonition}{note}{Definition: \protect\(C_0^\infty(\Omega)\protect\) und \protect\(L_2(\Omega)\protect\)}
+
+Mit \(C_0^\infty(\Omega)\) bezeichnen wir die Menge aller Funktionen, welche in \(\Omega\) beliebig oft stetig differenzierbar sind und einen beschränkten in \(\Omega\) enthaltenen Support haben.
+
+Mit der Quadratnorm
+\begin{equation*}
+\begin{split}\|u\|_2 = \sqrt{\int_\Omega |u(x)|^2 dx}\end{split}
+\end{equation*}
+definieren wir \(L_2(\Omega)\) als den zu \((C_0^\infty(\Omega),\|\cdot\|_2)\) konjugierten (dualen) Raum:
+\begin{equation*}
+\begin{split}L_2(\Omega) := (C_0^\infty(\Omega), \|\cdot\|_2)^*.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+Man kann zeigen, dass sich die klassischen Funktionen aus \(C_0^\infty(\Omega)\) in \(L_2(\Omega)\) wiederfinden. Mathematisch bedeutet das, dass \(C_0^\infty(\Omega)\) als Unterraum von \(L_2(\Omega)\) aufgefasst werden kann.
+\begin{quote}
+\begin{equation*}
+\begin{split}C_0^\infty(\Omega) \subset L_2(\Omega)\end{split}
+\end{equation*}\end{quote}
+
+Man sagt in dem Fall, \(C_0^\infty(\Omega)\) ist in \(L_2(\Omega)\) \sphinxstyleemphasis{eingebettet}. Es gilt
+
+\begin{sphinxadmonition}{note}{Satz}
+
+Es gilt:
+\begin{itemize}
+\item {} 
+\(C_0^\infty(\Omega)\) liegt dicht in \(L_2(\Omega)\)
+
+\item {} 
+\(\overline{C_0^\infty(\Omega)}\) ist vollständig.
+
+\item {} 
+\(L_2(\Omega) = \overline{C_0^\infty(\Omega)}\)
+
+\end{itemize}
+\end{sphinxadmonition}
+
+
+\section{Sobolevräume}
+\label{\detokenize{Funktionalanalysis/Sobolevraeume:id1}}
+Mit den Sobolevräumen kommt nun die Ableitung von Elemente aus dem \(L_2(\Omega)\) ins Spiel. Wir definieren den Sobolevraum \(H_m(\Omega)\) wie folgt
+
+\begin{sphinxadmonition}{note}{Definition: Sobolevraum \protect\(H_m(\Omega)\protect\)}
+
+Unter dem Sovolevraum \(H_m(\Omega)\) versteht man den linearen raum aller linearen Funktionale \(F\) auf \(C_0^\infty(\Omega)\), für die \(F\) und sämtliche Ableitungen \(D^pF\) der Ordnung \(|p|\le m\) zu \(L_2(\Omega)\) gehören:
+\begin{equation*}
+\begin{split}H_m(\Omega) := \{F\in L_2(\Omega) | D^p F \in L_2(\Omega), |p|\le m\}.\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+Nicht klar ist an dieser Stelle, was \(D^p F\) zu bedeuten hat, da \(F\) ein beschränktes lineares Funktional ist. Der klassische Ableitungsbegriff genügt nicht der in der Definition benutzten Ableitung, da dieser für Funktionale verallgemeinert werden muss.
+
+Betrachten wir das Ganze mit Hilfe eines eindimensionalen Gebietes \(\Omega = [0,1]\) und für Funktionale \(F_u \in L_2([0,1])\), welche durch Funktionen \(u\in C^1([0,1])\) induziert sind:
+\begin{equation*}
+\begin{split}F_u \varphi = \int_0^1 u(t) \varphi(t) dt\quad \text{für}\ \varphi\in C_0^\infty([0,1]).\end{split}
+\end{equation*}
+Die Ableitung \(\frac{\partial}{\partial x} F_u\) definieren wir wie folgt:
+\begin{quote}
+\begin{equation*}
+\begin{split}\frac{\partial}{\partial x} F_u := F_{\frac{\partial u}{\partial x}}\end{split}
+\end{equation*}\end{quote}
+
+Mit der Definition und partieller Integration erhalten wir
+\begin{equation*}
+\begin{split}\frac{\partial}{\partial x} F_u = F_{\frac{\partial u}{\partial x}} = \int_0^1 \frac{\partial u}{\partial x}(x) \varphi(x) dx = \underbrace{\frac{\partial}{\partial x} (u(x) \varphi(x)) \Big|_0^1}_{=0, \text{da}\ \varphi(0)=\varphi(1) = 0!} - \int_0^1 u(x) \frac{\partial \varphi}{\partial x}(x) dx.\end{split}
+\end{equation*}
+Wir erhalten somit
+\begin{equation*}
+\begin{split}\frac{\partial}{\partial x} F_u = - F_u (\frac{\partial \varphi}{\partial x})\quad\text{für}\quad \varphi \in C_0^\infty([0,1]).\end{split}
+\end{equation*}
+Oder für mehrdimensionale Gebiete \(\Omega\)
+\begin{equation*}
+\begin{split}\frac{\partial}{\partial x} F_u = - F_u (\frac{\partial \varphi}{\partial x})\quad\text{für}\quad \varphi \in C_0^\infty(\Omega).\end{split}
+\end{equation*}
+Unter der partiellen Ableitung \(\frac{\partial}{asdf}\)
+\begin{itemize}
+\item {} 
+partielle Ableitung
+
+\item {} 
+Sobolevraum
+
+\end{itemize}
 
 
 \part{Teil 2}
@@ -1015,9 +1961,11 @@ Anwendungen
 \begin{sphinxthebibliography}{BWHM10}
 \bibitem[BWHM10]{Appendix:id2}
 Klemens Burg, Friedrich Wille, Herbert Haf, and Andreas Meister. \sphinxstyleemphasis{Partielle Differentialgleichungen und funktionalanalytische Grundlagen}. Vieweg + Teubner Verlag, 2010. URL: \sphinxurl{https://www.springer.com/de/book/9783834812940}.
-\bibitem[Heu06]{Appendix:id4}
+\bibitem[BWHM17]{Appendix:id3}
+Klemens Burg, Friedrich Wille, Herbert Haf, and Andreas Meister. \sphinxstyleemphasis{Höhere Mathematik für Ingenieure Band I: Analysis}. Vieweg + Teubner Verlag, 2017. URL: \sphinxurl{https://www.springer.com/de/book/9783834824387}.
+\bibitem[Heu06]{Appendix:id5}
 Harro Heuser. \sphinxstyleemphasis{Funktionalanalysis}. Vieweg + Teubner Verlag, 2006. URL: \sphinxurl{https://www.springer.com/de/book/9783835100268}.
-\bibitem[Heu08]{Appendix:id3}
+\bibitem[Heu08]{Appendix:id4}
 Harro Heuser. \sphinxstyleemphasis{Lehrbuch der Analysis}. Volume 2. Vieweg + Teubner Verlag, 2008. URL: \sphinxurl{https://www.springer.com/de/book/9783322968128}.
 \end{sphinxthebibliography}
 

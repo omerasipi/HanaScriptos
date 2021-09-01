@@ -111,13 +111,13 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Teil 1
+  Funktionalanalysis
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="GrundlegendeRaeume.html">
-   Funktionalanalysis
+   Grundlegende Räume
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -140,6 +140,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="LineareOperatoren.html">
    Lineare Operatoren
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Sobolevraeume.html">
+   Sobolevräume
   </a>
  </li>
 </ul>
@@ -338,10 +343,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Orthonormalbasis nach Schmidt</span>
-<span class="n">yi</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">9</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
-    <span class="n">yi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>
+<span class="n">yi</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">**</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)]</span>
 <span class="n">xi</span> <span class="o">=</span> <span class="p">[</span><span class="n">yi</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">norm</span><span class="p">(</span><span class="n">yi</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">):</span>
     <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
@@ -396,9 +399,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">xii</span> <span class="ow">in</span> <span class="n">xi</span><span class="p">:</span>
-    <span class="n">alpha</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dotN</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xii</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="p">[</span><span class="n">dotN</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xii</span><span class="p">)</span> <span class="k">for</span> <span class="n">xii</span> <span class="ow">in</span> <span class="n">xi</span><span class="p">]</span>
 <span class="n">alpha</span>
 </pre></div>
 </div>
@@ -513,9 +514,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha2</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">xii</span> <span class="ow">in</span> <span class="n">xi</span><span class="p">:</span>
-    <span class="n">alpha2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dotN</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xii</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha2</span> <span class="o">=</span> <span class="p">[</span><span class="n">dotN</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">xii</span><span class="p">)</span> <span class="k">for</span> <span class="n">xii</span> <span class="ow">in</span> <span class="n">xi</span><span class="p">]</span>
 <span class="n">alpha2</span>
 </pre></div>
 </div>

@@ -10,13 +10,14 @@ parts:
     chapters:
     - file: Software/Python.md
     - file: Software/NGSolve.md
-  - caption: Teil 1
+  - caption: Funktionalanalysis
     chapters:
     - file: Funktionalanalysis/GrundlegendeRaeume.md
       sections:
       - file: Funktionalanalysis/BeispielOrthogonalisierungSchmidt.ipynb
       - file: Funktionalanalysis/BeispielFourierEntwicklung.ipynb
     - file: Funktionalanalysis/LineareOperatoren.md
+    - file: Funktionalanalysis/Sobolevraeume.md
   - caption: Teil 2
     chapters:
     - file: PDE/IntroPDE.md

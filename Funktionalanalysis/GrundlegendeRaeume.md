@@ -10,13 +10,11 @@ kernelspec:
   name: python3
 ---
 
-# Funktionalanalysis
-
 In diesem Kapitel wird das notwendige Rüstzeug für die Behandlung partieller Differentialgleichungen und numerischen Methoden bereit gestellt.
 
-## Grundlegende Räume
+# Grundlegende Räume
 
-### Vektorräume
+## Vektorräume
 
 In den Modulen linearen Algebra, Analysis und Numerik wurden Vektorräume und Normen mit dem $\mathbb{R}^n$ eingeführt und benutzt. Wir definieren hier der Vollständigkeit halber die Begriffe nochmals und erweitern die Anwendung auf allgemeinere Räume, insbesondere müssen diese nicht endlich dimensional sein.
 
@@ -150,9 +148,9 @@ print('5*(x+y)=',5*(x+y),'= 5*x+5*y = ',5*x+5*y)
    Beweise die Aussage.
    ```
 
-### Metrische Räume
+## Metrische Räume
 
-#### Metrik
+### Metrik
 
 In der Analysis will man oft eine Distanz zwischen zwei Elemente eines Vektorraumes angeben. Insbesondere bei Konvergenzbetrachtungen ist der Abstand zweier Elemente existentiell wichtig. Der Konvergenzbegriff in $\mathbb{R}$ unter Hinzunahme der folgenden Distanzfunktion
 
@@ -287,7 +285,7 @@ $$\begin{split}
 
 Es folgt damit $d(x_0,y_0)=0$ und damit $x_0 = y_0$.
 
-#### Funktionenfolgen
+### Funktionenfolgen
 
 Wir starten mit einem intuitiven Begriff der Konvergenz für Funktionenfolgen:
 
@@ -362,7 +360,7 @@ Die Konvergenz in $(C[a,b],d_{\max})$ nennt man **gleichmässige** Konvergenz au
 Ist eine stetige Funktionenfolge gleichmässig konvergent, so ist die Grenzfunktion wiederum stetig.
 ```
 
-#### Cauchy-Folge
+### Cauchy-Folge
 
 Der Begriff der Cauchy-Folge folge kann direkt auf metrische Räume übertragen werden:
 
@@ -490,7 +488,7 @@ Jede kompakte Teilmenge $A$ eines metrischen Raumes $X$ ist beschränkt und abge
 Die Umkehrung gilt im allgemeinen nicht. 
 
 (BestapproximationMetrisch)=
-#### Bestapproximation in metrischen Räumen
+### Bestapproximation in metrischen Räumen
 
 In der Approximationstheorie stellt sich das Grundproblem: In einem metrischen Raum $X$ sei eine Teilmenge $A$ und ein fester Punkt $y\in X$ vorgegeben. Zu bestimmen ist ein Punkt $x_0 \in A$, der von $y$ minimalen Abstand hat. Das Problem beginnt schon damit, dass es nicht klar, ist, dass es einen solchen Punkt überhaupt gibt:
 
@@ -510,7 +508,7 @@ Betrachten wir das obige Beispiel angepasst auf die Voraussetzung im Satz: Sei $
 
 % Anwendung!
 
-
+% Macht Probleme beim LaTeX Build...
 ```{figure} Bestapproximation.png
 ---
 align: left
@@ -520,8 +518,7 @@ name: directive-fig
 Bestapproximation
 ```
 
-
-### Normierte Räume. Banachräume
+## Normierte Räume. Banachräume
 
 Bis jetzt haben wir sehr wenig Eigenschaften eines Raumes benötigt. Was uns noch fehlt, sind abgesehen vom Abstand der Elemente noch *algebraische* Eigenschaften (addieren, multiplizieren, etc.). Dazu definieren wir den *linearen Raum* (oder *Vektorraum*) wie folgt.
 
@@ -646,11 +643,8 @@ Ein vollständiger normierter Raum heisst *Banachraum*.
 
 * $\mathbb{R}^n$ mit der Norm $\|x\| = \sqrt{\sum_{k=1}^n |x_k|^2}$.
 * $C[a,b]$ mit der Norm $\|x\| := \max_{a\le t \le b} |x(t)|$.
-* $C^k[a,b]$ mit der Norm
-  
-  $$\|x\| := \max_{a\le t \le b} |x(t)| + \max_{a\le t \le b} |x'(t)| + \ldots + \max_{a\le t \le b} |x^{(k)}(t)|.$$
-  
-* $l_p\ (1\le p y \infty)$ mit der Norm $\|x\| = \left(\sum_{k=1}^{\infty} |x_k|^p \right)^{1/p}$
+* $C^k[a,b]$ mit der Norm $\|x\| := \max_{a\le t \le b} |x(t)| + \max_{a\le t \le b} |x'(t)| + \ldots + \max_{a\le t \le b} |x^{(k)}(t)|.$  
+* $l_p\ (1\le p < \infty)$ mit der Norm $\|x\| = \left(\sum_{k=1}^{\infty} |x_k|^p \right)^{1/p}$
 
 ```{admonition} Definition: abzählbare Basis
 Man sagt, dass $X$ eine *abzählbare Basis* $\{x_k\}_{k=1}^{\infty}$ mit $x_k \in X$ besitzt, falls jedes $x\in X$ eindeutig in der Form $x = \sum_{k=1}^{\infty} \alpha_k\,x_k$ darstellbar ist, wobei die Konvergenz bezüglich der Norm von $X$ zu verstehen ist.
@@ -712,7 +706,7 @@ Mit diesem Satz folgt
 Jeder endlich-dimensionale normierte Raum $X$ ist vollständig, also ein Banachraum.
 ```
 
-### Skalarprodukträume. Hilberträume
+## Skalarprodukträume. Hilberträume
 
 Das aus der linearen Algebra bekannte Skalarprodukt lässt sich auch auf unendlich-dimensionale Räume übertragen. Wir definieren ganz allgemein
 
@@ -962,3 +956,7 @@ Es sei $X$ ein Hilbertraum und $\{x_k\}_{k\in\mathbb{N}}$ ein (abzählbares) ONS
 
   $$x = \sum_{k=1}^\infty (x,x_k)\,x_k.$$
 ```
+
+:::{seealso}
+[Beispiel zur Fourierentwicklung.](BeispielFourierEntwicklung.ipynb)
+:::

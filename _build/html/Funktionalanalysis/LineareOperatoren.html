@@ -54,7 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Einführung PDE" href="../PDE/IntroPDE.html" />
+    <link rel="next" title="Sobolevräume" href="Sobolevraeume.html" />
     <link rel="prev" title="Beispiel zur Fourierentwicklung" href="BeispielFourierEntwicklung.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -111,13 +111,13 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Teil 1
+  Funktionalanalysis
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="GrundlegendeRaeume.html">
-   Funktionalanalysis
+   Grundlegende Räume
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -140,6 +140,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Lineare Operatoren
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Sobolevraeume.html">
+   Sobolevräume
   </a>
  </li>
 </ul>
@@ -272,6 +277,24 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beschrankte-lineare-operatoren">
+   Beschränkte lineare Operatoren
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lineare-funktionale">
+   Lineare Funktionale
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -282,6 +305,143 @@
                 
   <div class="section" id="lineare-operatoren">
 <h1>Lineare Operatoren<a class="headerlink" href="#lineare-operatoren" title="Permalink to this headline">¶</a></h1>
+<p>Viele Aufgaben in der Mathematik und den Anwendungen führen auf Gleichungen der Form</p>
+<div class="math notranslate nohighlight">
+\[T(x) = T x = y,\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(T: X \to Y\)</span> eine “lineare Abbildung”, <span class="math notranslate nohighlight">\(X, Y\)</span> normierte Räume sind und <span class="math notranslate nohighlight">\(y\in Y\)</span> ein gegeben ist.</p>
+<div class="admonition-definition-lineare-abbildung admonition">
+<p class="admonition-title">Definition: lineare Abbildung</p>
+<p>Die <em>Abbildung</em> <span class="math notranslate nohighlight">\(T\)</span> des normierten Raumes <span class="math notranslate nohighlight">\(X\)</span> in den normierten Raum <span class="math notranslate nohighlight">\(Y\)</span> heisst <em>linear</em>, wenn für alle <span class="math notranslate nohighlight">\(x,y \in X\)</span> und alle <span class="math notranslate nohighlight">\(\alpha \in \mathbb{K}\)</span></p>
+<div class="math notranslate nohighlight">
+\[T(x+y) = T x + T y\]</div>
+</div>
+<div class="section" id="beschrankte-lineare-operatoren">
+<h2>Beschränkte lineare Operatoren<a class="headerlink" href="#beschrankte-lineare-operatoren" title="Permalink to this headline">¶</a></h2>
+<p>Analog zum Stetigkeitsbegriff aus der Analysis definiert man die Stetigkeit und Beschränktheit bei linearen Operatoren wie folgt:</p>
+<div class="admonition-definition-stetig admonition">
+<p class="admonition-title">Definition: stetig</p>
+<p>Sei <span class="math notranslate nohighlight">\(T: X\to Y\)</span> ein linearer Operator und <span class="math notranslate nohighlight">\(X, Y\)</span> normierte Räume. Der lineare Operator <span class="math notranslate nohighlight">\(T\)</span> heisst <em>stetig</em> in <span class="math notranslate nohighlight">\(x_0\in X\)</span>, wenn es zu jedem <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span> ein <span class="math notranslate nohighlight">\(\delta = \delta(\epsilon, x_0)&gt;0\)</span> gibt, so dass</p>
+<div class="math notranslate nohighlight">
+\[\| T x- T x_0\|_Y &lt; \varepsilon\quad\text{für alle}\ x\in X \quad\text{mit}\ \|x-x_0\|_X &lt; \delta\]</div>
+<p>gilt. Man nennt <span class="math notranslate nohighlight">\(T\)</span> <em>stetig in</em> <span class="math notranslate nohighlight">\(X\)</span>, wenn <span class="math notranslate nohighlight">\(T\)</span> in jedem Punkt von <span class="math notranslate nohighlight">\(X\)</span> stetig ist.</p>
+</div>
+<div class="admonition-definition-beschrankt admonition">
+<p class="admonition-title">Definition: beschränkt</p>
+<p>Es seien <span class="math notranslate nohighlight">\(X, Y\)</span> normierte Räume. Der lineare Operator <span class="math notranslate nohighlight">\(T: X \to Y\)</span> heisst <em>beschränkt</em>, wenn es eine Konstante <span class="math notranslate nohighlight">\(C&gt;0\)</span> mit</p>
+<div class="math notranslate nohighlight" id="equation-eq-beschrlinop">
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-beschrlinop" title="Permalink to this equation">¶</a></span>\[\|T x\|_Y \le C\, \|x\|_X\quad\forall\,x\in X\]</div>
+<p>gibt.</p>
+</div>
+<p>Die Menge aller linearen Abbildungen mit der sogenannten Operatornorm versehen, liefert uns wieder einen normierten Vektorraum. Die Operatornorm (vgl. Matrixnorm aus der Numerik oder linearen Algebra) ist gegeben durch</p>
+<div class="admonition-definition-operatornorm admonition">
+<p class="admonition-title">Definition: Operatornorm</p>
+<p>Die kleinste Zahl <span class="math notranslate nohighlight">\(C&gt;0\)</span> für die <a class="reference internal" href="#equation-eq-beschrlinop">(7)</a> gilt, heisst <em>Operatornorm von</em> <span class="math notranslate nohighlight">\(T\)</span> und ist durch</p>
+<div class="math notranslate nohighlight" id="equation-eq-operatornorm">
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-operatornorm" title="Permalink to this equation">¶</a></span>\[\begin{split}\|T\|_{X\to Y} := \sup_{\substack{x\in X\\x\not= 0}} \frac{\|T x\|_Y}{\|x\|_X}\end{split}\]</div>
+<p>definiert.</p>
+</div>
+<p><strong>Bemerkung</strong>: Mit der Norm von <span class="math notranslate nohighlight">\(T\)</span> lässt sich die Ungleichung <a class="reference internal" href="#equation-eq-beschrlinop">(7)</a> auch in der Form</p>
+<div class="math notranslate nohighlight">
+\[\|T x\|_Y \le \|T\|_{X\to Y}\ \|x\|_X\]</div>
+<p>schreiben. Die Operatornorm lässt sich anstelle der Schreibweise <a class="reference internal" href="#equation-eq-operatornorm">(8)</a> auch durch</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\|T\|_{X\to Y} = \sup_{\substack{x\in X\\x\not= 0}} \frac{\|T x\|_Y}{\|x\|_X} = \sup_{\|x\|_X \le 1} \|T x\|_Y\end{split}\]</div>
+<p>schreiben.</p>
+<p>Zwischen stetigen und beschränkten Operatoren besteht der Zusammenhang</p>
+<div class="admonition-satz admonition">
+<p class="admonition-title">Satz</p>
+<p>Sei <span class="math notranslate nohighlight">\(T: X\to Y\)</span> ein linearer Operator und <span class="math notranslate nohighlight">\(X,Y\)</span> normierte Räume. Dann gilt</p>
+<div class="math notranslate nohighlight">
+\[T\ \text{ist beschränkt} \quad\Leftrightarrow \quad T\ \text{ist stetig.}\]</div>
+</div>
+<p><strong>Beweis</strong>:
+a) Sei <span class="math notranslate nohighlight">\(T\)</span> beschränkt durch <span class="math notranslate nohighlight">\(C&gt;0\)</span> und <span class="math notranslate nohighlight">\(x_0\in X\)</span> beliebig. Wir zeigen nun, dass es zu jedem <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span> ein <span class="math notranslate nohighlight">\(\delta=\delta(x_0)\)</span> gibt, so dass</p>
+<div class="math notranslate nohighlight">
+\[\| T x - T x_0\|_Y &lt; \epsilon\quad \forall \|x -x_0\|_X &lt; \delta.\]</div>
+<p>Wähle <span class="math notranslate nohighlight">\(\delta = \frac{\epsilon}{C}\)</span>, dann folgt</p>
+<div class="math notranslate nohighlight">
+\[\| T x - T x_0\|_Y = \|T (x-x_0)\|_Y \le C \underbrace{\|x-x_0\|_X}_{&lt; \delta} &lt; C \frac{\varepsilon}{C} = \varepsilon\]</div>
+<p>dh. <span class="math notranslate nohighlight">\(T\)</span> ist in <span class="math notranslate nohighlight">\(x_0\)</span> stetig und da <span class="math notranslate nohighlight">\(x_0\in X\)</span> beliebig ist, in ganz <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>b) Sei nun <span class="math notranslate nohighlight">\(T\)</span> auf <span class="math notranslate nohighlight">\(X\)</span> stetig. Wir zeigen im Widerspruch, dass <span class="math notranslate nohighlight">\(T\)</span> beschränkt ist. Daher nehmen wir an: <span class="math notranslate nohighlight">\(T\)</span> sei nicht beschränkt. Also gibt es eine Folge <span class="math notranslate nohighlight">\(\{x_k\} \subset X\)</span> mit <span class="math notranslate nohighlight">\(x_k \not=0\)</span> und <span class="math notranslate nohighlight">\(\frac{\|T x_k\|_Y}{\|x_k\|_X} &gt; k\)</span> für alle <span class="math notranslate nohighlight">\(k\in \mathbb{N}\)</span>. Setze nun <span class="math notranslate nohighlight">\(y_k = \frac{x_k}{k \|x_k\|_X}\)</span>, so folgt <span class="math notranslate nohighlight">\(y_k\in X\)</span> und</p>
+<div class="math notranslate nohighlight" id="equation-eq-bewstetigbeschraenkt">
+<span class="eqno">(9)<a class="headerlink" href="#equation-eq-bewstetigbeschraenkt" title="Permalink to this equation">¶</a></span>\[\|T y_k\|_Y = \left\| T\left(\frac{x_k}{k \|x_k\|_X}\right)\right\|_Y = \frac{\|T x_k\|_Y}{k \|x_k\|_X} &gt; 1\]</div>
+<p>für alle <span class="math notranslate nohighlight">\(k\in \mathbb{N}\)</span>. Andererseits gilt: <span class="math notranslate nohighlight">\(\|y_k\|_X = \frac{1}{k} \to 0\)</span> für <span class="math notranslate nohighlight">\(k\to \infty\)</span> bzw. <span class="math notranslate nohighlight">\(y_k \to 0\)</span>. Aus der Stetigkeit von <span class="math notranslate nohighlight">\(T\)</span> in <span class="math notranslate nohighlight">\(0\)</span> folgt <span class="math notranslate nohighlight">\(T y_k \to 0\)</span> für <span class="math notranslate nohighlight">\(k\to\infty\)</span>, was im Widerspruch zu <a class="reference internal" href="#equation-eq-bewstetigbeschraenkt">(9)</a> steht. <span class="math notranslate nohighlight">\(\Box\)</span></p>
+<blockquote>
+<div><p>Bei linearen Operatoren sind Stetigkeit und Beschränktheit äquivalente Eigenschaften.</p>
+</div></blockquote>
+<p><strong>Beispiel</strong>: Sei <span class="math notranslate nohighlight">\(X=Y=C[a,b]\)</span>, <span class="math notranslate nohighlight">\(f\in C[a,b]\)</span> und <span class="math notranslate nohighlight">\(\|f\| = \max_{a\le x \le b} |f(x)|\)</span>. Betrachte den <em>Integraloperator</em> <span class="math notranslate nohighlight">\(T\)</span> mit</p>
+<div class="math notranslate nohighlight">
+\[(T f)(x) := \int_a^b K(x,y) f(y) dy,\quad x\in [a,b]\]</div>
+<p>mit <span class="math notranslate nohighlight">\(K: [a,b] \times [a,b] \to \mathbb{R}\)</span> stetigem <em>Kern</em>.</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(T\)</span> ist ein linearer Operator, der <span class="math notranslate nohighlight">\(C[a,b]\)</span> auf sich abbildet.</p></li>
+<li><p>Da <span class="math notranslate nohighlight">\(f\)</span> stetig auf <span class="math notranslate nohighlight">\([a,b]\)</span> ist, ist <span class="math notranslate nohighlight">\(f\cdot K\)</span> stetig auf <span class="math notranslate nohighlight">\([a,b]\times [a,b]\)</span> und damit ist auch (vgl. Satz 7.17 in <span id="id1">[<a class="reference internal" href="../Appendix.html#id3">BWHM17</a>]</span>)</p>
+<div class="math notranslate nohighlight">
+\[F(x) := \int_a^b K(x,y) f(y) dy\]</div>
+<p>stetig auf <span class="math notranslate nohighlight">\([a,b]\)</span>.</p>
+</li>
+<li><p>Da <span class="math notranslate nohighlight">\(K\)</span> stetig auf <span class="math notranslate nohighlight">\([a,b] \times [a,b]\)</span> ist, existiert</p>
+<div class="math notranslate nohighlight">
+\[M = \max_{x,y \in [a,b]} |K(x,y)|\]</div>
+<p>und somit</p>
+<div class="math notranslate nohighlight">
+\[\|T f|| = \max_{x\in[a,b]} |(T f)(x)| \le \max_{x\in[a,b]} \int_a^b |K(x,y)| |f(y)| dy \le M\,\max_{x\in[a,b]} |f(x)|\ \int_a^b 1 dy = M\,(b-a)\,\|f\|.\]</div>
+<p>Damit ist <span class="math notranslate nohighlight">\(T\)</span> bezüglich der Maximumsnorm beschränkt. Es gilt</p>
+<div class="math notranslate nohighlight">
+\[\|T\| = \sup_{\|f\|=1} \|T f\| \le M\, (b-a).\]</div>
+</li>
+</ul>
+<div class="admonition-satz admonition">
+<p class="admonition-title">Satz</p>
+<p>Seien <span class="math notranslate nohighlight">\(X, Y\)</span> normierte Räume und mit <span class="math notranslate nohighlight">\(L(X,Y)\)</span> die Menge aller beschränkten linearen Operatoren von <span class="math notranslate nohighlight">\(X\)</span> in <span class="math notranslate nohighlight">\(Y\)</span> bezeichnet. Dann ist <span class="math notranslate nohighlight">\(L(X,Y)\)</span> bezüglich der Operatornorm</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\|T\| = \sup_{\substack{x\in X\\x\not= 0}} \frac{\|T x\|_Y}{\|x\|_X}\end{split}\]</div>
+<p>wieder ein normierter Raum.</p>
+<p>Ist <span class="math notranslate nohighlight">\(X\)</span> ein normierter Raum und <span class="math notranslate nohighlight">\(Y\)</span> ein <em>Banachraum</em>, dann ist <span class="math notranslate nohighlight">\(L(X,Y)\)</span> ein Banachraum.</p>
+</div>
+</div>
+<div class="section" id="lineare-funktionale">
+<h2>Lineare Funktionale<a class="headerlink" href="#lineare-funktionale" title="Permalink to this headline">¶</a></h2>
+<p>Wir betrachten nun spezielle lineare Operatoren, welche in den zugrunde liegenden Zahlenkörper abbilden.</p>
+<div class="admonition-definition-lineares-funktional admonition">
+<p class="admonition-title">Definition: lineares Funktional</p>
+<p>Sei <span class="math notranslate nohighlight">\(X\)</span> ein normierter Raum. Dann nennt man den Operator <span class="math notranslate nohighlight">\(F: X \to \mathbb{K}\)</span> (<span class="math notranslate nohighlight">\(\mathbb{R}\)</span> oder <span class="math notranslate nohighlight">\(\mathbb{C}\)</span>) <em>lineares Funktional</em>.</p>
+</div>
+<p>Normiert man <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> mit</p>
+<div class="math notranslate nohighlight">
+\[\|\alpha\| := |\alpha|,\quad\alpha\in\mathbb{K}\]</div>
+<p>so ist <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> ein Banachraum und damit die Menge aller beschränkten linearen Funktionale auf <span class="math notranslate nohighlight">\(X\)</span> ein Banachraum. Dieser Raum ist insbesondere im Zusammenhang mit partiellen Differentialgleichungen sehr wichtig.</p>
+<div class="admonition-dualraum-von-x admonition">
+<p class="admonition-title">Dualraum von <span class="math notranslate nohighlight">\(X\)</span></p>
+<p>Der Banachraumm <span class="math notranslate nohighlight">\(L(X,\mathbb{K})\)</span> aller beschränkten linearen Funktionale auf <span class="math notranslate nohighlight">\(X\)</span> heisst der zu <span class="math notranslate nohighlight">\(X\)</span> <em>konjugierte</em> oder <em>duale Raum</em> und wird mit <span class="math notranslate nohighlight">\(X^*\)</span> oder <span class="math notranslate nohighlight">\(X'\)</span> bezeichnet.</p>
+</div>
+<p><strong>Beispiel</strong>: Sei <span class="math notranslate nohighlight">\(X\)</span> ein Hilbertraum und <span class="math notranslate nohighlight">\(y_0\)</span> ein beliebiges (festes) Element aus <span class="math notranslate nohighlight">\(X\)</span>. Für <span class="math notranslate nohighlight">\(x\in X\)</span> wird durch</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+F : X &amp; \to \mathbb{R}\\
+ x &amp; \mapsto y = F x := (x,y_0)\end{split}\end{split}\]</div>
+<p>ein lineares Funktional <span class="math notranslate nohighlight">\(F\)</span> definiert. (Die Linearität folgt direkt aus den Eigenschaften des Skalarprodukts.) Mit Hilfe der Schwarzschen Ungleichung folgt</p>
+<div class="math notranslate nohighlight">
+\[\|F x\| = |F x| = |(x,y_0)| \le \|x\|\,\|y_0\|\quad\forall\ x\in X.\]</div>
+<p>Damit folgt</p>
+<div class="math notranslate nohighlight">
+\[\frac{\|F x\|}{\|x\|} \le \|y_0\|\quad \forall x\in X,\]</div>
+<p>sprich <span class="math notranslate nohighlight">\(F\)</span> ist ein beschränktes lineares Funktional, <span class="math notranslate nohighlight">\(F\in X^*\)</span> mit <span class="math notranslate nohighlight">\(\|F\| \le \|y_0\|\)</span>. Da für <span class="math notranslate nohighlight">\(x=y_0\)</span></p>
+<div class="math notranslate nohighlight">
+\[\|F y_0\| = |(y_0,y_0)| = \|y_0\|^2 = \|y_0\|\, \|y_0\|\]</div>
+<p>gilt, folgt</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\|F\| = \sup_{\substack{x\in X\\x\not= 0}} \frac{\|F x\|}{\|x\|} = \|y_0\|.\end{split}\]</div>
+<p>Wir kommen nun zum Rieszschen Darstellungssatz: Beschränkte lineare Funktionale eines Hilbertraumes <span class="math notranslate nohighlight">\(X\)</span> lassen sich besonders einfach darstellen. Die Darstellung aus obigem Beispiel erfasst <strong>alle</strong> beschränkten linearen Funktionale. Es gilt</p>
+<div class="admonition-satz-darstellungssatz-von-riesz admonition">
+<p class="admonition-title">Satz: Darstellungssatz von Riesz</p>
+<p>Sei <span class="math notranslate nohighlight">\(X\)</span> ein Hilbertraum und <span class="math notranslate nohighlight">\(F\in X^*\)</span> beliebig. Dann gibt es ein <em>eindeutig</em> bestimmtes <span class="math notranslate nohighlight">\(y\in X\)</span>, so dass <span class="math notranslate nohighlight">\(F\)</span> die Darstellung</p>
+<div class="math notranslate nohighlight">
+\[F x = (x,y)\quad\forall x\in X\]</div>
+<p>besitzt.</p>
+</div>
+<p><strong>Bemerkung</strong>: Dieser Satz ist das zentrale Ergebnis der Hilbertraum-Theorie. Neben seiner Bedeutung als Darstellungssatz kann er auch als Existenz- und Eindeutigkeitsprinzip aufgefasst werden. Diese Bedeutung des Rieszschen Satzes ist Grundlage für die moderne Theorie der elliptischen partiellen Differentialgleichungen.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -310,7 +470,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="BeispielFourierEntwicklung.html" title="previous page">Beispiel zur Fourierentwicklung</a>
-    <a class='right-next' id="next-link" href="../PDE/IntroPDE.html" title="next page">Einführung PDE</a>
+    <a class='right-next' id="next-link" href="Sobolevraeume.html" title="next page">Sobolevräume</a>
 
         </div>
         
