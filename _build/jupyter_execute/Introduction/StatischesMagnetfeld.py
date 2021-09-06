@@ -11,7 +11,11 @@ from ngsolve import *
 from ngsolve.webgui import Draw
 
 
+# Die Quelle des Beispiels ist in der NGSolve Dokumentation {cite}`schoeberlNGSolveDoc`.
+
 # ## Geometrie
+
+# Mit Hilfe der `netgen` Bibliothek können auch einfach 3D Geometrien beschrieben werden. Für komplexere kann auf die OCC Bibliothek zurückgegriffen werden.
 
 # In[2]:
 
@@ -41,8 +45,117 @@ mesh.Curve(5)
 Draw (mesh, clipping = { "pnt" : (0,0,0), "vec" : (0,1,0) })
 
 
-# In[ ]:
+# ```{figure} image.png
+# ---
+# align: left
+# height: 250px
+# name: MagfeldGeometrie
+# ---
+# Geometrie
+# ```
+
+# ## Magnetostatisches Problem
+
+# Mit Hilfe Maxwell Gleichungen folgt das partielle Differentialgleichungssystem für statische Magnetfelder, gegeben durch
+# 
+# $$\begin{split}
+# \mathop{curl} H & = j\\
+# \mathop{div} B & = 0.
+# \end{split}$$
+# 
+# Mit Hilfe des Vektorpotential Ansatz $B = \mathop{curl} A$, motiviert durch die Forderung $\mathop{div} B = 0$ folgt die PDE
+# 
+# $$\mathop{curl} (\mu^{-1}(x) \mathop{curl} A) = j,$$
+# 
+# wobei $A$ das gesuchte Vektorpotential und $j$ eine externe Stromdichte sei.
+# 
+# Wir können wiederum eine schwache Gleichung berechnen, wobei der geeignete Funktionenraum in dem Fall durch den $H(\mathop{curl})$ gegeben ist. Die schwache Gleichung lautet
+# 
+# $$\int_\Omega \mu^{-1}(x) \mathop{curl} A \cdot \mathop{curl} \Psi dx = \int_\Omega j(x)\cdot \Psi dx\quad \forall\  \Psi\in H(\mathop{curl}, \Omega).$$ (eq:magnetostatic)
+
+# In[4]:
 
 
+V = HCurl(mesh,order=3)
+u,v = V.TnT()
+gfu = GridFunction(V)
 
 
+# Das Rechengebiet $\Omega$ setzt sich hier aus den Teilgebiete
+# * Luft (air)
+# * Kern (core)
+# * Spule (coil)
+# zusammen.
+
+# In[5]:
+
+
+mesh.GetMaterials()
+
+
+# Auf den jeweiligen Teilgebiete haben wir unterschiedliche Materialien, welche sich in der relativen Permeabilität unterscheiden. Wir definieren die relative Permeabilität wie folgt:
+
+# In[6]:
+
+
+mur = { "core" : 1000, "coil" : 1, "air" : 1 }
+mu0 = 1.257e-6
+nu_coef = [ 1/(mu0*mur[mat]) for mat in mesh.GetMaterials() ]
+nu = CoefficientFunction(nu_coef)
+
+
+# Um die eingeprägte Stromdichte in der Spule beschreiben zu können, ist der Richtungsvektor $w$ der Stromdichte erforderlich. Wir haben im Beispiel eine zylindrische Spule. Entsprechend definieren wir den Richtungsvektor $w$
+
+# In[7]:
+
+
+w = CoefficientFunction((y,0.05-x,0))/sqrt(x*x+y*y)
+
+
+# Damit können wir nun die Bilinearform und Linearform des Systems {eq}`eq:magnetostatic` definieren und berechnen:
+
+# In[8]:
+
+
+a = BilinearForm(V)
+a += nu*curl(u)*curl(v)*dx + 1e-6*nu*u*v*dx
+
+f = LinearForm(V)
+f += w * v * dx("coil")
+
+
+# Da das Problem abhängig von Mesh Grösse und Polynomordnung der FEM Basisfunktionen schon recht gross werden kann, benutzen wir einen iterativen Solver:
+
+# In[9]:
+
+
+c = Preconditioner(a, type="multigrid")
+
+
+# Nun berechnen wir die Systemmatrix, den rechten Vektor und die Lösung des Systems parallel mit shared Memory:
+
+# In[10]:
+
+
+with TaskManager():
+    a.Assemble()
+    f.Assemble()
+    solver = CGSolver(mat=a.mat, pre=c.mat)
+    gfu.vec.data = solver * f.vec
+
+
+# In[11]:
+
+
+Draw (curl(gfu), mesh, "B-field", draw_surf=False,       clipping = { "pnt" : (0,0,0), "vec" : (0,1,0), "function" : False },
+      vectors = { "grid_size" : 100 })
+
+
+# ```{figure} bfield.png
+# ---
+# align: left
+# height: 250px
+# name: Magfeld
+# ---
+# B-Feld
+# ```

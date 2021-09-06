@@ -116,6 +116,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction/VariableKoeffizienten.html">
+     Variable Koeffizienten
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../Introduction/StatischesMagnetfeld.html">
      Maxwell Gleichungen
     </a>
@@ -546,7 +551,7 @@
 <p class="admonition-title">Aufgabe</p>
 <p>Zeige, dass für <span class="math notranslate nohighlight">\(X = C[0,1]\)</span>, den stetigen Funktionen auf dem Intervall <span class="math notranslate nohighlight">\([0,1]\)</span> die Abbildung</p>
 <div class="math notranslate nohighlight" id="equation-eq-maxnorm">
-<span class="eqno">(7)<a class="headerlink" href="#equation-eq-maxnorm" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{split}d_{\text{max}} : X \times X &amp; \to \mathbb{R}^+\\
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-maxnorm" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{split}d_{\text{max}} : X \times X &amp; \to \mathbb{R}^+\\
 (x,y) &amp; \mapsto d_{\text{max}}(x,y) := \max_{t\in[0,1]} |x(t)-y(t)|\end{split}\end{split}\]</div>
 <p>eine Metrik definiert (<em>Maximumsmetrik</em>).</p>
 </div>
@@ -697,7 +702,7 @@
 <img alt="../_images/GrundlegendeRaeume_9_0.png" src="../_images/GrundlegendeRaeume_9_0.png" />
 </div>
 </div>
-<p>Das Problem der punktweisen Konvergenz besteht darin, dass für jedes <span class="math notranslate nohighlight">\(t\in\mathbb{R}\)</span> eine eigene Schranke <span class="math notranslate nohighlight">\(\varepsilon = \varepsilon(t)\)</span> gewählt werden kann. Dies ist zu schwach, um garantieren zu können, dass eine konvergente Funktionenfolge wieder stetig ist. Wir benutzen nun die Maximumsmetrik <a class="reference internal" href="#equation-eq-maxnorm">(7)</a>. Daraus folgt, dass zu jedem <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span> es ein <span class="math notranslate nohighlight">\(n_0 = n_0(\varepsilon) \in \mathbb{N}\)</span> mit</p>
+<p>Das Problem der punktweisen Konvergenz besteht darin, dass für jedes <span class="math notranslate nohighlight">\(t\in\mathbb{R}\)</span> eine eigene Schranke <span class="math notranslate nohighlight">\(\varepsilon = \varepsilon(t)\)</span> gewählt werden kann. Dies ist zu schwach, um garantieren zu können, dass eine konvergente Funktionenfolge wieder stetig ist. Wir benutzen nun die Maximumsmetrik <a class="reference internal" href="#equation-eq-maxnorm">(8)</a>. Daraus folgt, dass zu jedem <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span> es ein <span class="math notranslate nohighlight">\(n_0 = n_0(\varepsilon) \in \mathbb{N}\)</span> mit</p>
 <div class="math notranslate nohighlight">
 \[\max_{t\in\mathbb{R}} |x_n(t) - x(t)| &lt; \varepsilon\quad \text{für alle}\ n \ge n_0\]</div>
 <p>geben muss. Zu jedem <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span> ist hier im Sinne von “beliebig klein” zu verstehen. Der grosse Unterschied zur punktweisen Konvergenz ist, dass hier das <span class="math notranslate nohighlight">\(\varepsilon\)</span> <strong>für alle</strong> <span class="math notranslate nohighlight">\(t\in\mathbb{R}\)</span> das selbe ist. In diesem Sinne ist jedoch die Funktionenfolge <span class="math notranslate nohighlight">\(x_n\)</span> nicht mehr konvergent:</p>
@@ -774,11 +779,11 @@
 </ol>
 <p>Dagegen ist <span class="math notranslate nohighlight">\(C[a,b]\)</span> bezüglich der Integralmetrik</p>
 <div class="math notranslate nohighlight" id="equation-eq-lpmetrik">
-<span class="eqno">(8)<a class="headerlink" href="#equation-eq-lpmetrik" title="Permalink to this equation">¶</a></span>\[d(x,y) = \left(\int_a^b |x(t)-y(t)|^p dt \right)^{1/p},\quad 1\le p &lt; \infty\]</div>
+<span class="eqno">(9)<a class="headerlink" href="#equation-eq-lpmetrik" title="Permalink to this equation">¶</a></span>\[d(x,y) = \left(\int_a^b |x(t)-y(t)|^p dt \right)^{1/p},\quad 1\le p &lt; \infty\]</div>
 <p><strong>nicht</strong> vollständig. Wir betrachten dazu für <span class="math notranslate nohighlight">\(p=2\)</span> auf <span class="math notranslate nohighlight">\(C[0,1]\)</span> folgendes Gegenbeispiel:</p>
 <p>Sei <span class="math notranslate nohighlight">\(t\in[0,1]\)</span></p>
 <div class="math notranslate nohighlight" id="equation-eq-gegenbeispiel">
-<span class="eqno">(9)<a class="headerlink" href="#equation-eq-gegenbeispiel" title="Permalink to this equation">¶</a></span>\[\begin{split}x_n(t) := \begin{cases}
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-gegenbeispiel" title="Permalink to this equation">¶</a></span>\[\begin{split}x_n(t) := \begin{cases}
 n^\alpha\quad\text{für}\ t \le 1/n\\
 \frac{1}{t^\alpha}\quad\text{für}\ t &gt; 1/n\end{cases}\end{split}\]</div>
 <p>und <span class="math notranslate nohighlight">\(x(t) = \frac{1}{t^\alpha}\)</span> für <span class="math notranslate nohighlight">\(0&lt;\alpha&lt;1/2\)</span>.</p>
@@ -825,7 +830,7 @@ Für <span class="math notranslate nohighlight">\(t \le (2M)^{-1/\alpha}\)</span
 <p>im Widerspruch zur Annahme, dass <span class="math notranslate nohighlight">\(\{x_n(t)\}\)</span> gegen <span class="math notranslate nohighlight">\(y(t)\)</span> konvergiert. Damit ist die Behauptung bewiesen. <span class="math notranslate nohighlight">\(\Box\)</span></p>
 <p>Die Tatsache, daß <span class="math notranslate nohighlight">\(C[a,b]\)</span>, versehen mit einer Integralmetrik, kein vollständiger metrischer Raum ist, bedeutet einen schwerwiegenden Mangel dieses Raumes. Jedoch gibt es mehrere Wege der Vervollständigung:</p>
 <ol class="simple">
-<li><p>Man erweitert die Klasse <span class="math notranslate nohighlight">\(C[a,b]\)</span> zur Klasse der auf <span class="math notranslate nohighlight">\([a,b]\)</span> Lebesgue-integrierbaren Funktionen und interpretiert das in <a class="reference internal" href="#equation-eq-lpmetrik">(8)</a> auftretende Integral im Lebesgueschen Sinn. Dadurch gelangt man zum vollständigen metrischen Raum <span class="math notranslate nohighlight">\(L_p[a, b]\)</span> (vgl. <span id="id1">[<a class="reference internal" href="../Appendix.html#id4">Heu08</a>]</span>, S. 109).</p></li>
+<li><p>Man erweitert die Klasse <span class="math notranslate nohighlight">\(C[a,b]\)</span> zur Klasse der auf <span class="math notranslate nohighlight">\([a,b]\)</span> Lebesgue-integrierbaren Funktionen und interpretiert das in <a class="reference internal" href="#equation-eq-lpmetrik">(9)</a> auftretende Integral im Lebesgueschen Sinn. Dadurch gelangt man zum vollständigen metrischen Raum <span class="math notranslate nohighlight">\(L_p[a, b]\)</span> (vgl. <span id="id1">[<a class="reference internal" href="../Appendix.html#id4">Heu08</a>]</span>, S. 109).</p></li>
 <li><p>Ein anderer Weg besteht darin, dass der vollständige Erweiterungsraum als Menge von linearen Funktionalen auf einem geeigneten Grundraum nach dem Vorbild der Distributionentheorie aufgefasst wird.</p></li>
 <li><p>Ein weiterer Weg besteht in der abstrakten Konstruktion eines vollständigen Erweiterungsraums mit Hilfe von Cauchy-Folgen. Auf diese Weise lässt sich <strong>jeder</strong> nichtvollständige metrische Raum vervollständigen (vgl. <span id="id2">[<a class="reference internal" href="../Appendix.html#id5">Heu06</a>]</span>, S. 251)</p></li>
 </ol>
@@ -858,7 +863,7 @@ Für <span class="math notranslate nohighlight">\(t \le (2M)^{-1/\alpha}\)</span
 <p>Betrachten wir das obige Beispiel angepasst auf die Voraussetzung im Satz: Sei <span class="math notranslate nohighlight">\(A = [0,1] \subset \mathbb{R}\)</span> ein kompaktes Intervall, dann ist der Punkt <span class="math notranslate nohighlight">\(x_0 = 1\)</span> bestapproximierendes Element.</p>
 <div class="figure align-left" id="fig-bestapproximation">
 <a class="reference internal image-reference" href="../_images/Bestapproximation.png"><img alt="../_images/Bestapproximation.png" src="../_images/Bestapproximation.png" style="height: 250px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Bestapproximation</span><a class="headerlink" href="#fig-bestapproximation" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Bestapproximation</span><a class="headerlink" href="#fig-bestapproximation" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -1044,7 +1049,7 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 <p class="admonition-title">Satz</p>
 <p>Alle Normen in einem <strong>endlich</strong>-dimensionalen Raum <span class="math notranslate nohighlight">\(X\)</span> sind äquivalent.</p>
 </div>
-<p>Dieses Resultat gilt für unendlich-dimensionale Räume <strong>nicht</strong>. Als Beispiel sei der lineare Raum <span class="math notranslate nohighlight">\(C[a,b]\)</span> mit der Maximumsnorm und der Quadratnorm erwähnt. Die beiden Normen sind nicht äquivalent, vgl. das Gegenbeispiel <a class="reference internal" href="#equation-eq-gegenbeispiel">(9)</a>.</p>
+<p>Dieses Resultat gilt für unendlich-dimensionale Räume <strong>nicht</strong>. Als Beispiel sei der lineare Raum <span class="math notranslate nohighlight">\(C[a,b]\)</span> mit der Maximumsnorm und der Quadratnorm erwähnt. Die beiden Normen sind nicht äquivalent, vgl. das Gegenbeispiel <a class="reference internal" href="#equation-eq-gegenbeispiel">(10)</a>.</p>
 <p>Mit diesem Satz folgt</p>
 <div class="admonition-satz admonition">
 <p class="admonition-title">Satz</p>
@@ -1061,7 +1066,7 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 \[(\cdot, \cdot) : X \times X \to \mathbb{K}\]</div>
 <p>und es gilt</p>
 <div class="math notranslate nohighlight" id="equation-eq-eigenschaftenskalarprodukt">
-<span class="eqno">(10)<a class="headerlink" href="#equation-eq-eigenschaftenskalarprodukt" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{split}
+<span class="eqno">(11)<a class="headerlink" href="#equation-eq-eigenschaftenskalarprodukt" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{split}
 (x,x) &amp; \ge 0, \quad (x,x) = 0\ \Leftrightarrow\ x=0\\
 (x,y) &amp; = \overline{(y,x)}\\
 (\alpha x, y) &amp; = \alpha (x,y)\\
@@ -1070,11 +1075,11 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 </div>
 <p>Beispielsweise lässt sich auf <span class="math notranslate nohighlight">\(X=C[a,b]\)</span> Menge der reellwertigen stetigen Funktionen auf dem Intervall <span class="math notranslate nohighlight">\([a,b]\)</span> durch</p>
 <div class="math notranslate nohighlight" id="equation-eq-l2skalarprodukt">
-<span class="eqno">(11)<a class="headerlink" href="#equation-eq-l2skalarprodukt" title="Permalink to this equation">¶</a></span>\[(x,y) := \int_a^b x(t)\,y(t) dt\quad x,y \in X\]</div>
+<span class="eqno">(12)<a class="headerlink" href="#equation-eq-l2skalarprodukt" title="Permalink to this equation">¶</a></span>\[(x,y) := \int_a^b x(t)\,y(t) dt\quad x,y \in X\]</div>
 <p>ein Skalarprodukt definieren.</p>
 <div class="admonition-aufgabe admonition">
 <p class="admonition-title">Aufgabe</p>
-<p>Weise die Eigenschaften <a class="reference internal" href="#equation-eq-eigenschaftenskalarprodukt">(10)</a> für das Skalarprodukt <a class="reference internal" href="#equation-eq-l2skalarprodukt">(11)</a> nach.</p>
+<p>Weise die Eigenschaften <a class="reference internal" href="#equation-eq-eigenschaftenskalarprodukt">(11)</a> für das Skalarprodukt <a class="reference internal" href="#equation-eq-l2skalarprodukt">(12)</a> nach.</p>
 </div>
 <div class="admonition-satz admonition">
 <p class="admonition-title">Satz</p>
@@ -1196,7 +1201,7 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 \[x_0 = \sum_{k=1}^n \lambda_k x_k\]</div>
 <p>darstellen, wobei die Koeffizienten <span class="math notranslate nohighlight">\(\lambda_1, \ldots, \lambda_n\)</span> durch das lineare Gleichungssystem</p>
 <div class="math notranslate nohighlight" id="equation-eq-bestapproxhilbert">
-<span class="eqno">(12)<a class="headerlink" href="#equation-eq-bestapproxhilbert" title="Permalink to this equation">¶</a></span>\[(x-x_0,x_i) = (x,x_i) - \sum_{k=1}^n \lambda_k (x_k,x_i) = 0 \quad i = 1, \ldots, n\]</div>
+<span class="eqno">(13)<a class="headerlink" href="#equation-eq-bestapproxhilbert" title="Permalink to this equation">¶</a></span>\[(x-x_0,x_i) = (x,x_i) - \sum_{k=1}^n \lambda_k (x_k,x_i) = 0 \quad i = 1, \ldots, n\]</div>
 <p>gegeben sind.</p>
 </div>
 <p><strong>Bemerkung</strong>: Bildet <span class="math notranslate nohighlight">\(x_k\)</span>, <span class="math notranslate nohighlight">\(k=1,\ldots, n\)</span> ein <em>Orthonormalsystem</em></p>
@@ -1204,7 +1209,7 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 \[\begin{split}(x_i,x_k) = \delta_{i k} = \begin{cases}
 0\quad \text{für}\ i\not= k\\
 1\quad \text{für}\ i = k\end{cases},\end{split}\]</div>
-<p>so folgt aus <a class="reference internal" href="#equation-eq-bestapproxhilbert">(12)</a> sofort</p>
+<p>so folgt aus <a class="reference internal" href="#equation-eq-bestapproxhilbert">(13)</a> sofort</p>
 <div class="math notranslate nohighlight">
 \[\lambda_i = (x,x_i)\quad i = 1, \ldots,n.\]</div>
 <p>Die Koeffzienten <span class="math notranslate nohighlight">\(\lambda_i\)</span> nennt man auch Fourierkoeffizienten!</p>

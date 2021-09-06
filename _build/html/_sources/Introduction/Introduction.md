@@ -10,5 +10,6 @@ beschäftigen. Um einen kleinen Einblick und Motivation in die Thematik zu gewä
 
 :::{seealso}
 * [Die Poisson Gleichung](PoissonGleichung.md)
-
+* [Variable Koeffizienten](VariableKoeffizienten.md)
+* [Magnetostatisches Feld](StatischesMagnetfeld.md)
 :::
