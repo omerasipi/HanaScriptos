@@ -6,7 +6,7 @@ Wir werden uns in diesem Modul mit
 * Numerischen Methoden für PDE
 * und den notwendigen Grundlagen
 
-beschäftigen. Um einen kleinen Einblick und Motivation in die Thematik zu gewähren, seien hier ein paar standard Beispiele erwähnt.
+beschäftigen. Um einen kleinen Einblick und Motivation in die Thematik zu gewähren, starten wir mit ein paar Beispielen:
 
 :::{seealso}
 * [Die Poisson Gleichung](PoissonGleichung.md)

@@ -1,6 +1,10 @@
 # Mac Stuff
 .DS_Store
 
+
+# NGSolve Meshes
+*.vol
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -15,6 +15,7 @@ parts:
       - file: Introduction/StatischesMagnetfeld.md
     - file: Introduction/Python.md
     - file: Introduction/NGSolve.md
+    - file: Introduction/jupyterhub.md
   - caption: Funktionalanalysis
     chapters:
     - file: Funktionalanalysis/GrundlegendeRaeume.md
