@@ -12,7 +12,7 @@ kernelspec:
 
 # Poisson Gleichung
 
-$\DeclareMathOperator{\opdiv}{div}$ $\DeclareMathOperator{\setR}{R}$
+Das folgende Beispiel folgt dem analogen aus dem interaktiven Kurs von Joachim Schöberl {cite}`schoeberliFEM`.$\DeclareMathOperator{\opdiv}{div}$ $\DeclareMathOperator{\setR}{R}$
 
 ## Problemstellung, Differentialgleichung
 

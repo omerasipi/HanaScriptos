@@ -4,6 +4,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.10.3
 kernelspec:
   display_name: Python 3
   language: python
@@ -12,7 +14,7 @@ kernelspec:
 
 # Poisson Gleichung
 
-Das folgende Beispiel folgt dem analogen aus dem interaktiven Kurs von Joachim Schöberl {cite}`schoeberliFEM`.$\DeclareMathOperator{\opdiv}{div}$ $\DeclareMathOperator{\setR}{R}$
+$\DeclareMathOperator{\opdiv}{div}$ $\DeclareMathOperator{\setR}{R}$
 
 ## Problemstellung, Differentialgleichung
 
@@ -66,7 +68,11 @@ from ngsolve.webgui import Draw
 ```
 
 ```{code-cell} ipython3
-mesh = Mesh(unit_square.GenerateMesh(maxh=0.1))
+ngmesh = unit_square.GenerateMesh()
+for k in range(2):
+    ngmesh.Refine()
+mesh = Mesh(ngmesh)
+
 Draw(mesh)
 ```
 
@@ -252,4 +258,26 @@ $$A u = f$$
 ```{code-cell} ipython3
 gfu.vec.data = a.mat.Inverse(freedofs=V.FreeDofs()) * f.vec
 Draw(gfu)
+```
+
+```{code-cell} ipython3
+import matplotlib.pyplot as plt
+import scipy.sparse as sp
+```
+
+```{code-cell} ipython3
+rows,cols,vals = a.mat.COO()
+```
+
+```{code-cell} ipython3
+A = sp.csr_matrix((vals,(rows,cols)))
+```
+
+```{code-cell} ipython3
+plt.spy(A)
+plt.show()
+```
+
+```{code-cell} ipython3
+
 ```

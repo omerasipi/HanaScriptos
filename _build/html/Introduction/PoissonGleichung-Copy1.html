@@ -1,0 +1,709 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poisson Gleichung &#8212; Höhere Analysis und Numerik</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python" href="Python.html" />
+    <link rel="prev" title="Poisson Gleichung" href="PoissonGleichung.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Höhere Analysis und Numerik</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Höhere Analysis und Numerik
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Einführung
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Introduction.html">
+   Einführung
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="PoissonGleichung.html">
+     Poisson Gleichung
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Poisson Gleichung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Python.html">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NGSolve.html">
+   NGSolve
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Funktionalanalysis
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Funktionalanalysis/GrundlegendeRaeume.html">
+   Grundlegende Räume
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Funktionalanalysis/BeispielOrthogonalisierungSchmidt.html">
+     Beispiel Orthogonalisierungsverfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Funktionalanalysis/BeispielFourierEntwicklung.html">
+     Beispiel zur Fourierentwicklung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Funktionalanalysis/LineareOperatoren.html">
+   Lineare Operatoren
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Funktionalanalysis/Sobolevraeume.html">
+   Sobolevräume
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Partielle Differentialgleichungen
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../PDE/IntroPDE.html">
+   Einführung PDE
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Teil 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NumerikPDE/NumerikPDE.html">
+   Numerik für partielle Differentialgleichungen
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Teil 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Applications/Applications.html">
+   Anwendungen
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix.html">
+   Literaturverzeichnis
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../_sources/Introduction/PoissonGleichung-Copy1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Introduction/PoissonGleichung-Copy1.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.zhaw.ch/stiw/HANASkript"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.zhaw.ch/stiw/HANASkript/issues/new?title=Issue%20on%20page%20%2FIntroduction/PoissonGleichung-Copy1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problemstellung-differentialgleichung">
+   Problemstellung, Differentialgleichung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schwache-gleichung">
+   Schwache Gleichung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#der-sobolev-raum-h-1-linear-und-bilinear-formen">
+   Der Sobolev Raum
+   <span class="math notranslate nohighlight">
+    \(H^1\)
+   </span>
+   , linear und bilinear Formen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finite-elemente-methode">
+   Finite Elemente Methode
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="poisson-gleichung">
+<h1>Poisson Gleichung<a class="headerlink" href="#poisson-gleichung" title="Permalink to this headline">¶</a></h1>
+<p><span class="math notranslate nohighlight">\(\DeclareMathOperator{\opdiv}{div}\)</span> <span class="math notranslate nohighlight">\(\DeclareMathOperator{\setR}{R}\)</span></p>
+<div class="section" id="problemstellung-differentialgleichung">
+<h2>Problemstellung, Differentialgleichung<a class="headerlink" href="#problemstellung-differentialgleichung" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><br/><br/><br/><br/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Poisson Gleichung</p></li>
+<li><p>Dirichlet Randbedingung</p></li>
+<li><p>Meshing</p></li>
+</ul>
+</div>
+</div>
+<p>Die Methode der finiten Elemente ist eine Methode für die numerische Berechnung von Lösungen partieller Differentialgleichungen. Eine sehr wichtige Gleichung ist die <strong>Poisson Gleichung</strong>. Sie kann als Verallgemeinerung des eindimensionalen Randwertproblem</p>
+<div class="math notranslate nohighlight" id="equation-eq-eindimrwp">
+<span class="eqno">(7)<a class="headerlink" href="#equation-eq-eindimrwp" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{split}
+-u''(x) &amp; = f(x)\quad\forall\ x\in (0,1)\\
+u(0) &amp; = u(1) = 0
+\end{split}\end{split}\]</div>
+<p>interpretiert werden. Die Poisson Gleichung ist gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[
+-\Delta u(x) = f(x) \quad \forall \, x \in \Omega
+\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(\Omega\subset \mathbb{R}^n\)</span> ein mehrdimensionales Gebiet im <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> ist.</p>
+<p>Die Poisson Gleichung ist ein Modell für verschiedene physikalische Phenomene. So kann zum Beispiel:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f\)</span> kann eine Verteilung einer <strong>Wärmequelle</strong> und <span class="math notranslate nohighlight">\(u\)</span> die <strong>Temperatur</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(f\)</span> kann auch eine Verteilung der <strong>elektrischen Ladung</strong> und <span class="math notranslate nohighlight">\(u\)</span> entsprechend das <strong>elektrostatische Potential</strong>.</p></li>
+</ul>
+<p>Um eine eindeutige Lösung <span class="math notranslate nohighlight">\(u\)</span> zu erhalten, müssen Randbedingungen definiert werden. Im Beispiel werden wir die <strong>homogene Dirichlet Randbedingung</strong> benutzen:</p>
+<div class="math notranslate nohighlight">
+\[
+u(x) = 0 \quad \forall \, x \in \partial \Omega.
+\]</div>
+<p>Das zur Gleichung <a class="reference internal" href="#equation-eq-eindimrwp">(7)</a> analoge Randwertproblem ist in dem Fall für die Poisson Gleichung gegeben durch</p>
+<div class="math notranslate nohighlight" id="equation-eq-poissonpde">
+<span class="eqno">(8)<a class="headerlink" href="#equation-eq-poissonpde" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{split}
+-\Delta u(x) &amp; = f(x) \quad \forall \, x \in \Omega\\
+u(x) &amp; = 0 \quad \forall \, x \in \partial \Omega
+\end{split}\end{split}\]</div>
+<p>Um eine numerische Lösung des Randwertproblems zum Beispiel im zweidimensionalen Raum berechnen zu können, müssen wir das Gebiet diskretisieren (<strong>Meshing</strong>). Wir betrachten das Problem auf dem Einheitsquadrat:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">netgen.geom2d</span> <span class="kn">import</span> <span class="n">unit_square</span>
+<span class="kn">from</span> <span class="nn">ngsolve</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">ngsolve.webgui</span> <span class="kn">import</span> <span class="n">Draw</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ngmesh</span> <span class="o">=</span> <span class="n">unit_square</span><span class="o">.</span><span class="n">GenerateMesh</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">ngmesh</span><span class="o">.</span><span class="n">Refine</span><span class="p">()</span>
+<span class="n">mesh</span> <span class="o">=</span> <span class="n">Mesh</span><span class="p">(</span><span class="n">ngmesh</span><span class="p">)</span>
+
+<span class="n">Draw</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "af873461c11145c1a9e756e9160be039"}
+</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BaseWebGuiScene
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="schwache-gleichung">
+<h2>Schwache Gleichung<a class="headerlink" href="#schwache-gleichung" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><br/><br/><br/><br/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>starke Gleichung</p></li>
+<li><p>schwache Gleichung</p></li>
+<li><p>Testfunktion</p></li>
+<li><p>Funktionenraum</p></li>
+</ul>
+</div>
+</div>
+<p>Für die numerische Berechnung benötigen wir die <strong>schwache Gleichung</strong> (oder auch variationelle Formulierung) der Poisson Gleichung. Die oben formulierte partielle Differentialgleichung des Randwertproblems wird <strong>starke Gleichung</strong> genannt. Die schwache Gleichung ist die Ausgangsformulierung für die Diskretisierungsmethode der finiten Elemente.</p>
+<p>Ein Weg auf die schwache Gleichung zu kommen ist folgender: Multipliziere die partielle Differentialgleichung mit einer sogenannten <strong>Testfunktion</strong>. Die Testfunktion ist eine beliebige Funktion aus einem geeigneten <strong>Funktionenraum</strong> <span class="math notranslate nohighlight">\(V\)</span>. Multiplikation der PDE mit <span class="math notranslate nohighlight">\(v\in V\)</span> liefert</p>
+<div class="math notranslate nohighlight">
+\[
+- \Delta u(x) v(x) = f(x) v(x) \qquad \forall x \in \Omega
+\]</div>
+<p>Nun integrieren wir über das gesamte Gebiet <span class="math notranslate nohighlight">\(\Omega\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+- \int_\Omega \Delta u(x) v(x) dx = \int_\Omega f(x) v(x) dx
+\]</div>
+<p>Mit Hilfe der partiellen Integration im Mehrdimensionalen (Satz von Gauss auf das Vektorfeld <span class="math notranslate nohighlight">\(\nabla u\, v\)</span> angewandt):</p>
+<div class="math notranslate nohighlight">
+\[
+\int_{\partial \Omega} n \nabla u \, v\, dA = \int_\Omega \opdiv (\nabla u \, v) dx
+= \int_{\Omega} \Delta u v + \nabla u \nabla v dx
+\]</div>
+<p>können wir die linke Seite in der Form</p>
+<div class="math notranslate nohighlight">
+\[
+\int_\Omega \nabla u \nabla v - \int_{\partial \Omega} \frac{\partial u}{\partial n} v = \int_\Omega f v
+\]</div>
+<p>schreiben.</p>
+<p>Im Fall der Dirichlet Randbedingung können wir Testfunktionen <span class="math notranslate nohighlight">\(v\)</span> benutzen, für welche <span class="math notranslate nohighlight">\(v(x) = 0\)</span> auf dem Rand <span class="math notranslate nohighlight">\(\partial\Omega\)</span> gilt.</p>
+<p>Wir erhalten damit das <strong>schwache Problem</strong>: Finde <span class="math notranslate nohighlight">\(u\in V\)</span> so, dass <span class="math notranslate nohighlight">\(u=0\)</span> auf <span class="math notranslate nohighlight">\(\partial\Omega\)</span> und</p>
+<div class="math notranslate nohighlight" id="equation-eq-weakpoisson">
+<span class="eqno">(9)<a class="headerlink" href="#equation-eq-weakpoisson" title="Permalink to this equation">¶</a></span>\[
+\int_\Omega \nabla u\cdot \nabla v dx = \int_\Omega f v dx
+\]</div>
+<p>für alle Testfunktionen <span class="math notranslate nohighlight">\(v\)</span> mit <span class="math notranslate nohighlight">\(v=0\)</span> auf <span class="math notranslate nohighlight">\(\partial\Omega\)</span> erfüllt ist.</p>
+<p>Der Gewinn der schwachen Formulierung ist, dass wir das Problem mit der zweiten örtlichen Ableitung auf ein Problem mit erster Ableitung reduzieren können. Was natürlich die Frage aufwirft, wann eine <strong>schwache Lösung</strong> (Lösung der schwachen Gleichung) auch eine <strong>starke Lösung</strong> ist?</p>
+</div>
+<div class="section" id="der-sobolev-raum-h-1-linear-und-bilinear-formen">
+<h2>Der Sobolev Raum <span class="math notranslate nohighlight">\(H^1\)</span>, linear und bilinear Formen<a class="headerlink" href="#der-sobolev-raum-h-1-linear-und-bilinear-formen" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><br/><br/><br/><br/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Sobolev Raum <span class="math notranslate nohighlight">\(H^1\)</span></p></li>
+<li><p>Funktionenraum <span class="math notranslate nohighlight">\(L_2\)</span></p></li>
+<li><p>Norm, Skalarprodukt</p></li>
+<li><p>Hilbert Raum</p></li>
+<li><p>Linearform, Bilinearform</p></li>
+</ul>
+</div>
+</div>
+<p>Der für das Beispiel geeignete Funktionenraum für die Lösungen ist der <strong>Sobolev Raum</strong></p>
+<div class="math notranslate nohighlight">
+\[H^1 := \{u\in L_2(\Omega) | \nabla u\in L_2(\Omega)^n \}\]</div>
+<p>Das hochgestellte 1 bezieht sich auf die erste Ableitung, welche quadratisch integrierbar sein soll (<span class="math notranslate nohighlight">\(L_2\)</span>). Wir werden den Ableitungsbegriff für die Anwendung erweitern müssen, denn nicht alle Funktionen im <span class="math notranslate nohighlight">\(L_2\)</span> sind nicht stetig differenzierbar. Die zum Vektorraum <span class="math notranslate nohighlight">\(H^1\)</span> zugehörige Norm ist gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[\| u\|_{H^1} = \| u\|_{L_2} + \| \nabla u\|_{L_2}\]</div>
+<p>und für das Skalarprodukt gilt</p>
+<div class="math notranslate nohighlight">
+\[(u,v)_{H^1} = (u,v)_{L_2} + (\nabla u,\nabla v)_{L_2}.\]</div>
+<p>Der Funktionenraum <span class="math notranslate nohighlight">\(H^1\)</span> ist ein vollständiger Raum mit Skalarprodukt. Einen solchen Raum nennt man Hilbert Raum.</p>
+<p>Es macht keinen Sinn Randwerte von <span class="math notranslate nohighlight">\(L_2\)</span> Funktionen zu definieren. Für Funktionen aus dem Sobolev Raum <span class="math notranslate nohighlight">\(H^1\)</span> existiert jedoch das Trace Theorem, welches besagt, dass Randwerte wohl definiert sind. Es gilt für <span class="math notranslate nohighlight">\(u\in H^1(\Omega)\)</span></p>
+<div class="math notranslate nohighlight">
+\[u|_{\partial \Omega} \in L_2(\partial \Omega).\]</div>
+<p>Damit macht es Sinn einen Unterraum <span class="math notranslate nohighlight">\(H_0^1\)</span> mit homogenen Dirichlet Randbedingungen zu definieren</p>
+<div class="math notranslate nohighlight">
+\[H_0^1 = \{u\in H^1 | u|_{\partial \Omega} = 0\}.\]</div>
+<p>Wir betrachten nun die Gleichung <a class="reference internal" href="#equation-eq-weakpoisson">(9)</a>. Die linke Seite stellt eine <strong>Bilinearform</strong> <span class="math notranslate nohighlight">\(A: H^1\times H^1 \to \mathbb{R}\)</span></p>
+<div class="math notranslate nohighlight">
+\[A(u,v) = \int_\Omega \nabla u\cdot\nabla v\]</div>
+<p>dar und die rechte Seite eine <strong>Linearform</strong> <span class="math notranslate nohighlight">\(f:H^1 \to \mathbb{R}\)</span></p>
+<div class="math notranslate nohighlight">
+\[f(v) := \int_\Omega f(x) v(x) dx.\]</div>
+<p>Wir können damit das schwache Problem auch wie folgt beschreiben</p>
+<div class="math notranslate nohighlight" id="equation-eq-weakproblempoisson2">
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-weakproblempoisson2" title="Permalink to this equation">¶</a></span>\[\text{finde}\ u\in H_0^1(\Omega): \quad A(u,v) = f(v)\quad \forall v\in H_0^1(\Omega).\]</div>
+<p>Dieser abstrakte Formalismus von Hilber Räumen, Bilinear- und Linearformen passt auf eine sehr grosse klasse von (elliptischen) partiellen Differentialgleichungen.</p>
+</div>
+<div class="section" id="finite-elemente-methode">
+<h2>Finite Elemente Methode<a class="headerlink" href="#finite-elemente-methode" title="Permalink to this headline">¶</a></h2>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><br/><br/><br/><br/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Finite Elemente Methode</p></li>
+<li><p>Diskretisierungsfehler</p></li>
+</ul>
+</div>
+</div>
+<p>Die schwache Formulierung ist die Ausgangsform für die Methode der finiten Elemente. Da wir nicht in einem unendlich dimensionalen <strong>Hilbertraum</strong> rechnen können, müssen wir einen endlich dimensionalen <strong>Unterraum</strong> benutzen.</p>
+<div class="math notranslate nohighlight">
+\[V_h \subset H_0^1\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="n">H1</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dirichlet</span> <span class="o">=</span> <span class="s1">&#39;.*&#39;</span><span class="p">)</span>
+<span class="n">u</span><span class="p">,</span><span class="n">v</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">TnT</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir suchen nun Lösungen für schwache Problem <a class="reference internal" href="#equation-eq-weakproblempoisson2">(10)</a> im endlich dimensionalen Vektorraum <span class="math notranslate nohighlight">\(V_h\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-weakproblempoisson3">
+<span class="eqno">(11)<a class="headerlink" href="#equation-eq-weakproblempoisson3" title="Permalink to this equation">¶</a></span>\[\text{finde}\ u_h\in V_h: \quad A(u_h,v_h) = f(v_h)\quad \forall v_h\in V_h.\]</div>
+<p>Die finite Elemente Lösung approximiert die exakte Lösung <span class="math notranslate nohighlight">\(u\)</span>, wobei der Diskretisierungsfehler <span class="math notranslate nohighlight">\(\|u-u_h\|_{H^1}\)</span> für <span class="math notranslate nohighlight">\(h\to 0\)</span> ebenfalls gegen Null streben soll.</p>
+<p>Um die Lösung <span class="math notranslate nohighlight">\(u_h\)</span> berechnen zu können, müssen wir eine Basis <span class="math notranslate nohighlight">\(p_i, i=1,\ldots, N\)</span> für den Funktionenraum <span class="math notranslate nohighlight">\(V_h\)</span> wählen, wobei <span class="math notranslate nohighlight">\(N = \mathop{dim} V_h\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;dim V = N = &#39;</span><span class="p">,</span><span class="n">V</span><span class="o">.</span><span class="n">ndof</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dim V = N =  25
+</pre></div>
+</div>
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(u_h\)</span> können wir daher als</p>
+<div class="math notranslate nohighlight">
+\[u_h(x) = \sum_{i=1}^N u_i p_i(x)\]</div>
+<p>schreiben. Die Koeffizienten <span class="math notranslate nohighlight">\(u_i\)</span> schreiben wir als Koeffizientenvektor <span class="math notranslate nohighlight">\(u=(u_1, \ldots, u_n) \in \mathbb{R}^N\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gfu</span> <span class="o">=</span> <span class="n">GridFunction</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Anstatt, dass wir mit allen Funktionen aus dem <span class="math notranslate nohighlight">\(V_h\)</span> test, reicht es mit den Basisfunktionen <span class="math notranslate nohighlight">\(p_j(x)\)</span> zu testen. Damit haben wir das finite Element Problem</p>
+<div class="math notranslate nohighlight">
+\[\text{finde}\ u\in \mathbb{R}^N: \quad A(\sum_{i=1}^N u_i p_i,p_j) = f(p_j)\quad \forall j = 1, \ldots, N.\]</div>
+<p>Da <span class="math notranslate nohighlight">\(A(\cdot, \cdot)\)</span> eine Bilinearfunktion ist, können wir die Summe aus der Bilinearfunktion nehmen. Es folgt</p>
+<div class="math notranslate nohighlight" id="equation-eq-femproblempoisson">
+<span class="eqno">(12)<a class="headerlink" href="#equation-eq-femproblempoisson" title="Permalink to this equation">¶</a></span>\[\text{finde}\ u\in \mathbb{R}^N: \quad \sum_{i=1}^N A(p_i,p_j) u_i = f(p_j)\quad \forall j = 1, \ldots, N.\]</div>
+<p>Da die Basisfunktionen <span class="math notranslate nohighlight">\(p_i\)</span> bekannt sind, können wir die Matrix <span class="math notranslate nohighlight">\(A\in\mathbb{R}^{N\times N}\)</span> welche die Bilinearfunktion beschreibt berechnen. Die Matrix Einträge sind gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[A_{j,i} = A(p_i,p_j) = \int_\Omega \nabla p_i\cdot \nabla p_j dx.\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">BilinearForm</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">+=</span> <span class="n">grad</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">*</span><span class="n">grad</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span>
+<span class="n">a</span><span class="o">.</span><span class="n">Assemble</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Linearform <span class="math notranslate nohighlight">\(f\)</span> kann durch den Vektor <span class="math notranslate nohighlight">\(f\in\mathbb{R}^N\)</span></p>
+<div class="math notranslate nohighlight">
+\[f_j = f(p_j) = \int_\Omega f(x)p_j(x)dx\]</div>
+<p>beschrieben werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">funcf</span> <span class="o">=</span> <span class="n">CoefficientFunction</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">LinearForm</span><span class="p">(</span><span class="n">V</span><span class="p">)</span>
+<span class="n">f</span> <span class="o">+=</span> <span class="n">funcf</span><span class="o">*</span><span class="n">v</span><span class="o">*</span><span class="n">dx</span>
+<span class="n">f</span><span class="o">.</span><span class="n">Assemble</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das Lösen des finite Elementproblems <a class="reference internal" href="#equation-eq-femproblempoisson">(12)</a> resultiert somit im Lösen des linearen Gleichungssystems</p>
+<div class="math notranslate nohighlight">
+\[A u = f\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gfu</span><span class="o">.</span><span class="n">vec</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">Inverse</span><span class="p">(</span><span class="n">freedofs</span><span class="o">=</span><span class="n">V</span><span class="o">.</span><span class="n">FreeDofs</span><span class="p">())</span> <span class="o">*</span> <span class="n">f</span><span class="o">.</span><span class="n">vec</span>
+<span class="n">Draw</span><span class="p">(</span><span class="n">gfu</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "7503648ed32f489f8de56cefbecfe4d2"}
+</script><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BaseWebGuiScene
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="p">,</span><span class="n">vals</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">COO</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">((</span><span class="n">vals</span><span class="p">,(</span><span class="n">rows</span><span class="p">,</span><span class="n">cols</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">spy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/PoissonGleichung-Copy1_18_0.png" src="../_images/PoissonGleichung-Copy1_18_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"13ebabb96d1d4819b1034d4d28f1135a": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "af873461c11145c1a9e756e9160be039": {"model_name": "WebguiModel", "model_module": "webgui_jupyter_widgets", "model_module_version": "0.1.3", "state": {"_dom_classes": [], "_model_module": "webgui_jupyter_widgets", "_model_module_version": "0.1.3", "_model_name": "WebguiModel", "_view_count": null, "_view_module": "webgui_jupyter_widgets", "_view_module_version": "0.1.3", "_view_name": "WebguiView", "layout": "IPY_MODEL_13ebabb96d1d4819b1034d4d28f1135a", "value": {"ngsolve_version": "6.2.2104-81-gc767972b4", "mesh_dim": 2, "order2d": 1, "order3d": 1, "draw_vol": null, "draw_surf": null, "deformation": false, "mesh_regions_2d": 1, "mesh_regions_3d": 0, "funcdim": 0, "show_wireframe": true, "show_mesh": true, "Bezier_points": ["AACAPgAAgD4AAAAAAAAAAAAAgD4AAIA+AAAAAAAAAAAAAIA+AAAAAAAAAAAAAAAAAAAAAAAAgD4AAAAAAAAAAAAAAAAAAIA+AAAAAAAAAAAAAIA+AACAPgAAAAAAAAAAAABAPwAAAAAAAAAAAAAAAAAAQD8AAAAAAAAAAAAAAAAAAIA/AACAPgAAAAAAAAAAAACAPwAAQD8AAAAAAAAAAAAAgD8AAEA/AAAAAAAAAAAAAEA/AABAPwAAAAAAAAAAAAAAPwAAgD4AAAAAAAAAAAAAAD8AAIA+AAAAAAAAAAAAAEA/AACAPgAAAAAAAAAAAABAPwAAQD8AAAAAAAAAAAAAQD8AAEA/AAAAAAAAAAAAAEA/AACAPwAAAAAAAAAAAACAPgAAgD8AAAAAAAAAAAAAgD4AAIA/AAAAAAAAAAAAAAAAAABAPwAAAAAAAAAAAACAPgAAAD8AAAAAAAAAAAAAgD4AAAA/AAAAAAAAAAAAAAA/AABAPwAAAAAAAAAAAACAPgAAAAAAAAAAAAAAAAAAgD4AAAAAAAAAAAAAAAAAAAA/AACAPgAAAAAAAAAAAAAAPwAAgD4AAAAAAAAAAAAAAD8AAIA+AAAAAAAAAAAAAIA+AACAPgAAAAAAAAAAAACAPgAAgD4AAAAAAAAAAAAAgD4AAIA+AAAAAAAAAAAAAAA/AACAPgAAAAAAAAAAAACAPgAAgD4AAAAAAAAAAAAAgD4AAIA+AAAAAAAAAAAAAIA+AAAAPwAAAAAAAAAAAACAPgAAAD8AAAAAAAAAAAAAgD4AAAA/AAAAAAAAAAAAAAAAAACAPgAAAAAAAAAAAAAAAAAAgD4AAAAAAAAAAAAAAAAAAIA+AAAAAAAAAAAAAIA+AAAAPwAAAAAAAAAAAACAPwAAgD4AAAAAAAAAAAAAgD8AAIA+AAAAAAAAAAAAAEA/AACAPgAAAAAAAAAAAABAPwAAgD4AAAAAAAAAAAAAQD8AAIA+AAAAAAAAAAAAAEA/AAAAAAAAAAAAAAAAAABAPwAAAAAAAAAAAAAAAAAAQD8AAAAAAAAAAAAAAAAAAEA/AACAPgAAAAAAAAAAAABAPwAAQD8AAAAAAAAAAAAAQD8AAEA/AAAAAAAAAAAAAEA/AAAAPwAAAAAAAAAAAABAPwAAAD8AAAAAAAAAAAAAQD8AAAA/AAAAAAAAAAAAAIA/AABAPwAAAAAAAAAAAACAPwAAQD8AAAAAAAAAAAAAgD8AAEA/AAAAAAAAAAAAAEA/AAAAPwAAAAAAAAAAAABAPwAAgD4AAAAAAAAAAAAAQD8AAIA+AAAAAAAAAAAAAEA/AAAAPwAAAAAAAAAAAABAPwAAAD8AAAAAAAAAAAAAQD8AAAA/AAAAAAAAAAAAAAA/AACAPgAAAAAAAAAAAAAAPwAAgD4AAAAAAAAAAAAAAD8AAIA+AAAAAAAAAAAAAEA/AAAAPwAAAAAAAAAAAABAPwAAgD8AAAAAAAAAAAAAQD8AAIA/AAAAAAAAAAAAAAA/AABAPwAAAAAAAAAAAAAAPwAAQD8AAAAAAAAAAAAAAD8AAEA/AAAAAAAAAAAAAEA/AABAPwAAAAAAAAAAAABAPwAAQD8AAAAAAAAAAAAAQD8AAEA/AAAAAAAAAAAAAAA/AABAPwAAAAAAAAAAAAAAAAAAQD8AAAAAAAAAAAAAAAAAAEA/AAAAAAAAAAAAAIA+AABAPwAAAAAAAAAAAACAPgAAQD8AAAAAAAAAAAAAgD4AAEA/AAAAAAAAAAAAAIA+AACAPwAAAAAAAAAAAACAPgAAgD8AAAAAAAAAAAAAgD4AAIA/AAAAAAAAAAAAAIA+AABAPwAAAAAAAAAAAAAAPwAAQD8AAAAAAAAAAAAAAD8AAEA/AAAAAAAAAAAAAIA+AABAPwAAAAAAAAAAAACAPgAAQD8AAAAAAAAAAAAAgD4AAEA/AAAAAAAAAAAAAIA+AAAAPwAAAAAAAAAAAACAPgAAAD8AAAAAAAAAAAAAgD4AAAA/AAAAAAAAAAAAAIA+AABAPwAAAAAAAAAA", "AAAAAAAAAAAAAAAAAAAAAAAAgD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgD4AAIA+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8AAIA+AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAQD8AAEA/AAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAPwAAAAAAAAAAAAAAAAAAQD8AAIA+AAAAAAAAAAAAAAA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAQD8AAIA/AAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAEA/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAPwAAAD8AAAAAAAAAAAAAAD8AAEA/AAAAAAAAAAAAAAA/AAAAPwAAAAAAAAAAAAAAPwAAAAAAAAAAAAAAAAAAAD8AAIA+AAAAAAAAAAAAAAA/AAAAAAAAAAAAAAAAAAAAPwAAAD8AAAAAAAAAAAAAgD4AAIA+AAAAAAAAAAAAAAA/AAAAPwAAAAAAAAAAAACAPgAAAAAAAAAAAAAAAAAAAD8AAIA+AAAAAAAAAAAAAIA+AAAAAAAAAAAAAAAAAAAAPwAAAD8AAAAAAAAAAAAAgD4AAAA/AAAAAAAAAAAAAAA/AAAAPwAAAAAAAAAAAAAAAAAAAD8AAAAAAAAAAAAAAAAAAIA+AAAAAAAAAAAAAAAAAAAAPwAAAAAAAAAAAACAPgAAgD4AAAAAAAAAAAAAgD4AAAA/AAAAAAAAAAAAAIA+AACAPgAAAAAAAAAAAACAPwAAAD8AAAAAAAAAAAAAQD8AAIA+AAAAAAAAAAAAAIA/AAAAPwAAAAAAAAAAAAAAPwAAAAAAAAAAAAAAAAAAQD8AAAAAAAAAAAAAAAAAAAA/AAAAAAAAAAAAAAAAAACAPwAAgD4AAAAAAAAAAAAAQD8AAIA+AAAAAAAAAAAAAIA/AACAPgAAAAAAAAAAAAAAPwAAAD8AAAAAAAAAAAAAQD8AAAA/AAAAAAAAAAAAAAA/AAAAPwAAAAAAAAAAAACAPwAAAD8AAAAAAAAAAAAAgD8AAEA/AAAAAAAAAAAAAIA/AAAAPwAAAAAAAAAAAABAPwAAQD8AAAAAAAAAAAAAQD8AAAA/AAAAAAAAAAAAAEA/AABAPwAAAAAAAAAAAACAPwAAAD8AAAAAAAAAAAAAQD8AAAA/AAAAAAAAAAAAAIA/AAAAPwAAAAAAAAAAAAAAPwAAAD8AAAAAAAAAAAAAAD8AAIA+AAAAAAAAAAAAAAA/AAAAPwAAAAAAAAAAAABAPwAAgD4AAAAAAAAAAAAAQD8AAAA/AAAAAAAAAAAAAEA/AACAPgAAAAAAAAAAAAAAPwAAgD8AAAAAAAAAAAAAAD8AAEA/AAAAAAAAAAAAAAA/AACAPwAAAAAAAAAAAAAAPwAAAD8AAAAAAAAAAAAAQD8AAEA/AAAAAAAAAAAAAAA/AAAAPwAAAAAAAAAAAABAPwAAgD8AAAAAAAAAAAAAAD8AAEA/AAAAAAAAAAAAAEA/AACAPwAAAAAAAAAAAAAAAAAAAD8AAAAAAAAAAAAAgD4AAEA/AAAAAAAAAAAAAAAAAAAAPwAAAAAAAAAAAAAAPwAAgD8AAAAAAAAAAAAAgD4AAIA/AAAAAAAAAAAAAAA/AACAPwAAAAAAAAAAAAAAAAAAQD8AAAAAAAAAAAAAgD4AAEA/AAAAAAAAAAAAAAAAAABAPwAAAAAAAAAAAAAAPwAAgD8AAAAAAAAAAAAAgD4AAEA/AAAAAAAAAAAAAAA/AACAPwAAAAAAAAAAAAAAAAAAAD8AAAAAAAAAAAAAgD4AAAA/AAAAAAAAAAAAAAAAAAAAPwAAAAAAAAAAAAAAPwAAQD8AAAAAAAAAAAAAgD4AAEA/AAAAAAAAAAAAAAA/AABAPwAAAAAAAAAA"], "edges": ["AACAPgAAAAAAAAAAAAAAAAAAgD8AAIA+AAAAAAAAAAAAAEA/AACAPwAAAAAAAAAAAAAAAAAAQD8AAAAAAAAAAAAAQD8AAAAAAAAAAAAAAAAAAIA/AABAPwAAAAAAAAAAAACAPgAAgD8AAAAAAAAAAAAAAAAAAIA+AAAAAAAAAAAAAAA/AAAAAAAAAAAAAAAAAACAPwAAAD8AAAAAAAAAAAAAAD8AAIA/AAAAAAAAAAAAAAAAAAAAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==", "AAAAAAAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAD8AAAAAAAAAAAAAAAAAAIA/AAAAPwAAAAAAAAAAAAAAPwAAgD8AAAAAAAAAAAAAAAAAAAA/AAAAAAAAAAAAAIA+AAAAAAAAAAAAAAAAAACAPwAAgD4AAAAAAAAAAAAAQD8AAIA/AAAAAAAAAAAAAAAAAABAPwAAAAAAAAAAAABAPwAAAAAAAAAAAAAAAAAAgD8AAEA/AAAAAAAAAAAAAIA+AACAPwAAAAAAAAAAAAAAAAAAgD4AAAAAAAAAAA=="], "Bezier_trig_points": ["AACAPgAAgD4AAAAAAAAAAAAAAAAAAIA+AAAAAAAAAAAAAEA/AAAAAAAAAAAAAAAAAACAPwAAQD8AAAAAAAAAAAAAAD8AAIA+AAAAAAAAAAAAAEA/AABAPwAAAAAAAAAAAACAPgAAgD8AAAAAAAAAAAAAgD4AAAA/AAAAAAAAAAAAAIA+AAAAAAAAAAAAAAAAAAAAPwAAgD4AAAAAAAAAAAAAgD4AAIA+AAAAAAAAAAAAAIA+AACAPgAAAAAAAAAAAACAPgAAAD8AAAAAAAAAAAAAAAAAAIA+AAAAAAAAAAAAAIA/AACAPgAAAAAAAAAAAABAPwAAgD4AAAAAAAAAAAAAQD8AAAAAAAAAAAAAAAAAAEA/AABAPwAAAAAAAAAAAABAPwAAAD8AAAAAAAAAAAAAgD8AAEA/AAAAAAAAAAAAAEA/AACAPgAAAAAAAAAAAABAPwAAAD8AAAAAAAAAAAAAAD8AAIA+AAAAAAAAAAAAAEA/AACAPwAAAAAAAAAAAAAAPwAAQD8AAAAAAAAAAAAAQD8AAEA/AAAAAAAAAAAAAAAAAABAPwAAAAAAAAAAAACAPgAAQD8AAAAAAAAAAAAAgD4AAIA/AAAAAAAAAAAAAAA/AABAPwAAAAAAAAAAAACAPgAAQD8AAAAAAAAAAAAAgD4AAAA/AAAAAAAAAAA=", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAAD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAD8AAAA/AAAAAAAAAAAAAAA/AAAAAAAAAAAAAAAAAAAAPwAAAD8AAAAAAAAAAAAAgD4AAAAAAAAAAAAAAAAAAAA/AAAAPwAAAAAAAAAAAAAAAAAAAD8AAAAAAAAAAAAAgD4AAIA+AAAAAAAAAAAAAIA/AAAAPwAAAAAAAAAAAAAAPwAAAAAAAAAAAAAAAAAAgD8AAIA+AAAAAAAAAAAAAAA/AAAAPwAAAAAAAAAAAACAPwAAAD8AAAAAAAAAAAAAQD8AAEA/AAAAAAAAAAAAAIA/AAAAPwAAAAAAAAAAAAAAPwAAAD8AAAAAAAAAAAAAQD8AAIA+AAAAAAAAAAAAAAA/AACAPwAAAAAAAAAAAAAAPwAAAD8AAAAAAAAAAAAAQD8AAIA/AAAAAAAAAAAAAAAAAAAAPwAAAAAAAAAAAAAAPwAAgD8AAAAAAAAAAAAAAAAAAEA/AAAAAAAAAAAAAAA/AACAPwAAAAAAAAAAAAAAAAAAAD8AAAAAAAAAAAAAAD8AAEA/AAAAAAAAAAA=", "AACAPgAAAAAAAAAAAAAAAAAAgD4AAIA+AAAAAAAAAAAAAIA/AACAPgAAAAAAAAAAAABAPwAAQD8AAAAAAAAAAAAAQD8AAIA+AAAAAAAAAAAAAEA/AACAPwAAAAAAAAAAAAAAAAAAQD8AAAAAAAAAAAAAAD8AAEA/AAAAAAAAAAAAAAA/AACAPgAAAAAAAAAAAACAPgAAgD4AAAAAAAAAAAAAAD8AAIA+AAAAAAAAAAAAAIA+AAAAPwAAAAAAAAAAAAAAAAAAgD4AAAAAAAAAAAAAgD4AAAA/AAAAAAAAAAAAAEA/AACAPgAAAAAAAAAAAABAPwAAAAAAAAAAAAAAAAAAQD8AAIA+AAAAAAAAAAAAAEA/AAAAPwAAAAAAAAAAAACAPwAAQD8AAAAAAAAAAAAAQD8AAAA/AAAAAAAAAAAAAEA/AAAAPwAAAAAAAAAAAAAAPwAAgD4AAAAAAAAAAAAAQD8AAAA/AAAAAAAAAAAAAAA/AABAPwAAAAAAAAAAAABAPwAAQD8AAAAAAAAAAAAAAD8AAEA/AAAAAAAAAAAAAIA+AABAPwAAAAAAAAAAAACAPgAAgD8AAAAAAAAAAAAAgD4AAEA/AAAAAAAAAAAAAIA+AABAPwAAAAAAAAAAAACAPgAAAD8AAAAAAAAAAAAAgD4AAEA/AAAAAAAAAAA="], "mesh_center": [0.5, 0.5, 1.1125369292536007e-308], "mesh_radius": 0.7071067811865476, "autoscale": true}}}, "d67e563bbcb1478b8523b51d2929b83d": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "7503648ed32f489f8de56cefbecfe4d2": {"model_name": "WebguiModel", "model_module": "webgui_jupyter_widgets", "model_module_version": "0.1.3", "state": {"_dom_classes": [], "_model_module": "webgui_jupyter_widgets", "_model_module_version": "0.1.3", "_model_name": "WebguiModel", "_view_count": null, "_view_module": "webgui_jupyter_widgets", "_view_module_version": "0.1.3", "_view_name": "WebguiView", "layout": "IPY_MODEL_d67e563bbcb1478b8523b51d2929b83d", "value": {"ngsolve_version": "6.2.2104-81-gc767972b4", "mesh_dim": 2, "order2d": 2, "order3d": 2, "draw_vol": false, "draw_surf": true, "deformation": false, "funcdim": 1, "show_wireframe": true, "show_mesh": true, "Bezier_points": ["AACAPgAAgD4AAAAAAADcPgAAgD4AAIA+AAAAAAAA3D4AAIA+AAAAAAAAAAAAAAAAAAAAAAAAgD4AAAAAAAAAAAAAAAAAAIA+AAAAAAAAAAAAAIA+AACAPgAAAAAAANw+AABAPwAAAAAAAAAAAAAAAAAAQD8AAAAAAAAAAAAAAAAAAIA/AACAPgAAAAAAAAAAAACAPwAAQD8AAAAAAAAAAAAAgD8AAEA/AAAAAAAAAAAAAEA/AABAPwAAAAAAANw+AAAAPwAAgD4AAAAAAAAMPwAAAD8AAIA+AAAAAAAADD8AAEA/AACAPgAAAAAAANw+AABAPwAAQD8AAAAAAADcPgAAQD8AAEA/AAAAAAAA3D4AAEA/AACAPwAAAAAAAAAAAACAPgAAgD8AAAAAAAAAAAAAgD4AAIA/AAAAAAAAAAAAAAAAAABAPwAAAAAAAAAAAACAPgAAAD8AAAAAAAAMPwAAgD4AAAA/AAAAAAAADD8AAAA/AABAPwAAAAAAAAw/AACAPgAAAAAAAAAAAAAAAAAAgD4AAAAAAAAAAAAAAAAAAAA/AACAPgAAAAAAAAw/AAAAPwAAgD4AAAAAAAAMPwAAAD8AAIA+AAAAAAAADD8AAIA+AACAPgAAAAAAANw+AACAPgAAgD4AAAAAAADcPgAAgD4AAIA+AAAAAAAA3D4AAAA/AACAPgAAAAAAAAw/AACAPgAAgD4AAAAAAADcPgAAgD4AAIA+AAAAAAAA3D4AAIA+AAAAPwAAAAAAAAw/AACAPgAAAD8AAAAAAAAMPwAAgD4AAAA/AAAAAAAADD8AAAAAAACAPgAAAAAAAAAAAAAAAAAAgD4AAAAAAAAAAAAAAAAAAIA+AAAAAAAAAAAAAIA+AAAAPwAAAAAAAAw/AACAPwAAgD4AAAAAAAAAAAAAgD8AAIA+AAAAAAAAAAAAAEA/AACAPgAAAAAAANw+AABAPwAAgD4AAAAAAADcPgAAQD8AAIA+AAAAAAAA3D4AAEA/AAAAAAAAAAAAAAAAAABAPwAAAAAAAAAAAAAAAAAAQD8AAAAAAAAAAAAAAAAAAEA/AACAPgAAAAAAANw+AABAPwAAQD8AAAAAAADcPgAAQD8AAEA/AAAAAAAA3D4AAEA/AAAAPwAAAAAAAAw/AABAPwAAAD8AAAAAAAAMPwAAQD8AAAA/AAAAAAAADD8AAIA/AABAPwAAAAAAAAAAAACAPwAAQD8AAAAAAAAAAAAAgD8AAEA/AAAAAAAAAAAAAEA/AAAAPwAAAAAAAAw/AABAPwAAgD4AAAAAAADcPgAAQD8AAIA+AAAAAAAA3D4AAEA/AAAAPwAAAAAAAAw/AABAPwAAAD8AAAAAAAAMPwAAQD8AAAA/AAAAAAAADD8AAAA/AACAPgAAAAAAAAw/AAAAPwAAgD4AAAAAAAAMPwAAAD8AAIA+AAAAAAAADD8AAEA/AAAAPwAAAAAAAAw/AABAPwAAgD8AAAAAAAAAAAAAQD8AAIA/AAAAAAAAAAAAAAA/AABAPwAAAAAAAAw/AAAAPwAAQD8AAAAAAAAMPwAAAD8AAEA/AAAAAAAADD8AAEA/AABAPwAAAAAAANw+AABAPwAAQD8AAAAAAADcPgAAQD8AAEA/AAAAAAAA3D4AAAA/AABAPwAAAAAAAAw/AAAAAAAAQD8AAAAAAAAAAAAAAAAAAEA/AAAAAAAAAAAAAIA+AABAPwAAAAAAANw+AACAPgAAQD8AAAAAAADcPgAAgD4AAEA/AAAAAAAA3D4AAIA+AACAPwAAAAAAAAAAAACAPgAAgD8AAAAAAAAAAAAAgD4AAIA/AAAAAAAAAAAAAIA+AABAPwAAAAAAANw+AAAAPwAAQD8AAAAAAAAMPwAAAD8AAEA/AAAAAAAADD8AAIA+AABAPwAAAAAAANw+AACAPgAAQD8AAAAAAADcPgAAgD4AAEA/AAAAAAAA3D4AAIA+AAAAPwAAAAAAAAw/AACAPgAAAD8AAAAAAAAMPwAAgD4AAAA/AAAAAAAADD8AAIA+AABAPwAAAAAAANw+", "AAAAPgAAAD4AAAAAAABcPgAAgD4AAAA+AAAAAAAAXD4AAAA+AAAAAAAAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAD4AAIA+AAAAAAAAXD4AAAA+AAAAPgAAAAAAAFw+AABgPwAAAAAAAAAAAAAAAAAAYD8AAAA+AAAAAAAAAAAAAIA/AAAAPgAAAAAAAAAAAACAPwAAYD8AAAAAAAAAAAAAYD8AAEA/AAAAAAAAXD4AAGA/AABgPwAAAAAAAFw+AAAAPwAAAD4AAAAAAACMPgAAID8AAIA+AAAAAAAA+j4AACA/AAAAPgAAAAAAAFw+AABgPwAAYD8AAAAAAABcPgAAQD8AAGA/AAAAAAAAXD4AAGA/AACAPwAAAAAAAAAAAAAAPgAAgD8AAAAAAAAAAAAAAD4AAGA/AAAAAAAAAAAAAAAAAABgPwAAAAAAAAAAAADAPgAAAD8AAAAAAAAgPwAAwD4AACA/AAAAAAAADD8AAAA/AAAgPwAAAAAAACA/AADAPgAAAAAAAAAAAAAAAAAAwD4AAAA+AAAAAAAAjD4AAAA/AAAAPgAAAAAAAIw+AAAAPwAAwD4AAAAAAAAgPwAAwD4AAIA+AAAAAAAA+j4AAMA+AADAPgAAAAAAABE/AACAPgAAAD4AAAAAAABcPgAAwD4AAIA+AAAAAAAA+j4AAMA+AAAAPgAAAAAAAIw+AADAPgAAwD4AAAAAAAARPwAAgD4AAMA+AAAAAAAA+j4AAMA+AAAAPwAAAAAAACA/AAAAPgAAAD8AAAAAAACMPgAAAD4AAMA+AAAAAAAAjD4AAAAAAADAPgAAAAAAAAAAAAAAPgAAgD4AAAAAAABcPgAAAD4AAMA+AAAAAAAAjD4AAIA+AADAPgAAAAAAAPo+AACAPwAAwD4AAAAAAAAAAAAAYD8AAIA+AAAAAAAAXD4AAGA/AADAPgAAAAAAAFw+AAAgPwAAAD4AAAAAAABcPgAAQD8AAAA+AAAAAAAAXD4AACA/AAAAAAAAAAAAAAAAAABgPwAAAD4AAAAAAAAAAAAAQD8AAAA+AAAAAAAAXD4AAGA/AACAPgAAAAAAAFw+AAAgPwAAID8AAAAAAAARPwAAQD8AACA/AAAAAAAA+j4AACA/AAAAPwAAAAAAACA/AABgPwAAAD8AAAAAAACMPgAAYD8AACA/AAAAAAAAjD4AAIA/AAAgPwAAAAAAAAAAAABgPwAAQD8AAAAAAABcPgAAYD8AACA/AAAAAAAAjD4AAEA/AAAgPwAAAAAAAPo+AABgPwAAwD4AAAAAAABcPgAAQD8AAMA+AAAAAAAA+j4AAGA/AAAAPwAAAAAAAIw+AAAgPwAAAD8AAAAAAAAgPwAAID8AAMA+AAAAAAAADD8AAAA/AADAPgAAAAAAACA/AAAgPwAAgD4AAAAAAAD6PgAAID8AAMA+AAAAAAAADD8AAEA/AADAPgAAAAAAAPo+AAAgPwAAgD8AAAAAAAAAAAAAID8AAGA/AAAAAAAAjD4AAAA/AABgPwAAAAAAAIw+AAAAPwAAID8AAAAAAAAgPwAAID8AAEA/AAAAAAAA+j4AACA/AAAgPwAAAAAAABE/AABAPwAAYD8AAAAAAABcPgAAID8AAEA/AAAAAAAA+j4AACA/AABgPwAAAAAAAIw+AAAAAAAAID8AAAAAAAAAAAAAAD4AAEA/AAAAAAAAXD4AAAA+AAAgPwAAAAAAAFw+AADAPgAAYD8AAAAAAABcPgAAgD4AAGA/AAAAAAAAXD4AAMA+AACAPwAAAAAAAAAAAAAAPgAAYD8AAAAAAAAAAAAAgD4AAGA/AAAAAAAAXD4AAAA+AABAPwAAAAAAAFw+AAAAPwAAYD8AAAAAAACMPgAAwD4AAEA/AAAAAAAA+j4AAMA+AABgPwAAAAAAAFw+AAAAPgAAID8AAAAAAABcPgAAgD4AACA/AAAAAAAA+j4AAAA+AAAAPwAAAAAAAIw+AADAPgAAID8AAAAAAAAMPwAAgD4AACA/AAAAAAAA+j4AAMA+AABAPwAAAAAAAPo+", "AAAAAAAAAAAAAAAAAAAAAAAAgD4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgD4AAIA+AAAAAAAA3D4AAAAAAAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8AAIA+AAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAQD8AAEA/AAAAAAAA3D4AAIA/AACAPwAAAAAAAAAAAAAAPwAAAAAAAAAAAAAAAAAAQD8AAIA+AAAAAAAA3D4AAAA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAQD8AAIA/AAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAEA/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAPwAAAD8AAAAAAAA0PwAAAD8AAEA/AAAAAAAADD8AAAA/AAAAPwAAAAAAADQ/AAAAPwAAAAAAAAAAAAAAAAAAAD8AAIA+AAAAAAAADD8AAAA/AAAAAAAAAAAAAAAAAAAAPwAAAD8AAAAAAAA0PwAAgD4AAIA+AAAAAAAA3D4AAAA/AAAAPwAAAAAAADQ/AACAPgAAAAAAAAAAAAAAAAAAAD8AAIA+AAAAAAAADD8AAIA+AAAAAAAAAAAAAAAAAAAAPwAAAD8AAAAAAAA0PwAAgD4AAAA/AAAAAAAADD8AAAA/AAAAPwAAAAAAADQ/AAAAAAAAAD8AAAAAAAAAAAAAAAAAAIA+AAAAAAAAAAAAAAAAAAAAPwAAAAAAAAAAAACAPgAAgD4AAAAAAADcPgAAgD4AAAA/AAAAAAAADD8AAIA+AACAPgAAAAAAANw+AACAPwAAAD8AAAAAAAAAAAAAQD8AAIA+AAAAAAAA3D4AAIA/AAAAPwAAAAAAAAAAAAAAPwAAAAAAAAAAAAAAAAAAQD8AAAAAAAAAAAAAAAAAAAA/AAAAAAAAAAAAAAAAAACAPwAAgD4AAAAAAAAAAAAAQD8AAIA+AAAAAAAA3D4AAIA/AACAPgAAAAAAAAAAAAAAPwAAAD8AAAAAAAA0PwAAQD8AAAA/AAAAAAAADD8AAAA/AAAAPwAAAAAAADQ/AACAPwAAAD8AAAAAAAAAAAAAgD8AAEA/AAAAAAAAAAAAAIA/AAAAPwAAAAAAAAAAAABAPwAAQD8AAAAAAADcPgAAQD8AAAA/AAAAAAAADD8AAEA/AABAPwAAAAAAANw+AACAPwAAAD8AAAAAAAAAAAAAQD8AAAA/AAAAAAAADD8AAIA/AAAAPwAAAAAAAAAAAAAAPwAAAD8AAAAAAAA0PwAAAD8AAIA+AAAAAAAADD8AAAA/AAAAPwAAAAAAADQ/AABAPwAAgD4AAAAAAADcPgAAQD8AAAA/AAAAAAAADD8AAEA/AACAPgAAAAAAANw+AAAAPwAAgD8AAAAAAAAAAAAAAD8AAEA/AAAAAAAADD8AAAA/AACAPwAAAAAAAAAAAAAAPwAAAD8AAAAAAAA0PwAAQD8AAEA/AAAAAAAA3D4AAAA/AAAAPwAAAAAAADQ/AABAPwAAgD8AAAAAAAAAAAAAAD8AAEA/AAAAAAAADD8AAEA/AACAPwAAAAAAAAAAAAAAAAAAAD8AAAAAAAAAAAAAgD4AAEA/AAAAAAAA3D4AAAAAAAAAPwAAAAAAAAAAAAAAPwAAgD8AAAAAAAAAAAAAgD4AAIA/AAAAAAAAAAAAAAA/AACAPwAAAAAAAAAAAAAAAAAAQD8AAAAAAAAAAAAAgD4AAEA/AAAAAAAA3D4AAAAAAABAPwAAAAAAAAAAAAAAPwAAgD8AAAAAAAAAAAAAgD4AAEA/AAAAAAAA3D4AAAA/AACAPwAAAAAAAAAAAAAAAAAAAD8AAAAAAAAAAAAAgD4AAAA/AAAAAAAADD8AAAAAAAAAPwAAAAAAAAAAAAAAPwAAQD8AAAAAAAAMPwAAgD4AAEA/AAAAAAAA3D4AAAA/AABAPwAAAAAAAAw/"], "edges": ["AACAPgAAAAAAAAAAAAAAAAAAgD8AAIA+AAAAAAAAAAAAAEA/AACAPwAAAAAAAAAAAAAAAAAAQD8AAAAAAAAAAAAAQD8AAAAAAAAAAAAAAAAAAIA/AABAPwAAAAAAAAAAAACAPgAAgD8AAAAAAAAAAAAAAAAAAIA+AAAAAAAAAAAAAAA/AAAAAAAAAAAAAAAAAACAPwAAAD8AAAAAAAAAAAAAAD8AAIA/AAAAAAAAAAAAAAAAAAAAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==", "AAAAPgAAAAAAAAAAAAAAAAAAgD8AAAA+AAAAAAAAAAAAAGA/AACAPwAAAAAAAAAAAAAAAAAAYD8AAAAAAAAAAAAAID8AAAAAAAAAAAAAAAAAAIA/AAAgPwAAAAAAAAAAAADAPgAAgD8AAAAAAAAAAAAAAAAAAMA+AAAAAAAAAAAAAMA+AAAAAAAAAAAAAAAAAACAPwAAwD4AAAAAAAAAAAAAID8AAIA/AAAAAAAAAAAAAAAAAAAgPwAAAAAAAAAAAABgPwAAAAAAAAAAAAAAAAAAgD8AAGA/AAAAAAAAAAAAAAA+AACAPwAAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAA==", "AAAAAAAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAD8AAAAAAAAAAAAAAAAAAIA/AAAAPwAAAAAAAAAAAAAAPwAAgD8AAAAAAAAAAAAAAAAAAAA/AAAAAAAAAAAAAIA+AAAAAAAAAAAAAAAAAACAPwAAgD4AAAAAAAAAAAAAQD8AAIA/AAAAAAAAAAAAAAAAAABAPwAAAAAAAAAAAABAPwAAAAAAAAAAAAAAAAAAgD8AAEA/AAAAAAAAAAAAAIA+AACAPwAAAAAAAAAAAAAAAAAAgD4AAAAAAAAAAA=="], "Bezier_trig_points": ["AACAPgAAgD4AAAAAAADcPgAAAAAAAIA+AAAAAAAAAAAAAEA/AAAAAAAAAAAAAAAAAACAPwAAQD8AAAAAAAAAAAAAAD8AAIA+AAAAAAAADD8AAEA/AABAPwAAAAAAANw+AACAPgAAgD8AAAAAAAAAAAAAgD4AAAA/AAAAAAAADD8AAIA+AAAAAAAAAAAAAAAAAAAAPwAAgD4AAAAAAAAMPwAAgD4AAIA+AAAAAAAA3D4AAIA+AACAPgAAAAAAANw+AACAPgAAAD8AAAAAAAAMPwAAAAAAAIA+AAAAAAAAAAAAAIA/AACAPgAAAAAAAAAAAABAPwAAgD4AAAAAAADcPgAAQD8AAAAAAAAAAAAAAAAAAEA/AABAPwAAAAAAANw+AABAPwAAAD8AAAAAAAAMPwAAgD8AAEA/AAAAAAAAAAAAAEA/AACAPgAAAAAAANw+AABAPwAAAD8AAAAAAAAMPwAAAD8AAIA+AAAAAAAADD8AAEA/AACAPwAAAAAAAAAAAAAAPwAAQD8AAAAAAAAMPwAAQD8AAEA/AAAAAAAA3D4AAAAAAABAPwAAAAAAAAAAAACAPgAAQD8AAAAAAADcPgAAgD4AAIA/AAAAAAAAAAAAAAA/AABAPwAAAAAAAAw/AACAPgAAQD8AAAAAAADcPgAAgD4AAAA/AAAAAAAADD8=", "AAAAPgAAAD4AAAAAAABcPgAAAAAAAAA+AAAAAAAAAAAAAGA/AAAAAAAAAAAAAAAAAACAPwAAYD8AAAAAAAAAAAAAAD8AAAA+AAAAAAAAjD4AAGA/AABgPwAAAAAAAFw+AAAAPgAAgD8AAAAAAAAAAAAAwD4AAAA/AAAAAAAAID8AAMA+AAAAAAAAAAAAAAAAAAAAPwAAwD4AAAAAAAAgPwAAgD4AAAA+AAAAAAAAXD4AAMA+AADAPgAAAAAAABE/AAAAPgAAAD8AAAAAAACMPgAAAD4AAIA+AAAAAAAAXD4AAIA/AADAPgAAAAAAAAAAAAAgPwAAAD4AAAAAAABcPgAAYD8AAAA+AAAAAAAAAAAAACA/AAAgPwAAAAAAABE/AABgPwAAAD8AAAAAAACMPgAAYD8AAEA/AAAAAAAAXD4AAGA/AADAPgAAAAAAAFw+AAAgPwAAAD8AAAAAAAAgPwAAID8AAIA+AAAAAAAA+j4AACA/AACAPwAAAAAAAAAAAAAAPwAAID8AAAAAAAAgPwAAQD8AAGA/AAAAAAAAXD4AAAAAAAAgPwAAAAAAAAAAAADAPgAAYD8AAAAAAABcPgAAAD4AAGA/AAAAAAAAAAAAAAA/AABgPwAAAAAAAIw+AAAAPgAAID8AAAAAAABcPgAAwD4AACA/AAAAAAAADD8=", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAAD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAD8AAAA/AAAAAAAAND8AAAA/AAAAAAAAAAAAAAAAAAAAPwAAAD8AAAAAAAA0PwAAgD4AAAAAAAAAAAAAAAAAAAA/AAAAPwAAAAAAADQ/AAAAAAAAAD8AAAAAAAAAAAAAgD4AAIA+AAAAAAAA3D4AAIA/AAAAPwAAAAAAAAAAAAAAPwAAAAAAAAAAAAAAAAAAgD8AAIA+AAAAAAAAAAAAAAA/AAAAPwAAAAAAADQ/AACAPwAAAD8AAAAAAAAAAAAAQD8AAEA/AAAAAAAA3D4AAIA/AAAAPwAAAAAAAAAAAAAAPwAAAD8AAAAAAAA0PwAAQD8AAIA+AAAAAAAA3D4AAAA/AACAPwAAAAAAAAAAAAAAPwAAAD8AAAAAAAA0PwAAQD8AAIA/AAAAAAAAAAAAAAAAAAAAPwAAAAAAAAAAAAAAPwAAgD8AAAAAAAAAAAAAAAAAAEA/AAAAAAAAAAAAAAA/AACAPwAAAAAAAAAAAAAAAAAAAD8AAAAAAAAAAAAAAD8AAEA/AAAAAAAADD8=", "AACAPgAAAD4AAAAAAABcPgAAAD4AAIA+AAAAAAAAXD4AAGA/AAAAPgAAAAAAAAAAAABgPwAAQD8AAAAAAABcPgAAID8AAIA+AAAAAAAA+j4AAEA/AABgPwAAAAAAAFw+AAAAPgAAYD8AAAAAAAAAAAAAwD4AACA/AAAAAAAADD8AAMA+AAAAPgAAAAAAAIw+AADAPgAAgD4AAAAAAAD6PgAAwD4AAIA+AAAAAAAA+j4AAIA+AADAPgAAAAAAAPo+AAAAPgAAwD4AAAAAAACMPgAAAD4AAMA+AAAAAAAAjD4AAGA/AACAPgAAAAAAAFw+AABAPwAAAD4AAAAAAABcPgAAQD8AAAA+AAAAAAAAXD4AAEA/AAAgPwAAAAAAAPo+AABgPwAAID8AAAAAAACMPgAAYD8AACA/AAAAAAAAjD4AAEA/AADAPgAAAAAAAPo+AAAgPwAAwD4AAAAAAAAMPwAAID8AAMA+AAAAAAAADD8AACA/AABgPwAAAAAAAIw+AAAgPwAAQD8AAAAAAAD6PgAAID8AAEA/AAAAAAAA+j4AAAA+AABAPwAAAAAAAFw+AACAPgAAYD8AAAAAAABcPgAAgD4AAGA/AAAAAAAAXD4AAMA+AABAPwAAAAAAAPo+AACAPgAAID8AAAAAAAD6PgAAgD4AACA/AAAAAAAA+j4=", "AAAAPgAAAAAAAAAAAAAAAAAAAD4AAAA+AAAAAAAAXD4AAIA/AAAAPgAAAAAAAAAAAABgPwAAYD8AAAAAAABcPgAAID8AAAA+AAAAAAAAXD4AAGA/AACAPwAAAAAAAAAAAAAAAAAAYD8AAAAAAAAAAAAAAD8AACA/AAAAAAAAID8AAAA/AAAAPgAAAAAAAIw+AADAPgAAwD4AAAAAAAARPwAAwD4AAAA+AAAAAAAAjD4AAMA+AAAAPwAAAAAAACA/AAAAAAAAwD4AAAAAAAAAAAAAgD4AAMA+AAAAAAAA+j4AAGA/AADAPgAAAAAAAFw+AAAgPwAAAAAAAAAAAAAAAAAAYD8AAIA+AAAAAAAAXD4AACA/AAAAPwAAAAAAACA/AACAPwAAID8AAAAAAAAAAAAAQD8AACA/AAAAAAAA+j4AAGA/AAAAPwAAAAAAAIw+AAAAPwAAwD4AAAAAAAAgPwAAQD8AAMA+AAAAAAAA+j4AAAA/AABgPwAAAAAAAIw+AAAgPwAAID8AAAAAAAARPwAAID8AAGA/AAAAAAAAjD4AAAA+AAAgPwAAAAAAAFw+AADAPgAAgD8AAAAAAAAAAAAAAD4AAEA/AAAAAAAAXD4AAMA+AABgPwAAAAAAAFw+AAAAPgAAAD8AAAAAAACMPgAAwD4AAEA/AAAAAAAA+j4=", "AACAPgAAAAAAAAAAAAAAAAAAgD4AAIA+AAAAAAAA3D4AAIA/AACAPgAAAAAAAAAAAABAPwAAQD8AAAAAAADcPgAAQD8AAIA+AAAAAAAA3D4AAEA/AACAPwAAAAAAAAAAAAAAAAAAQD8AAAAAAAAAAAAAAD8AAEA/AAAAAAAADD8AAAA/AACAPgAAAAAAAAw/AACAPgAAgD4AAAAAAADcPgAAAD8AAIA+AAAAAAAADD8AAIA+AAAAPwAAAAAAAAw/AAAAAAAAgD4AAAAAAAAAAAAAgD4AAAA/AAAAAAAADD8AAEA/AACAPgAAAAAAANw+AABAPwAAAAAAAAAAAAAAAAAAQD8AAIA+AAAAAAAA3D4AAEA/AAAAPwAAAAAAAAw/AACAPwAAQD8AAAAAAAAAAAAAQD8AAAA/AAAAAAAADD8AAEA/AAAAPwAAAAAAAAw/AAAAPwAAgD4AAAAAAAAMPwAAQD8AAAA/AAAAAAAADD8AAAA/AABAPwAAAAAAAAw/AABAPwAAQD8AAAAAAADcPgAAAD8AAEA/AAAAAAAADD8AAIA+AABAPwAAAAAAANw+AACAPgAAgD8AAAAAAAAAAAAAgD4AAEA/AAAAAAAA3D4AAIA+AABAPwAAAAAAANw+AACAPgAAAD8AAAAAAAAMPwAAgD4AAEA/AAAAAAAA3D4="], "mesh_center": [0.5, 0.5, 1.1125369292536007e-308], "mesh_radius": 0.7071067811865476, "funcmin": 0.0, "funcmax": 0.7031249999999999, "autoscale": true}}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Introduction"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="PoissonGleichung.html" title="previous page">Poisson Gleichung</a>
+    <a class='right-next' id="next-link" href="Python.html" title="next page">Python</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Simon Stingelin<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

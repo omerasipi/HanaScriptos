@@ -11,6 +11,7 @@ parts:
     - file: Introduction/Introduction.md
       sections:
       - file: Introduction/PoissonGleichung.md
+      - file: Introduction/StatischesMagnetfeld.ipynb
     - file: Introduction/Python.md
     - file: Introduction/NGSolve.md
   - caption: Funktionalanalysis

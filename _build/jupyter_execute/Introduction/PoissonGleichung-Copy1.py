@@ -3,7 +3,7 @@
 
 # # Poisson Gleichung
 # 
-# Das folgende Beispiel folgt dem analogen aus dem interaktiven Kurs von Joachim Schöberl {cite}`schoeberliFEM`.$\DeclareMathOperator{\opdiv}{div}$ $\DeclareMathOperator{\setR}{R}$
+# $\DeclareMathOperator{\opdiv}{div}$ $\DeclareMathOperator{\setR}{R}$
 # 
 # ## Problemstellung, Differentialgleichung
 # 
@@ -61,7 +61,11 @@ from ngsolve.webgui import Draw
 # In[2]:
 
 
-mesh = Mesh(unit_square.GenerateMesh(maxh=0.1))
+ngmesh = unit_square.GenerateMesh()
+for k in range(2):
+    ngmesh.Refine()
+mesh = Mesh(ngmesh)
+
 Draw(mesh)
 
 
@@ -259,4 +263,36 @@ f.Assemble();
 
 gfu.vec.data = a.mat.Inverse(freedofs=V.FreeDofs()) * f.vec
 Draw(gfu)
+
+
+# In[9]:
+
+
+import matplotlib.pyplot as plt
+import scipy.sparse as sp
+
+
+# In[10]:
+
+
+rows,cols,vals = a.mat.COO()
+
+
+# In[11]:
+
+
+A = sp.csr_matrix((vals,(rows,cols)))
+
+
+# In[12]:
+
+
+plt.spy(A)
+plt.show()
+
+
+# In[ ]:
+
+
+
 
