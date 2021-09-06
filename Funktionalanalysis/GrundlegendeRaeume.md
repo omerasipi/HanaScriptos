@@ -10,8 +10,6 @@ kernelspec:
   name: python3
 ---
 
-In diesem Kapitel wird das notwendige Rüstzeug für die Behandlung partieller Differentialgleichungen und numerischen Methoden bereit gestellt.
-
 # Grundlegende Räume
 
 ## Vektorräume
@@ -513,7 +511,7 @@ Betrachten wir das obige Beispiel angepasst auf die Voraussetzung im Satz: Sei $
 ---
 align: left
 height: 250px
-name: directive-fig
+name: fig-Bestapproximation
 ---
 Bestapproximation
 ```

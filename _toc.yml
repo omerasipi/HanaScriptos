@@ -6,10 +6,13 @@ root: intro
 options:
   numbered: true
 parts:
-  - caption: Software
+  - caption: Einführung
     chapters:
-    - file: Software/Python.md
-    - file: Software/NGSolve.md
+    - file: Introduction/Introduction.md
+      sections:
+      - file: Introduction/PoissonGleichung.md
+    - file: Introduction/Python.md
+    - file: Introduction/NGSolve.md
   - caption: Funktionalanalysis
     chapters:
     - file: Funktionalanalysis/GrundlegendeRaeume.md
@@ -18,7 +21,7 @@ parts:
       - file: Funktionalanalysis/BeispielFourierEntwicklung.ipynb
     - file: Funktionalanalysis/LineareOperatoren.md
     - file: Funktionalanalysis/Sobolevraeume.md
-  - caption: Teil 2
+  - caption: Partielle Differentialgleichungen
     chapters:
     - file: PDE/IntroPDE.md
   - caption: Teil 3

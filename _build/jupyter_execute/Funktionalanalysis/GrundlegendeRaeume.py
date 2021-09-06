@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In diesem Kapitel wird das notwendige Rüstzeug für die Behandlung partieller Differentialgleichungen und numerischen Methoden bereit gestellt.
-# 
 # # Grundlegende Räume
 # 
 # ## Vektorräume
@@ -507,7 +505,7 @@ plt.show()
 # ---
 # align: left
 # height: 250px
-# name: directive-fig
+# name: fig-Bestapproximation
 # ---
 # Bestapproximation
 # ```

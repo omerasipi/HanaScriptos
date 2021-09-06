@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NGSolve &#8212; Höhere Analysis und Numerik</title>
+    <title>Python &#8212; Höhere Analysis und Numerik</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,8 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Grundlegende Räume" href="../Funktionalanalysis/GrundlegendeRaeume.html" />
-    <link rel="prev" title="Python" href="Python.html" />
+    <link rel="next" title="NGSolve" href="NGSolve.html" />
+    <link rel="prev" title="Poisson Gleichung" href="PoissonGleichung.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -97,26 +97,31 @@
   Einführung
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../Introduction/Introduction.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Introduction.html">
    Einführung
   </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Software
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Python.html">
-   Python
-  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="PoissonGleichung.html">
+     Poisson Gleichung
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NGSolve.html">
    NGSolve
   </a>
  </li>
@@ -131,8 +136,8 @@
   <a class="reference internal" href="../Funktionalanalysis/GrundlegendeRaeume.html">
    Grundlegende Räume
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -248,7 +253,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Software/NGSolve.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/Introduction/Python.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -268,7 +273,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.zhaw.ch/stiw/HANASkript/issues/new?title=Issue%20on%20page%20%2FSoftware/NGSolve.html&body=Your%20issue%20content%20here."><button
+            href="https://github.zhaw.ch/stiw/HANASkript/issues/new?title=Issue%20on%20page%20%2FIntroduction/Python.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -297,19 +302,17 @@
         
               <div>
                 
-  <div class="section" id="ngsolve">
-<h1>NGSolve<a class="headerlink" href="#ngsolve" title="Permalink to this headline">¶</a></h1>
-<p>Im Rahmen der numerischen Methoden für partielle Differentialgleichungen werden wir die Methode der finiten Elemente kennen lernen. Wir werden für die Umsetzung auf eine C++ Bibliothek <a class="reference external" href="https://ngsolve.org">NGSolve</a> zurückgreifen, welche eine umfangreiche Python-Schnittstelle zur Verfügung stellt.</p>
-<p>Netgen/NGSolve ist eine hochleistungsfähige Multiphysik-Finite-Elemente-Software. Sie wird häufig zur Analyse von Modellen aus den Bereichen Festkörpermechanik, Strömungsmechanik und Elektromagnetik eingesetzt. Dank der flexiblen Python-Schnittstelle können neue physikalische Gleichungen und Lösungsalgorithmen leicht implementiert werden.</p>
-<p>Das Ziel des Moduls besteht in der Vermittlung der mathematischen Grundlagen und insbesondere auch numerischen Anwendung derer auf konkrete Beispiele aus der Ingenieur Praxis.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Installieren Sie NGSolve auf ihrem Rechner. Die dazu notwendigen Anleitungen finden Sie auf (<a class="reference external" href="https://ngsolve.org">https://ngsolve.org</a>) unter dem Abschnitt INSTALLATION:</p>
+  <div class="section" id="python">
+<h1>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<p>Für numerische Berechungen benutzen wir im Kurs Python. Eine gute Einführung in Python ist im interaktiven Jupyter-Book <a class="reference external" href="https://pythonnumericalmethods.berkeley.edu/notebooks/Index.html">Python Programming And Numerical Methods: A Guide For Engineers And Scientists</a> zu finden.</p>
+<p>Im wesentlichen werden wir fundamentale Funktionalität von Python benutzen. Für numerische Berechnungen werden wir auf NumPy und SciPy zurückgreifen. Die Visualisierung kann sehr matlab nahe mit Hilfe von Matplotlib umgesetzt werden.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://ngsolve.org/downloads">Downloads NGSolve</a></p></li>
-<li><p><a class="reference external" href="https://docu.ngsolve.org/latest/install/usejupyter.html">Using Jupyter notebook</a></p></li>
+<li><p><a class="reference external" href="https://python.org">Python</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org">NumPy</a></p></li>
+<li><p><a class="reference external" href="https://scipy.org">SciPy</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org">Matplotlib</a></p></li>
 </ul>
-</div>
+<p>Falls Sie Python mit den entsprechenden Module noch nie benutzt haben, ist es sehr sinnvoll sich vorab mit dem wesentlichen auseinander zu setzen.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -325,7 +328,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./Software"
+            path: "./Introduction"
         },
         predefinedOutput: true
     }
@@ -337,8 +340,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Python.html" title="previous page">Python</a>
-    <a class='right-next' id="next-link" href="../Funktionalanalysis/GrundlegendeRaeume.html" title="next page">Grundlegende Räume</a>
+    <a class='left-prev' id="prev-link" href="PoissonGleichung.html" title="previous page">Poisson Gleichung</a>
+    <a class='right-next' id="next-link" href="NGSolve.html" title="next page">NGSolve</a>
 
         </div>
         

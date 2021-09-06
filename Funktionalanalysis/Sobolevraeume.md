@@ -25,7 +25,7 @@ $$\int_\Omega f(x)dx = \int_{-a}^a \left(\ldots\int_{-a}^a f(x_1,\ldots, x_n) dx
 ---
 align: left
 height: 250px
-name: directive-fig
+name: fig-mehrdimensionalesIntegral
 ---
 Berechnung von $\int_\Omega f(x) dx$ in $\mathbb{R}^2$.
 ```

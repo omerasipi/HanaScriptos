@@ -94,17 +94,34 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Software
+  Einführung
  </span>
 </p>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Introduction/Introduction.html">
+   Einführung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction/PoissonGleichung.html">
+     Poisson Gleichung
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Software/Python.html">
+  <a class="reference internal" href="../Introduction/Python.html">
    Python
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Software/NGSolve.html">
+  <a class="reference internal" href="../Introduction/NGSolve.html">
    NGSolve
   </a>
  </li>
@@ -119,8 +136,8 @@
   <a class="reference internal" href="../Funktionalanalysis/GrundlegendeRaeume.html">
    Grundlegende Räume
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -150,7 +167,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Teil 2
+  Partielle Differentialgleichungen
  </span>
 </p>
 <ul class="current nav bd-sidenav">
@@ -287,7 +304,18 @@
                 
   <div class="section" id="einfuhrung-pde">
 <h1>Einführung PDE<a class="headerlink" href="#einfuhrung-pde" title="Permalink to this headline">¶</a></h1>
-<p>Einführung in partielle Differentialgleichungen.</p>
+<p>Unter Zuhilfenahme von Differentialoperatoren können Gleichungen für Funktionen notiert werden. Solche Gleichungen nennt man Differentialgleichungen. Eine <strong>gewöhnliche Differentialgleichung (ODE)</strong> erfordert die Differentiation bezüglich einer Variablen.</p>
+<p><strong>Beispiele</strong>:</p>
+<ul>
+<li><p>Lineare ODE 2. Ordnung</p>
+<div class="math notranslate nohighlight">
+\[-u''(x) + u(x) = f(x).\]</div>
+</li>
+<li><p>Nichtlineare ODE 1. Ordnung</p>
+<div class="math notranslate nohighlight">
+\[u'(x) = e^{-u(x)}\]</div>
+</li>
+</ul>
 </div>
 
     <script type="text/x-thebe-config">
