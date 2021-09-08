@@ -36,7 +36,6 @@ html:
   use_issues_button: true
   use_repository_button: true
   use_multitoc_numbering: true
-  
 
 #######################################################################################
 # Launch button settings
@@ -53,5 +52,5 @@ sphinx:
     html_js_files :
       - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
       - webgui.js
-      
-      
+    html_show_copyright: false
+    

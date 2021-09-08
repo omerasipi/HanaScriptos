@@ -1,1 +1,28 @@
-{}
+{
+  "Funktionalanalysis/Variationsrechnung": {
+    "r_example": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "r_example",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "1.347"
+      }
+    },
+    "sb_example": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "sb_example",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "4.9729"
+      }
+    }
+  }
+}

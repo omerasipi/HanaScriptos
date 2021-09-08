@@ -13,7 +13,6 @@ parts:
       - file: Introduction/PoissonGleichung.md
       - file: Introduction/VariableKoeffizienten.md
       - file: Introduction/StatischesMagnetfeld.md
-      - file: Introduction/Test.ipynb
     - file: Introduction/Python.md
     - file: Introduction/NGSolve.md
     - file: Introduction/jupyterhub.md

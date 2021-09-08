@@ -49,8 +49,6 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -282,7 +280,10 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
+        <a class="dropdown-buttons"
+            href="../_sources/Funktionalanalysis/Variationsrechnung.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Notebook-Datei herunterladen" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="../_sources/Funktionalanalysis/Variationsrechnung.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
@@ -350,6 +351,11 @@
      Kürzeste Verbindung zweier Punkte
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#das-problem-von-johann-bernoulli">
+     Das Problem von Johann Bernoulli
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -365,6 +371,7 @@
                 
   <div class="section" id="variationsrechnung">
 <h1>Variationsrechnung<a class="headerlink" href="#variationsrechnung" title="Link zu dieser Überschrift">¶</a></h1>
+<p>Das Kapitel baut auf dem Buch <span id="id1">[<a class="reference internal" href="../Appendix.html#id13">Kie10</a>]</span> auf.</p>
 <div class="section" id="einfuhrendes-beispiel">
 <h2>Einführendes Beispiel<a class="headerlink" href="#einfuhrendes-beispiel" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Wir beginnen mit einem eindimensionalen Problem: gesucht ist <span class="math notranslate nohighlight">\(u\in C^1(a,b)\)</span> so, dass</p>
@@ -480,35 +487,165 @@
 \[\int_a^b \left(\partial_{u} F(x,u,u')\cdot v + \partial_{u'} F(x,u,u')\cdot v' \right) dx = 0\quad \forall\ v\in C_0^1(a,b)\]</div>
 <p>auch Lösung der starken Gleichung <a class="reference internal" href="#equation-eq-starkeeulerlagrangegleichung">(18)</a> ist.</p>
 </li>
+<li><p>Ist die Lagrange-Funktion nicht explizit von <span class="math notranslate nohighlight">\(x\)</span> abhängig, können wir die Lagrange-Gleichung umformen - vorausgesetzt die Regularität von <span class="math notranslate nohighlight">\(y\)</span> erlaubt ein zweimaliges Ableiten.</p>
+<p>Es gilt</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+  \frac{d}{dx} (F - u' F_{u'}) &amp; = F_u u' + F_{u'} u'' - u'' F_{u'} - u' \frac{d}{dx} F_{u'}\\
+  &amp; = \underbrace{\left(F_u - \frac{d}{dx} F_{u'}\right)}_{=0\, (*)} \cdot \underbrace{u'}_{=0\, (**)} = 0\quad \text{für}\, x\in [a,b].\end{split}\end{split}\]</div>
+<p>Daraus folgt, dass jede Lösung der Euler-Lagrange-Gleichung <span class="math notranslate nohighlight">\((*)\)</span> und jede Konstante <span class="math notranslate nohighlight">\((**)\)</span> ebenfalls Lösung der Differentialgleichung erster Ordnung</p>
+<div class="math notranslate nohighlight" id="equation-eq-elgspezialfall">
+<span class="eqno">(19)<a class="headerlink" href="#equation-eq-elgspezialfall" title="Permalink to this equation">¶</a></span>\[F(u,u') - u' F_{u'}(u,u') = c_1\quad\text{für}\, x\in [a,b]\]</div>
+<p>ist.</p>
+</li>
 </ul>
 </div>
 <div class="section" id="beispiele-zur-losung-der-euler-lagrange-gleichung">
 <h2>Beispiele zur Lösung der Euler-Lagrange-Gleichung<a class="headerlink" href="#beispiele-zur-losung-der-euler-lagrange-gleichung" title="Link zu dieser Überschrift">¶</a></h2>
 <div class="section" id="kurzeste-verbindung-zweier-punkte">
 <h3>Kürzeste Verbindung zweier Punkte<a class="headerlink" href="#kurzeste-verbindung-zweier-punkte" title="Link zu dieser Überschrift">¶</a></h3>
-<p>Wir betrachten in der Ebene zwei Punkte <span class="math notranslate nohighlight">\((x_1,y_1), (x_2,y_2)\)</span> und suchen nach der kürzesten Kurve, welche diese verbindet. Beschreibt man die Kurve mit einer Funktion <span class="math notranslate nohighlight">\(y: [x_1,x_2] \to \mathbb{R}\)</span>, so können wir die Länge mit dem Funktional</p>
+<p>Wir betrachten in der Ebene zwei Punkte <span class="math notranslate nohighlight">\((a,A), (b,B)\)</span> und suchen nach der kürzesten Kurve, welche diese verbindet. Beschreibt man die Kurve mit einer Funktion <span class="math notranslate nohighlight">\(y: [a,b] \to \mathbb{R}\)</span>, so können wir die Länge mit dem Funktional</p>
 <div class="math notranslate nohighlight">
-\[J(y) = \int_{x_1}^{x_2} \sqrt{1+y'(x)^2} dx\]</div>
+\[J(y) = \int_{a}^{b} \sqrt{1+y'(x)^2} dx\]</div>
 <p>berechnen. Gesucht ist daher ein Minimierer des Funktionals <span class="math notranslate nohighlight">\(J(y)\)</span>. Die zugehörige Euler-Lagrange Gleichung lautet</p>
 <div class="math notranslate nohighlight">
-\[\frac{d}{dx} \frac{y'(x)}{\sqrt{1+y'(x)^2}} = 0,\]</div>
-<p>wobei ein Faktor <span class="math notranslate nohighlight">\(2\)</span> schon gekürzt wurde. Integration liefert</p>
+\[\frac{d}{dx} \frac{y'(x)}{\sqrt{1+y'(x)^2}} = 0.\]</div>
+<p>Integration liefert</p>
 <div class="math notranslate nohighlight">
 \[\frac{y'(x)}{\sqrt{1+y'(x)^2}} = a.\]</div>
 <p>Durch auflösen nach <span class="math notranslate nohighlight">\(y'\)</span> und integrieren erhalten wir den Kanditaten für einen Minimierer</p>
 <div class="math notranslate nohighlight">
 \[y(x) = \frac{a}{\sqrt{1-a^2}} x + b = m\, x + b,\]</div>
-<p>also eine Gerade zwischen den beiden Punkten. Die beiden Integrationskonstanten können aus den Randbedingungen <span class="math notranslate nohighlight">\(y(x_1) = y_1\)</span> und <span class="math notranslate nohighlight">\(y(x_2) = y_2\)</span> bestimmt werden. Es stellt sich natürlich die Frage, ist die Lösung ein Minimierer und falls ja ein globaler?</p>
+<p>also eine Gerade zwischen den beiden Punkten. Die beiden Integrationskonstanten können aus den Randbedingungen <span class="math notranslate nohighlight">\(y(a) = A\)</span> und <span class="math notranslate nohighlight">\(y(b) = B\)</span> bestimmt werden. Es stellt sich natürlich die Frage, ist die Lösung ein Minimierer und falls ja ein globaler?</p>
 <p>Analog zur Analysis reeller Funktionen kann auf für Funktionale unter geeigneten Voraussetzungen ein Kriterium, die zweite Variation, berechnet werden. Es gilt der Satz</p>
 <div class="admonition-satz admonition">
 <p class="admonition-title">Satz</p>
 <p>Sei die Lagrange-Funktion <a class="reference internal" href="#equation-eq-eulerlagragefunktional">(17)</a> zweimal bezüglich den letzten beiden Variablen stetig partiell differenzierbar. Dann ist die zweite Variateion gegeben durch die Bilinearform</p>
 <div class="math notranslate nohighlight">
 \[\delta^2 J(u)(v,v) = \int_a^b \partial_{u,u}F(x,u,u') v^2 + 2 \partial_{u,u'} F(x,u,u') v v' + \partial_{u',u'} F(x,u,u') v'^2 dx.\]</div>
-<p>Für einen lokalen Minimierer  gilt die <strong>notwendige Bedingung von Legendre</strong></p>
+<p>Für einen lokalen Minimierer <span class="math notranslate nohighlight">\(u\)</span> gilt neben der notwendigen Bedingung <span class="math notranslate nohighlight">\(J'(u) v = 0\)</span> die <strong>hinreichende Bedingung von Legendre</strong></p>
 <div class="math notranslate nohighlight">
 \[\partial_{u',u'} F(x,u,u') \ge 0\quad \forall\ x\in [a,b].\]</div>
-<p>Ist</p>
+<p>Gilt für alle <span class="math notranslate nohighlight">\(w \in D\subset C^1(a,b) \cap \{w(a)=A, w(b)=B\}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\delta^2 J(w)(v,v) \ge 0\quad \forall\ v \in C_0^1(a,b),\]</div>
+<p>so ist <span class="math notranslate nohighlight">\(u\)</span> ein globaler Minimierer von <span class="math notranslate nohighlight">\(J\)</span> auf <span class="math notranslate nohighlight">\(D\)</span>.</p>
+</div>
+<p>Der Satz auf das Beispiel angewandt zeigt uns, dass wir globalen Minimierer gefunden haben.</p>
+</div>
+<div class="section" id="das-problem-von-johann-bernoulli">
+<h3>Das Problem von Johann Bernoulli<a class="headerlink" href="#das-problem-von-johann-bernoulli" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Das original Problem wurde wie folgt beschrieben:</p>
+<blockquote>
+<div><p><em>Wenn in einer vertikalen Ebene zwei Punkte A und B gegeben sind, soll man dem beweglichen Punkt M eine Bahn AMB anweisen, auf welcher er von A ausgehend vermöge seiner eigenen Schwere in kürzester Zeit nach B gelangt.</em></p>
+</div></blockquote>
+<p>Der Punkt <span class="math notranslate nohighlight">\(B\)</span> liegt trivialerweise unterhalb von <span class="math notranslate nohighlight">\(A\)</span>. Entsprechend wählen wir ein passendes Koordinatensystem gemäss <a class="reference internal" href="#fig-brachystochroneproblem"><span class="std std-numref">Abb. 5</span></a>.</p>
+<div class="figure align-left" id="fig-brachystochroneproblem">
+<a class="reference internal image-reference" href="../_images/BrachystochroneProblem.png"><img alt="../_images/BrachystochroneProblem.png" src="../_images/BrachystochroneProblem.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-number">Abb. 5 </span><span class="caption-text">Gesucht ist die schnellste Bahn.</span><a class="headerlink" href="#fig-brachystochroneproblem" title="Link zu diesem Bild">¶</a></p>
+</div>
+<p>Wir parametrieren die Bahnkurve nach der Zeit <span class="math notranslate nohighlight">\(t\)</span>: <span class="math notranslate nohighlight">\(\{(x(t),y(t)\,|\, t \in [0,T])\}\)</span>. Dabei gilt <span class="math notranslate nohighlight">\((x(0),y(0)) = (0,0)\)</span> und <span class="math notranslate nohighlight">\((x(T),y(t)) = (b,B)\)</span>. Die Laufzeit ist gegeben durch <span class="math notranslate nohighlight">\(T\)</span>. Nach dem Energieerhaltungsgesetz ist die Summe der kinetischen und potentiellen Energie längs der Bahn konstant</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{2} m v^2 + m g (h_0-y) \equiv m g h_0.\]</div>
+<p>Die Masse <span class="math notranslate nohighlight">\(m\)</span> ist offensichtlich nicht relevant. Mit <span class="math notranslate nohighlight">\(h_0\)</span> sei die Höhe zwischen <span class="math notranslate nohighlight">\(A\)</span> und <span class="math notranslate nohighlight">\(B\)</span> bezeichnet und mit <span class="math notranslate nohighlight">\(g\)</span> die Erdbeschleunigung. Für die Geschwindigkeit erhalten wir</p>
+<div class="math notranslate nohighlight">
+\[v(t) = \sqrt{2 g y(t)}.\]</div>
+<p>Andererseits folgt aus dem parametrischen Ansatz für die Geschwindigkeit</p>
+<div class="math notranslate nohighlight">
+\[v(t) = \sqrt{\dot{x}(t)^2+\dot{y}(t)^2} = \sqrt{1 + \left(\frac{dy}{dt} \frac{dt}{dx}\right)^2}\cdot \dot{x}(t) = \sqrt{1 + y'(x(t))^2}\cdot \dot{x}(t)\]</div>
+<p>Es gilt daher</p>
+<div class="math notranslate nohighlight">
+\[\frac{\sqrt{1 + y'(x(t))^2}\cdot \dot{x}(t)}{\sqrt{2 g y(x(t))}} \equiv 1 \quad \forall t\in [0,T].\]</div>
+<p>Wir nutzen diese Identität um die Laufzeit zu berechnen</p>
+<div class="math notranslate nohighlight">
+\[T = \int_0^T 1 dt  = \int_0^T \sqrt{\frac{1 + y'(x(t))^2}{2 g y(x(t))}}  \cdot \dot{x}(t) dt\]</div>
+<p>Mit der Transformation <span class="math notranslate nohighlight">\(x=x(t)\)</span> folgt <span class="math notranslate nohighlight">\(dx = \dot{x}(t) dt\)</span> und damit für das Integral</p>
+<div class="math notranslate nohighlight">
+\[T = \int_0^b \sqrt{\frac{1 + y'(x)^2}{2 g y(x)}} dx.\]</div>
+<p>Für das zu minimierende Funktional erhalten wir</p>
+<div class="math notranslate nohighlight" id="equation-eq-bernoulliproblemfunktion">
+<span class="eqno">(20)<a class="headerlink" href="#equation-eq-bernoulliproblemfunktion" title="Permalink to this equation">¶</a></span>\[J(y) = \int_0^b \sqrt{\frac{1 + y'(x)^2}{y(x)}} dx,\]</div>
+<p>wobei wir den Faktor <span class="math notranslate nohighlight">\(1/\sqrt{2g}\)</span> weglassen, da das Resultat unabhängig davon ist. Die Graphitation beeinflusst die Kurvenform nicht.</p>
+<p>Der Integrand des Funktional <a class="reference internal" href="#equation-eq-bernoulliproblemfunktion">(20)</a> ist für <span class="math notranslate nohighlight">\(x=0\)</span> unbestimmt, einerseits kann aus physikalischen Gründen <span class="math notranslate nohighlight">\(y'(0) = +\infty\)</span> sein und andererseits gilt <span class="math notranslate nohighlight">\(y(0) = 0\)</span>. Das Integral ist daher als uneigentliches Integral zu verstehen. Zu dem ist <span class="math notranslate nohighlight">\(J\)</span> nur auf <span class="math notranslate nohighlight">\((0,b]\)</span> positive Funktionen <span class="math notranslate nohighlight">\(y(x)\)</span> definiert. Deshalb legen wir die zulässigen Funktionen wie folgt fest:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+D = C[0,b] &amp; \cap C^1(0,b] \cap \{y(0) = 0, y(b) = B\}\\
+&amp; \cap \{y &gt; 0 \text{in}\ (0,b]\} \cap \{J(y^) &lt; \infty\}.\end{split}\end{split}\]</div>
+<p>Die Lagrange-Funktion hat im Beispiel die spezielle Eigenschaft, dass sie nicht explizit von <span class="math notranslate nohighlight">\(x\)</span> abhängig ist. Daher benutzen wir die Form <a class="reference internal" href="#equation-eq-elgspezialfall">(19)</a>, womit die Differentialgleichung</p>
+<div class="math notranslate nohighlight" id="equation-eq-dglbernoulli">
+<span class="eqno">(21)<a class="headerlink" href="#equation-eq-dglbernoulli" title="Permalink to this equation">¶</a></span>\[y'(x) = \frac{\sqrt{2r- y(x)}}{\sqrt{y(x)}}\quad \text{mit}\ 2r = \frac{1}{c_1^2}&gt;0\]</div>
+<p>folgt. Die Differentialgleichung kann in dieser nicht geschlossen gelöst werden. Daher wechseln wir wieder in die parametrische Form</p>
+<div class="math notranslate nohighlight">
+\[(x,y(x)) = (\hat{x}(s), \hat{y}(s)),\quad x\in[0,b],\ s \in [s_0,s_b],\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(s\)</span> nicht die physikalische Zeit ist. Es gilt</p>
+<div class="math notranslate nohighlight">
+\[\hat{y}(s) = y(\hat{x}(s)),\quad \frac{dy}{ds}(s) = y'(\hat{x}(s)) \frac{d\hat{x}}{ds}(s).\]</div>
+<p>Die Differentialgleichung <a class="reference internal" href="#equation-eq-dglbernoulli">(21)</a> eingesetzt liefert</p>
+<div class="math notranslate nohighlight">
+\[\frac{d\hat{x}}{ds}(s) = \frac{d\hat{y}}{ds}(s) \frac{1}{y'(\hat{x}(s))} = \frac{d\hat{y}}{ds}(s) \sqrt{\frac{\hat{y}(s)}{2r-\hat{y}(s)}}.\]</div>
+<p>Es kann gezeigt werden, dass</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+\hat{x}(s) &amp; = r\cdot (s - \sin(s))\\
+\hat{y}(s) &amp; = r\cdot (1 - \cos(s))\end{split}\end{split}\]</div>
+<p>für <span class="math notranslate nohighlight">\(s\in [0,s_b]\)</span> Lösung und damit Lösungskurve der Aufgabe ist. Die Bahnkurve wird Brachystochrone genannt und durch eine Zykloide beschrieben. Der Parameter <span class="math notranslate nohighlight">\(r\)</span> ist gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{B}{1-\cos(s_b)}\]</div>
+<p>und <span class="math notranslate nohighlight">\(s_b\)</span> ist implizit gegeben durch die Gleichung</p>
+<div class="math notranslate nohighlight">
+\[\frac{b}{B} = \frac{s_b-\sin(s_b)}{1-\cos(s_b)} =: f(s_b).\]</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">sb</span> <span class="p">:</span> <span class="p">(</span><span class="n">sb</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">sb</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">sb</span><span class="p">))</span>
+
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">8</span>
+<span class="n">B</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">sb</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="n">B</span><span class="p">,</span><span class="mi">5</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">B</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">sb</span><span class="p">))</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;sb_example&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">sb</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;r_example&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">sbi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-3</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sbi</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">sbi</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f(s_b)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;$f(s_b)$ ist monoton wachsend&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$s_b$&#39;</span><span class="p">)</span>   
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$b/B$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Variationsrechnung_1_2.png" src="../_images/Variationsrechnung_1_2.png" />
+</div>
+</div>
+<p>Die Funktion <span class="math notranslate nohighlight">\(f(s_b)\)</span> ist monoton wachsend. Für <span class="math notranslate nohighlight">\(b/B \ge \pi/2\)</span> gilt <span class="math notranslate nohighlight">\(s_b \in [\pi, 2\pi]\)</span>. Das bedeutet, dass das Minimum der Bahnkurve tiefer als der Punkt <span class="math notranslate nohighlight">\(B\)</span> liegt. Für <span class="math notranslate nohighlight">\(b=8\)</span> und <span class="math notranslate nohighlight">\(B=1\)</span> folgt <span class="math notranslate nohighlight">\(s_b =\)</span> <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">4.9729</span></code></span> und <span class="math notranslate nohighlight">\(r = \)</span> <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">1.347</span></code></span>. Damit können wir die Bahnkurve visualisieren:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sbi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sb</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="n">sbi</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">sbi</span><span class="p">)),</span><span class="o">-</span><span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">sbi</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;-y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Bahnkurve&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Variationsrechnung_3_0.png" src="../_images/Variationsrechnung_3_0.png" />
+</div>
 </div>
 </div>
 </div>
@@ -552,7 +689,6 @@
         
           Durch Simon Stingelin<br/>
         
-            &copy; Urheberrechte © 2021.<br/>
       </p>
     </div>
   </footer>
