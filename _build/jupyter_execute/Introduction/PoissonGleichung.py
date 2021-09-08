@@ -62,7 +62,7 @@ from ngsolve.webgui import Draw
 
 
 mesh = Mesh(unit_square.GenerateMesh(maxh=0.1))
-Draw(mesh)
+Draw(mesh);
 
 
 # ## Schwache Gleichung
@@ -258,5 +258,5 @@ f.Assemble();
 
 
 gfu.vec.data = a.mat.Inverse(freedofs=V.FreeDofs()) * f.vec
-Draw(gfu)
+Draw(gfu);
 

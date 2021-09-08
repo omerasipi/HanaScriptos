@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="de">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,6 +41,10 @@
     <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/webgui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/webgui.js"></script>
+    <script src="_static/translations.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -54,8 +58,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+    <link rel="index" title="Stichwortverzeichnis" href="genindex.html" />
+    <link rel="search" title="Suche" href="search.html" />
     <link rel="prev" title="Anwendungen" href="Applications/Applications.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -83,7 +87,7 @@
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
@@ -122,6 +126,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="Introduction/StatischesMagnetfeld.html">
      Maxwell Gleichungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Introduction/Test.html">
+     Test
     </a>
    </li>
   </ul>
@@ -178,6 +187,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="Funktionalanalysis/Sobolevraeume.html">
    Sobolevräume
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Funktionalanalysis/Variationsrechnung.html">
+   Variationsrechnung
   </a>
  </li>
 </ul>
@@ -253,8 +267,8 @@
             
             <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
                 data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-arrow-left"></i>
                 <i class="fas fa-arrow-up"></i>
@@ -262,7 +276,7 @@
             
             
 <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
             class="fas fa-download"></i></button>
 
     <div class="dropdown-buttons">
@@ -270,10 +284,10 @@
         
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="_sources/Appendix.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
@@ -286,12 +300,12 @@
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
             href="https://github.zhaw.ch/stiw/HANASkript"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
         <a class="issues-button"
             href="https://github.zhaw.ch/stiw/HANASkript/issues/new?title=Issue%20on%20page%20%2FAppendix.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
         
     </div>
 </div>
@@ -299,8 +313,8 @@
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
@@ -319,7 +333,7 @@
               <div>
                 
   <div class="section" id="literaturverzeichnis">
-<h1>Literaturverzeichnis<a class="headerlink" href="#literaturverzeichnis" title="Permalink to this headline">¶</a></h1>
+<h1>Literaturverzeichnis<a class="headerlink" href="#literaturverzeichnis" title="Link zu dieser Überschrift">¶</a></h1>
 <p id="id1"><dl class="citation">
 <dt class="label" id="id2"><span class="brackets">BWHM10</span></dt>
 <dd><p>Klemens Burg, Friedrich Wille, Herbert Haf, and Andreas Meister. <em>Partielle Differentialgleichungen und funktionalanalytische Grundlagen</em>. Vieweg + Teubner Verlag, 2010. URL: <a class="reference external" href="https://www.springer.com/de/book/9783834812940">https://www.springer.com/de/book/9783834812940</a>.</p>
@@ -378,9 +392,9 @@
     <div class="container">
       <p>
         
-          By Simon Stingelin<br/>
+          Durch Simon Stingelin<br/>
         
-            &copy; Copyright 2021.<br/>
+            &copy; Urheberrechte © 2021.<br/>
       </p>
     </div>
   </footer>

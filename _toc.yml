@@ -13,6 +13,7 @@ parts:
       - file: Introduction/PoissonGleichung.md
       - file: Introduction/VariableKoeffizienten.md
       - file: Introduction/StatischesMagnetfeld.md
+      - file: Introduction/Test.ipynb
     - file: Introduction/Python.md
     - file: Introduction/NGSolve.md
     - file: Introduction/jupyterhub.md
@@ -24,6 +25,7 @@ parts:
       - file: Funktionalanalysis/BeispielFourierEntwicklung.ipynb
     - file: Funktionalanalysis/LineareOperatoren.md
     - file: Funktionalanalysis/Sobolevraeume.md
+    - file: Funktionalanalysis/Variationsrechnung.md
   - caption: Partielle Differentialgleichungen
     chapters:
     - file: PDE/IntroPDE.md

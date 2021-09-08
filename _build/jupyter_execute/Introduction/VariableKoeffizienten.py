@@ -60,7 +60,7 @@ geo.SetMaterial(3, "bar")
 
 mesh = Mesh(geo.GenerateMesh(maxh=0.03))
 mesh.Curve(3)
-Draw (mesh,)
+Draw (mesh);
 
 
 # Die Subdomains (Materials) sind gegeben durch:
@@ -95,7 +95,7 @@ v = V.TestFunction()
 lamvalues = { "air" : 1, "bar" : 1e2, "source" : 2 }
 lam = CoefficientFunction( 
     [lamvalues[mat] for mat in mesh.GetMaterials()])
-Draw (log(lam), mesh, "log lambda")
+Draw (log(lam), mesh, "log lambda");
 
 
 # Wir nützen die Wärmeleitfähigkeit für die Definition der Bilinearform:
@@ -126,7 +126,7 @@ gfu.vec.data = a.mat.Inverse(V.FreeDofs()) * f.vec
 # In[9]:
 
 
-Draw (gfu, mesh, "temperature")
+Draw (gfu, mesh, "temperature");
 
 
 # Für den Gradient der Wärmeverteilung $\nabla u$
@@ -134,7 +134,7 @@ Draw (gfu, mesh, "temperature")
 # In[10]:
 
 
-Draw (grad(gfu), mesh, "gradient",vectors=grad(gfu))
+Draw (grad(gfu), mesh, "gradient",vectors=grad(gfu));
 
 
 # und für den Wärmefluss $-\lambda \nabla u$:
@@ -142,7 +142,7 @@ Draw (grad(gfu), mesh, "gradient",vectors=grad(gfu))
 # In[11]:
 
 
-Draw (-lam*grad(gfu), mesh, "heatflux")
+Draw (-lam*grad(gfu), mesh, "heatflux");
 
 
 # In[ ]:

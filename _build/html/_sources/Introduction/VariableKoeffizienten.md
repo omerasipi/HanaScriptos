@@ -71,7 +71,7 @@ geo.SetMaterial(3, "bar")
 
 mesh = Mesh(geo.GenerateMesh(maxh=0.03))
 mesh.Curve(3)
-Draw (mesh,)
+Draw (mesh);
 ```
 
 Die Subdomains (Materials) sind gegeben durch:
@@ -98,7 +98,7 @@ Wir definieren nun das Material in dem wir den Wärmekoeffizient stückweise kon
 lamvalues = { "air" : 1, "bar" : 1e2, "source" : 2 }
 lam = CoefficientFunction( 
     [lamvalues[mat] for mat in mesh.GetMaterials()])
-Draw (log(lam), mesh, "log lambda")
+Draw (log(lam), mesh, "log lambda");
 ```
 
 Wir nützen die Wärmeleitfähigkeit für die Definition der Bilinearform:
@@ -123,19 +123,19 @@ gfu.vec.data = a.mat.Inverse(V.FreeDofs()) * f.vec
 Für die Wärmeverteilung erhalten wir:
 
 ```{code-cell} ipython3
-Draw (gfu, mesh, "temperature")
+Draw (gfu, mesh, "temperature");
 ```
 
 Für den Gradient der Wärmeverteilung $\nabla u$
 
 ```{code-cell} ipython3
-Draw (grad(gfu), mesh, "gradient",vectors=grad(gfu))
+Draw (grad(gfu), mesh, "gradient",vectors=grad(gfu));
 ```
 
 und für den Wärmefluss $-\lambda \nabla u$:
 
 ```{code-cell} ipython3
-Draw (-lam*grad(gfu), mesh, "heatflux")
+Draw (-lam*grad(gfu), mesh, "heatflux");
 ```
 
 ```{code-cell} ipython3

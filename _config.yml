@@ -36,6 +36,7 @@ html:
   use_issues_button: true
   use_repository_button: true
   use_multitoc_numbering: true
+  
 
 #######################################################################################
 # Launch button settings
@@ -45,3 +46,12 @@ launch_buttons:
   # jupyterhub_url            : "http://clt-dsk-t-7307.zhaw.ch"  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
   # thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
   # colab_url                 : "" # The URL of Google Colab (https://colab.research.google.com)
+
+sphinx:
+  config:
+    language: de
+    html_js_files :
+      - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js
+      - webgui.js
+      
+      

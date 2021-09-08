@@ -4,6 +4,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.10.3
 kernelspec:
   display_name: Python 3
   language: python
@@ -67,7 +69,7 @@ from ngsolve.webgui import Draw
 
 ```{code-cell} ipython3
 mesh = Mesh(unit_square.GenerateMesh(maxh=0.1))
-Draw(mesh)
+Draw(mesh);
 ```
 
 ## Schwache Gleichung
@@ -251,5 +253,5 @@ $$A u = f$$
 
 ```{code-cell} ipython3
 gfu.vec.data = a.mat.Inverse(freedofs=V.FreeDofs()) * f.vec
-Draw(gfu)
+Draw(gfu);
 ```

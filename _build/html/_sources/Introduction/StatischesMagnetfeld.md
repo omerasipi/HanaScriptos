@@ -55,16 +55,7 @@ geo = MakeGeometry()
 ```{code-cell} ipython3
 mesh = Mesh(geo.GenerateMesh(maxh=0.5))
 mesh.Curve(5)
-Draw (mesh, clipping = { "pnt" : (0,0,0), "vec" : (0,1,0) })
-```
-
-```{figure} image.png
----
-align: left
-height: 250px
-name: MagfeldGeometrie
----
-Geometrie
+Draw (mesh, clipping = { "pnt" : (0,0,0), "vec" : (0,1,0) });
 ```
 
 +++
@@ -151,14 +142,5 @@ with TaskManager():
 ```{code-cell} ipython3
 Draw (curl(gfu), mesh, "B-field", draw_surf=False, \
       clipping = { "pnt" : (0,0,0), "vec" : (0,1,0), "function" : False },
-      vectors = { "grid_size" : 100 })
-```
-
-```{figure} bfield.png
----
-align: left
-height: 250px
-name: Magfeld
----
-B-Feld
+      vectors = { "grid_size" : 100 });
 ```

@@ -1,0 +1,569 @@
+
+<!DOCTYPE html>
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variationsrechnung &#8212; Höhere Analysis und Numerik</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/webgui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/webgui.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="next" title="Einführung PDE" href="../PDE/IntroPDE.html" />
+    <link rel="prev" title="Sobolevräume" href="Sobolevraeume.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Höhere Analysis und Numerik</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Dieses Buch durchsuchen ..." aria-label="Dieses Buch durchsuchen ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Höhere Analysis und Numerik
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Einführung
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Introduction/Introduction.html">
+   Einführung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction/PoissonGleichung.html">
+     Poisson Gleichung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction/VariableKoeffizienten.html">
+     Variable Koeffizienten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction/StatischesMagnetfeld.html">
+     Maxwell Gleichungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction/Test.html">
+     Test
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction/Python.html">
+   Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction/NGSolve.html">
+   NGSolve
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction/jupyterhub.html">
+   Jupyter Hub
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Funktionalanalysis
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="GrundlegendeRaeume.html">
+   Grundlegende Räume
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="BeispielOrthogonalisierungSchmidt.html">
+     Beispiel Orthogonalisierungsverfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="BeispielFourierEntwicklung.html">
+     Beispiel zur Fourierentwicklung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="LineareOperatoren.html">
+   Lineare Operatoren
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Sobolevraeume.html">
+   Sobolevräume
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Variationsrechnung
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Partielle Differentialgleichungen
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../PDE/IntroPDE.html">
+   Einführung PDE
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Teil 3
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NumerikPDE/NumerikPDE.html">
+   Numerik für partielle Differentialgleichungen
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Teil 4
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Applications/Applications.html">
+   Anwendungen
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix.html">
+   Literaturverzeichnis
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Navigation umschalten" aria-controls="site-navigation"
+                title="Navigation umschalten" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Laden Sie diese Seite herunter"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Funktionalanalysis/Variationsrechnung.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="In PDF drucken"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.zhaw.ch/stiw/HANASkript"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
+                    class="fab fa-github"></i>Repository</button></a>
+        <a class="issues-button"
+            href="https://github.zhaw.ch/stiw/HANASkript/issues/new?title=Issue%20on%20page%20%2FFunktionalanalysis/Variationsrechnung.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Vollbildmodus"
+        title="Vollbildmodus"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#einfuhrendes-beispiel">
+   Einführendes Beispiel
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#euler-lagrange-gleichung">
+   Euler-Lagrange Gleichung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beispiele-zur-losung-der-euler-lagrange-gleichung">
+   Beispiele zur Lösung der Euler-Lagrange-Gleichung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kurzeste-verbindung-zweier-punkte">
+     Kürzeste Verbindung zweier Punkte
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="variationsrechnung">
+<h1>Variationsrechnung<a class="headerlink" href="#variationsrechnung" title="Link zu dieser Überschrift">¶</a></h1>
+<div class="section" id="einfuhrendes-beispiel">
+<h2>Einführendes Beispiel<a class="headerlink" href="#einfuhrendes-beispiel" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Wir beginnen mit einem eindimensionalen Problem: gesucht ist <span class="math notranslate nohighlight">\(u\in C^1(a,b)\)</span> so, dass</p>
+<div class="math notranslate nohighlight">
+\[J(u) = \int_a^b \left(\frac{1}{2} u'(x)^2 - f(x) u(x)\right) dx \to \min\]</div>
+<p>gilt.</p>
+<p>Wie in der Analysis reeller Funktionen soll für das Beispiel ein notwendiges Kriterium für eine Extremalstelle des Funktionals berechnet werden. Für die Herleitung gehen wir davon aus, dass <span class="math notranslate nohighlight">\(u(x)\)</span> ein Minimierer des Funktionals <span class="math notranslate nohighlight">\(J\)</span> ist. Diesen stören wir mit einer beliebigen Funktion <span class="math notranslate nohighlight">\(v(x) \in C_0^\infty(a,b)\)</span>. Das bedeutet, dass <span class="math notranslate nohighlight">\(v\)</span> beliebig oft stetig differenzierbar ist und <span class="math notranslate nohighlight">\(v(a) = v(b) = 0\)</span> gilt. Wir betrachten daher <span class="math notranslate nohighlight">\(J(u(x) + \varepsilon v(x))\)</span>. Falls <span class="math notranslate nohighlight">\(u(x)\)</span> eine Extremalstelle ist, so muss</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{d\varepsilon} J(u(x) + \varepsilon v(x))\big|_{\epsilon = 0} = 0\]</div>
+<p>gelten.</p>
+<div class="figure align-left" id="fig-gateauxableitung">
+<a class="reference internal image-reference" href="../_images/GateauxAbleitung.png"><img alt="../_images/GateauxAbleitung.png" src="../_images/GateauxAbleitung.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-number">Abb. 4 </span><span class="caption-text">Störung der Funktion <span class="math notranslate nohighlight">\(u(x)\)</span> durch <span class="math notranslate nohighlight">\(\varepsilon v(x)\)</span></span><a class="headerlink" href="#fig-gateauxableitung" title="Link zu diesem Bild">¶</a></p>
+</div>
+<p>Wir berechnen daher</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+\frac{d}{d\varepsilon} J(u(x) + \varepsilon v(x))\big|_{\epsilon = 0} &amp; = \frac{d}{d\varepsilon} \int_a^b \left( \frac{1}{2} (u'(x) + \varepsilon v'(x))^2 - f(x) (u(x) + \varepsilon v(x)) \right) dx \Big|_{\epsilon = 0}\\
+&amp; = \int_a^b \left((u'(x) + \varepsilon v'(x)) \cdot v'(x) - f(x) v(x)\right) dx  \Big|_{\epsilon = 0}\\
+&amp; = \int_a^b \left(u'(x) \cdot v'(x) - f(x) v(x) \right) dx
+\end{split}\end{split}\]</div>
+<p>Es folgt die <strong>schwache Gleichung</strong></p>
+<div class="math notranslate nohighlight">
+\[ \int_a^b \left(u'(x) \cdot v'(x) - f(x) v(x) \right) dx = 0\quad \forall v \in C_0^\infty(a,b).\]</div>
+<p>Unter der Voraussetzung, dass <span class="math notranslate nohighlight">\(u \in C^2(a,b)\)</span> gilt, folgt mit Hilfe der partiellen Integration</p>
+<div class="math notranslate nohighlight">
+\[ \underbrace{\left[ u'(x) v(x)\right]_a^b}_{=0\ \text{da}\ v(a)=v(b)=0} + \int_a^b \left(- u''(x) v(x) - f(x) v(x) \right) dx = 0\quad \forall v \in C_0^\infty(a,b).\]</div>
+<p>und somit</p>
+<div class="math notranslate nohighlight">
+\[ \int_a^b \left(- u''(x) - f(x)\right) v(x) dx = 0\quad \forall v \in C_0^\infty(a,b).\]</div>
+<p>Der <strong>Fundamentalsatz der Variationsrechnung</strong> besagt, dass die Gleichung nur dann erfüllt sein kann, wenn die <strong>starke Gleichung</strong></p>
+<div class="math notranslate nohighlight">
+\[- u''(x) - f(x) = 0\quad\text{oder}\quad - u''(x) = f(x)\]</div>
+<p>gilt.</p>
+<p>Wie aus dem Beispiel zu sehen ist, sind die Ansprüche an die Regularität in der starken Gleichung in der Regel grösser als die der schwachen Gleichung. Für skalare Funktionen ist das in der Regel kein grösseres Problem. Hingegen im Mehrdimensionalen führt dies zur Regularitätstheorie. Es muss studiert werden, wann eine schwache Lösung auch eine starke ist. Dies hängt im Mehrdimensionalen mit unter auch vom Gebiet <span class="math notranslate nohighlight">\(\Omega \subset \mathbb{R}^n\)</span> ab.</p>
+<p>Im Beispiel sind ein paar Grundkonzepte enthalten, welche wir wie folgt festhalten</p>
+<div class="admonition-definition-gateaux-differenzierbar admonition">
+<p class="admonition-title">Definition: Gâteaux-differenzierbar</p>
+<p>Sei <span class="math notranslate nohighlight">\(X\)</span> ein Banachraum. Existiert für <span class="math notranslate nohighlight">\(J: X \to \mathbb{R}\)</span> ein gegebenes Funktional</p>
+<div class="math notranslate nohighlight">
+\[G'(\varepsilon=0) = \lim_{\varepsilon \to 0} \frac{J(u + \varepsilon v) - J(u)}{\varepsilon},\]</div>
+<p>so ist <span class="math notranslate nohighlight">\(J\)</span> in <span class="math notranslate nohighlight">\(u\)</span> in Richtung <span class="math notranslate nohighlight">\(v\)</span> Gâteaux-differenzierbar und die Ableitung wird als <span class="math notranslate nohighlight">\(dJ(u,v)\)</span> bezeichnet.</p>
+</div>
+<p>Das Gâteaux-Differential muss nicht zwingend linear noch stetig in <span class="math notranslate nohighlight">\(v\)</span> sein.</p>
+<div class="admonition-definition-frechet-ableitung admonition">
+<p class="admonition-title">Definition: Fréchet-Ableitung</p>
+<p>Existiert <span class="math notranslate nohighlight">\(dJ(u,v)\)</span> in <span class="math notranslate nohighlight">\(u\in D \subset X\)</span> für <span class="math notranslate nohighlight">\(v\in X\)</span> und ist <span class="math notranslate nohighlight">\(dJ(u,v)\)</span> linear in <span class="math notranslate nohighlight">\(v\)</span>, so heisst <span class="math notranslate nohighlight">\(dJ(u,v)\)</span> die <strong>erste Variation</strong> oder <strong>Fréchet-Ableitung</strong> von <span class="math notranslate nohighlight">\(J\)</span> in Richtung <span class="math notranslate nohighlight">\(v\)</span>. Wir schreiben in dem Fall</p>
+<div class="math notranslate nohighlight">
+\[dJ(u,v) = \delta J(u) v = J'(u) v.\]</div>
+<p>Ist dies für alle <span class="math notranslate nohighlight">\(v\in D\subset X\)</span> richtig, wobei <span class="math notranslate nohighlight">\(D\)</span> ein Unterraum von <span class="math notranslate nohighlight">\(X\)</span> ist, so ist</p>
+<div class="math notranslate nohighlight">
+\[J'(u) : D \to \mathbb{R}\]</div>
+<p>ein lineares Funktional.</p>
+</div>
+<p>Betrachten wir obiges Beispiel noch im mehrdimensionalen: gesucht ist <span class="math notranslate nohighlight">\(u\in H_0^1(\Omega)\)</span> so, dass</p>
+<div class="math notranslate nohighlight">
+\[J(u) = \int_\Omega \left(\frac{1}{2} |\nabla u|^2 - f(x) u(x)\right) dx \to \min\]</div>
+<p>gilt.</p>
+<p>Wir berechnen die Gâteaux-Ableitung</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{d\varepsilon} J(u + \varepsilon v)\big|_{\varepsilon = 0} = \int_\Omega \nabla u\cdot \nabla v - f v dx\]</div>
+<p>Die Gâteaux-Ableitung ist linear in <span class="math notranslate nohighlight">\(v\)</span> und somit die erste Variation des Funktionals <span class="math notranslate nohighlight">\(J : H_0^1(\Omega) \to \mathbb{R} \)</span>.</p>
+<p>Mit der Forderung für einen Extremalpunkt <span class="math notranslate nohighlight">\(J'(u) v = 0\)</span> für alle <span class="math notranslate nohighlight">\(v\in H_0^1(\Omega)\)</span> haben wir die schwache Gleichung (vgl. Einleitung Poisson Gleichung <a class="reference internal" href="../Introduction/PoissonGleichung.html#equation-eq-weakpoisson">(3)</a>)</p>
+<div class="math notranslate nohighlight">
+\[\int_\Omega \nabla u\cdot\nabla v dx = \int f(x) v dx \quad \forall v \in H_0^1(\Omega).\]</div>
+<p>Mit Hilfe des Gauss-Theorem oder partiellen Integration im mehrdimensionalen folgt die starke Gleichung (partielle Differentialgleichung)</p>
+<div class="math notranslate nohighlight">
+\[-\Delta u = f(x)\quad x\in\Omega\]</div>
+<p>mit der Dirichlet Randbedingung <span class="math notranslate nohighlight">\(u(x) = 0\)</span> auf dem Rand <span class="math notranslate nohighlight">\(\partial\Omega\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Halten wir fest: Durch <em>Testen</em> der partiellen Differentialgleichung erhalten wir die schwache Gleichung, welche dem notwendigen Kriterium (Fréchet-Ableitung ist Null) eines zu (typischerweise) minimierenden Funktionals entspricht.</p>
+</div>
+</div>
+<div class="section" id="euler-lagrange-gleichung">
+<h2>Euler-Lagrange Gleichung<a class="headerlink" href="#euler-lagrange-gleichung" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Für die Herleitung der formalen Euler-Lagrange Gleichung beschränkten wir uns auf eindimensionale Probleme. Wir betrachten das zu minimierende Funktional</p>
+<div class="math notranslate nohighlight" id="equation-eq-eulerlagragefunktional">
+<span class="eqno">(17)<a class="headerlink" href="#equation-eq-eulerlagragefunktional" title="Permalink to this equation">¶</a></span>\[J(u) = \int_a^b F(x,u,u') dx,\]</div>
+<p>welches auf <span class="math notranslate nohighlight">\(C^1(a,b)\)</span> definiert ist.</p>
+<div class="admonition-definition-lokaler-minimierer admonition">
+<p class="admonition-title">Definition: lokaler Minimierer</p>
+<p>Sei <span class="math notranslate nohighlight">\(X\)</span> ein Banachraum. Eine Funktion <span class="math notranslate nohighlight">\(u\in X\)</span> heisst lokaler Minimierere für das Funktional <span class="math notranslate nohighlight">\(J : X \to \mathbb{R}\)</span>, falls</p>
+<div class="math notranslate nohighlight">
+\[J(u) \le J(v)\quad\text{für alle}\ v\in X\ \text{mit}\ \|u-v\|_X &lt; \delta\]</div>
+<p>mit einer Konstante <span class="math notranslate nohighlight">\(\delta &gt; 0\)</span> gilt.</p>
+</div>
+<p>Analog wird ein lokaler Maximierer definiert. Man beschränkt sich in der Regel auf Minimierer und betrachtet für Maximierer das Funktional <span class="math notranslate nohighlight">\(-J\)</span>.</p>
+<p>Wir betrachten nun das Funktional <a class="reference internal" href="#equation-eq-eulerlagragefunktional">(17)</a> und berechnen die Gâteaux-Ableitung für beliebiges <span class="math notranslate nohighlight">\(v\in C_0^1(a,b)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+\frac{d}{d\varepsilon} J(u+\varepsilon v)\big|_{\varepsilon=0} &amp; = \frac{d}{d\varepsilon} \int_a^b F(x,u+\varepsilon v,u'+\varepsilon v') dx \Big|_{\varepsilon=0}\\
+&amp; = \int_a^b \left(\partial_{u} F(x,u,u')\cdot v + \partial_{u'} F(x,u,u')\cdot v' \right) dx
+\end{split}\end{split}\]</div>
+<p>Partielle Integration des zweiten Summanden liefert</p>
+<div class="math notranslate nohighlight">
+\[J'(u) v = \int_a^b \left(\partial_{u} F(x,u,u')\cdot v - \frac{d}{dx} \partial_{u'} F(x,u,u')\cdot v\right) dx + \left[ \partial_{u'} F(x,u,u')\cdot v \right]_a^b.\]</div>
+<p>Da <span class="math notranslate nohighlight">\(v\in C_0^1(a,b)\)</span> folgt <span class="math notranslate nohighlight">\(v(a) = v(b) = 0\)</span> und damit</p>
+<div class="math notranslate nohighlight">
+\[J'(u) v = \int_a^b \left(\partial_{u} F(x,u,u') - \frac{d}{dx} \partial_{u'} F(x,u,u')\right)\cdot v dx.\]</div>
+<p>Wir können damit folgenden Satz festhalten:</p>
+<div class="admonition-satz admonition">
+<p class="admonition-title">Satz</p>
+<p>Die Funktion <span class="math notranslate nohighlight">\(u\in C^1(a,b)\)</span> sei ein lokaler Minimierer für das Funktional <a class="reference internal" href="#equation-eq-eulerlagragefunktional">(17)</a> und die Lagrange-Funktion <span class="math notranslate nohighlight">\(F: [a,b] \times \mathbb{R} \times \mathbb{R}\)</span> sei stetig und bezüglich der letzten beiden Variablen stetig partiell differenzierbar. Dann gilt die <strong>Euler-Lagrange-Gleichung</strong></p>
+<div class="math notranslate nohighlight" id="equation-eq-starkeeulerlagrangegleichung">
+<span class="eqno">(18)<a class="headerlink" href="#equation-eq-starkeeulerlagrangegleichung" title="Permalink to this equation">¶</a></span>\[\frac{d}{dx} \partial_{u'} F(x,u,u') =  \partial_{u} F(x,u,u').\]</div>
+</div>
+<p><strong>Bemerkungen</strong>:</p>
+<ul>
+<li><p>Wir haben den Satz für stetige Funktionen auf ganz <span class="math notranslate nohighlight">\([a,b]\)</span> notiert. Das ganze lässt sich leicht auf stückweise stetige Funktionen verallgemeinern.</p></li>
+<li><p>Im hier notierten Fall von Funktionen in <em>einer</em> Variablen <span class="math notranslate nohighlight">\(x\)</span> gilt, dass eine Lösung der schwachen Gleichung</p>
+<div class="math notranslate nohighlight">
+\[\int_a^b \left(\partial_{u} F(x,u,u')\cdot v + \partial_{u'} F(x,u,u')\cdot v' \right) dx = 0\quad \forall\ v\in C_0^1(a,b)\]</div>
+<p>auch Lösung der starken Gleichung <a class="reference internal" href="#equation-eq-starkeeulerlagrangegleichung">(18)</a> ist.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="beispiele-zur-losung-der-euler-lagrange-gleichung">
+<h2>Beispiele zur Lösung der Euler-Lagrange-Gleichung<a class="headerlink" href="#beispiele-zur-losung-der-euler-lagrange-gleichung" title="Link zu dieser Überschrift">¶</a></h2>
+<div class="section" id="kurzeste-verbindung-zweier-punkte">
+<h3>Kürzeste Verbindung zweier Punkte<a class="headerlink" href="#kurzeste-verbindung-zweier-punkte" title="Link zu dieser Überschrift">¶</a></h3>
+<p>Wir betrachten in der Ebene zwei Punkte <span class="math notranslate nohighlight">\((x_1,y_1), (x_2,y_2)\)</span> und suchen nach der kürzesten Kurve, welche diese verbindet. Beschreibt man die Kurve mit einer Funktion <span class="math notranslate nohighlight">\(y: [x_1,x_2] \to \mathbb{R}\)</span>, so können wir die Länge mit dem Funktional</p>
+<div class="math notranslate nohighlight">
+\[J(y) = \int_{x_1}^{x_2} \sqrt{1+y'(x)^2} dx\]</div>
+<p>berechnen. Gesucht ist daher ein Minimierer des Funktionals <span class="math notranslate nohighlight">\(J(y)\)</span>. Die zugehörige Euler-Lagrange Gleichung lautet</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dx} \frac{y'(x)}{\sqrt{1+y'(x)^2}} = 0,\]</div>
+<p>wobei ein Faktor <span class="math notranslate nohighlight">\(2\)</span> schon gekürzt wurde. Integration liefert</p>
+<div class="math notranslate nohighlight">
+\[\frac{y'(x)}{\sqrt{1+y'(x)^2}} = a.\]</div>
+<p>Durch auflösen nach <span class="math notranslate nohighlight">\(y'\)</span> und integrieren erhalten wir den Kanditaten für einen Minimierer</p>
+<div class="math notranslate nohighlight">
+\[y(x) = \frac{a}{\sqrt{1-a^2}} x + b = m\, x + b,\]</div>
+<p>also eine Gerade zwischen den beiden Punkten. Die beiden Integrationskonstanten können aus den Randbedingungen <span class="math notranslate nohighlight">\(y(x_1) = y_1\)</span> und <span class="math notranslate nohighlight">\(y(x_2) = y_2\)</span> bestimmt werden. Es stellt sich natürlich die Frage, ist die Lösung ein Minimierer und falls ja ein globaler?</p>
+<p>Analog zur Analysis reeller Funktionen kann auf für Funktionale unter geeigneten Voraussetzungen ein Kriterium, die zweite Variation, berechnet werden. Es gilt der Satz</p>
+<div class="admonition-satz admonition">
+<p class="admonition-title">Satz</p>
+<p>Sei die Lagrange-Funktion <a class="reference internal" href="#equation-eq-eulerlagragefunktional">(17)</a> zweimal bezüglich den letzten beiden Variablen stetig partiell differenzierbar. Dann ist die zweite Variateion gegeben durch die Bilinearform</p>
+<div class="math notranslate nohighlight">
+\[\delta^2 J(u)(v,v) = \int_a^b \partial_{u,u}F(x,u,u') v^2 + 2 \partial_{u,u'} F(x,u,u') v v' + \partial_{u',u'} F(x,u,u') v'^2 dx.\]</div>
+<p>Für einen lokalen Minimierer  gilt die <strong>notwendige Bedingung von Legendre</strong></p>
+<div class="math notranslate nohighlight">
+\[\partial_{u',u'} F(x,u,u') \ge 0\quad \forall\ x\in [a,b].\]</div>
+<p>Ist</p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Funktionalanalysis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="Sobolevraeume.html" title="previous page">Sobolevräume</a>
+    <a class='right-next' id="next-link" href="../PDE/IntroPDE.html" title="next page">Einführung PDE</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          Durch Simon Stingelin<br/>
+        
+            &copy; Urheberrechte © 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
