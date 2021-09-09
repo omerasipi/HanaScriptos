@@ -14,7 +14,7 @@ kernelspec:
 
 ## Vektorräume
 
-In den Modulen linearen Algebra, Analysis und Numerik wurden Vektorräume und Normen mit dem $\mathbb{R}^n$ eingeführt und benutzt. Wir definieren hier der Vollständigkeit halber die Begriffe nochmals und erweitern die Anwendung auf allgemeinere Räume, insbesondere müssen diese nicht endlich dimensional sein.
+In den Modulen linearen Algebra, Analysis und Numerik wurden Vektorräume und Normen für den $\mathbb{R}^n$ eingeführt und benutzt. Wir definieren hier der Vollständigkeit halber die Begriffe nochmals und erweitern die Anwendung auf allgemeinere Räume, insbesondere müssen diese nicht endlich dimensional sein.
 
 Beginnen wir mit dem Begriff der Vektorräume. Um diesen definieren zu können, benötigen wir einen Zahlenkörper. In aller Regel benutzen wir die reellen Zahlen $\mathbb{R}$. Wir legen mit dem folgenden Axiom fest, was die reellen Zahlen sind:
 

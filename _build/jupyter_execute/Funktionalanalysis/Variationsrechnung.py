@@ -298,17 +298,20 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.optimize import fsolve
+from myst_nb import glue
 
 f = lambda sb : (sb - np.sin(sb))/(1-np.cos(sb))
 
-from scipy.optimize import fsolve
-from myst_nb import glue
 b=8
 B=1
+glue("b_example", b, display=False)
+glue("B_example", B, display=False)
+
 sb = fsolve(lambda s: f(s)-b/B,5)[0]
 r = B/(1-np.cos(sb))
-glue("sb_example", np.round(sb,4),display=False)
-glue("r_example", np.round(r,4),display=False)
+glue("sb_example", np.round(sb,4), display=False)
+glue("r_example", np.round(r,4), display=False)
 
 sbi = np.linspace(1e-3,2*3.14,400)
 plt.plot(sbi, f(sbi),label='$f(s_b)$')
@@ -323,7 +326,7 @@ plt.ylabel('$b/B$')
 plt.show()
 
 
-# Die Funktion $f(s_b)$ ist monoton wachsend. Für $b/B \ge \pi/2$ gilt $s_b \in [\pi, 2\pi]$. Das bedeutet, dass das Minimum der Bahnkurve tiefer als der Punkt $B$ liegt. Für $b=8$ und $B=1$ folgt $s_b =$ {glue:}`sb_example` und $r = $ {glue:}`r_example`. Damit können wir die Bahnkurve visualisieren:
+# Die Funktion $f(s_b)$ ist monoton wachsend. Für $b/B \ge \pi/2$ gilt $s_b \in [\pi, 2\pi]$. Das bedeutet, dass das Minimum der Bahnkurve tiefer als der Punkt $B$ liegt. Für $b = $ {glue:}`b_example` und $B = $ {glue:}`B_example` folgt $s_b =$ {glue:}`sb_example` und $r = $ {glue:}`r_example`. Damit können wir die Bahnkurve visualisieren:
 
 # In[2]:
 

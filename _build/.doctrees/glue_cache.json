@@ -1,5 +1,17 @@
 {
   "Funktionalanalysis/Variationsrechnung": {
+    "sb_example": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "sb_example",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "4.9729"
+      }
+    },
     "r_example": {
       "output_type": "display_data",
       "metadata": {
@@ -12,16 +24,28 @@
         "application/papermill.record/text/plain": "1.347"
       }
     },
-    "sb_example": {
+    "b_example": {
       "output_type": "display_data",
       "metadata": {
         "scrapbook": {
-          "name": "sb_example",
+          "name": "b_example",
           "mime_prefix": "application/papermill.record/"
         }
       },
       "data": {
-        "application/papermill.record/text/plain": "4.9729"
+        "application/papermill.record/text/plain": "8"
+      }
+    },
+    "B_example": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "B_example",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "1"
       }
     }
   }

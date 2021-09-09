@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Variationsrechnung &#8212; Höhere Analysis und Numerik</title>
+    <title>4. Variationsrechnung &#8212; Höhere Analysis und Numerik</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -49,6 +49,8 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -58,8 +60,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="Einführung PDE" href="../PDE/IntroPDE.html" />
-    <link rel="prev" title="Sobolevräume" href="Sobolevraeume.html" />
+    <link rel="next" title="1. Einführung partielle Differentialgleichungen" href="../PDE/IntroPDE.html" />
+    <link rel="prev" title="3. Sobolevräume" href="Sobolevraeume.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -104,7 +106,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Introduction/Introduction.html">
-   Einführung
+   1. Einführung
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -114,39 +116,34 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Introduction/PoissonGleichung.html">
-     Poisson Gleichung
+     1.1. Poisson Gleichung
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Introduction/VariableKoeffizienten.html">
-     Variable Koeffizienten
+     1.2. Variable Koeffizienten
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Introduction/StatischesMagnetfeld.html">
-     Maxwell Gleichungen
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Introduction/Test.html">
-     Test
+     1.3. Maxwell Gleichungen
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Introduction/Python.html">
-   Python
+   2. Python
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Introduction/NGSolve.html">
-   NGSolve
+   3. NGSolve
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Introduction/jupyterhub.html">
-   Jupyter Hub
+   4. Jupyter Hub
   </a>
  </li>
 </ul>
@@ -158,7 +155,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="GrundlegendeRaeume.html">
-   Grundlegende Räume
+   1. Grundlegende Räume
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -168,29 +165,29 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="BeispielOrthogonalisierungSchmidt.html">
-     Beispiel Orthogonalisierungsverfahren
+     1.5. Beispiel Orthogonalisierungsverfahren
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="BeispielFourierEntwicklung.html">
-     Beispiel zur Fourierentwicklung
+     1.6. Beispiel zur Fourierentwicklung
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="LineareOperatoren.html">
-   Lineare Operatoren
+   2. Lineare Operatoren
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Sobolevraeume.html">
-   Sobolevräume
+   3. Sobolevräume
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Variationsrechnung
+   4. Variationsrechnung
   </a>
  </li>
 </ul>
@@ -200,10 +197,22 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../PDE/IntroPDE.html">
-   Einführung PDE
+   1. Einführung partielle Differentialgleichungen
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../PDE/QuadratischeFormen.html">
+     1.3. Beispiele zu quadratischen Formen
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -214,7 +223,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../NumerikPDE/NumerikPDE.html">
-   Numerik für partielle Differentialgleichungen
+   1. Numerik für partielle Differentialgleichungen
   </a>
  </li>
 </ul>
@@ -226,7 +235,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../Applications/Applications.html">
-   Anwendungen
+   1. Anwendungen
   </a>
  </li>
 </ul>
@@ -238,7 +247,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../Appendix.html">
-   Literaturverzeichnis
+   1. Literaturverzeichnis
   </a>
  </li>
 </ul>
@@ -333,27 +342,27 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#einfuhrendes-beispiel">
-   Einführendes Beispiel
+   4.1. Einführendes Beispiel
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#euler-lagrange-gleichung">
-   Euler-Lagrange Gleichung
+   4.2. Euler-Lagrange Gleichung
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#beispiele-zur-losung-der-euler-lagrange-gleichung">
-   Beispiele zur Lösung der Euler-Lagrange-Gleichung
+   4.3. Beispiele zur Lösung der Euler-Lagrange-Gleichung
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#kurzeste-verbindung-zweier-punkte">
-     Kürzeste Verbindung zweier Punkte
+     4.3.1. Kürzeste Verbindung zweier Punkte
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#das-problem-von-johann-bernoulli">
-     Das Problem von Johann Bernoulli
+     4.3.2. Das Problem von Johann Bernoulli
     </a>
    </li>
   </ul>
@@ -370,10 +379,10 @@
               <div>
                 
   <div class="section" id="variationsrechnung">
-<h1>Variationsrechnung<a class="headerlink" href="#variationsrechnung" title="Link zu dieser Überschrift">¶</a></h1>
+<h1><span class="section-number">4. </span>Variationsrechnung<a class="headerlink" href="#variationsrechnung" title="Link zu dieser Überschrift">¶</a></h1>
 <p>Das Kapitel baut auf dem Buch <span id="id1">[<a class="reference internal" href="../Appendix.html#id13">Kie10</a>]</span> auf.</p>
 <div class="section" id="einfuhrendes-beispiel">
-<h2>Einführendes Beispiel<a class="headerlink" href="#einfuhrendes-beispiel" title="Link zu dieser Überschrift">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Einführendes Beispiel<a class="headerlink" href="#einfuhrendes-beispiel" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Wir beginnen mit einem eindimensionalen Problem: gesucht ist <span class="math notranslate nohighlight">\(u\in C^1(a,b)\)</span> so, dass</p>
 <div class="math notranslate nohighlight">
 \[J(u) = \int_a^b \left(\frac{1}{2} u'(x)^2 - f(x) u(x)\right) dx \to \min\]</div>
@@ -384,7 +393,7 @@
 <p>gelten.</p>
 <div class="figure align-left" id="fig-gateauxableitung">
 <a class="reference internal image-reference" href="../_images/GateauxAbleitung.png"><img alt="../_images/GateauxAbleitung.png" src="../_images/GateauxAbleitung.png" style="height: 250px;" /></a>
-<p class="caption"><span class="caption-number">Abb. 4 </span><span class="caption-text">Störung der Funktion <span class="math notranslate nohighlight">\(u(x)\)</span> durch <span class="math notranslate nohighlight">\(\varepsilon v(x)\)</span></span><a class="headerlink" href="#fig-gateauxableitung" title="Link zu diesem Bild">¶</a></p>
+<p class="caption"><span class="caption-number">Abb. 4.2 </span><span class="caption-text">Störung der Funktion <span class="math notranslate nohighlight">\(u(x)\)</span> durch <span class="math notranslate nohighlight">\(\varepsilon v(x)\)</span></span><a class="headerlink" href="#fig-gateauxableitung" title="Link zu diesem Bild">¶</a></p>
 </div>
 <p>Wir berechnen daher</p>
 <div class="math notranslate nohighlight">
@@ -434,7 +443,7 @@
 <div class="math notranslate nohighlight">
 \[\frac{d}{d\varepsilon} J(u + \varepsilon v)\big|_{\varepsilon = 0} = \int_\Omega \nabla u\cdot \nabla v - f v dx\]</div>
 <p>Die Gâteaux-Ableitung ist linear in <span class="math notranslate nohighlight">\(v\)</span> und somit die erste Variation des Funktionals <span class="math notranslate nohighlight">\(J : H_0^1(\Omega) \to \mathbb{R} \)</span>.</p>
-<p>Mit der Forderung für einen Extremalpunkt <span class="math notranslate nohighlight">\(J'(u) v = 0\)</span> für alle <span class="math notranslate nohighlight">\(v\in H_0^1(\Omega)\)</span> haben wir die schwache Gleichung (vgl. Einleitung Poisson Gleichung <a class="reference internal" href="../Introduction/PoissonGleichung.html#equation-eq-weakpoisson">(3)</a>)</p>
+<p>Mit der Forderung für einen Extremalpunkt <span class="math notranslate nohighlight">\(J'(u) v = 0\)</span> für alle <span class="math notranslate nohighlight">\(v\in H_0^1(\Omega)\)</span> haben wir die schwache Gleichung (vgl. Einleitung Poisson Gleichung <a class="reference internal" href="../Introduction/PoissonGleichung.html#equation-eq-weakpoisson">(1.3)</a>)</p>
 <div class="math notranslate nohighlight">
 \[\int_\Omega \nabla u\cdot\nabla v dx = \int f(x) v dx \quad \forall v \in H_0^1(\Omega).\]</div>
 <p>Mit Hilfe des Gauss-Theorem oder partiellen Integration im mehrdimensionalen folgt die starke Gleichung (partielle Differentialgleichung)</p>
@@ -447,10 +456,10 @@
 </div>
 </div>
 <div class="section" id="euler-lagrange-gleichung">
-<h2>Euler-Lagrange Gleichung<a class="headerlink" href="#euler-lagrange-gleichung" title="Link zu dieser Überschrift">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Euler-Lagrange Gleichung<a class="headerlink" href="#euler-lagrange-gleichung" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Für die Herleitung der formalen Euler-Lagrange Gleichung beschränkten wir uns auf eindimensionale Probleme. Wir betrachten das zu minimierende Funktional</p>
 <div class="math notranslate nohighlight" id="equation-eq-eulerlagragefunktional">
-<span class="eqno">(17)<a class="headerlink" href="#equation-eq-eulerlagragefunktional" title="Permalink to this equation">¶</a></span>\[J(u) = \int_a^b F(x,u,u') dx,\]</div>
+<span class="eqno">(4.1)<a class="headerlink" href="#equation-eq-eulerlagragefunktional" title="Permalink to this equation">¶</a></span>\[J(u) = \int_a^b F(x,u,u') dx,\]</div>
 <p>welches auf <span class="math notranslate nohighlight">\(C^1(a,b)\)</span> definiert ist.</p>
 <div class="admonition-definition-lokaler-minimierer admonition">
 <p class="admonition-title">Definition: lokaler Minimierer</p>
@@ -460,7 +469,7 @@
 <p>mit einer Konstante <span class="math notranslate nohighlight">\(\delta &gt; 0\)</span> gilt.</p>
 </div>
 <p>Analog wird ein lokaler Maximierer definiert. Man beschränkt sich in der Regel auf Minimierer und betrachtet für Maximierer das Funktional <span class="math notranslate nohighlight">\(-J\)</span>.</p>
-<p>Wir betrachten nun das Funktional <a class="reference internal" href="#equation-eq-eulerlagragefunktional">(17)</a> und berechnen die Gâteaux-Ableitung für beliebiges <span class="math notranslate nohighlight">\(v\in C_0^1(a,b)\)</span></p>
+<p>Wir betrachten nun das Funktional <a class="reference internal" href="#equation-eq-eulerlagragefunktional">(4.1)</a> und berechnen die Gâteaux-Ableitung für beliebiges <span class="math notranslate nohighlight">\(v\in C_0^1(a,b)\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{split}
 \frac{d}{d\varepsilon} J(u+\varepsilon v)\big|_{\varepsilon=0} &amp; = \frac{d}{d\varepsilon} \int_a^b F(x,u+\varepsilon v,u'+\varepsilon v') dx \Big|_{\varepsilon=0}\\
@@ -475,9 +484,9 @@
 <p>Wir können damit folgenden Satz festhalten:</p>
 <div class="admonition-satz admonition">
 <p class="admonition-title">Satz</p>
-<p>Die Funktion <span class="math notranslate nohighlight">\(u\in C^1(a,b)\)</span> sei ein lokaler Minimierer für das Funktional <a class="reference internal" href="#equation-eq-eulerlagragefunktional">(17)</a> und die Lagrange-Funktion <span class="math notranslate nohighlight">\(F: [a,b] \times \mathbb{R} \times \mathbb{R}\)</span> sei stetig und bezüglich der letzten beiden Variablen stetig partiell differenzierbar. Dann gilt die <strong>Euler-Lagrange-Gleichung</strong></p>
+<p>Die Funktion <span class="math notranslate nohighlight">\(u\in C^1(a,b)\)</span> sei ein lokaler Minimierer für das Funktional <a class="reference internal" href="#equation-eq-eulerlagragefunktional">(4.1)</a> und die Lagrange-Funktion <span class="math notranslate nohighlight">\(F: [a,b] \times \mathbb{R} \times \mathbb{R}\)</span> sei stetig und bezüglich der letzten beiden Variablen stetig partiell differenzierbar. Dann gilt die <strong>Euler-Lagrange-Gleichung</strong></p>
 <div class="math notranslate nohighlight" id="equation-eq-starkeeulerlagrangegleichung">
-<span class="eqno">(18)<a class="headerlink" href="#equation-eq-starkeeulerlagrangegleichung" title="Permalink to this equation">¶</a></span>\[\frac{d}{dx} \partial_{u'} F(x,u,u') =  \partial_{u} F(x,u,u').\]</div>
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-eq-starkeeulerlagrangegleichung" title="Permalink to this equation">¶</a></span>\[\frac{d}{dx} \partial_{u'} F(x,u,u') =  \partial_{u} F(x,u,u').\]</div>
 </div>
 <p><strong>Bemerkungen</strong>:</p>
 <ul>
@@ -485,7 +494,7 @@
 <li><p>Im hier notierten Fall von Funktionen in <em>einer</em> Variablen <span class="math notranslate nohighlight">\(x\)</span> gilt, dass eine Lösung der schwachen Gleichung</p>
 <div class="math notranslate nohighlight">
 \[\int_a^b \left(\partial_{u} F(x,u,u')\cdot v + \partial_{u'} F(x,u,u')\cdot v' \right) dx = 0\quad \forall\ v\in C_0^1(a,b)\]</div>
-<p>auch Lösung der starken Gleichung <a class="reference internal" href="#equation-eq-starkeeulerlagrangegleichung">(18)</a> ist.</p>
+<p>auch Lösung der starken Gleichung <a class="reference internal" href="#equation-eq-starkeeulerlagrangegleichung">(4.2)</a> ist.</p>
 </li>
 <li><p>Ist die Lagrange-Funktion nicht explizit von <span class="math notranslate nohighlight">\(x\)</span> abhängig, können wir die Lagrange-Gleichung umformen - vorausgesetzt die Regularität von <span class="math notranslate nohighlight">\(y\)</span> erlaubt ein zweimaliges Ableiten.</p>
 <p>Es gilt</p>
@@ -495,15 +504,15 @@
   &amp; = \underbrace{\left(F_u - \frac{d}{dx} F_{u'}\right)}_{=0\, (*)} \cdot \underbrace{u'}_{=0\, (**)} = 0\quad \text{für}\, x\in [a,b].\end{split}\end{split}\]</div>
 <p>Daraus folgt, dass jede Lösung der Euler-Lagrange-Gleichung <span class="math notranslate nohighlight">\((*)\)</span> und jede Konstante <span class="math notranslate nohighlight">\((**)\)</span> ebenfalls Lösung der Differentialgleichung erster Ordnung</p>
 <div class="math notranslate nohighlight" id="equation-eq-elgspezialfall">
-<span class="eqno">(19)<a class="headerlink" href="#equation-eq-elgspezialfall" title="Permalink to this equation">¶</a></span>\[F(u,u') - u' F_{u'}(u,u') = c_1\quad\text{für}\, x\in [a,b]\]</div>
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-eq-elgspezialfall" title="Permalink to this equation">¶</a></span>\[F(u,u') - u' F_{u'}(u,u') = c_1\quad\text{für}\, x\in [a,b]\]</div>
 <p>ist.</p>
 </li>
 </ul>
 </div>
 <div class="section" id="beispiele-zur-losung-der-euler-lagrange-gleichung">
-<h2>Beispiele zur Lösung der Euler-Lagrange-Gleichung<a class="headerlink" href="#beispiele-zur-losung-der-euler-lagrange-gleichung" title="Link zu dieser Überschrift">¶</a></h2>
+<h2><span class="section-number">4.3. </span>Beispiele zur Lösung der Euler-Lagrange-Gleichung<a class="headerlink" href="#beispiele-zur-losung-der-euler-lagrange-gleichung" title="Link zu dieser Überschrift">¶</a></h2>
 <div class="section" id="kurzeste-verbindung-zweier-punkte">
-<h3>Kürzeste Verbindung zweier Punkte<a class="headerlink" href="#kurzeste-verbindung-zweier-punkte" title="Link zu dieser Überschrift">¶</a></h3>
+<h3><span class="section-number">4.3.1. </span>Kürzeste Verbindung zweier Punkte<a class="headerlink" href="#kurzeste-verbindung-zweier-punkte" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Wir betrachten in der Ebene zwei Punkte <span class="math notranslate nohighlight">\((a,A), (b,B)\)</span> und suchen nach der kürzesten Kurve, welche diese verbindet. Beschreibt man die Kurve mit einer Funktion <span class="math notranslate nohighlight">\(y: [a,b] \to \mathbb{R}\)</span>, so können wir die Länge mit dem Funktional</p>
 <div class="math notranslate nohighlight">
 \[J(y) = \int_{a}^{b} \sqrt{1+y'(x)^2} dx\]</div>
@@ -520,7 +529,7 @@
 <p>Analog zur Analysis reeller Funktionen kann auf für Funktionale unter geeigneten Voraussetzungen ein Kriterium, die zweite Variation, berechnet werden. Es gilt der Satz</p>
 <div class="admonition-satz admonition">
 <p class="admonition-title">Satz</p>
-<p>Sei die Lagrange-Funktion <a class="reference internal" href="#equation-eq-eulerlagragefunktional">(17)</a> zweimal bezüglich den letzten beiden Variablen stetig partiell differenzierbar. Dann ist die zweite Variateion gegeben durch die Bilinearform</p>
+<p>Sei die Lagrange-Funktion <a class="reference internal" href="#equation-eq-eulerlagragefunktional">(4.1)</a> zweimal bezüglich den letzten beiden Variablen stetig partiell differenzierbar. Dann ist die zweite Variateion gegeben durch die Bilinearform</p>
 <div class="math notranslate nohighlight">
 \[\delta^2 J(u)(v,v) = \int_a^b \partial_{u,u}F(x,u,u') v^2 + 2 \partial_{u,u'} F(x,u,u') v v' + \partial_{u',u'} F(x,u,u') v'^2 dx.\]</div>
 <p>Für einen lokalen Minimierer <span class="math notranslate nohighlight">\(u\)</span> gilt neben der notwendigen Bedingung <span class="math notranslate nohighlight">\(J'(u) v = 0\)</span> die <strong>hinreichende Bedingung von Legendre</strong></p>
@@ -534,15 +543,15 @@
 <p>Der Satz auf das Beispiel angewandt zeigt uns, dass wir globalen Minimierer gefunden haben.</p>
 </div>
 <div class="section" id="das-problem-von-johann-bernoulli">
-<h3>Das Problem von Johann Bernoulli<a class="headerlink" href="#das-problem-von-johann-bernoulli" title="Link zu dieser Überschrift">¶</a></h3>
+<h3><span class="section-number">4.3.2. </span>Das Problem von Johann Bernoulli<a class="headerlink" href="#das-problem-von-johann-bernoulli" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Das original Problem wurde wie folgt beschrieben:</p>
 <blockquote>
 <div><p><em>Wenn in einer vertikalen Ebene zwei Punkte A und B gegeben sind, soll man dem beweglichen Punkt M eine Bahn AMB anweisen, auf welcher er von A ausgehend vermöge seiner eigenen Schwere in kürzester Zeit nach B gelangt.</em></p>
 </div></blockquote>
-<p>Der Punkt <span class="math notranslate nohighlight">\(B\)</span> liegt trivialerweise unterhalb von <span class="math notranslate nohighlight">\(A\)</span>. Entsprechend wählen wir ein passendes Koordinatensystem gemäss <a class="reference internal" href="#fig-brachystochroneproblem"><span class="std std-numref">Abb. 5</span></a>.</p>
+<p>Der Punkt <span class="math notranslate nohighlight">\(B\)</span> liegt trivialerweise unterhalb von <span class="math notranslate nohighlight">\(A\)</span>. Entsprechend wählen wir ein passendes Koordinatensystem gemäss <a class="reference internal" href="#fig-brachystochroneproblem"><span class="std std-numref">Abb. 4.3</span></a>.</p>
 <div class="figure align-left" id="fig-brachystochroneproblem">
 <a class="reference internal image-reference" href="../_images/BrachystochroneProblem.png"><img alt="../_images/BrachystochroneProblem.png" src="../_images/BrachystochroneProblem.png" style="height: 250px;" /></a>
-<p class="caption"><span class="caption-number">Abb. 5 </span><span class="caption-text">Gesucht ist die schnellste Bahn.</span><a class="headerlink" href="#fig-brachystochroneproblem" title="Link zu diesem Bild">¶</a></p>
+<p class="caption"><span class="caption-number">Abb. 4.3 </span><span class="caption-text">Gesucht ist die schnellste Bahn.</span><a class="headerlink" href="#fig-brachystochroneproblem" title="Link zu diesem Bild">¶</a></p>
 </div>
 <p>Wir parametrieren die Bahnkurve nach der Zeit <span class="math notranslate nohighlight">\(t\)</span>: <span class="math notranslate nohighlight">\(\{(x(t),y(t)\,|\, t \in [0,T])\}\)</span>. Dabei gilt <span class="math notranslate nohighlight">\((x(0),y(0)) = (0,0)\)</span> und <span class="math notranslate nohighlight">\((x(T),y(t)) = (b,B)\)</span>. Die Laufzeit ist gegeben durch <span class="math notranslate nohighlight">\(T\)</span>. Nach dem Energieerhaltungsgesetz ist die Summe der kinetischen und potentiellen Energie längs der Bahn konstant</p>
 <div class="math notranslate nohighlight">
@@ -564,23 +573,23 @@
 \[T = \int_0^b \sqrt{\frac{1 + y'(x)^2}{2 g y(x)}} dx.\]</div>
 <p>Für das zu minimierende Funktional erhalten wir</p>
 <div class="math notranslate nohighlight" id="equation-eq-bernoulliproblemfunktion">
-<span class="eqno">(20)<a class="headerlink" href="#equation-eq-bernoulliproblemfunktion" title="Permalink to this equation">¶</a></span>\[J(y) = \int_0^b \sqrt{\frac{1 + y'(x)^2}{y(x)}} dx,\]</div>
+<span class="eqno">(4.4)<a class="headerlink" href="#equation-eq-bernoulliproblemfunktion" title="Permalink to this equation">¶</a></span>\[J(y) = \int_0^b \sqrt{\frac{1 + y'(x)^2}{y(x)}} dx,\]</div>
 <p>wobei wir den Faktor <span class="math notranslate nohighlight">\(1/\sqrt{2g}\)</span> weglassen, da das Resultat unabhängig davon ist. Die Graphitation beeinflusst die Kurvenform nicht.</p>
-<p>Der Integrand des Funktional <a class="reference internal" href="#equation-eq-bernoulliproblemfunktion">(20)</a> ist für <span class="math notranslate nohighlight">\(x=0\)</span> unbestimmt, einerseits kann aus physikalischen Gründen <span class="math notranslate nohighlight">\(y'(0) = +\infty\)</span> sein und andererseits gilt <span class="math notranslate nohighlight">\(y(0) = 0\)</span>. Das Integral ist daher als uneigentliches Integral zu verstehen. Zu dem ist <span class="math notranslate nohighlight">\(J\)</span> nur auf <span class="math notranslate nohighlight">\((0,b]\)</span> positive Funktionen <span class="math notranslate nohighlight">\(y(x)\)</span> definiert. Deshalb legen wir die zulässigen Funktionen wie folgt fest:</p>
+<p>Der Integrand des Funktional <a class="reference internal" href="#equation-eq-bernoulliproblemfunktion">(4.4)</a> ist für <span class="math notranslate nohighlight">\(x=0\)</span> unbestimmt, einerseits kann aus physikalischen Gründen <span class="math notranslate nohighlight">\(y'(0) = +\infty\)</span> sein und andererseits gilt <span class="math notranslate nohighlight">\(y(0) = 0\)</span>. Das Integral ist daher als uneigentliches Integral zu verstehen. Zu dem ist <span class="math notranslate nohighlight">\(J\)</span> nur auf <span class="math notranslate nohighlight">\((0,b]\)</span> positive Funktionen <span class="math notranslate nohighlight">\(y(x)\)</span> definiert. Deshalb legen wir die zulässigen Funktionen wie folgt fest:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{split}
 D = C[0,b] &amp; \cap C^1(0,b] \cap \{y(0) = 0, y(b) = B\}\\
 &amp; \cap \{y &gt; 0 \text{in}\ (0,b]\} \cap \{J(y^) &lt; \infty\}.\end{split}\end{split}\]</div>
-<p>Die Lagrange-Funktion hat im Beispiel die spezielle Eigenschaft, dass sie nicht explizit von <span class="math notranslate nohighlight">\(x\)</span> abhängig ist. Daher benutzen wir die Form <a class="reference internal" href="#equation-eq-elgspezialfall">(19)</a>, womit die Differentialgleichung</p>
+<p>Die Lagrange-Funktion hat im Beispiel die spezielle Eigenschaft, dass sie nicht explizit von <span class="math notranslate nohighlight">\(x\)</span> abhängig ist. Daher benutzen wir die Form <a class="reference internal" href="#equation-eq-elgspezialfall">(4.3)</a>, womit die Differentialgleichung</p>
 <div class="math notranslate nohighlight" id="equation-eq-dglbernoulli">
-<span class="eqno">(21)<a class="headerlink" href="#equation-eq-dglbernoulli" title="Permalink to this equation">¶</a></span>\[y'(x) = \frac{\sqrt{2r- y(x)}}{\sqrt{y(x)}}\quad \text{mit}\ 2r = \frac{1}{c_1^2}&gt;0\]</div>
+<span class="eqno">(4.5)<a class="headerlink" href="#equation-eq-dglbernoulli" title="Permalink to this equation">¶</a></span>\[y'(x) = \frac{\sqrt{2r- y(x)}}{\sqrt{y(x)}}\quad \text{mit}\ 2r = \frac{1}{c_1^2}&gt;0\]</div>
 <p>folgt. Die Differentialgleichung kann in dieser nicht geschlossen gelöst werden. Daher wechseln wir wieder in die parametrische Form</p>
 <div class="math notranslate nohighlight">
 \[(x,y(x)) = (\hat{x}(s), \hat{y}(s)),\quad x\in[0,b],\ s \in [s_0,s_b],\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(s\)</span> nicht die physikalische Zeit ist. Es gilt</p>
 <div class="math notranslate nohighlight">
 \[\hat{y}(s) = y(\hat{x}(s)),\quad \frac{dy}{ds}(s) = y'(\hat{x}(s)) \frac{d\hat{x}}{ds}(s).\]</div>
-<p>Die Differentialgleichung <a class="reference internal" href="#equation-eq-dglbernoulli">(21)</a> eingesetzt liefert</p>
+<p>Die Differentialgleichung <a class="reference internal" href="#equation-eq-dglbernoulli">(4.5)</a> eingesetzt liefert</p>
 <div class="math notranslate nohighlight">
 \[\frac{d\hat{x}}{ds}(s) = \frac{d\hat{y}}{ds}(s) \frac{1}{y'(\hat{x}(s))} = \frac{d\hat{y}}{ds}(s) \sqrt{\frac{\hat{y}(s)}{2r-\hat{y}(s)}}.\]</div>
 <p>Es kann gezeigt werden, dass</p>
@@ -598,17 +607,20 @@ D = C[0,b] &amp; \cap C^1(0,b] \cap \{y(0) = 0, y(b) = B\}\\
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 
 <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">sb</span> <span class="p">:</span> <span class="p">(</span><span class="n">sb</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">sb</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">sb</span><span class="p">))</span>
 
-<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
-<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 <span class="n">b</span><span class="o">=</span><span class="mi">8</span>
 <span class="n">B</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;b_example&quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;B_example&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
 <span class="n">sb</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-</span><span class="n">b</span><span class="o">/</span><span class="n">B</span><span class="p">,</span><span class="mi">5</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">B</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">sb</span><span class="p">))</span>
-<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;sb_example&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">sb</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;r_example&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;sb_example&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">sb</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;r_example&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">sbi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1e-3</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="mf">3.14</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sbi</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">sbi</span><span class="p">),</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;$f(s_b)$&#39;</span><span class="p">)</span>
@@ -625,10 +637,10 @@ D = C[0,b] &amp; \cap C^1(0,b] \cap \{y(0) = 0, y(b) = B\}\\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Variationsrechnung_1_2.png" src="../_images/Variationsrechnung_1_2.png" />
+<img alt="../_images/Variationsrechnung_1_4.png" src="../_images/Variationsrechnung_1_4.png" />
 </div>
 </div>
-<p>Die Funktion <span class="math notranslate nohighlight">\(f(s_b)\)</span> ist monoton wachsend. Für <span class="math notranslate nohighlight">\(b/B \ge \pi/2\)</span> gilt <span class="math notranslate nohighlight">\(s_b \in [\pi, 2\pi]\)</span>. Das bedeutet, dass das Minimum der Bahnkurve tiefer als der Punkt <span class="math notranslate nohighlight">\(B\)</span> liegt. Für <span class="math notranslate nohighlight">\(b=8\)</span> und <span class="math notranslate nohighlight">\(B=1\)</span> folgt <span class="math notranslate nohighlight">\(s_b =\)</span> <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">4.9729</span></code></span> und <span class="math notranslate nohighlight">\(r = \)</span> <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">1.347</span></code></span>. Damit können wir die Bahnkurve visualisieren:</p>
+<p>Die Funktion <span class="math notranslate nohighlight">\(f(s_b)\)</span> ist monoton wachsend. Für <span class="math notranslate nohighlight">\(b/B \ge \pi/2\)</span> gilt <span class="math notranslate nohighlight">\(s_b \in [\pi, 2\pi]\)</span>. Das bedeutet, dass das Minimum der Bahnkurve tiefer als der Punkt <span class="math notranslate nohighlight">\(B\)</span> liegt. Für <span class="math notranslate nohighlight">\(b = \)</span> <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">8</span></code></span> und <span class="math notranslate nohighlight">\(B = \)</span> <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">1</span></code></span> folgt <span class="math notranslate nohighlight">\(s_b =\)</span> <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">4.9729</span></code></span> und <span class="math notranslate nohighlight">\(r = \)</span> <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">1.347</span></code></span>. Damit können wir die Bahnkurve visualisieren:</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sbi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">sb</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
@@ -676,8 +688,8 @@ D = C[0,b] &amp; \cap C^1(0,b] \cap \{y(0) = 0, y(b) = B\}\\
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Sobolevraeume.html" title="previous page">Sobolevräume</a>
-    <a class='right-next' id="next-link" href="../PDE/IntroPDE.html" title="next page">Einführung PDE</a>
+    <a class='left-prev' id="prev-link" href="Sobolevraeume.html" title="previous page"><span class="section-number">3. </span>Sobolevräume</a>
+    <a class='right-next' id="next-link" href="../PDE/IntroPDE.html" title="next page"><span class="section-number">1. </span>Einführung partielle Differentialgleichungen</a>
 
         </div>
         

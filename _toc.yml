@@ -7,6 +7,7 @@ options:
   numbered: true
 parts:
   - caption: Einführung
+    numbered: true
     chapters:
     - file: Introduction/Introduction.md
       sections:
@@ -17,6 +18,7 @@ parts:
     - file: Introduction/NGSolve.md
     - file: Introduction/jupyterhub.md
   - caption: Funktionalanalysis
+    numbered: true
     chapters:
     - file: Funktionalanalysis/GrundlegendeRaeume.md
       sections:
@@ -26,14 +28,20 @@ parts:
     - file: Funktionalanalysis/Sobolevraeume.md
     - file: Funktionalanalysis/Variationsrechnung.md
   - caption: Partielle Differentialgleichungen
+    numbered: true
     chapters:
     - file: PDE/IntroPDE.md
+      sections:
+      - file: PDE/QuadratischeFormen.ipynb  
   - caption: Teil 3
+    numbered: true
     chapters:
     - file: NumerikPDE/NumerikPDE.md
   - caption: Teil 4
+    numbered: true
     chapters:
     - file: Applications/Applications.md
   - caption: Appendix
+    numbered: true
     chapters:
     - file: Appendix.md
