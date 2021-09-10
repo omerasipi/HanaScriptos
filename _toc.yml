@@ -3,8 +3,6 @@
 
 format: jb-book
 root: intro
-options:
-  numbered: true
 parts:
   - caption: Einführung
     numbered: true
@@ -32,12 +30,13 @@ parts:
     chapters:
     - file: PDE/IntroPDE.md
       sections:
-      - file: PDE/QuadratischeFormen.ipynb  
-  - caption: Teil 3
+      - file: PDE/QuadratischeFormen.ipynb
+    - file: PDE/Modellierung.md
+  - caption: Numerik PDE
     numbered: true
     chapters:
     - file: NumerikPDE/NumerikPDE.md
-  - caption: Teil 4
+  - caption: Anwendungen
     numbered: true
     chapters:
     - file: Applications/Applications.md
