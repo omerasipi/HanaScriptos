@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10. Modellierung &#8212; Höhere Analysis und Numerik</title>
+    <title>8. Modellierung &#8212; Höhere Analysis und Numerik</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -49,6 +49,8 @@
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -58,8 +60,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="11. Numerik für partielle Differentialgleichungen" href="../NumerikPDE/NumerikPDE.html" />
-    <link rel="prev" title="9.3. Beispiele zu quadratischen Formen" href="QuadratischeFormen.html" />
+    <link rel="next" title="9. Numerik für partielle Differentialgleichungen" href="../NumerikPDE/NumerikPDE.html" />
+    <link rel="prev" title="7.3. Beispiele zu quadratischen Formen" href="QuadratischeFormen.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -130,18 +132,8 @@
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Introduction/Python.html">
-   2. Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Introduction/NGSolve.html">
-   3. NGSolve
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Introduction/jupyterhub.html">
-   4. Jupyter Hub
+  <a class="reference internal" href="../Introduction/Software.html">
+   2. Software
   </a>
  </li>
 </ul>
@@ -153,7 +145,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Funktionalanalysis/GrundlegendeRaeume.html">
-   5. Grundlegende Räume
+   3. Grundlegende Räume
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -163,29 +155,29 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Funktionalanalysis/BeispielOrthogonalisierungSchmidt.html">
-     5.5. Beispiel Orthogonalisierungsverfahren
+     3.5. Beispiel Orthogonalisierungsverfahren
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Funktionalanalysis/BeispielFourierEntwicklung.html">
-     5.6. Beispiel zur Fourierentwicklung
+     3.6. Beispiel zur Fourierentwicklung
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Funktionalanalysis/LineareOperatoren.html">
-   6. Lineare Operatoren
+   4. Lineare Operatoren
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Funktionalanalysis/Sobolevraeume.html">
-   7. Sobolevräume
+   5. Sobolevräume
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Funktionalanalysis/Variationsrechnung.html">
-   8. Variationsrechnung
+   6. Variationsrechnung
   </a>
  </li>
 </ul>
@@ -197,7 +189,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="IntroPDE.html">
-   9. Einführung partielle Differentialgleichungen
+   7. Einführung partielle Differentialgleichungen
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -207,14 +199,14 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="QuadratischeFormen.html">
-     9.3. Beispiele zu quadratischen Formen
+     7.3. Beispiele zu quadratischen Formen
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   10. Modellierung
+   8. Modellierung
   </a>
  </li>
 </ul>
@@ -226,7 +218,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../NumerikPDE/NumerikPDE.html">
-   11. Numerik für partielle Differentialgleichungen
+   9. Numerik für partielle Differentialgleichungen
   </a>
  </li>
 </ul>
@@ -238,7 +230,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../Applications/Applications.html">
-   12. Anwendungen
+   10. Anwendungen
   </a>
  </li>
 </ul>
@@ -250,7 +242,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../Appendix.html">
-   13. Literaturverzeichnis
+   Literaturverzeichnis
   </a>
  </li>
 </ul>
@@ -342,29 +334,34 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#elliptische-partielle-differentialgleichungen">
-   10.1. Elliptische partielle Differentialgleichungen
+   8.1. Elliptische partielle Differentialgleichungen
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#randbedingungen">
-     10.1.1. Randbedingungen
+     8.1.1. Randbedingungen
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#bilanzierung">
-     10.1.2. Bilanzierung
+     8.1.2. Bilanzierung
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#partielle-differentialgleichungen-erster-ordnung">
-   10.2. Partielle Differentialgleichungen erster Ordnung
+   8.2. Partielle Differentialgleichungen erster Ordnung
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#parabolische-partielle-differentialgleichungen">
-   10.3. Parabolische partielle Differentialgleichungen
+   8.3. Parabolische partielle Differentialgleichungen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hyperbolische-partielle-differentialgleichungen">
+   8.4. Hyperbolische partielle Differentialgleichungen
   </a>
  </li>
 </ul>
@@ -379,11 +376,11 @@
               <div>
                 
   <div class="section" id="modellierung">
-<h1><span class="section-number">10. </span>Modellierung<a class="headerlink" href="#modellierung" title="Link zu dieser Überschrift">¶</a></h1>
+<h1><span class="section-number">8. </span>Modellierung<a class="headerlink" href="#modellierung" title="Link zu dieser Überschrift">¶</a></h1>
 <div class="section" id="elliptische-partielle-differentialgleichungen">
-<h2><span class="section-number">10.1. </span>Elliptische partielle Differentialgleichungen<a class="headerlink" href="#elliptische-partielle-differentialgleichungen" title="Link zu dieser Überschrift">¶</a></h2>
+<h2><span class="section-number">8.1. </span>Elliptische partielle Differentialgleichungen<a class="headerlink" href="#elliptische-partielle-differentialgleichungen" title="Link zu dieser Überschrift">¶</a></h2>
 <div class="section" id="randbedingungen">
-<h3><span class="section-number">10.1.1. </span>Randbedingungen<a class="headerlink" href="#randbedingungen" title="Link zu dieser Überschrift">¶</a></h3>
+<h3><span class="section-number">8.1.1. </span>Randbedingungen<a class="headerlink" href="#randbedingungen" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Sei <span class="math notranslate nohighlight">\(\Omega \subset \mathbb{R}^d\)</span> ein beschränktes Gebiet. Eine elliptische PDE benötigt eine Randbedingung für alle Punkte des Randes von <span class="math notranslate nohighlight">\(\Omega\)</span>. Mögliche Randbedingungen sind</p>
 <ul>
 <li><p><strong>Dirichlet-Randbedingung</strong>: Bedingung an den Funktionswert</p>
@@ -401,7 +398,7 @@
 </ul>
 </div>
 <div class="section" id="bilanzierung">
-<h3><span class="section-number">10.1.2. </span>Bilanzierung<a class="headerlink" href="#bilanzierung" title="Link zu dieser Überschrift">¶</a></h3>
+<h3><span class="section-number">8.1.2. </span>Bilanzierung<a class="headerlink" href="#bilanzierung" title="Link zu dieser Überschrift">¶</a></h3>
 <p>Am Beispiel der stationären Wärmeleitung in einer dünnen Platte mit konstanter Dicke modellieren wir einen <strong>stationären Diffusionsprozess</strong>. Alle Grössen seien über die Dicke konstant. Deshalb reicht es die Mittelfläche <span class="math notranslate nohighlight">\(\Omega \subset \mathbb{R}^2\)</span> zu betrachten. Die involvierten physikalischen Grössen sind</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -457,13 +454,13 @@ f(x) &amp; \quad\text{Wärmequelle [J/(m$^2$ s)]}
 </div>
 </div>
 <div class="section" id="partielle-differentialgleichungen-erster-ordnung">
-<h2><span class="section-number">10.2. </span>Partielle Differentialgleichungen erster Ordnung<a class="headerlink" href="#partielle-differentialgleichungen-erster-ordnung" title="Link zu dieser Überschrift">¶</a></h2>
+<h2><span class="section-number">8.2. </span>Partielle Differentialgleichungen erster Ordnung<a class="headerlink" href="#partielle-differentialgleichungen-erster-ordnung" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Im Zusammenhang mit Transportgleichungen treffen wir typischerweise partielle Differentialgleichungen erster Ordnung an. Gegeben sei die Strömung <span class="math notranslate nohighlight">\(b(x)\)</span> und Quelle <span class="math notranslate nohighlight">\(f(x)\)</span>. Der Rand <span class="math notranslate nohighlight">\(\Gamma = \partial\Omega\)</span> wird je nach Vorzeichen von <span class="math notranslate nohighlight">\(b\cdot n\)</span> in Einflussrand <span class="math notranslate nohighlight">\(\Gamma_{\text{in}}\)</span> oder Ausflussrand <span class="math notranslate nohighlight">\(\Gamma_{\text{out}}\)</span> unterteilt:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{split}
 \Gamma_{\text{in}} &amp; = \{x\in\Gamma\,|\, b\cdot n &lt; 0\}\\
-\Gamma_{\text{out}} &amp; = \{x\in\Gamma\,|\, b\cdot n \ge 0\}
-\end{split}.\end{split}\]</div>
+\Gamma_{\text{out}} &amp; = \{x\in\Gamma\,|\, b\cdot n \ge 0\}.
+\end{split}\end{split}\]</div>
 <p>Gesucht ist eine Konzentration <span class="math notranslate nohighlight">\(u(x)\)</span>, welche die Gleichung</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{split}
@@ -503,7 +500,7 @@ j(x) &amp; \quad\text{Massenstrom [kg/(s m)]} &amp; b(x) &amp; \quad\text{Ström
 </div>
 </div>
 <div class="section" id="parabolische-partielle-differentialgleichungen">
-<h2><span class="section-number">10.3. </span>Parabolische partielle Differentialgleichungen<a class="headerlink" href="#parabolische-partielle-differentialgleichungen" title="Link zu dieser Überschrift">¶</a></h2>
+<h2><span class="section-number">8.3. </span>Parabolische partielle Differentialgleichungen<a class="headerlink" href="#parabolische-partielle-differentialgleichungen" title="Link zu dieser Überschrift">¶</a></h2>
 <p>Sei <span class="math notranslate nohighlight">\(\Omega \subset \mathbb{R}^d\)</span> und <span class="math notranslate nohighlight">\(T &gt; 0\)</span>. Der Prototyp einer parabolischen Differentialgleichung ist: Gesucht ist <span class="math notranslate nohighlight">\(u(x,t) : \Omega \times [0,T] \to \mathbb{R}\)</span> so, dass</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{split}
@@ -511,6 +508,96 @@ j(x) &amp; \quad\text{Massenstrom [kg/(s m)]} &amp; b(x) &amp; \quad\text{Ström
 u(x,t) &amp; = u_d(x) \quad \text{für}\ x\in\partial\Omega,\,t\in(0,T)\\
 u(x,0) &amp; = u_0(x) \quad \text{für}\ x\in\partial\Omega.
 \end{split}\end{split}\]</div>
+<p>Eine parabolische Differentialgleichung benötigt für jeden Zeitpunkt <span class="math notranslate nohighlight">\(t&gt;0\)</span> Randbedingungen. Für den Startzeitpunkt <span class="math notranslate nohighlight">\(t=0\)</span> wird eine Anfangsbedingung <span class="math notranslate nohighlight">\(u(x,0)\)</span> benötigt.</p>
+<p>Für die Modellierung betrachten wir die <strong>instationäre Wärmeleitung</strong>. Die Energiebilanz für das Zeitintervall <span class="math notranslate nohighlight">\((t,t+\tau)\)</span> und das Kontrollvolumen <span class="math notranslate nohighlight">\(B\subset \Omega\)</span> ist gegeben durch</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\boxed{\begin{array}{l}\text{Energie in $B$}\\\text{zum Zeitpunkt $t+\tau$}\end{array}} - \boxed{\begin{array}{l}\text{Energie in $B$}\\\text{zum Zeitpunkt $t$}\end{array}} = \boxed{\begin{array}{l}\text{Erzeugte Energie}\\\text{in $B$ während $(t,t+\tau)$}\end{array}} - \boxed{\begin{array}{l}\text{Energieabfluss durch}\\\text{$\partial B$ während $(t,t+\tau)$}\end{array}}\end{split}\]</div>
+<p>Die thermische Energie <span class="math notranslate nohighlight">\(W\)</span> sei proportional zur Temperatur <span class="math notranslate nohighlight">\(T\)</span>, daher</p>
+<div class="math notranslate nohighlight">
+\[W = c\,T.\]</div>
+<p>Die Energiebilanz lautet damit formal:</p>
+<div class="math notranslate nohighlight">
+\[\int_B c\, T(x,t+\tau) dx - \int_B c\, T(x,t) dx = \int_t^{t+\tau} \int_B f(x,\tilde{t}) dx\, d\tilde{t} - \int_t^{t+\tau} \int_{\partial B} (-k\,\nabla T(x,\tilde{t})\cdot n\, ds\, d\tilde{t}\]</div>
+<p>Da die Bilanz für alle Zeitintervalle <span class="math notranslate nohighlight">\((t,t+\tau)\)</span> und für alle Kontrollvolumina <span class="math notranslate nohighlight">\(B\subset \Omega\)</span> gilt, gilt unter Annahme glatter Funktionen die Gleichheit punktweise. Wir erhalten die parabolische PDE</p>
+<div class="math notranslate nohighlight">
+\[c\,\frac{\partial u}{\partial t}(x,t) - \mathop{div}(k\, \nabla T(x,t)) = f(x, t).\]</div>
+</div>
+<div class="section" id="hyperbolische-partielle-differentialgleichungen">
+<h2><span class="section-number">8.4. </span>Hyperbolische partielle Differentialgleichungen<a class="headerlink" href="#hyperbolische-partielle-differentialgleichungen" title="Link zu dieser Überschrift">¶</a></h2>
+<p>Sei <span class="math notranslate nohighlight">\(\Omega \subset \mathbb{R}^d\)</span> und <span class="math notranslate nohighlight">\(T &gt; 0\)</span>. Der Prototyp einer hyperbolischen Differentialgleichung ist die Wellengleichung: Gesucht ist <span class="math notranslate nohighlight">\(u(x,t) : \Omega \times [0,T] \to \mathbb{R}\)</span> so, dass</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+\frac{\partial^2 u}{\partial t^2}(x,t) - \Delta u(x,t) &amp; = f(x, t)\quad \text{für}\ x\in\Omega,\,t\in(0,T)\\
+u(x,t) &amp; = u_d(x) \quad \text{für}\ x\in\partial\Omega,\,t\in(0,T)\\
+u(x,0) &amp; = u_0(x) \quad \text{für}\ x\in\partial\Omega,\\
+\frac{\partial u}{\partial t}(x,0) &amp; = v_0(x) \quad \text{für}\ x\in\partial\Omega.
+\end{split}\end{split}\]</div>
+<p>Eine hyperbolische PDE benötigt für jeden Zeitpunkt <span class="math notranslate nohighlight">\(t&gt;0\)</span> Randbedingungen. Zur Anfangszeit <span class="math notranslate nohighlight">\(t=0\)</span> wird eine Anfangsbedingung für <span class="math notranslate nohighlight">\(u\)</span> und <span class="math notranslate nohighlight">\(\dot{u}\)</span> benötigt.</p>
+<p>Betrachten wir die Modellierung wiederum an einem physikalischen Problem, in dem Fall der akustischen Wellenausbreitung (Schallwellen). Dazu sei</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+v &amp; \quad\text{Teilchengeschwindigkeit [m/s]}\\
+p &amp; \quad\text{Luftdruck [Pa]}\\
+\rho &amp; \quad\text{Dichte [kg/m$^3$]}
+\end{split}\end{split}\]</div>
+<p>Wir stellen die Dichte als <span class="math notranslate nohighlight">\(\rho(x,t) = \rho_0 + \rho_s(x,t)\)</span> mit einer stationären Dichte <span class="math notranslate nohighlight">\(\rho_0\)</span> und einer kleinen Schwankung <span class="math notranslate nohighlight">\(\rho_s\)</span> dar. Analog für den Druck <span class="math notranslate nohighlight">\(p(x,t) = p_0 + p_s(x,t)\)</span>.</p>
+<ul class="simple">
+<li><p>Für die Beschleunigung der Luftteilchen setzen wir den zum Druckgradienten proportionalen Ansatz:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \rho v}{\partial t} = \nabla p.\]</div>
+<ul>
+<li><p>Wir nehmen an, dass Druckänderungen proportional zu Dichteänderungen sind</p>
+<div class="math notranslate nohighlight">
+\[p_s(x,t) = c^2\,\rho_s(x,t).\]</div>
+</li>
+<li><p>Eine Divergenz der Geschwindigkeit führt zu einer Dichteänderung, dh.</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \rho}{\partial t} = -\mathop{div}(\rho\,v).\]</div>
+<p>Eine positive Divergenz bedeutet Expansion, was namensgebend für die Divergenz ist (lateinisch divergere „auseinanderstreben“) und was in der Realität mit einer Abnahme der Dichte einher geht.</p>
+</li>
+</ul>
+<p>Vernachlässigt man kleine Schwankungen gegenüber dem grossen stationären Wert in der Dichte, so erhalten wir</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial (\rho_0 + \rho_s(x,t)) v}{\partial t} \approx \frac{\partial \rho_0 v}{\partial t} = \nabla (p_0 + p_s(x,t)) = \nabla p_s(x,t)\]</div>
+<p>und</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial p_s}{\partial t} = c^2 \frac{\partial\rho_s(x,t)}{\partial t} = c^2 \mathop{div}(\rho\,v) \approx c^2 \rho_0 \mathop{div}(v)\]</div>
+<p>Daher folgt</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+\frac{\partial v}{\partial t} &amp; = \frac{1}{\rho_0} \nabla p_s(x,t)\\
+\frac{\partial p_s}{\partial t} &amp; = c^2 \rho_0 \mathop{div}(v)\end{split}\end{split}\]</div>
+<p>Bildet man die Divergenz der ersten Gleichung, und die Zeitableitung der zweiten Gleichung, so erhält man</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+\mathop{div}\frac{\partial v}{\partial t} &amp; = \frac{1}{\rho_0} \Delta p_s(x,t)\\
+\frac{\partial^2 p_s}{\partial t^2} &amp; = c^2 \rho_0 \frac{\partial}{\partial t}\mathop{div}(v)\end{split}\end{split}\]</div>
+<p>Beide Gleichungen liefern somit</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 p_s}{\partial t^2} = c^2 \Delta p_s(x,t).\]</div>
+<p>die Wellengleichung für <span class="math notranslate nohighlight">\(p_2\)</span>, wobei für die Quelle <span class="math notranslate nohighlight">\(f=0\)</span> gilt. Eine harte, Schall reflektierende Wand kann durch die Randbedingung <span class="math notranslate nohighlight">\(v\cdot n = 0\)</span> modelliert werden.</p>
+<div class="admonition seealso">
+<p class="admonition-title">Siehe auch</p>
+<p>Ein paar Beispiele mit unterschiedlichen Randbedingungen für die Wellengleichung</p>
+<ul>
+<li><div class="figure align-left" id="fig-wellengleichung1d">
+<a class="reference internal image-reference" href="../_images/Wellengleichung1D.mp4"><img alt="../_images/Wellengleichung1D.mp4" src="../_images/Wellengleichung1D.mp4" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-number">Abb. 8.1 </span><span class="caption-text">1d Beispiel Vergleich Neumann / Dirichlet Randbedingungen</span><a class="headerlink" href="#fig-wellengleichung1d" title="Link zu diesem Bild">¶</a></p>
+</div>
+</li>
+<li><div class="figure align-left" id="fig-wellengleichung2ddirichlet">
+<a class="reference internal image-reference" href="../_images/movieDirichletRB2D.mpg"><img alt="../_images/movieDirichletRB2D.mpg" src="../_images/movieDirichletRB2D.mpg" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-number">Abb. 8.2 </span><span class="caption-text">2d Beispiel mit Dirichlet Randbedingungen</span><a class="headerlink" href="#fig-wellengleichung2ddirichlet" title="Link zu diesem Bild">¶</a></p>
+</div>
+</li>
+<li><div class="figure align-left" id="fig-wellengleichung2dneumann">
+<a class="reference internal image-reference" href="../_images/movieNeumannRB2D.mpg"><img alt="../_images/movieNeumannRB2D.mpg" src="../_images/movieNeumannRB2D.mpg" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-number">Abb. 8.3 </span><span class="caption-text">2d Beispiel mit Neumann Randbedingungen</span><a class="headerlink" href="#fig-wellengleichung2dneumann" title="Link zu diesem Bild">¶</a></p>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -539,8 +626,8 @@ u(x,0) &amp; = u_0(x) \quad \text{für}\ x\in\partial\Omega.
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="QuadratischeFormen.html" title="previous page"><span class="section-number">9.3. </span>Beispiele zu quadratischen Formen</a>
-    <a class='right-next' id="next-link" href="../NumerikPDE/NumerikPDE.html" title="next page"><span class="section-number">11. </span>Numerik für partielle Differentialgleichungen</a>
+    <a class='left-prev' id="prev-link" href="QuadratischeFormen.html" title="previous page"><span class="section-number">7.3. </span>Beispiele zu quadratischen Formen</a>
+    <a class='right-next' id="next-link" href="../NumerikPDE/NumerikPDE.html" title="next page"><span class="section-number">9. </span>Numerik für partielle Differentialgleichungen</a>
 
         </div>
         

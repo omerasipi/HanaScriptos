@@ -49,6 +49,8 @@
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -129,18 +131,8 @@
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Introduction/Python.html">
-   2. Python
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction/NGSolve.html">
-   3. NGSolve
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Introduction/jupyterhub.html">
-   4. Jupyter Hub
+  <a class="reference internal" href="Introduction/Software.html">
+   2. Software
   </a>
  </li>
 </ul>
@@ -152,7 +144,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="Funktionalanalysis/GrundlegendeRaeume.html">
-   5. Grundlegende Räume
+   3. Grundlegende Räume
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -162,29 +154,29 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="Funktionalanalysis/BeispielOrthogonalisierungSchmidt.html">
-     5.5. Beispiel Orthogonalisierungsverfahren
+     3.5. Beispiel Orthogonalisierungsverfahren
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Funktionalanalysis/BeispielFourierEntwicklung.html">
-     5.6. Beispiel zur Fourierentwicklung
+     3.6. Beispiel zur Fourierentwicklung
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Funktionalanalysis/LineareOperatoren.html">
-   6. Lineare Operatoren
+   4. Lineare Operatoren
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Funktionalanalysis/Sobolevraeume.html">
-   7. Sobolevräume
+   5. Sobolevräume
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Funktionalanalysis/Variationsrechnung.html">
-   8. Variationsrechnung
+   6. Variationsrechnung
   </a>
  </li>
 </ul>
@@ -196,7 +188,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="PDE/IntroPDE.html">
-   9. Einführung partielle Differentialgleichungen
+   7. Einführung partielle Differentialgleichungen
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -206,14 +198,14 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="PDE/QuadratischeFormen.html">
-     9.3. Beispiele zu quadratischen Formen
+     7.3. Beispiele zu quadratischen Formen
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="PDE/Modellierung.html">
-   10. Modellierung
+   8. Modellierung
   </a>
  </li>
 </ul>
@@ -225,7 +217,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="NumerikPDE/NumerikPDE.html">
-   11. Numerik für partielle Differentialgleichungen
+   9. Numerik für partielle Differentialgleichungen
   </a>
  </li>
 </ul>
@@ -237,7 +229,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Applications/Applications.html">
-   12. Anwendungen
+   10. Anwendungen
   </a>
  </li>
 </ul>
@@ -249,7 +241,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Appendix.html">
-   13. Literaturverzeichnis
+   Literaturverzeichnis
   </a>
  </li>
 </ul>
@@ -349,7 +341,7 @@
 <p class="admonition-title">Bemerkung</p>
 <p>Das Skript zum Modul ist am entstehen.</p>
 </div>
-<p>Der Funktionalanalysis Teil des Skripts folgt dem Buch <span id="id1">[<a class="reference internal" href="Appendix.html#id2">BWHM10</a>]</span>. Für Details und Ergänzungen wird das Buch empfohlen. Es steht als pdf-Download in der Bibliothek der ZHAW zur Verfügung.</p>
+<p>Der Funktionalanalysis Teil des Skripts folgt dem Buch <span id="id1">[<a class="reference internal" href="Appendix.html#id2">BWHM10</a>]</span>. Für Details und Ergänzungen wird das Buch empfohlen. Es steht als pdf-Download in der Bibliothek der ZHAW zur Verfügung. Die Unterlagen sind ebenso stark geprägt durch die Lecture Notes <span id="id2">[<a class="reference internal" href="Appendix.html#id13">Sch09</a>]</span> und <span id="id3">[<a class="reference internal" href="Appendix.html#id12">Sch18</a>]</span>.</p>
 <p>Sehr viel zusätzliches Material steht auf <a class="reference external" href="https://ngsolve.org">ngsolve.org</a> bezüglich NGSolve und finite Elemente Methoden (FEM) zur Verfügung. Das Skript lehnt sich stark an diese Inhalte.</p>
 <div class="toctree-wrapper compound">
 </div>

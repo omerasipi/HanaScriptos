@@ -86,8 +86,8 @@ Im Zusammenhang mit Transportgleichungen treffen wir typischerweise partielle Di
 
 $$\begin{split}
 \Gamma_{\text{in}} & = \{x\in\Gamma\,|\, b\cdot n < 0\}\\
-\Gamma_{\text{out}} & = \{x\in\Gamma\,|\, b\cdot n \ge 0\}
-\end{split}.$$
+\Gamma_{\text{out}} & = \{x\in\Gamma\,|\, b\cdot n \ge 0\}.
+\end{split}$$
 
 Gesucht ist eine Konzentration $u(x)$, welche die Gleichung
 
@@ -148,5 +148,112 @@ u(x,t) & = u_d(x) \quad \text{für}\ x\in\partial\Omega,\,t\in(0,T)\\
 u(x,0) & = u_0(x) \quad \text{für}\ x\in\partial\Omega.
 \end{split}$$
 
+Eine parabolische Differentialgleichung benötigt für jeden Zeitpunkt $t>0$ Randbedingungen. Für den Startzeitpunkt $t=0$ wird eine Anfangsbedingung $u(x,0)$ benötigt.
 
+Für die Modellierung betrachten wir die **instationäre Wärmeleitung**. Die Energiebilanz für das Zeitintervall $(t,t+\tau)$ und das Kontrollvolumen $B\subset \Omega$ ist gegeben durch
 
+$$\boxed{\begin{array}{l}\text{Energie in $B$}\\\text{zum Zeitpunkt $t+\tau$}\end{array}} - \boxed{\begin{array}{l}\text{Energie in $B$}\\\text{zum Zeitpunkt $t$}\end{array}} = \boxed{\begin{array}{l}\text{Erzeugte Energie}\\\text{in $B$ während $(t,t+\tau)$}\end{array}} - \boxed{\begin{array}{l}\text{Energieabfluss durch}\\\text{$\partial B$ während $(t,t+\tau)$}\end{array}}$$
+
+Die thermische Energie $W$ sei proportional zur Temperatur $T$, daher
+
+$$W = c\,T.$$
+
+Die Energiebilanz lautet damit formal:
+
+$$\int_B c\, T(x,t+\tau) dx - \int_B c\, T(x,t) dx = \int_t^{t+\tau} \int_B f(x,\tilde{t}) dx\, d\tilde{t} - \int_t^{t+\tau} \int_{\partial B} (-k\,\nabla T(x,\tilde{t})\cdot n\, ds\, d\tilde{t}$$
+
+Da die Bilanz für alle Zeitintervalle $(t,t+\tau)$ und für alle Kontrollvolumina $B\subset \Omega$ gilt, gilt unter Annahme glatter Funktionen die Gleichheit punktweise. Wir erhalten die parabolische PDE
+
+$$c\,\frac{\partial u}{\partial t}(x,t) - \mathop{div}(k\, \nabla T(x,t)) = f(x, t).$$
+
+## Hyperbolische partielle Differentialgleichungen
+
+Sei $\Omega \subset \mathbb{R}^d$ und $T > 0$. Der Prototyp einer hyperbolischen Differentialgleichung ist die Wellengleichung: Gesucht ist $u(x,t) : \Omega \times [0,T] \to \mathbb{R}$ so, dass
+
+$$\begin{split}
+\frac{\partial^2 u}{\partial t^2}(x,t) - \Delta u(x,t) & = f(x, t)\quad \text{für}\ x\in\Omega,\,t\in(0,T)\\
+u(x,t) & = u_d(x) \quad \text{für}\ x\in\partial\Omega,\,t\in(0,T)\\
+u(x,0) & = u_0(x) \quad \text{für}\ x\in\partial\Omega,\\
+\frac{\partial u}{\partial t}(x,0) & = v_0(x) \quad \text{für}\ x\in\partial\Omega.
+\end{split}$$
+
+Eine hyperbolische PDE benötigt für jeden Zeitpunkt $t>0$ Randbedingungen. Zur Anfangszeit $t=0$ wird eine Anfangsbedingung für $u$ und $\dot{u}$ benötigt.
+
+Betrachten wir die Modellierung wiederum an einem physikalischen Problem, in dem Fall der akustischen Wellenausbreitung (Schallwellen). Dazu sei
+
+$$\begin{split}
+v & \quad\text{Teilchengeschwindigkeit [m/s]}\\
+p & \quad\text{Luftdruck [Pa]}\\
+\rho & \quad\text{Dichte [kg/m$^3$]}
+\end{split}$$
+
+Wir stellen die Dichte als $\rho(x,t) = \rho_0 + \rho_s(x,t)$ mit einer stationären Dichte $\rho_0$ und einer kleinen Schwankung $\rho_s$ dar. Analog für den Druck $p(x,t) = p_0 + p_s(x,t)$.
+
+* Für die Beschleunigung der Luftteilchen setzen wir den zum Druckgradienten proportionalen Ansatz:
+
+$$\frac{\partial \rho v}{\partial t} = \nabla p.$$
+
+* Wir nehmen an, dass Druckänderungen proportional zu Dichteänderungen sind
+
+  $$p_s(x,t) = c^2\,\rho_s(x,t).$$
+
+* Eine Divergenz der Geschwindigkeit führt zu einer Dichteänderung, dh.
+
+  $$\frac{\partial \rho}{\partial t} = -\mathop{div}(\rho\,v).$$
+
+  Eine positive Divergenz bedeutet Expansion, was namensgebend für die Divergenz ist (lateinisch divergere „auseinanderstreben“) und was in der Realität mit einer Abnahme der Dichte einher geht.
+
+Vernachlässigt man kleine Schwankungen gegenüber dem grossen stationären Wert in der Dichte, so erhalten wir
+
+$$\frac{\partial (\rho_0 + \rho_s(x,t)) v}{\partial t} \approx \frac{\partial \rho_0 v}{\partial t} = \nabla (p_0 + p_s(x,t)) = \nabla p_s(x,t)$$
+
+und 
+
+$$\frac{\partial p_s}{\partial t} = c^2 \frac{\partial\rho_s(x,t)}{\partial t} = c^2 \mathop{div}(\rho\,v) \approx c^2 \rho_0 \mathop{div}(v)$$
+
+Daher folgt
+
+$$\begin{split}
+\frac{\partial v}{\partial t} & = \frac{1}{\rho_0} \nabla p_s(x,t)\\
+\frac{\partial p_s}{\partial t} & = c^2 \rho_0 \mathop{div}(v)\end{split}$$
+
+Bildet man die Divergenz der ersten Gleichung, und die Zeitableitung der zweiten Gleichung, so erhält man
+
+$$\begin{split}
+\mathop{div}\frac{\partial v}{\partial t} & = \frac{1}{\rho_0} \Delta p_s(x,t)\\
+\frac{\partial^2 p_s}{\partial t^2} & = c^2 \rho_0 \frac{\partial}{\partial t}\mathop{div}(v)\end{split}$$
+
+Beide Gleichungen liefern somit
+
+$$\frac{\partial^2 p_s}{\partial t^2} = c^2 \Delta p_s(x,t).$$
+
+die Wellengleichung für $p_2$, wobei für die Quelle $f=0$ gilt. Eine harte, Schall reflektierende Wand kann durch die Randbedingung $v\cdot n = 0$ modelliert werden.
+
+``````{seealso}
+Ein paar Beispiele mit unterschiedlichen Randbedingungen für die Wellengleichung
+
+* ```{figure} ../movies/Wellengleichung1D.mp4
+  ---
+  align: left
+  height: 250px
+  name: fig-Wellengleichung1d
+  ---
+  1d Beispiel Vergleich Neumann / Dirichlet Randbedingungen
+  ```
+* ```{figure} ../movies/movieDirichletRB2D.mpg
+  ---
+  align: left
+  height: 250px
+  name: fig-Wellengleichung2dDirichlet
+  ---
+  2d Beispiel mit Dirichlet Randbedingungen
+  ```
+* ```{figure} ../movies/movieNeumannRB2D.mpg
+  ---
+  align: left
+  height: 250px
+  name: fig-Wellengleichung2dNeumann
+  ---
+  2d Beispiel mit Neumann Randbedingungen
+  ```
+``````

@@ -12,6 +12,18 @@
         "application/papermill.record/text/plain": "1"
       }
     },
+    "sb_example": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "sb_example",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "4.9729"
+      }
+    },
     "r_example": {
       "output_type": "display_data",
       "metadata": {
@@ -34,18 +46,6 @@
       },
       "data": {
         "application/papermill.record/text/plain": "8"
-      }
-    },
-    "sb_example": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "sb_example",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "4.9729"
       }
     }
   }

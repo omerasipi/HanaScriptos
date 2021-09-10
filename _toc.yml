@@ -12,9 +12,7 @@ parts:
       - file: Introduction/PoissonGleichung.md
       - file: Introduction/VariableKoeffizienten.md
       - file: Introduction/StatischesMagnetfeld.md
-    - file: Introduction/Python.md
-    - file: Introduction/NGSolve.md
-    - file: Introduction/jupyterhub.md
+    - file: Introduction/Software.md
   - caption: Funktionalanalysis
     numbered: true
     chapters:
@@ -41,6 +39,6 @@ parts:
     chapters:
     - file: Applications/Applications.md
   - caption: Appendix
-    numbered: true
+    numbered: false
     chapters:
     - file: Appendix.md
