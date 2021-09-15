@@ -1,27 +1,15 @@
 {
   "Funktionalanalysis/Variationsrechnung": {
-    "B_example": {
+    "b_example": {
       "output_type": "display_data",
       "metadata": {
         "scrapbook": {
-          "name": "B_example",
+          "name": "b_example",
           "mime_prefix": "application/papermill.record/"
         }
       },
       "data": {
-        "application/papermill.record/text/plain": "1"
-      }
-    },
-    "sb_example": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "sb_example",
-          "mime_prefix": "application/papermill.record/"
-        }
-      },
-      "data": {
-        "application/papermill.record/text/plain": "4.9729"
+        "application/papermill.record/text/plain": "8"
       }
     },
     "r_example": {
@@ -36,16 +24,90 @@
         "application/papermill.record/text/plain": "1.347"
       }
     },
-    "b_example": {
+    "sb_example": {
       "output_type": "display_data",
       "metadata": {
         "scrapbook": {
-          "name": "b_example",
+          "name": "sb_example",
           "mime_prefix": "application/papermill.record/"
         }
       },
       "data": {
-        "application/papermill.record/text/plain": "8"
+        "application/papermill.record/text/plain": "4.9729"
+      }
+    },
+    "B_example": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "B_example",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "1"
+      }
+    }
+  },
+  "NumerikPDE/EinstiegsBeispiel": {
+    "FEM_1d_p1_fig": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "FEM_1d_p1_fig",
+          "mime_prefix": "application/papermill.record/"
+        },
+        "filenames": {
+          "image/png": "/Users/stiw/Dropbox/ZHAW/Vorlesungen/HANA_Numerik/HANASkript/_build/jupyter_execute/NumerikPDE/EinstiegsBeispiel_1_0.png"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "<Figure size 432x144 with 1 Axes>",
+        "application/papermill.record/image/png": null
+      }
+    },
+    "FEM_1d_p1_deriv_fig": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "FEM_1d_p1_deriv_fig",
+          "mime_prefix": "application/papermill.record/"
+        },
+        "filenames": {
+          "image/png": "/Users/stiw/Dropbox/ZHAW/Vorlesungen/HANA_Numerik/HANASkript/_build/jupyter_execute/NumerikPDE/EinstiegsBeispiel_3_0.png"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "<Figure size 432x144 with 1 Axes>",
+        "application/papermill.record/image/png": null
+      }
+    },
+    "FEM_1d_p1_solutionexmp_fig": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "FEM_1d_p1_solutionexmp_fig",
+          "mime_prefix": "application/papermill.record/"
+        },
+        "filenames": {
+          "image/png": "/Users/stiw/Dropbox/ZHAW/Vorlesungen/HANA_Numerik/HANASkript/_build/jupyter_execute/NumerikPDE/EinstiegsBeispiel_10_0.png"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "<Figure size 432x144 with 1 Axes>",
+        "application/papermill.record/image/png": null
+      }
+    },
+    "FEM_1d_p1_n": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "FEM_1d_p1_n",
+          "mime_prefix": "application/papermill.record/"
+        }
+      },
+      "data": {
+        "application/papermill.record/text/plain": "5"
       }
     }
   }

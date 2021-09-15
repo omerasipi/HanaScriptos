@@ -154,4 +154,3 @@ eine quadratische Form im $\mathbb{R}^d$. Wir unterscheiden folgende Fälle:
   Auf einem Teil des Randes sind in dem Fall Randwerte erforderlich.
 
 Diese Fälle verhalten sich mathematisch sehr unterschiedlich. Entsprechend unterschiedlich sind auch die physikalischen Anwendungen, welche oft zugrunde liegen. Mit dem Beispiel {eq}`eq:exmpparabolclass` kann ein zeitabhängiges Temperaturfeld und mit {eq}`eq:exmpparabolclass` die Wellenausbreitung modelliert werden.
-

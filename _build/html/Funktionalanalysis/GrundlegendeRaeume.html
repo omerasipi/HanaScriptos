@@ -216,10 +216,42 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../NumerikPDE/NumerikPDE.html">
    9. Numerik für partielle Differentialgleichungen
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumerikPDE/EinstiegsBeispiel.html">
+     9.1. Finite Elemente Methode Einstiegsbeispiele
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumerikPDE/finiteElementeMethode.html">
+     9.2. Methode der finiten Elemente
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumerikPDE/LinearEquationSolvers.html">
+     9.3. Linear Equation Solvers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumerikPDE/ParabolicPDE.html">
+     9.4. Parabolic partial differential equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumerikPDE/hyperbolicPDE.html">
+     9.5. Second order hyperbolic equations: wave equations
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -560,19 +592,19 @@
 <p>für alle <span class="math notranslate nohighlight">\(n \ge n_0\)</span> gilt.</p>
 <div class="admonition-definition-metrik admonition">
 <p class="admonition-title">Definition: Metrik</p>
-<p>Eine nichtleere Menge <span class="math notranslate nohighlight">\(X\)</span> mit <em>Elemente</em> <span class="math notranslate nohighlight">\(x, y, z, \ldots\)</span> heisst ein <em>metrischer Raum</em>, wenn jedem Paar <span class="math notranslate nohighlight">\(x, y \in X\)</span> eine reelle Zahl <span class="math notranslate nohighlight">\(d(x,y)\)</span>, genannt <em>Abstand</em> oder <em>Metrik</em>, zugeordnet ist, mit den Eigenschaften: Für alle <span class="math notranslate nohighlight">\(x,y,z\in X\)</span> gilt</p>
+<p>Eine nichtleere Menge <span class="math notranslate nohighlight">\(V\)</span> mit <em>Elemente</em> <span class="math notranslate nohighlight">\(x, y, z, \ldots\)</span> heisst ein <em>metrischer Raum</em>, wenn jedem Paar <span class="math notranslate nohighlight">\(x, y \in V\)</span> eine reelle Zahl <span class="math notranslate nohighlight">\(d(x,y)\)</span>, genannt <em>Abstand</em> oder <em>Metrik</em>, zugeordnet ist, mit den Eigenschaften: Für alle <span class="math notranslate nohighlight">\(x,y,z\in V\)</span> gilt</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(d(x,y) \ge 0,\ d(x,y) = 0\)</span> genau dann, wenn <span class="math notranslate nohighlight">\(x=y\)</span> ist</p></li>
 <li><p><span class="math notranslate nohighlight">\(d(x,y) = d(y,x)\)</span> <em>Symmetrieeigenschaft</em></p></li>
 <li><p><span class="math notranslate nohighlight">\(d(x,y) \le d(x,z) + d(z,y)\)</span> <em>Dreiecksungleichung</em>.</p></li>
 </ol>
 </div>
-<p>Für metrische Räume verwenden wir wieder die Schreibweisen: <span class="math notranslate nohighlight">\((X, d)\)</span> oder kurz <span class="math notranslate nohighlight">\(X\)</span>, falls der Kontext klar ist.</p>
+<p>Für metrische Räume verwenden wir wieder die Schreibweisen: <span class="math notranslate nohighlight">\((V, d)\)</span> oder kurz <span class="math notranslate nohighlight">\(V\)</span>, falls der Kontext klar ist.</p>
 <div class="admonition-aufgabe admonition">
 <p class="admonition-title">Aufgabe</p>
-<p>Zeige, dass für <span class="math notranslate nohighlight">\(X = C[0,1]\)</span>, den stetigen Funktionen auf dem Intervall <span class="math notranslate nohighlight">\([0,1]\)</span> die Abbildung</p>
+<p>Zeige, dass für <span class="math notranslate nohighlight">\(V = C[0,1]\)</span>, den stetigen Funktionen auf dem Intervall <span class="math notranslate nohighlight">\([0,1]\)</span> die Abbildung</p>
 <div class="math notranslate nohighlight" id="equation-eq-maxnorm">
-<span class="eqno">(3.1)<a class="headerlink" href="#equation-eq-maxnorm" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{split}d_{\text{max}} : X \times X &amp; \to \mathbb{R}^+\\
+<span class="eqno">(3.1)<a class="headerlink" href="#equation-eq-maxnorm" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{split}d_{\text{max}} : V \times V &amp; \to \mathbb{R}^+\\
 (x,y) &amp; \mapsto d_{\text{max}}(x,y) := \max_{t\in[0,1]} |x(t)-y(t)|\end{split}\end{split}\]</div>
 <p>eine Metrik definiert (<em>Maximumsmetrik</em>).</p>
 </div>
@@ -615,16 +647,16 @@
 <p class="admonition-title">Aufgabe</p>
 <p>Berechne analytisch den exakten Wert der Maximumsmetrik für die beiden Funktionen <span class="math notranslate nohighlight">\(x,y\)</span> aus obigem Beispiel.</p>
 </div>
-<p>Eine weitere wichtige Metrik ist die <strong>Integralmetrik</strong>. Es sei <span class="math notranslate nohighlight">\(X\)</span> die Menge aller reellwertigen Funktionen, die auf einem (nicht notwendig beschränkten) Intervall <span class="math notranslate nohighlight">\((a,b)\)</span> stetig sind und für die das Integral</p>
+<p>Eine weitere wichtige Metrik ist die <strong>Integralmetrik</strong>. Es sei <span class="math notranslate nohighlight">\(V\)</span> die Menge aller reellwertigen Funktionen, die auf einem (nicht notwendig beschränkten) Intervall <span class="math notranslate nohighlight">\((a,b)\)</span> stetig sind und für die das Integral</p>
 <div class="math notranslate nohighlight">
 \[\int_a^b |x(t)|^p dt, \quad 1\le p &lt; \infty\]</div>
-<p>im Riemannschen Sinne existiert. Setzen wir für <span class="math notranslate nohighlight">\(x(t), y(t)\in X\)</span></p>
+<p>im Riemannschen Sinne existiert. Setzen wir für <span class="math notranslate nohighlight">\(x(t), y(t)\in V\)</span></p>
 <div class="admonition-definition-integralmetrik admonition">
 <p class="admonition-title">Definition: Integralmetrik</p>
 <div class="math notranslate nohighlight">
 \[d_p(x,y) := \left(\int_a^b |x(t)-y(t)|^p dt\right)^{1/p},\quad 1\le p &lt; \infty\]</div>
 </div>
-<p>so wird <span class="math notranslate nohighlight">\(X\)</span> mit dieser <em>Integralmetrik</em> zu einem metrischen Raum. Der Beweis nutzt die Minkowski-Ungleichung für Integrale</p>
+<p>so wird <span class="math notranslate nohighlight">\(V\)</span> mit dieser <em>Integralmetrik</em> zu einem metrischen Raum. Der Beweis nutzt die Minkowski-Ungleichung für Integrale</p>
 <div class="math notranslate nohighlight">
 \[\left(\int_a^b |u(t)-v(t)|^p dt\right)^{1/p} \le \left(\int_a^b |u(t)|^p dt\right)^{1/p} + \left(\int_a^b |v(t)|^p dt\right)^{1/p}.\]</div>
 <p><strong>Beispiel</strong>:</p>
@@ -648,7 +680,7 @@
 </div>
 <div class="admonition-aufgabe admonition">
 <p class="admonition-title">Aufgabe</p>
-<p>In der Codierungstheorie ist ein <span class="math notranslate nohighlight">\(n\)</span>-stelliges Binärwort ein <span class="math notranslate nohighlight">\(n\)</span>-Tuppel <span class="math notranslate nohighlight">\((\xi_1, \ldots, \xi_n)\)</span>, wobei <span class="math notranslate nohighlight">\(\xi_k \in \{0,1\}\)</span> für <span class="math notranslate nohighlight">\(k=1,\ldots, n\)</span>. Bezeichne <span class="math notranslate nohighlight">\(X\)</span> die Menge aller dieser Binärwörter. Für <span class="math notranslate nohighlight">\(x = \xi_1 \xi_2 \ldots \xi_n\)</span>, <span class="math notranslate nohighlight">\(y = \eta_1 \eta_2 \ldots \eta_n\)</span> ist die <em>Hamming-Distanz</em> zwischen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> durch</p>
+<p>In der Codierungstheorie ist ein <span class="math notranslate nohighlight">\(n\)</span>-stelliges Binärwort ein <span class="math notranslate nohighlight">\(n\)</span>-Tuppel <span class="math notranslate nohighlight">\((\xi_1, \ldots, \xi_n)\)</span>, wobei <span class="math notranslate nohighlight">\(\xi_k \in \{0,1\}\)</span> für <span class="math notranslate nohighlight">\(k=1,\ldots, n\)</span>. Bezeichne <span class="math notranslate nohighlight">\(V\)</span> die Menge aller dieser Binärwörter. Für <span class="math notranslate nohighlight">\(x = \xi_1 \xi_2 \ldots \xi_n\)</span>, <span class="math notranslate nohighlight">\(y = \eta_1 \eta_2 \ldots \eta_n\)</span> ist die <em>Hamming-Distanz</em> zwischen <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> durch</p>
 <div class="math notranslate nohighlight">
 \[d_H(x,y) := \text{Anzahl der Stellen an denen sich $x$ und $y$ unterscheiden}\]</div>
 <p>definiert. Zeige:</p>
@@ -658,13 +690,13 @@
 \[d_H(x,y) := \sum_{k=1}^n [(\xi_k+\eta_k) \mod 2]\]</div>
 <p>darstellen.</p>
 </li>
-<li><p><span class="math notranslate nohighlight">\((X,d_H)\)</span> ist ein metrischer Raum.</p></li>
+<li><p><span class="math notranslate nohighlight">\((V,d_H)\)</span> ist ein metrischer Raum.</p></li>
 </ol>
 </div>
-<p>Die topologischen Begriffe wie <em>offene Kugel</em>, <em>innerer Punkt</em>, <em>Häufungspunkt</em>, <em>abgeschlossen</em>, <em>beschränkt</em> lassen sich mit Hilfe der Metrix <span class="math notranslate nohighlight">\(d\)</span> für einen metrischen Raum <span class="math notranslate nohighlight">\((X,d)\)</span> direkt aus dem aus der Analysis bekannten <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> übertragen.</p>
+<p>Die topologischen Begriffe wie <em>offene Kugel</em>, <em>innerer Punkt</em>, <em>Häufungspunkt</em>, <em>abgeschlossen</em>, <em>beschränkt</em> lassen sich mit Hilfe der Metrix <span class="math notranslate nohighlight">\(d\)</span> für einen metrischen Raum <span class="math notranslate nohighlight">\((V,d)\)</span> direkt aus dem aus der Analysis bekannten <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> übertragen.</p>
 <div class="admonition-definition-konvergenz admonition">
 <p class="admonition-title">Definition: Konvergenz</p>
-<p>Eine Folge <span class="math notranslate nohighlight">\(\{x_n\}\subset X\)</span> von Elemente aus <span class="math notranslate nohighlight">\(X\)</span> heisst <em>konvergent</em>, wenn es ein <span class="math notranslate nohighlight">\(x_0\in X\)</span> gibt mit</p>
+<p>Eine Folge <span class="math notranslate nohighlight">\(\{x_n\}\subset V\)</span> von Elemente aus <span class="math notranslate nohighlight">\(V\)</span> heisst <em>konvergent</em>, wenn es ein <span class="math notranslate nohighlight">\(x_0\in V\)</span> gibt mit</p>
 <div class="math notranslate nohighlight">
 \[d(x_n,x_0) \to 0\quad \text{für}\quad n\to\infty,\]</div>
 <p>dh. wenn es zu jedem <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span> ein <span class="math notranslate nohighlight">\(n_0 = n(\varepsilon)\in\mathbb{N}\)</span> gibt, mit</p>
@@ -760,7 +792,7 @@
 <p>Der Begriff der Cauchy-Folge folge kann direkt auf metrische Räume übertragen werden:</p>
 <div class="admonition-definition-cauchy-folge admonition">
 <p class="admonition-title">Definition: Cauchy-Folge</p>
-<p>Eine Folge <span class="math notranslate nohighlight">\(\|x_n\}\)</span> aus dem metrischen Raum <span class="math notranslate nohighlight">\(X\)</span> heisst <em>Cauchy-Folge</em>, wenn</p>
+<p>Eine Folge <span class="math notranslate nohighlight">\(\{x_n\}\)</span> aus dem metrischen Raum <span class="math notranslate nohighlight">\(V\)</span> heisst <em>Cauchy-Folge</em>, wenn</p>
 <div class="math notranslate nohighlight">
 \[\lim_{m,n\to\infty} d(x_n,x_m) = 0\]</div>
 <p>ist, dh. wenn es zu jedem <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span> eine natürliche Zahl <span class="math notranslate nohighlight">\(n_0 = n_0(\varepsilon)\in\mathbb{N}\)</span> git mit</p>
@@ -769,9 +801,9 @@
 </div>
 <div class="admonition-satz admonition">
 <p class="admonition-title">Satz</p>
-<p>Jede konvergente Folge im metrischen Raum <span class="math notranslate nohighlight">\(X\)</span> ist auch eine Cauchy-Folge.</p>
+<p>Jede konvergente Folge im metrischen Raum <span class="math notranslate nohighlight">\(V\)</span> ist auch eine Cauchy-Folge.</p>
 </div>
-<p><strong>Beweis</strong>: Aus der Konvergenz der Folge <span class="math notranslate nohighlight">\(\{x_n\}\)</span> folgt: Zu jedem <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span> gibt es ein <span class="math notranslate nohighlight">\(n_0 = n_0(\varepsilon)\in\mathbb{N}\)</span> und ein <span class="math notranslate nohighlight">\(x_0\in X\)</span> mit</p>
+<p><strong>Beweis</strong>: Aus der Konvergenz der Folge <span class="math notranslate nohighlight">\(\{x_n\}\)</span> folgt: Zu jedem <span class="math notranslate nohighlight">\(\varepsilon&gt;0\)</span> gibt es ein <span class="math notranslate nohighlight">\(n_0 = n_0(\varepsilon)\in\mathbb{N}\)</span> und ein <span class="math notranslate nohighlight">\(x_0\in V\)</span> mit</p>
 <div class="math notranslate nohighlight">
 \[d(x_n,x_0) &lt; \varepsilon\quad\text{und}\quad d(x_m,x_0) &lt; \varepsilon\]</div>
 <p>für alle <span class="math notranslate nohighlight">\(n,m \ge n_0\)</span>. Mit Hilfe der Dreiecksungleichung folgt</p>
@@ -779,11 +811,11 @@
 \[d(x_n,x_m) \le d(x_n,x_0) + d(x_0,x_m) = d(x_n,x_0) + d(x_m,x_0) &lt; 2 \varepsilon\]</div>
 <p>für alle <span class="math notranslate nohighlight">\(n,m \ge n_0\)</span>. <span class="math notranslate nohighlight">\(\Box\)</span></p>
 <p>Die Umkehrung gilt im allgemeinen nicht.</p>
-<p><strong>Beispiel</strong>: Betrachte <span class="math notranslate nohighlight">\(X = (0,1)\)</span> mit der Metrik <span class="math notranslate nohighlight">\(d(x,y) := |x-y|\)</span> und der Folge <span class="math notranslate nohighlight">\(\{x_n\}\)</span> mit <span class="math notranslate nohighlight">\(x_n = \frac{1}{1+n}\)</span>. Die Folge ist eine Cauchy-Folge im metrischen Raum <span class="math notranslate nohighlight">\((X,d)\)</span>, besitzt jedoch keinen Grenzwert in diesem <span class="math notranslate nohighlight">\((0\not\in X)\)</span>.</p>
+<p><strong>Beispiel</strong>: Betrachte <span class="math notranslate nohighlight">\(V = (0,1)\)</span> mit der Metrik <span class="math notranslate nohighlight">\(d(x,y) := |x-y|\)</span> und der Folge <span class="math notranslate nohighlight">\(\{x_n\}\)</span> mit <span class="math notranslate nohighlight">\(x_n = \frac{1}{1+n}\)</span>. Die Folge ist eine Cauchy-Folge im metrischen Raum <span class="math notranslate nohighlight">\((V,d)\)</span>, besitzt jedoch keinen Grenzwert in diesem <span class="math notranslate nohighlight">\((0\not\in V)\)</span>.</p>
 <p>Das führt uns zu einem neuen Begriff, der <strong>Vollständigkeit</strong>. Wir interessieren uns insbesondere für diejenigen metrischen Räume, in denen Cauchy-Folgen konvergieren.</p>
 <div class="admonition-definition-vollstandig admonition">
 <p class="admonition-title">Definition: Vollständig</p>
-<p>Ein metrischer Raum <span class="math notranslate nohighlight">\(X\)</span> heisst <em>vollständig</em>, wenn jede Cauchy-Folge in <span class="math notranslate nohighlight">\(X\)</span> gegen ein Element von <span class="math notranslate nohighlight">\(X\)</span> konvergiert.</p>
+<p>Ein metrischer Raum <span class="math notranslate nohighlight">\(V\)</span> heisst <em>vollständig</em>, wenn jede Cauchy-Folge in <span class="math notranslate nohighlight">\(V\)</span> gegen ein Element von <span class="math notranslate nohighlight">\(V\)</span> konvergiert.</p>
 </div>
 <p>Betrachten wir ein paar Beispiele:</p>
 <ol>
@@ -858,30 +890,30 @@ Für <span class="math notranslate nohighlight">\(t \le (2M)^{-1/\alpha}\)</span
 <p>Wir definieren kompakt für metrische Räume wie folgt</p>
 <div class="admonition-definition-kompakt admonition">
 <p class="admonition-title">Definition: Kompakt</p>
-<p>Sein <span class="math notranslate nohighlight">\(X\)</span> ein metrischer Raum. <span class="math notranslate nohighlight">\(A \subset X\)</span> heisst <em>kompakt</em>, wenn jede Folge <span class="math notranslate nohighlight">\(\{x_n\}\)</span> aus <span class="math notranslate nohighlight">\(A\)</span> eine Teilfolge enthält, die gegen ein Grenzelement <span class="math notranslate nohighlight">\(x\in A\)</span> konvergiert.</p>
+<p>Sein <span class="math notranslate nohighlight">\(V\)</span> ein metrischer Raum. <span class="math notranslate nohighlight">\(W \subset V\)</span> heisst <em>kompakt</em>, wenn jede Folge <span class="math notranslate nohighlight">\(\{x_n\}\)</span> aus <span class="math notranslate nohighlight">\(W\)</span> eine Teilfolge enthält, die gegen ein Grenzelement <span class="math notranslate nohighlight">\(x\in W\)</span> konvergiert.</p>
 </div>
 <div class="admonition-satz admonition">
 <p class="admonition-title">Satz</p>
-<p>Jede kompakte Teilmenge <span class="math notranslate nohighlight">\(A\)</span> eines metrischen Raumes <span class="math notranslate nohighlight">\(X\)</span> ist beschränkt und abgeschlossen.</p>
+<p>Jede kompakte Teilmenge <span class="math notranslate nohighlight">\(W\)</span> eines metrischen Raumes <span class="math notranslate nohighlight">\(V\)</span> ist beschränkt und abgeschlossen.</p>
 </div>
 <p>Die Umkehrung gilt im allgemeinen nicht.</p>
 </div>
 <div class="section" id="bestapproximation-in-metrischen-raumen">
 <span id="bestapproximationmetrisch"></span><h3><span class="section-number">3.2.4. </span>Bestapproximation in metrischen Räumen<a class="headerlink" href="#bestapproximation-in-metrischen-raumen" title="Link zu dieser Überschrift">¶</a></h3>
-<p>In der Approximationstheorie stellt sich das Grundproblem: In einem metrischen Raum <span class="math notranslate nohighlight">\(X\)</span> sei eine Teilmenge <span class="math notranslate nohighlight">\(A\)</span> und ein fester Punkt <span class="math notranslate nohighlight">\(y\in X\)</span> vorgegeben. Zu bestimmen ist ein Punkt <span class="math notranslate nohighlight">\(x_0 \in A\)</span>, der von <span class="math notranslate nohighlight">\(y\)</span> minimalen Abstand hat. Das Problem beginnt schon damit, dass es nicht klar, ist, dass es einen solchen Punkt überhaupt gibt:</p>
+<p>In der Approximationstheorie stellt sich das Grundproblem: In einem metrischen Raum <span class="math notranslate nohighlight">\(V\)</span> sei eine Teilmenge <span class="math notranslate nohighlight">\(W\)</span> und ein fester Punkt <span class="math notranslate nohighlight">\(y\in V\)</span> vorgegeben. Zu bestimmen ist ein Punkt <span class="math notranslate nohighlight">\(x_0 \in W\)</span>, der von <span class="math notranslate nohighlight">\(y\)</span> minimalen Abstand hat. Das Problem beginnt schon damit, dass es nicht klar, ist, dass es einen solchen Punkt überhaupt gibt:</p>
 <blockquote>
-<div><p>Betrachte den Raum <span class="math notranslate nohighlight">\((\mathbb{R}, d)\)</span> mit <span class="math notranslate nohighlight">\(d(x_1,x_2) = |x_1-x_2|\)</span>. Die Teilmenge <span class="math notranslate nohighlight">\(A\)</span> sei gegeben durch <span class="math notranslate nohighlight">\(A = (0,1)\)</span> und <span class="math notranslate nohighlight">\(y=2\)</span>. In <span class="math notranslate nohighlight">\(A\)</span> gibt es keinen Punkt <span class="math notranslate nohighlight">\(x_0\)</span>, für den <span class="math notranslate nohighlight">\(d(x_0,2)\)</span> minimal ist (<span class="math notranslate nohighlight">\(1\not\in A\)</span>).</p>
+<div><p>Betrachte den Raum <span class="math notranslate nohighlight">\((\mathbb{R}, d)\)</span> mit <span class="math notranslate nohighlight">\(d(x_1,x_2) = |x_1-x_2|\)</span>. Die Teilmenge <span class="math notranslate nohighlight">\(W\)</span> sei gegeben durch <span class="math notranslate nohighlight">\(W = (0,1)\)</span> und <span class="math notranslate nohighlight">\(y=2\)</span>. In <span class="math notranslate nohighlight">\(W\)</span> gibt es keinen Punkt <span class="math notranslate nohighlight">\(x_0\)</span>, für den <span class="math notranslate nohighlight">\(d(x_0,2)\)</span> minimal ist (<span class="math notranslate nohighlight">\(1\not\in W\)</span>).</p>
 </div></blockquote>
 <p>Zur Erinnerung:</p>
 <div class="admonition-definition-supremum-infimum admonition">
 <p class="admonition-title">Definition: Supremum, Infimum</p>
-<p>Sei <span class="math notranslate nohighlight">\(A\subset \mathbb{R}\)</span>, dann bezeichnet man mit dem <em>Supremum</em> von <span class="math notranslate nohighlight">\(A\)</span> die kleinste reelle Zahl <span class="math notranslate nohighlight">\(\lambda\)</span> mit <span class="math notranslate nohighlight">\(x\le \lambda\)</span> für alle <span class="math notranslate nohighlight">\(x\in A\)</span>. Analog bezeichnet man mit dem <em>Infimum</em> die grösste reelle Zahl <span class="math notranslate nohighlight">\(\mu\)</span> mit <span class="math notranslate nohighlight">\(x\ge \mu\)</span> für alle <span class="math notranslate nohighlight">\(x\in A\)</span>.</p>
+<p>Sei <span class="math notranslate nohighlight">\(W\subset \mathbb{R}\)</span>, dann bezeichnet man mit dem <em>Supremum</em> von <span class="math notranslate nohighlight">\(W\)</span> die kleinste reelle Zahl <span class="math notranslate nohighlight">\(\lambda\)</span> mit <span class="math notranslate nohighlight">\(x\le \lambda\)</span> für alle <span class="math notranslate nohighlight">\(x\in W\)</span>. Analog bezeichnet man mit dem <em>Infimum</em> die grösste reelle Zahl <span class="math notranslate nohighlight">\(\mu\)</span> mit <span class="math notranslate nohighlight">\(x\ge \mu\)</span> für alle <span class="math notranslate nohighlight">\(x\in W\)</span>.</p>
 </div>
 <div class="admonition-satz admonition">
 <p class="admonition-title">Satz</p>
-<p>Es sei <span class="math notranslate nohighlight">\(X\)</span> ein metrischer Raum und <span class="math notranslate nohighlight">\(A\)</span> eine <strong>kompakte</strong> Teilmenge von <span class="math notranslate nohighlight">\(X\)</span>. Dann gibt es zu jedem festen Punkt <span class="math notranslate nohighlight">\(y \in X\)</span> einen Punkt <span class="math notranslate nohighlight">\(x_0 \in A\)</span>, der von <span class="math notranslate nohighlight">\(y\)</span> kleinsten Abstand hat.</p>
+<p>Es sei <span class="math notranslate nohighlight">\(V\)</span> ein metrischer Raum und <span class="math notranslate nohighlight">\(W\)</span> eine <strong>kompakte</strong> Teilmenge von <span class="math notranslate nohighlight">\(V\)</span>. Dann gibt es zu jedem festen Punkt <span class="math notranslate nohighlight">\(y \in V\)</span> einen Punkt <span class="math notranslate nohighlight">\(x_0 \in W\)</span>, der von <span class="math notranslate nohighlight">\(y\)</span> kleinsten Abstand hat.</p>
 </div>
-<p>Betrachten wir das obige Beispiel angepasst auf die Voraussetzung im Satz: Sei <span class="math notranslate nohighlight">\(A = [0,1] \subset \mathbb{R}\)</span> ein kompaktes Intervall, dann ist der Punkt <span class="math notranslate nohighlight">\(x_0 = 1\)</span> bestapproximierendes Element.</p>
+<p>Betrachten wir das obige Beispiel angepasst auf die Voraussetzung im Satz: Sei <span class="math notranslate nohighlight">\(W = [0,1] \subset \mathbb{R}\)</span> ein kompaktes Intervall, dann ist der Punkt <span class="math notranslate nohighlight">\(x_0 = 1\)</span> bestapproximierendes Element.</p>
 <div class="figure align-left" id="fig-bestapproximation">
 <a class="reference internal image-reference" href="../_images/Bestapproximation.png"><img alt="../_images/Bestapproximation.png" src="../_images/Bestapproximation.png" style="height: 250px;" /></a>
 <p class="caption"><span class="caption-number">Abb. 3.1 </span><span class="caption-text">Bestapproximation</span><a class="headerlink" href="#fig-bestapproximation" title="Link zu diesem Bild">¶</a></p>
@@ -893,10 +925,10 @@ Für <span class="math notranslate nohighlight">\(t \le (2M)^{-1/\alpha}\)</span
 <p>Bis jetzt haben wir sehr wenig Eigenschaften eines Raumes benötigt. Was uns noch fehlt, sind abgesehen vom Abstand der Elemente noch <em>algebraische</em> Eigenschaften (addieren, multiplizieren, etc.). Dazu definieren wir den <em>linearen Raum</em> (oder <em>Vektorraum</em>) wie folgt.</p>
 <div class="admonition-definition-linearer-raum admonition">
 <p class="admonition-title">Definition: linearer Raum</p>
-<p>Ein <em>linearer Raum</em> (oder <em>Vektorraum</em>) über einem Körper <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> besteht aus einer nichtleeren Menge <span class="math notranslate nohighlight">\(X\)</span>, sowie</p>
+<p>Ein <em>linearer Raum</em> (oder <em>Vektorraum</em>) über einem Körper <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> besteht aus einer nichtleeren Menge <span class="math notranslate nohighlight">\(V\)</span>, sowie</p>
 <ul class="simple">
-<li><p>einer Vorschrift, die jedem Paar <span class="math notranslate nohighlight">\((x,y)\)</span> mit <span class="math notranslate nohighlight">\(x,y \in X\)</span> genau ein Element <span class="math notranslate nohighlight">\(x+y\in X\)</span> zuordnet (<em>Addition</em>)</p></li>
-<li><p>einer Vorschrift, die jedem Paar <span class="math notranslate nohighlight">\((\lambda,x)\)</span> mit <span class="math notranslate nohighlight">\(\lambda\in \mathbb{K}\)</span> und <span class="math notranslate nohighlight">\(x \in X\)</span> genau ein element <span class="math notranslate nohighlight">\(\lambda x\in X\)</span> zuordnet (<em>Multiplikation mit Skalaren</em>), wobei für alle <span class="math notranslate nohighlight">\(x,y,z \in X\)</span> und <span class="math notranslate nohighlight">\(\lambda, \mu\in\mathbb{K}\)</span> folgende Regeln gelten:</p></li>
+<li><p>einer Vorschrift, die jedem Paar <span class="math notranslate nohighlight">\((x,y)\)</span> mit <span class="math notranslate nohighlight">\(x,y \in V\)</span> genau ein Element <span class="math notranslate nohighlight">\(x+y\in V\)</span> zuordnet (<em>Addition</em>)</p></li>
+<li><p>einer Vorschrift, die jedem Paar <span class="math notranslate nohighlight">\((\lambda,x)\)</span> mit <span class="math notranslate nohighlight">\(\lambda\in \mathbb{K}\)</span> und <span class="math notranslate nohighlight">\(x \in V\)</span> genau ein element <span class="math notranslate nohighlight">\(\lambda x\in V\)</span> zuordnet (<em>Multiplikation mit Skalaren</em>), wobei für alle <span class="math notranslate nohighlight">\(x,y,z \in V\)</span> und <span class="math notranslate nohighlight">\(\lambda, \mu\in\mathbb{K}\)</span> folgende Regeln gelten:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{rcll}
@@ -936,31 +968,31 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 <div class="admonition-definition-unterraum-lineare-mannigfaltigkeit-lineare-hulle-span-linear-unabhangig-dimension-basis admonition">
 <p class="admonition-title">Definition: Unterraum, lineare Mannigfaltigkeit, lineare Hülle / Span, linear unabhängig, Dimension, Basis</p>
 <ul>
-<li><p>Eine nicht leere Teilmenge <span class="math notranslate nohighlight">\(S\)</span>  von <span class="math notranslate nohighlight">\(X\)</span> heisst <em>Unterraum</em> von <span class="math notranslate nohighlight">\(X\)</span>, wenn für bel. <span class="math notranslate nohighlight">\(x,y \in S\)</span>  und <span class="math notranslate nohighlight">\(\lambda \in \mathbb{K}\)</span> stets</p>
+<li><p>Eine nicht leere Teilmenge <span class="math notranslate nohighlight">\(S\)</span>  von <span class="math notranslate nohighlight">\(V\)</span> heisst <em>Unterraum</em> von <span class="math notranslate nohighlight">\(V\)</span>, wenn für bel. <span class="math notranslate nohighlight">\(x,y \in S\)</span>  und <span class="math notranslate nohighlight">\(\lambda \in \mathbb{K}\)</span> stets</p>
 <div class="math notranslate nohighlight">
 \[x+y \in S\quad\text{und}\quad \lambda x \in S\]</div>
 <p>folgt. Insbesondere ist <span class="math notranslate nohighlight">\(S\)</span> selbst ein linearer Raum über <span class="math notranslate nohighlight">\(\mathbb{K}\)</span>.</p>
 </li>
-<li><p>Ist <span class="math notranslate nohighlight">\(S\)</span> ein Unterraum von <span class="math notranslate nohighlight">\(X\)</span> und <span class="math notranslate nohighlight">\(x_0\in X\)</span> beliebig, so nennt man</p>
+<li><p>Ist <span class="math notranslate nohighlight">\(S\)</span> ein Unterraum von <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(x_0\in V\)</span> beliebig, so nennt man</p>
 <div class="math notranslate nohighlight">
 \[M = x_0 + S := \{x_0+y\ |\ y\in S\}\]</div>
-<p>eine <em>lineare Mannigfaltigkeit</em> von <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>eine <em>lineare Mannigfaltigkeit</em> von <span class="math notranslate nohighlight">\(V\)</span>.</p>
 </li>
-<li><p>Ist <span class="math notranslate nohighlight">\(A\)</span> eine beliebige nichtleere Teilmenge von <span class="math notranslate nohighlight">\(X\)</span>, so bilden alle Linearkombinationen <span class="math notranslate nohighlight">\(\sum_{k=1}^m \lambda_k x_k\)</span> mit beliebigem <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span>, <span class="math notranslate nohighlight">\(\lambda_k\in\mathbb{K}\)</span>, <span class="math notranslate nohighlight">\(x_k \in A\)</span> einen Unterraum <span class="math notranslate nohighlight">\(S\subset X\)</span>. Er wird <em>lineare Hülle von</em> <span class="math notranslate nohighlight">\(A\)</span> oder <span class="math notranslate nohighlight">\(\mathop{span} A := S\)</span> genannt.</p>
-<p>Man sagt: <span class="math notranslate nohighlight">\(A\)</span> spannt <span class="math notranslate nohighlight">\(S\)</span> auf oder <span class="math notranslate nohighlight">\(A\)</span> ist ein <em>Erzeugendensystem</em> von <span class="math notranslate nohighlight">\(S\)</span>. Im Falle <span class="math notranslate nohighlight">\(S=X\)</span> spannt <span class="math notranslate nohighlight">\(A\)</span> den ganzen Raum <span class="math notranslate nohighlight">\(X\)</span> auf.</p>
+<li><p>Ist <span class="math notranslate nohighlight">\(A\)</span> eine beliebige nichtleere Teilmenge von <span class="math notranslate nohighlight">\(V\)</span>, so bilden alle Linearkombinationen <span class="math notranslate nohighlight">\(\sum_{k=1}^m \lambda_k x_k\)</span> mit beliebigem <span class="math notranslate nohighlight">\(m \in \mathbb{N}\)</span>, <span class="math notranslate nohighlight">\(\lambda_k\in\mathbb{K}\)</span>, <span class="math notranslate nohighlight">\(x_k \in A\)</span> einen Unterraum <span class="math notranslate nohighlight">\(S\subset V\)</span>. Er wird <em>lineare Hülle von</em> <span class="math notranslate nohighlight">\(A\)</span> oder <span class="math notranslate nohighlight">\(\mathop{span} A := S\)</span> genannt.</p>
+<p>Man sagt: <span class="math notranslate nohighlight">\(A\)</span> spannt <span class="math notranslate nohighlight">\(S\)</span> auf oder <span class="math notranslate nohighlight">\(A\)</span> ist ein <em>Erzeugendensystem</em> von <span class="math notranslate nohighlight">\(S\)</span>. Im Falle <span class="math notranslate nohighlight">\(S=V\)</span> spannt <span class="math notranslate nohighlight">\(A\)</span> den ganzen Raum <span class="math notranslate nohighlight">\(V\)</span> auf.</p>
 </li>
-<li><p>Sind <span class="math notranslate nohighlight">\(S\)</span> und <span class="math notranslate nohighlight">\(T\)</span> Unterräume von <span class="math notranslate nohighlight">\(X\)</span>, dann ist die <em>Summe</em> <span class="math notranslate nohighlight">\(S+T\)</span> definiert durch</p>
+<li><p>Sind <span class="math notranslate nohighlight">\(S\)</span> und <span class="math notranslate nohighlight">\(T\)</span> Unterräume von <span class="math notranslate nohighlight">\(V\)</span>, dann ist die <em>Summe</em> <span class="math notranslate nohighlight">\(S+T\)</span> definiert durch</p>
 <div class="math notranslate nohighlight">
 \[S+T := \mathop{span} S \cup T.\]</div>
 </li>
-<li><p>Die (endlich vielen) Elemente <span class="math notranslate nohighlight">\(x_1, \ldots, x_n\in X\)</span> heissen <em>linear unabhängig</em>, wenn aus</p>
+<li><p>Die (endlich vielen) Elemente <span class="math notranslate nohighlight">\(x_1, \ldots, x_n\in V\)</span> heissen <em>linear unabhängig</em>, wenn aus</p>
 <div class="math notranslate nohighlight">
 \[\alpha_1 x_1 + \ldots + \alpha_n x_n = 0\quad\text{stets}\quad \alpha_1 = \ldots = \alpha_n = 0\]</div>
 <p>folgt.</p>
 </li>
-<li><p>Sei <span class="math notranslate nohighlight">\(S\)</span> ein Unterraum von <span class="math notranslate nohighlight">\(X\)</span>. Wir sagen, <span class="math notranslate nohighlight">\(S\)</span> besitzt die <em>Dimension</em> <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(\mathop{dim} S = n\)</span>, wenn es <span class="math notranslate nohighlight">\(n\)</span> linear unabhängige Elemente von <span class="math notranslate nohighlight">\(S\)</span> gibt, aber <span class="math notranslate nohighlight">\(n+1\)</span> Elemente von <span class="math notranslate nohighlight">\(S\)</span> stets linear abhängig sind.</p>
-<p><span class="math notranslate nohighlight">\(S\)</span> heisst <em>Basis</em> von <span class="math notranslate nohighlight">\(X\)</span>, wenn die Elemente von <span class="math notranslate nohighlight">\(S\)</span> linear unabhängigsind und <span class="math notranslate nohighlight">\(\mathop{span} S = X\)</span> gilt.</p>
-<p>Besitzt <span class="math notranslate nohighlight">\(X\)</span> keine endlich dimensionale Basis, nennt man <span class="math notranslate nohighlight">\(X\)</span> <em>unendlich-dimeansional</em> (<span class="math notranslate nohighlight">\(\mathop{dim} X = \infty\)</span>).</p>
+<li><p>Sei <span class="math notranslate nohighlight">\(S\)</span> ein Unterraum von <span class="math notranslate nohighlight">\(V\)</span>. Wir sagen, <span class="math notranslate nohighlight">\(S\)</span> besitzt die <em>Dimension</em> <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(\mathop{dim} S = n\)</span>, wenn es <span class="math notranslate nohighlight">\(n\)</span> linear unabhängige Elemente von <span class="math notranslate nohighlight">\(S\)</span> gibt, aber <span class="math notranslate nohighlight">\(n+1\)</span> Elemente von <span class="math notranslate nohighlight">\(S\)</span> stets linear abhängig sind.</p>
+<p><span class="math notranslate nohighlight">\(S\)</span> heisst <em>Basis</em> von <span class="math notranslate nohighlight">\(V\)</span>, wenn die Elemente von <span class="math notranslate nohighlight">\(S\)</span> linear unabhängigsind und <span class="math notranslate nohighlight">\(\mathop{span} S = V\)</span> gilt.</p>
+<p>Besitzt <span class="math notranslate nohighlight">\(V\)</span> keine endlich dimensionale Basis, nennt man <span class="math notranslate nohighlight">\(V\)</span> <em>unendlich-dimeansional</em> (<span class="math notranslate nohighlight">\(\mathop{dim} V = \infty\)</span>).</p>
 </li>
 </ul>
 </div>
@@ -974,29 +1006,29 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 <p>Im folgenden sind wir an Räumen interessiert, für welche eine lineare Struktur und eine Metrik gegeben ist.</p>
 <div class="admonition-definition-normierter-raum admonition">
 <p class="admonition-title">Definition: normierter Raum</p>
-<p>Sei <span class="math notranslate nohighlight">\(X\)</span> ein metrischer und linearer Raum. Zu dem sei die Metrik <span class="math notranslate nohighlight">\(d\)</span> von <span class="math notranslate nohighlight">\(X\)</span> <em>translationsinvariant</em></p>
+<p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein metrischer und linearer Raum. Zu dem sei die Metrik <span class="math notranslate nohighlight">\(d\)</span> von <span class="math notranslate nohighlight">\(V\)</span> <em>translationsinvariant</em></p>
 <div class="math notranslate nohighlight">
-\[d(x+z, y+z) = d(x,y)\quad\forall\ x,y,z\in X\]</div>
+\[d(x+z, y+z) = d(x,y)\quad\forall\ x,y,z\in V\]</div>
 <p>und <em>homogen</em></p>
 <div class="math notranslate nohighlight">
-\[d(\alpha x, \alpha y) = |\alpha| d(x,y)\quad \forall\ \alpha\in\mathbb{K}, x,y\in X.\]</div>
-<p>Dann nennt man <span class="math notranslate nohighlight">\(X\)</span> einen <em>normierten Raum</em>. Der durch</p>
+\[d(\alpha x, \alpha y) = |\alpha| d(x,y)\quad \forall\ \alpha\in\mathbb{K}, x,y\in V.\]</div>
+<p>Dann nennt man <span class="math notranslate nohighlight">\(V\)</span> einen <em>normierten Raum</em>. Der durch</p>
 <div class="math notranslate nohighlight">
-\[\|x\| := d(x,0)\quad \forall\ x\in X\]</div>
+\[\|x\| := d(x,0)\quad \forall\ x\in V\]</div>
 <p>erklärte Ausdruck heisst <em>Norm</em> von <span class="math notranslate nohighlight">\(x\)</span>.</p>
 </div>
 <p><strong>Bemerkungen</strong>:</p>
 <ul>
-<li><p>Neben der kurzen Schreibweise <span class="math notranslate nohighlight">\(X\)</span>, verwendet man häufig auch die Bezeichnung <span class="math notranslate nohighlight">\((X, \|\cdot\|)\)</span>. Der Punkt in <span class="math notranslate nohighlight">\(\|\cdot\|\)</span> ist als Platzhalter zu verstehen.</p></li>
-<li><p>Führt man den normierten Raum <span class="math notranslate nohighlight">\(X\)</span> mit Hilfe einer Norm ein, so ist durch</p>
+<li><p>Neben der kurzen Schreibweise <span class="math notranslate nohighlight">\(V\)</span>, verwendet man häufig auch die Bezeichnung <span class="math notranslate nohighlight">\((V, \|\cdot\|)\)</span>. Der Punkt in <span class="math notranslate nohighlight">\(\|\cdot\|\)</span> ist als Platzhalter zu verstehen.</p></li>
+<li><p>Führt man den normierten Raum <span class="math notranslate nohighlight">\(V\)</span> mit Hilfe einer Norm ein, so ist durch</p>
 <div class="math notranslate nohighlight">
-\[d(x,y) = \|x-y\|\quad\text{für alle}\ x,y\in X\]</div>
-<p>eine Metrik in <span class="math notranslate nohighlight">\(X\)</span> gegeben.</p>
+\[d(x,y) = \|x-y\|\quad\text{für alle}\ x,y\in V\]</div>
+<p>eine Metrik in <span class="math notranslate nohighlight">\(V\)</span> gegeben.</p>
 </li>
 </ul>
 <div class="admonition-folgerung admonition">
 <p class="admonition-title">Folgerung</p>
-<p>Ein normierter Raum <span class="math notranslate nohighlight">\((X, \|\cdot\|)\)</span> ist ein linearer Raum, auf dem eine Norm <span class="math notranslate nohighlight">\(\|\cdot\|\)</span> erklärt ist, die für alle <span class="math notranslate nohighlight">\(x,y\in X\)</span> und <span class="math notranslate nohighlight">\(\alpha \in \mathbb{K}\)</span></p>
+<p>Ein normierter Raum <span class="math notranslate nohighlight">\((V, \|\cdot\|)\)</span> ist ein linearer Raum, auf dem eine Norm <span class="math notranslate nohighlight">\(\|\cdot\|\)</span> erklärt ist, die für alle <span class="math notranslate nohighlight">\(x,y\in V\)</span> und <span class="math notranslate nohighlight">\(\alpha \in \mathbb{K}\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{split}
 \|x\| &amp; \ge 0,\quad \|x\|=0\quad \text{genau dann, wenn $x=0$ ist},\\
@@ -1007,7 +1039,7 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 <p>Damit können wir einen wichtigen Begriff der Funktionalanalysis einführen, den Banachraum:</p>
 <div class="admonition-definition-banachraum admonition">
 <p class="admonition-title">Definition: Banachraum</p>
-<p><em>Vollständig normierte</em> Räume <span class="math notranslate nohighlight">\(X\)</span> sind diejenigen, für die jede Cauchy-Folge in <span class="math notranslate nohighlight">\(X\)</span> gegen ein Element in <span class="math notranslate nohighlight">\(X\)</span> konvergiert.</p>
+<p><em>Vollständig normierte</em> Räume <span class="math notranslate nohighlight">\(V\)</span> sind diejenigen, für die jede Cauchy-Folge in <span class="math notranslate nohighlight">\(V\)</span> gegen ein Element in <span class="math notranslate nohighlight">\(V\)</span> konvergiert.</p>
 <p>Ein vollständiger normierter Raum heisst <em>Banachraum</em>.</p>
 </div>
 <p><strong>Beispiele</strong>: Folgende Räume sind Banachräume</p>
@@ -1019,9 +1051,9 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 </ul>
 <div class="admonition-definition-abzahlbare-basis admonition">
 <p class="admonition-title">Definition: abzählbare Basis</p>
-<p>Man sagt, dass <span class="math notranslate nohighlight">\(X\)</span> eine <em>abzählbare Basis</em> <span class="math notranslate nohighlight">\(\{x_k\}_{k=1}^{\infty}\)</span> mit <span class="math notranslate nohighlight">\(x_k \in X\)</span> besitzt, falls jedes <span class="math notranslate nohighlight">\(x\in X\)</span> eindeutig in der Form <span class="math notranslate nohighlight">\(x = \sum_{k=1}^{\infty} \alpha_k\,x_k\)</span> darstellbar ist, wobei die Konvergenz bezüglich der Norm von <span class="math notranslate nohighlight">\(X\)</span> zu verstehen ist.</p>
+<p>Man sagt, dass <span class="math notranslate nohighlight">\(V\)</span> eine <em>abzählbare Basis</em> <span class="math notranslate nohighlight">\(\{x_k\}_{k=1}^{\infty}\)</span> mit <span class="math notranslate nohighlight">\(x_k \in V\)</span> besitzt, falls jedes <span class="math notranslate nohighlight">\(x\in V\)</span> eindeutig in der Form <span class="math notranslate nohighlight">\(x = \sum_{k=1}^{\infty} \alpha_k\,x_k\)</span> darstellbar ist, wobei die Konvergenz bezüglich der Norm von <span class="math notranslate nohighlight">\(V\)</span> zu verstehen ist.</p>
 </div>
-<p>Lineare Räume können durchaus verschieden normiert werden. Als Beispiel betrachte dazu den Raum <span class="math notranslate nohighlight">\(X=\mathbb{R}^n\)</span> mit den Normen</p>
+<p>Lineare Räume können durchaus verschieden normiert werden. Als Beispiel betrachte dazu den Raum <span class="math notranslate nohighlight">\(V=\mathbb{R}^n\)</span> mit den Normen</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{split}
 \|x\|_1 &amp; = \sum_{k=1}^n |x_k|\quad\text{(Betragsnorm)}\\
@@ -1068,13 +1100,13 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 <p>Im endlich dimensionalen gilt ein pauschaler Satz:</p>
 <div class="admonition-satz admonition">
 <p class="admonition-title">Satz</p>
-<p>Alle Normen in einem <strong>endlich</strong>-dimensionalen Raum <span class="math notranslate nohighlight">\(X\)</span> sind äquivalent.</p>
+<p>Alle Normen in einem <strong>endlich</strong>-dimensionalen Raum <span class="math notranslate nohighlight">\(V\)</span> sind äquivalent.</p>
 </div>
 <p>Dieses Resultat gilt für unendlich-dimensionale Räume <strong>nicht</strong>. Als Beispiel sei der lineare Raum <span class="math notranslate nohighlight">\(C[a,b]\)</span> mit der Maximumsnorm und der Quadratnorm erwähnt. Die beiden Normen sind nicht äquivalent, vgl. das Gegenbeispiel <a class="reference internal" href="#equation-eq-gegenbeispiel">(3.3)</a>.</p>
 <p>Mit diesem Satz folgt</p>
 <div class="admonition-satz admonition">
 <p class="admonition-title">Satz</p>
-<p>Jeder endlich-dimensionale normierte Raum <span class="math notranslate nohighlight">\(X\)</span> ist vollständig, also ein Banachraum.</p>
+<p>Jeder endlich-dimensionale normierte Raum <span class="math notranslate nohighlight">\(V\)</span> ist vollständig, also ein Banachraum.</p>
 </div>
 </div>
 <div class="section" id="skalarproduktraume-hilbertraume">
@@ -1082,9 +1114,9 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 <p>Das aus der linearen Algebra bekannte Skalarprodukt lässt sich auch auf unendlich-dimensionale Räume übertragen. Wir definieren ganz allgemein</p>
 <div class="admonition-definition-skalarprodukt-skalarproduktraum admonition">
 <p class="admonition-title">Definition: Skalarprodukt, Skalarproduktraum</p>
-<p>Unter einem <em>Skalarproduktraum</em> versteht man einen linearen Raum <span class="math notranslate nohighlight">\(X\)</span> über <span class="math notranslate nohighlight">\(\mathbb{K}\)</span>, in dem ein <em>Skalarprodukt</em> <span class="math notranslate nohighlight">\((x,y)\)</span> mit folgenden Eigenschaften definiert ist: Für beliebige <span class="math notranslate nohighlight">\(x,y,z \in X\)</span> und <span class="math notranslate nohighlight">\(\alpha\in\mathbb{K}\)</span> ist</p>
+<p>Unter einem <em>Skalarproduktraum</em> versteht man einen linearen Raum <span class="math notranslate nohighlight">\(V\)</span> über <span class="math notranslate nohighlight">\(\mathbb{K}\)</span>, in dem ein <em>Skalarprodukt</em> <span class="math notranslate nohighlight">\((x,y)\)</span> mit folgenden Eigenschaften definiert ist: Für beliebige <span class="math notranslate nohighlight">\(x,y,z \in V\)</span> und <span class="math notranslate nohighlight">\(\alpha\in\mathbb{K}\)</span> ist</p>
 <div class="math notranslate nohighlight">
-\[(\cdot, \cdot) : X \times X \to \mathbb{K}\]</div>
+\[(\cdot, \cdot) : V \times V \to \mathbb{K}\]</div>
 <p>und es gilt</p>
 <div class="math notranslate nohighlight" id="equation-eq-eigenschaftenskalarprodukt">
 <span class="eqno">(3.4)<a class="headerlink" href="#equation-eq-eigenschaftenskalarprodukt" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{split}
@@ -1094,9 +1126,9 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 (x+y,z) &amp; = (x,z) + (y,z).
 \end{split}\end{split}\]</div>
 </div>
-<p>Beispielsweise lässt sich auf <span class="math notranslate nohighlight">\(X=C[a,b]\)</span> Menge der reellwertigen stetigen Funktionen auf dem Intervall <span class="math notranslate nohighlight">\([a,b]\)</span> durch</p>
+<p>Beispielsweise lässt sich auf <span class="math notranslate nohighlight">\(V=C[a,b]\)</span> Menge der reellwertigen stetigen Funktionen auf dem Intervall <span class="math notranslate nohighlight">\([a,b]\)</span> durch</p>
 <div class="math notranslate nohighlight" id="equation-eq-l2skalarprodukt">
-<span class="eqno">(3.5)<a class="headerlink" href="#equation-eq-l2skalarprodukt" title="Permalink to this equation">¶</a></span>\[(x,y) := \int_a^b x(t)\,y(t) dt\quad x,y \in X\]</div>
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-eq-l2skalarprodukt" title="Permalink to this equation">¶</a></span>\[(x,y) := \int_a^b x(t)\,y(t) dt\quad x,y \in V\]</div>
 <p>ein Skalarprodukt definieren.</p>
 <div class="admonition-aufgabe admonition">
 <p class="admonition-title">Aufgabe</p>
@@ -1104,7 +1136,7 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 </div>
 <div class="admonition-satz admonition">
 <p class="admonition-title">Satz</p>
-<p>Es sei <span class="math notranslate nohighlight">\(X\)</span> ein Skalarproduktraum. Für beliebige <span class="math notranslate nohighlight">\(x,y,z\in X\)</span> und <span class="math notranslate nohighlight">\(\alpha \in \mathbb{K}\)</span> gilt</p>
+<p>Es sei <span class="math notranslate nohighlight">\(V\)</span> ein Skalarproduktraum. Für beliebige <span class="math notranslate nohighlight">\(x,y,z\in V\)</span> und <span class="math notranslate nohighlight">\(\alpha \in \mathbb{K}\)</span> gilt</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{split}(x, \alpha y) &amp; = \overline{\alpha} (x,y)\\
 (x, y+z) &amp; = (x,y) + (x,z)\end{split}\end{split}\]</div>
@@ -1112,7 +1144,7 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 <p><strong>Beweis</strong>: selber durchführen.</p>
 <div class="admonition-satz-induzierte-norm admonition">
 <p class="admonition-title">Satz: induzierte Norm</p>
-<p>In jedem Skalarproduktraum <span class="math notranslate nohighlight">\(X\)</span> lässt sich durch</p>
+<p>In jedem Skalarproduktraum <span class="math notranslate nohighlight">\(V\)</span> lässt sich durch</p>
 <div class="math notranslate nohighlight">
 \[\|x\| := \sqrt{(x,x)}\]</div>
 <p>eine Norm definieren. Man bezeichnet sie als <em>die durch das Skalarprodukt</em> <span class="math notranslate nohighlight">\((x,y)\)</span> <em>induzierte Norm</em>.</p>
@@ -1120,23 +1152,23 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 <p>Der Beweis lässt sich einfach mit Hilfe der <em>Schwarz’schen Ungleichung</em> durchführen.</p>
 <div class="admonition-satz-schwarzsche-ungleichung admonition">
 <p class="admonition-title">Satz: Schwarzsche Ungleichung</p>
-<p>Es sei <span class="math notranslate nohighlight">\(X\)</span> ein Skalarproduktraum. Dann gilt für alle <span class="math notranslate nohighlight">\(x,y\in X\)</span></p>
+<p>Es sei <span class="math notranslate nohighlight">\(V\)</span> ein Skalarproduktraum. Dann gilt für alle <span class="math notranslate nohighlight">\(x,y\in V\)</span></p>
 <div class="math notranslate nohighlight">
 \[|(x,y)| \le \|x\|\,\|y\|.\]</div>
 </div>
 <p>Die Beweise sind dem Leser überlassen (vgl. <span id="id3">[<a class="reference internal" href="../Appendix.html#id2">BWHM10</a>]</span> S. 43, 44).</p>
 <div class="admonition-satz admonition">
 <p class="admonition-title">Satz</p>
-<p>Sei <span class="math notranslate nohighlight">\(X\)</span> ein Skalarproduktraum. Ferner seien <span class="math notranslate nohighlight">\(\{x_n\}\)</span> und <span class="math notranslate nohighlight">\(\{y_n\}\)</span> Folgen aus <span class="math notranslate nohighlight">\(X\)</span> mit <span class="math notranslate nohighlight">\(x_n \to x\)</span> und <span class="math notranslate nohighlight">\(y_n \to y\)</span> für <span class="math notranslate nohighlight">\(n\to\infty\)</span>, wobei die Konvergenz im Sinne der induzierten Norm zu verstehen ist. Dann gilt</p>
+<p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein Skalarproduktraum. Ferner seien <span class="math notranslate nohighlight">\(\{x_n\}\)</span> und <span class="math notranslate nohighlight">\(\{y_n\}\)</span> Folgen aus <span class="math notranslate nohighlight">\(V\)</span> mit <span class="math notranslate nohighlight">\(x_n \to x\)</span> und <span class="math notranslate nohighlight">\(y_n \to y\)</span> für <span class="math notranslate nohighlight">\(n\to\infty\)</span>, wobei die Konvergenz im Sinne der induzierten Norm zu verstehen ist. Dann gilt</p>
 <div class="math notranslate nohighlight">
 \[(x_n, y_n) \to (x,y)\quad\text{für}\quad n\to\infty,\]</div>
 <p>dh. das Skalarprodukt ist eine stetige Funktion bezüglich der Normkonvergenz.</p>
 </div>
 <div class="admonition-definition-hilbertraum admonition">
 <p class="admonition-title">Definition: Hilbertraum</p>
-<p>Ein Skalarproduktraum <span class="math notranslate nohighlight">\(X\)</span>, der bezüglich der durch das Skalarprodukt induzierten Norm</p>
+<p>Ein Skalarproduktraum <span class="math notranslate nohighlight">\(V\)</span>, der bezüglich der durch das Skalarprodukt induzierten Norm</p>
 <div class="math notranslate nohighlight">
-\[\|x\| = \sqrt{(x,x)}\quad\text{für}\ x\in X\]</div>
+\[\|x\| = \sqrt{(x,x)}\quad\text{für}\ x\in V\]</div>
 <p>vollständig ist, heisst <em>Hilbertraum</em>.</p>
 </div>
 <p><strong>Beispiele</strong>:</p>
@@ -1160,26 +1192,26 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 <p>Viele Eigenschaften des euklischen Raumes <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, die mit dem Skalarprodukt zusammenhängen, können auf einen beliebigen Hilbertraum übertragen werden. Der Begriff der Ortohogonalität ist dabei sehr zentral.</p>
 <div class="admonition-definition-orthogonal admonition">
 <p class="admonition-title">Definition: orthogonal</p>
-<p>Es sei <span class="math notranslate nohighlight">\(X\)</span> ein Hilbertraum.</p>
+<p>Es sei <span class="math notranslate nohighlight">\(V\)</span> ein Hilbertraum.</p>
 <ul>
-<li><p>Zwei Elemente <span class="math notranslate nohighlight">\(x,y \in X\)</span> heissen <em>orthogonal</em> (<span class="math notranslate nohighlight">\(x\perp y\)</span>), wenn</p>
+<li><p>Zwei Elemente <span class="math notranslate nohighlight">\(x,y \in V\)</span> heissen <em>orthogonal</em> (<span class="math notranslate nohighlight">\(x\perp y\)</span>), wenn</p>
 <div class="math notranslate nohighlight">
 \[(x,y) = 0\]</div>
 <p>gilt.</p>
 </li>
-<li><p>Zwei Teilmengen <span class="math notranslate nohighlight">\(A,B \subset X\)</span> heissen <em>orthogonal</em> (<span class="math notranslate nohighlight">\(A\perp B\)</span>), wenn</p>
+<li><p>Zwei Teilmengen <span class="math notranslate nohighlight">\(A,B \subset V\)</span> heissen <em>orthogonal</em> (<span class="math notranslate nohighlight">\(A\perp B\)</span>), wenn</p>
 <div class="math notranslate nohighlight">
 \[(x,y) = 0 \quad \forall\ x\in A, y\in B\]</div>
 <p>gilt.</p>
 </li>
-<li><p>Sei <span class="math notranslate nohighlight">\(M\subset X\)</span>, dann heisst</p>
+<li><p>Sei <span class="math notranslate nohighlight">\(M\subset V\)</span>, dann heisst</p>
 <div class="math notranslate nohighlight">
-\[M^\perp := \{y\in X | (x,y)=0\quad\forall\,x\in M\}\]</div>
+\[M^\perp := \{y\in V | (x,y)=0\quad\forall\,x\in M\}\]</div>
 <p><em>Orthogonalraum</em> von <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </li>
-<li><p>Sei <span class="math notranslate nohighlight">\(X'\)</span> ein abgeschlossener Unterraum von <span class="math notranslate nohighlight">\(X\)</span>. <span class="math notranslate nohighlight">\(X''\)</span> wird <em>orthogonales Komplement</em> von <span class="math notranslate nohighlight">\(X'\)</span> genannt, wenn</p>
+<li><p>Sei <span class="math notranslate nohighlight">\(V'\)</span> ein abgeschlossener Unterraum von <span class="math notranslate nohighlight">\(V\)</span>. <span class="math notranslate nohighlight">\(V''\)</span> wird <em>orthogonales Komplement</em> von <span class="math notranslate nohighlight">\(V'\)</span> genannt, wenn</p>
 <div class="math notranslate nohighlight">
-\[X''\perp X' \quad \text{und}\quad X' \oplus X'' = X\]</div>
+\[V''\perp V' \quad \text{und}\quad V' \oplus V'' = V\]</div>
 <p>gilt. Mit <span class="math notranslate nohighlight">\(\oplus\)</span> ist die direkte Summe bezeichnet.</p>
 </li>
 </ul>
@@ -1187,37 +1219,37 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 <p>Es gilt</p>
 <div class="admonition-satz-pythagoras admonition">
 <p class="admonition-title">Satz: Pythagoras</p>
-<p>Es sei <span class="math notranslate nohighlight">\(X\)</span> ein Hilbertraum und seien <span class="math notranslate nohighlight">\(x,y \in X\)</span> mit <span class="math notranslate nohighlight">\(x\perp y\)</span>. Dann gilt</p>
+<p>Es sei <span class="math notranslate nohighlight">\(V\)</span> ein Hilbertraum und seien <span class="math notranslate nohighlight">\(x,y \in V\)</span> mit <span class="math notranslate nohighlight">\(x\perp y\)</span>. Dann gilt</p>
 <div class="math notranslate nohighlight">
 \[\|x+y\|^2 = \|x\|^2 + \|y\|^2.\]</div>
 </div>
 <p><strong>Beweis</strong>: Einfaches Nachrechnen.</p>
 <div class="admonition-satz admonition">
 <p class="admonition-title">Satz</p>
-<p>Es sei <span class="math notranslate nohighlight">\(X\)</span> ein Hilbertraum und <span class="math notranslate nohighlight">\(M\)</span> eine beliebige Teilmenge von <span class="math notranslate nohighlight">\(X\)</span>. Dann ist der Orthogonalraum <span class="math notranslate nohighlight">\(M^\perp\)</span> von <span class="math notranslate nohighlight">\(M\)</span> ein abgeschlossener Unterraum von <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<p>Es sei <span class="math notranslate nohighlight">\(V\)</span> ein Hilbertraum und <span class="math notranslate nohighlight">\(M\)</span> eine beliebige Teilmenge von <span class="math notranslate nohighlight">\(V\)</span>. Dann ist der Orthogonalraum <span class="math notranslate nohighlight">\(M^\perp\)</span> von <span class="math notranslate nohighlight">\(M\)</span> ein abgeschlossener Unterraum von <span class="math notranslate nohighlight">\(V\)</span>.</p>
 </div>
 <p>Für den Beweis sei auf <span id="id4">[<a class="reference internal" href="../Appendix.html#id2">BWHM10</a>]</span> S. 50 verwiesen.</p>
 <p>Wir kommen nun auf das Approximationsproblem aus <a class="reference internal" href="#bestapproximationmetrisch"><span class="std std-ref">Bestapproximation in metrischen Räumen</span></a> zurück und können die Struktureigenschaften des Hilbertraumes nutzen:</p>
 <div class="admonition-satz admonition">
 <p class="admonition-title">Satz</p>
-<p>Es sei <span class="math notranslate nohighlight">\(X'\)</span> ein abgeschlossener Unterraum von <span class="math notranslate nohighlight">\(X\)</span> und <span class="math notranslate nohighlight">\(x\in X\)</span> beliebig.</p>
+<p>Es sei <span class="math notranslate nohighlight">\(V'\)</span> ein abgeschlossener Unterraum von <span class="math notranslate nohighlight">\(V\)</span> und <span class="math notranslate nohighlight">\(x\in V\)</span> beliebig.</p>
 <ul>
-<li><p>Dann existiert genau ein <span class="math notranslate nohighlight">\(x_0 \in X'\)</span> mit</p>
+<li><p>Dann existiert genau ein <span class="math notranslate nohighlight">\(x_0 \in V'\)</span> mit</p>
 <div class="math notranslate nohighlight">
-\[\|x-x_0\| = \min_{x'\in X'} \|x-x'\|,\]</div>
-<p>dh. zu jedem <span class="math notranslate nohighlight">\(x\in X\)</span> gibt es genau ein bestapproximierendes Element bezüglich <span class="math notranslate nohighlight">\(X'\)</span>.</p>
+\[\|x-x_0\| = \min_{x'\in V'} \|x-x'\|,\]</div>
+<p>dh. zu jedem <span class="math notranslate nohighlight">\(x\in V\)</span> gibt es genau ein bestapproximierendes Element bezüglich <span class="math notranslate nohighlight">\(V'\)</span>.</p>
 </li>
-<li><p>Es gilt <span class="math notranslate nohighlight">\(x_0\in X\)</span> ist genau dann bestapproximierend an <span class="math notranslate nohighlight">\(x\in X\)</span>, wenn</p>
+<li><p>Es gilt <span class="math notranslate nohighlight">\(x_0\in V\)</span> ist genau dann bestapproximierend an <span class="math notranslate nohighlight">\(x\in V\)</span>, wenn</p>
 <div class="math notranslate nohighlight">
-\[(x-x_0,y) = 0\quad \forall y\in X'\]</div>
+\[(x-x_0,y) = 0\quad \forall y\in V'\]</div>
 <p>gilt.</p>
 </li>
 </ul>
 </div>
-<p>Für den Fall, dass <span class="math notranslate nohighlight">\(X'\)</span> endlich-dimensional ist, lässt sich das bestapproximierende Element konstruieren. Es gilt</p>
+<p>Für den Fall, dass <span class="math notranslate nohighlight">\(V'\)</span> endlich-dimensional ist, lässt sich das bestapproximierende Element konstruieren. Es gilt</p>
 <div class="admonition-satz admonition">
 <p class="admonition-title">Satz</p>
-<p>Sei <span class="math notranslate nohighlight">\(X'\subset X\)</span> mit <span class="math notranslate nohighlight">\(\dim X' &lt; \infty\)</span> ein Unterraum des Hilbertraumes <span class="math notranslate nohighlight">\(X\)</span> und sei <span class="math notranslate nohighlight">\(x_1, \ldots, x_n\)</span> eine Basis von <span class="math notranslate nohighlight">\(X'\)</span>. Dann lässt sich das eindeutig bestimmte bestapproximierende Element <span class="math notranslate nohighlight">\(x_0\in X'\)</span> an <span class="math notranslate nohighlight">\(x\in X\)</span> in der Form</p>
+<p>Sei <span class="math notranslate nohighlight">\(V'\subset V\)</span> mit <span class="math notranslate nohighlight">\(\dim V' &lt; \infty\)</span> ein Unterraum des Hilbertraumes <span class="math notranslate nohighlight">\(V\)</span> und sei <span class="math notranslate nohighlight">\(x_1, \ldots, x_n\)</span> eine Basis von <span class="math notranslate nohighlight">\(V'\)</span>. Dann lässt sich das eindeutig bestimmte bestapproximierende Element <span class="math notranslate nohighlight">\(x_0\in V'\)</span> an <span class="math notranslate nohighlight">\(x\in V\)</span> in der Form</p>
 <div class="math notranslate nohighlight">
 \[x_0 = \sum_{k=1}^n \lambda_k x_k\]</div>
 <p>darstellen, wobei die Koeffizienten <span class="math notranslate nohighlight">\(\lambda_1, \ldots, \lambda_n\)</span> durch das lineare Gleichungssystem</p>
@@ -1239,7 +1271,7 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 </div></blockquote>
 <div class="admonition-definition-orthonormalsystem-ons admonition">
 <p class="admonition-title">Definition: Orthonormalsystem (ONS)</p>
-<p>Es sei <span class="math notranslate nohighlight">\(X\)</span> ein Hilbertraum. Man nennt die Folge <span class="math notranslate nohighlight">\(\{x_k\}_{k\in\mathbb{N}}\)</span> ein (abzählbares) <em>Orthonormalsystem</em> (kurz ONS) von <span class="math notranslate nohighlight">\(X\)</span>, wenn</p>
+<p>Es sei <span class="math notranslate nohighlight">\(V\)</span> ein Hilbertraum. Man nennt die Folge <span class="math notranslate nohighlight">\(\{x_k\}_{k\in\mathbb{N}}\)</span> ein (abzählbares) <em>Orthonormalsystem</em> (kurz ONS) von <span class="math notranslate nohighlight">\(V\)</span>, wenn</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}(x_j, x_k) = \delta_{i k} = \begin{cases}
 0\quad \text{für}\ i\not= k\\
@@ -1260,7 +1292,7 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 <p>Es gilt ganz allgemein:</p>
 <div class="admonition-satz-orthogonalisierungsverfahren-nach-erhard-schmidt admonition">
 <p class="admonition-title">Satz: Orthogonalisierungsverfahren nach Erhard Schmidt</p>
-<p>Gegeben sei eine abzählbare (nicht zwingend endliche) linear unabhängige Folge <span class="math notranslate nohighlight">\(\{y_k\} \subset X\)</span> aus dem Hilbertraum <span class="math notranslate nohighlight">\(X\)</span>. Dann gibt es ein ONS aus <span class="math notranslate nohighlight">\(n\)</span> bzw. abzählbar unendlich viele Elementen <span class="math notranslate nohighlight">\(\{x_k\}\)</span> so, dass der von der Folge <span class="math notranslate nohighlight">\(\{y_k\}\)</span> aufgespannte (abgeschlossene) Unterraum mit dem der Folge <span class="math notranslate nohighlight">\(\{x_k\}\)</span> aufgespannten (abgeschlossene) Unterraum übereinstimmt.</p>
+<p>Gegeben sei eine abzählbare (nicht zwingend endliche) linear unabhängige Folge <span class="math notranslate nohighlight">\(\{y_k\} \subset V\)</span> aus dem Hilbertraum <span class="math notranslate nohighlight">\(V\)</span>. Dann gibt es ein ONS aus <span class="math notranslate nohighlight">\(n\)</span> bzw. abzählbar unendlich viele Elementen <span class="math notranslate nohighlight">\(\{x_k\}\)</span> so, dass der von der Folge <span class="math notranslate nohighlight">\(\{y_k\}\)</span> aufgespannte (abgeschlossene) Unterraum mit dem der Folge <span class="math notranslate nohighlight">\(\{x_k\}\)</span> aufgespannten (abgeschlossene) Unterraum übereinstimmt.</p>
 </div>
 <p>Der Beweis beruht auf der Konstruktion: sei</p>
 <div class="math notranslate nohighlight">
@@ -1280,9 +1312,9 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 <p>Die Elemente eines Hilbertraumes können mit Hilfe eines vollständigen Orthogonalsystems dargestellt werden. Dies gelingt mit Hilfe der <em>verallgemeinerten Fourierreihen</em>:</p>
 <div class="admonition-satz-fourierentwicklung admonition">
 <p class="admonition-title">Satz: Fourierentwicklung</p>
-<p>Sei <span class="math notranslate nohighlight">\(X\)</span> ein Hilbertraum mit einem vollständigen ONS <span class="math notranslate nohighlight">\(\{x_k\}_{k\in\mathbb{N}}\)</span>.</p>
+<p>Sei <span class="math notranslate nohighlight">\(V\)</span> ein Hilbertraum mit einem vollständigen ONS <span class="math notranslate nohighlight">\(\{x_k\}_{k\in\mathbb{N}}\)</span>.</p>
 <ul>
-<li><p>Dann lässt sich jedes <span class="math notranslate nohighlight">\(x\in X\)</span> in der Summenform</p>
+<li><p>Dann lässt sich jedes <span class="math notranslate nohighlight">\(x\in V\)</span> in der Summenform</p>
 <div class="math notranslate nohighlight">
 \[x = \sum_{k=1}^\infty a_k\,x_k\quad\text{Fourierentwicklung von $x$}\]</div>
 <p>mit eindeutig bestimmten Koeffizienten</p>
@@ -1290,21 +1322,21 @@ x + x' &amp; = &amp; 0 &amp; \quad\text{Negatives zu $x$}\\
 \[a_k = (x,x_k)\in\mathbb{K}\]</div>
 <p>darstellen und die Reihe <span class="math notranslate nohighlight">\(\sum_{k=1}^\infty |a_k|^2\)</span> ist konvergent.</p>
 </li>
-<li><p>Umgekehrt gibt es zu jeder Zahlenfolge <span class="math notranslate nohighlight">\(\{a_k\}_{k\in\mathbb{N}}\)</span> in <span class="math notranslate nohighlight">\(\mathbb{K}\)</span>, für die <span class="math notranslate nohighlight">\(\sum_{k=1}^\infty |a_k|^2\)</span> konvergiert, genau ein <span class="math notranslate nohighlight">\(x\in X\)</span> mit <span class="math notranslate nohighlight">\(x=\sum_{k=1}^\infty a_k x_k\)</span>.</p></li>
+<li><p>Umgekehrt gibt es zu jeder Zahlenfolge <span class="math notranslate nohighlight">\(\{a_k\}_{k\in\mathbb{N}}\)</span> in <span class="math notranslate nohighlight">\(\mathbb{K}\)</span>, für die <span class="math notranslate nohighlight">\(\sum_{k=1}^\infty |a_k|^2\)</span> konvergiert, genau ein <span class="math notranslate nohighlight">\(x\in V\)</span> mit <span class="math notranslate nohighlight">\(x=\sum_{k=1}^\infty a_k x_k\)</span>.</p></li>
 </ul>
 </div>
 <p><strong>Bemerkung</strong>: Aufgrund der Darstellung <span class="math notranslate nohighlight">\(x = \sum_{k=1}^\infty a_k\,x_k\)</span> nennt man ein vollständiges ONS auch eine <em>Hilbertraumbasis</em>.</p>
 <div class="admonition-satz-struktur-von-hilbertraumen admonition">
 <p class="admonition-title">Satz: Struktur von Hilberträumen</p>
-<p>Es sei <span class="math notranslate nohighlight">\(X\)</span> ein Hilbertraum und <span class="math notranslate nohighlight">\(\{x_k\}_{k\in\mathbb{N}}\)</span> ein (abzählbares) ONS in <span class="math notranslate nohighlight">\(X\)</span>. Dann sind die folgenden Aussagen äquivalent:</p>
+<p>Es sei <span class="math notranslate nohighlight">\(V\)</span> ein Hilbertraum und <span class="math notranslate nohighlight">\(\{x_k\}_{k\in\mathbb{N}}\)</span> ein (abzählbares) ONS in <span class="math notranslate nohighlight">\(V\)</span>. Dann sind die folgenden Aussagen äquivalent:</p>
 <ul>
-<li><p><span class="math notranslate nohighlight">\(X = \overline{\underset{k\in\mathbb{N}}{\bigoplus} \mathop{span}(x_k)}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(V = \overline{\underset{k\in\mathbb{N}}{\bigoplus} \mathop{span}(x_k)}\)</span>.</p></li>
 <li><p>Das ONS <span class="math notranslate nohighlight">\(\{x_k\}_{k\in\mathbb{N}}\)</span> ist abgeschlossen.</p></li>
-<li><p>Für alle <span class="math notranslate nohighlight">\(x\in X\)</span> gilt die <em>Parsevalsche Gleichung</em></p>
+<li><p>Für alle <span class="math notranslate nohighlight">\(x\in V\)</span> gilt die <em>Parsevalsche Gleichung</em></p>
 <div class="math notranslate nohighlight">
 \[\sum_{k=1}^\infty |(x,x_k)|^2 = \|x\|^2\quad\text{(Vollständigkeitsrelation)}\]</div>
 </li>
-<li><p>Jedes Element <span class="math notranslate nohighlight">\(x\in X\)</span> besitzt die Fourierentwicklung</p>
+<li><p>Jedes Element <span class="math notranslate nohighlight">\(x\in V\)</span> besitzt die Fourierentwicklung</p>
 <div class="math notranslate nohighlight">
 \[x = \sum_{k=1}^\infty (x,x_k)\,x_k.\]</div>
 </li>

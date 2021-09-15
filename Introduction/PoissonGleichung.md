@@ -72,6 +72,7 @@ mesh = Mesh(unit_square.GenerateMesh(maxh=0.1))
 Draw(mesh);
 ```
 
+(ref:IntroPoissonSchwacheGleichung)=
 ## Schwache Gleichung
 
 ``````{margin}

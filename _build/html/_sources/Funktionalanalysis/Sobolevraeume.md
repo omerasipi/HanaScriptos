@@ -97,11 +97,33 @@ $$\frac{\partial}{\partial x} F_u = - F_u (\frac{\partial \varphi}{\partial x})\
 
 Damit können wir eine verallgemeinerte Ableitung definieren, welche auch auf Funktionen $u(x)$, welche selber nicht im klassischen Sinne differenzierbar sind, anwendbar ist:
 
+
 ```{admonition} Definition: Verallgemeinerte Ableitung (generalized derivative)
 Für $u\in L_2(\Omega)$ definieren wir $g \in L_2(\Omega)$ als die verallgemeinerte Ableitung $D^pu$ von $u$ wobei
 
-$$\int_\Omega g(x) \varphi(x) dx = (-1)^{|p|} \int_\Omega u(x) D^p\varphi dx\quad \forall\ \varphi\in C_0^\infty(\Omega).$$
+$$\int_\Omega g(x) \varphi(x) dx = (-1)^{|p|} \int_\Omega u(x) D^p\varphi dx\quad \forall\ \varphi\in C_0^\infty(\Omega).$$ (eq:VerallgemeinerteAbleitung)
 ```
+
+**Beispiel**: Ein Beispiel einer Funktion die schwach, aber nicht klassisch differenzierbar ist, ist $u:[0,2] \to \mathbb{R}$ mit
+
+$$u(x) = \begin{cases}
+x\quad \text{für}\ 0 \le x \le 1\\
+2-x\quad \text{für}\ 1 < x \le 2.\end{cases}$$
+
+Die schwache Ableitung $g(x) := D^1u(x)$ ist die stückweise definierte Ableitung
+
+$$g(x) = \begin{cases}
+1\quad \text{für}\ 0 \le x \le 1\\
+-1\quad \text{für}\ 1 < x \le 2\end{cases}$$
+
+Es gilt
+
+$$\begin{split}
+-\int_0^2 u(x)v'(x) dx & = - \int_0^1 x v'(x) dx - \int_1^2 (2-x) v'(x) dx \\
+& =  \int_0^1 x' v(x) dx - \big[x v(x)\big]_0^1 + \int_1^2 (2-x)' v(x) dx - \big[(2-x) v(x)\big]_1^2\\
+& =  \int_0^1 1 v(x) dx - 1 v(1) + 0 + \int_1^2 (-1) v(x) dx - 0 + 1 v(1)\\
+& = \int_0^2 g(x) v(x) dx.
+\end{split}$$
 
 Eine äquivalente oft benutzte Definition der Sobolevräume (leicht allgemeinere) baut auf den lokal integrierbaren Funktionen auf $\Omega$ auf, gegeben durch
 

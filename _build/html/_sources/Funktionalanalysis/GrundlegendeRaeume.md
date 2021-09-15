@@ -163,19 +163,19 @@ für alle $n \ge n_0$ gilt.
 
 ```{admonition} Definition: Metrik
 
-Eine nichtleere Menge $X$ mit *Elemente* $x, y, z, \ldots$ heisst ein *metrischer Raum*, wenn jedem Paar $x, y \in X$ eine reelle Zahl $d(x,y)$, genannt *Abstand* oder *Metrik*, zugeordnet ist, mit den Eigenschaften: Für alle $x,y,z\in X$ gilt
+Eine nichtleere Menge $V$ mit *Elemente* $x, y, z, \ldots$ heisst ein *metrischer Raum*, wenn jedem Paar $x, y \in V$ eine reelle Zahl $d(x,y)$, genannt *Abstand* oder *Metrik*, zugeordnet ist, mit den Eigenschaften: Für alle $x,y,z\in V$ gilt
 
 1. $d(x,y) \ge 0,\ d(x,y) = 0$ genau dann, wenn $x=y$ ist
 2. $d(x,y) = d(y,x)$ *Symmetrieeigenschaft*
 3. $d(x,y) \le d(x,z) + d(z,y)$ *Dreiecksungleichung*.
 ```
 
-Für metrische Räume verwenden wir wieder die Schreibweisen: $(X, d)$ oder kurz $X$, falls der Kontext klar ist.
+Für metrische Räume verwenden wir wieder die Schreibweisen: $(V, d)$ oder kurz $V$, falls der Kontext klar ist.
 
 ```{admonition} Aufgabe
-Zeige, dass für $X = C[0,1]$, den stetigen Funktionen auf dem Intervall $[0,1]$ die Abbildung
+Zeige, dass für $V = C[0,1]$, den stetigen Funktionen auf dem Intervall $[0,1]$ die Abbildung
 
-$$\begin{split}d_{\text{max}} : X \times X & \to \mathbb{R}^+\\
+$$\begin{split}d_{\text{max}} : V \times V & \to \mathbb{R}^+\\
 (x,y) & \mapsto d_{\text{max}}(x,y) := \max_{t\in[0,1]} |x(t)-y(t)|\end{split}$$ (eq:maxnorm)
 
 eine Metrik definiert (*Maximumsmetrik*).
@@ -215,17 +215,17 @@ plt.show()
 Berechne analytisch den exakten Wert der Maximumsmetrik für die beiden Funktionen $x,y$ aus obigem Beispiel.
 ```
 
-Eine weitere wichtige Metrik ist die **Integralmetrik**. Es sei $X$ die Menge aller reellwertigen Funktionen, die auf einem (nicht notwendig beschränkten) Intervall $(a,b)$ stetig sind und für die das Integral
+Eine weitere wichtige Metrik ist die **Integralmetrik**. Es sei $V$ die Menge aller reellwertigen Funktionen, die auf einem (nicht notwendig beschränkten) Intervall $(a,b)$ stetig sind und für die das Integral
 
 $$\int_a^b |x(t)|^p dt, \quad 1\le p < \infty$$
 
-im Riemannschen Sinne existiert. Setzen wir für $x(t), y(t)\in X$
+im Riemannschen Sinne existiert. Setzen wir für $x(t), y(t)\in V$
 
 ```{admonition} Definition: Integralmetrik
 $$d_p(x,y) := \left(\int_a^b |x(t)-y(t)|^p dt\right)^{1/p},\quad 1\le p < \infty$$
 ```
 
-so wird $X$ mit dieser *Integralmetrik* zu einem metrischen Raum. Der Beweis nutzt die Minkowski-Ungleichung für Integrale
+so wird $V$ mit dieser *Integralmetrik* zu einem metrischen Raum. Der Beweis nutzt die Minkowski-Ungleichung für Integrale
 
 $$\left(\int_a^b |u(t)-v(t)|^p dt\right)^{1/p} \le \left(\int_a^b |u(t)|^p dt\right)^{1/p} + \left(\int_a^b |v(t)|^p dt\right)^{1/p}.$$
 
@@ -246,7 +246,7 @@ Berechne die Integralmetrik für $p=2$ und $p=1/2$ für das Beispiel oben.
 ```
 
 ```{admonition} Aufgabe
-In der Codierungstheorie ist ein $n$-stelliges Binärwort ein $n$-Tuppel $(\xi_1, \ldots, \xi_n)$, wobei $\xi_k \in \{0,1\}$ für $k=1,\ldots, n$. Bezeichne $X$ die Menge aller dieser Binärwörter. Für $x = \xi_1 \xi_2 \ldots \xi_n$, $y = \eta_1 \eta_2 \ldots \eta_n$ ist die *Hamming-Distanz* zwischen $x$ und $y$ durch
+In der Codierungstheorie ist ein $n$-stelliges Binärwort ein $n$-Tuppel $(\xi_1, \ldots, \xi_n)$, wobei $\xi_k \in \{0,1\}$ für $k=1,\ldots, n$. Bezeichne $V$ die Menge aller dieser Binärwörter. Für $x = \xi_1 \xi_2 \ldots \xi_n$, $y = \eta_1 \eta_2 \ldots \eta_n$ ist die *Hamming-Distanz* zwischen $x$ und $y$ durch
 
 $$d_H(x,y) := \text{Anzahl der Stellen an denen sich $x$ und $y$ unterscheiden}$$
 
@@ -258,13 +258,13 @@ definiert. Zeige:
 
    darstellen.
 
-2. $(X,d_H)$ ist ein metrischer Raum.
+2. $(V,d_H)$ ist ein metrischer Raum.
 ```
 
-Die topologischen Begriffe wie *offene Kugel*, *innerer Punkt*, *Häufungspunkt*, *abgeschlossen*, *beschränkt* lassen sich mit Hilfe der Metrix $d$ für einen metrischen Raum $(X,d)$ direkt aus dem aus der Analysis bekannten $\mathbb{R}^n$ übertragen.
+Die topologischen Begriffe wie *offene Kugel*, *innerer Punkt*, *Häufungspunkt*, *abgeschlossen*, *beschränkt* lassen sich mit Hilfe der Metrix $d$ für einen metrischen Raum $(V,d)$ direkt aus dem aus der Analysis bekannten $\mathbb{R}^n$ übertragen.
 
 ```{admonition} Definition: Konvergenz
-Eine Folge $\{x_n\}\subset X$ von Elemente aus $X$ heisst *konvergent*, wenn es ein $x_0\in X$ gibt mit
+Eine Folge $\{x_n\}\subset V$ von Elemente aus $V$ heisst *konvergent*, wenn es ein $x_0\in V$ gibt mit
 
 $$d(x_n,x_0) \to 0\quad \text{für}\quad n\to\infty,$$
 
@@ -363,7 +363,7 @@ Ist eine stetige Funktionenfolge gleichmässig konvergent, so ist die Grenzfunkt
 Der Begriff der Cauchy-Folge folge kann direkt auf metrische Räume übertragen werden:
 
 ```{admonition} Definition: Cauchy-Folge
-Eine Folge $\|x_n\}$ aus dem metrischen Raum $X$ heisst *Cauchy-Folge*, wenn
+Eine Folge $\{x_n\}$ aus dem metrischen Raum $V$ heisst *Cauchy-Folge*, wenn
 
 $$\lim_{m,n\to\infty} d(x_n,x_m) = 0$$
 
@@ -373,10 +373,10 @@ $$d(x_n,x_m) < \varepsilon\quad\text{für alle}\quad n,m \ge n_0.$$
 ```
 
 ```{admonition} Satz
-Jede konvergente Folge im metrischen Raum $X$ ist auch eine Cauchy-Folge.
+Jede konvergente Folge im metrischen Raum $V$ ist auch eine Cauchy-Folge.
 ```
 
-**Beweis**: Aus der Konvergenz der Folge $\{x_n\}$ folgt: Zu jedem $\varepsilon>0$ gibt es ein $n_0 = n_0(\varepsilon)\in\mathbb{N}$ und ein $x_0\in X$ mit
+**Beweis**: Aus der Konvergenz der Folge $\{x_n\}$ folgt: Zu jedem $\varepsilon>0$ gibt es ein $n_0 = n_0(\varepsilon)\in\mathbb{N}$ und ein $x_0\in V$ mit
 
 $$d(x_n,x_0) < \varepsilon\quad\text{und}\quad d(x_m,x_0) < \varepsilon$$
 
@@ -388,12 +388,12 @@ für alle $n,m \ge n_0$. $\Box$
 
 Die Umkehrung gilt im allgemeinen nicht.
 
-**Beispiel**: Betrachte $X = (0,1)$ mit der Metrik $d(x,y) := |x-y|$ und der Folge $\{x_n\}$ mit $x_n = \frac{1}{1+n}$. Die Folge ist eine Cauchy-Folge im metrischen Raum $(X,d)$, besitzt jedoch keinen Grenzwert in diesem $(0\not\in X)$.
+**Beispiel**: Betrachte $V = (0,1)$ mit der Metrik $d(x,y) := |x-y|$ und der Folge $\{x_n\}$ mit $x_n = \frac{1}{1+n}$. Die Folge ist eine Cauchy-Folge im metrischen Raum $(V,d)$, besitzt jedoch keinen Grenzwert in diesem $(0\not\in V)$.
 
 Das führt uns zu einem neuen Begriff, der **Vollständigkeit**. Wir interessieren uns insbesondere für diejenigen metrischen Räume, in denen Cauchy-Folgen konvergieren.
 
 ```{admonition} Definition: Vollständig
-Ein metrischer Raum $X$ heisst *vollständig*, wenn jede Cauchy-Folge in $X$ gegen ein Element von $X$ konvergiert.
+Ein metrischer Raum $V$ heisst *vollständig*, wenn jede Cauchy-Folge in $V$ gegen ein Element von $V$ konvergiert.
 ```
 
 Betrachten wir ein paar Beispiele:
@@ -476,11 +476,11 @@ Die Tatsache, daß $C[a,b]$, versehen mit einer Integralmetrik, kein vollständi
 Wir definieren kompakt für metrische Räume wie folgt
 
 ```{admonition} Definition: Kompakt
-Sein $X$ ein metrischer Raum. $A \subset X$ heisst *kompakt*, wenn jede Folge $\{x_n\}$ aus $A$ eine Teilfolge enthält, die gegen ein Grenzelement $x\in A$ konvergiert.
+Sein $V$ ein metrischer Raum. $W \subset V$ heisst *kompakt*, wenn jede Folge $\{x_n\}$ aus $W$ eine Teilfolge enthält, die gegen ein Grenzelement $x\in W$ konvergiert.
 ```
 
 ```{admonition} Satz
-Jede kompakte Teilmenge $A$ eines metrischen Raumes $X$ ist beschränkt und abgeschlossen.
+Jede kompakte Teilmenge $W$ eines metrischen Raumes $V$ ist beschränkt und abgeschlossen.
 ````
 
 Die Umkehrung gilt im allgemeinen nicht. 
@@ -488,21 +488,21 @@ Die Umkehrung gilt im allgemeinen nicht.
 (BestapproximationMetrisch)=
 ### Bestapproximation in metrischen Räumen
 
-In der Approximationstheorie stellt sich das Grundproblem: In einem metrischen Raum $X$ sei eine Teilmenge $A$ und ein fester Punkt $y\in X$ vorgegeben. Zu bestimmen ist ein Punkt $x_0 \in A$, der von $y$ minimalen Abstand hat. Das Problem beginnt schon damit, dass es nicht klar, ist, dass es einen solchen Punkt überhaupt gibt:
+In der Approximationstheorie stellt sich das Grundproblem: In einem metrischen Raum $V$ sei eine Teilmenge $W$ und ein fester Punkt $y\in V$ vorgegeben. Zu bestimmen ist ein Punkt $x_0 \in W$, der von $y$ minimalen Abstand hat. Das Problem beginnt schon damit, dass es nicht klar, ist, dass es einen solchen Punkt überhaupt gibt:
 
-> Betrachte den Raum $(\mathbb{R}, d)$ mit $d(x_1,x_2) = |x_1-x_2|$. Die Teilmenge $A$ sei gegeben durch $A = (0,1)$ und $y=2$. In $A$ gibt es keinen Punkt $x_0$, für den $d(x_0,2)$ minimal ist ($1\not\in A$). 
+> Betrachte den Raum $(\mathbb{R}, d)$ mit $d(x_1,x_2) = |x_1-x_2|$. Die Teilmenge $W$ sei gegeben durch $W = (0,1)$ und $y=2$. In $W$ gibt es keinen Punkt $x_0$, für den $d(x_0,2)$ minimal ist ($1\not\in W$). 
 
 Zur Erinnerung:
 
 ```{admonition} Definition: Supremum, Infimum
-Sei $A\subset \mathbb{R}$, dann bezeichnet man mit dem *Supremum* von $A$ die kleinste reelle Zahl $\lambda$ mit $x\le \lambda$ für alle $x\in A$. Analog bezeichnet man mit dem *Infimum* die grösste reelle Zahl $\mu$ mit $x\ge \mu$ für alle $x\in A$.
+Sei $W\subset \mathbb{R}$, dann bezeichnet man mit dem *Supremum* von $W$ die kleinste reelle Zahl $\lambda$ mit $x\le \lambda$ für alle $x\in W$. Analog bezeichnet man mit dem *Infimum* die grösste reelle Zahl $\mu$ mit $x\ge \mu$ für alle $x\in W$.
 ```
 
 ```{admonition} Satz
-Es sei $X$ ein metrischer Raum und $A$ eine **kompakte** Teilmenge von $X$. Dann gibt es zu jedem festen Punkt $y \in X$ einen Punkt $x_0 \in A$, der von $y$ kleinsten Abstand hat.
+Es sei $V$ ein metrischer Raum und $W$ eine **kompakte** Teilmenge von $V$. Dann gibt es zu jedem festen Punkt $y \in V$ einen Punkt $x_0 \in W$, der von $y$ kleinsten Abstand hat.
 ````
 
-Betrachten wir das obige Beispiel angepasst auf die Voraussetzung im Satz: Sei $A = [0,1] \subset \mathbb{R}$ ein kompaktes Intervall, dann ist der Punkt $x_0 = 1$ bestapproximierendes Element.
+Betrachten wir das obige Beispiel angepasst auf die Voraussetzung im Satz: Sei $W = [0,1] \subset \mathbb{R}$ ein kompaktes Intervall, dann ist der Punkt $x_0 = 1$ bestapproximierendes Element.
 
 % Anwendung!
 
@@ -521,10 +521,10 @@ Bestapproximation
 Bis jetzt haben wir sehr wenig Eigenschaften eines Raumes benötigt. Was uns noch fehlt, sind abgesehen vom Abstand der Elemente noch *algebraische* Eigenschaften (addieren, multiplizieren, etc.). Dazu definieren wir den *linearen Raum* (oder *Vektorraum*) wie folgt.
 
 ```{admonition} Definition: linearer Raum
-Ein *linearer Raum* (oder *Vektorraum*) über einem Körper $\mathbb{K}$ besteht aus einer nichtleeren Menge $X$, sowie
+Ein *linearer Raum* (oder *Vektorraum*) über einem Körper $\mathbb{K}$ besteht aus einer nichtleeren Menge $V$, sowie
 
-* einer Vorschrift, die jedem Paar $(x,y)$ mit $x,y \in X$ genau ein Element $x+y\in X$ zuordnet (*Addition*)
-* einer Vorschrift, die jedem Paar $(\lambda,x)$ mit $\lambda\in \mathbb{K}$ und $x \in X$ genau ein element $\lambda x\in X$ zuordnet (*Multiplikation mit Skalaren*), wobei für alle $x,y,z \in X$ und $\lambda, \mu\in\mathbb{K}$ folgende Regeln gelten:
+* einer Vorschrift, die jedem Paar $(x,y)$ mit $x,y \in V$ genau ein Element $x+y\in V$ zuordnet (*Addition*)
+* einer Vorschrift, die jedem Paar $(\lambda,x)$ mit $\lambda\in \mathbb{K}$ und $x \in V$ genau ein element $\lambda x\in V$ zuordnet (*Multiplikation mit Skalaren*), wobei für alle $x,y,z \in V$ und $\lambda, \mu\in\mathbb{K}$ folgende Regeln gelten:
 
 $$\begin{array}{rcll}
 x + (y+z) & = & (x+y) + z & \quad\text{Assoziativgesetz} \\
@@ -562,31 +562,31 @@ Beispiele für lineare Räume:
 Wie in der linearen Algebra sind folgende Begriffe analog definiert
 
 ```{admonition} Definition: Unterraum, lineare Mannigfaltigkeit, lineare Hülle / Span, linear unabhängig, Dimension, Basis
-* Eine nicht leere Teilmenge $S$  von $X$ heisst *Unterraum* von $X$, wenn für bel. $x,y \in S$  und $\lambda \in \mathbb{K}$ stets
+* Eine nicht leere Teilmenge $S$  von $V$ heisst *Unterraum* von $V$, wenn für bel. $x,y \in S$  und $\lambda \in \mathbb{K}$ stets
 
   $$x+y \in S\quad\text{und}\quad \lambda x \in S$$
 
   folgt. Insbesondere ist $S$ selbst ein linearer Raum über $\mathbb{K}$.
-* Ist $S$ ein Unterraum von $X$ und $x_0\in X$ beliebig, so nennt man
+* Ist $S$ ein Unterraum von $V$ und $x_0\in V$ beliebig, so nennt man
 
   $$M = x_0 + S := \{x_0+y\ |\ y\in S\}$$
-  eine *lineare Mannigfaltigkeit* von $X$.
-* Ist $A$ eine beliebige nichtleere Teilmenge von $X$, so bilden alle Linearkombinationen $\sum_{k=1}^m \lambda_k x_k$ mit beliebigem $m \in \mathbb{N}$, $\lambda_k\in\mathbb{K}$, $x_k \in A$ einen Unterraum $S\subset X$. Er wird *lineare Hülle von* $A$ oder $\mathop{span} A := S$ genannt.
+  eine *lineare Mannigfaltigkeit* von $V$.
+* Ist $A$ eine beliebige nichtleere Teilmenge von $V$, so bilden alle Linearkombinationen $\sum_{k=1}^m \lambda_k x_k$ mit beliebigem $m \in \mathbb{N}$, $\lambda_k\in\mathbb{K}$, $x_k \in A$ einen Unterraum $S\subset V$. Er wird *lineare Hülle von* $A$ oder $\mathop{span} A := S$ genannt.
 
-  Man sagt: $A$ spannt $S$ auf oder $A$ ist ein *Erzeugendensystem* von $S$. Im Falle $S=X$ spannt $A$ den ganzen Raum $X$ auf.
-* Sind $S$ und $T$ Unterräume von $X$, dann ist die *Summe* $S+T$ definiert durch
+  Man sagt: $A$ spannt $S$ auf oder $A$ ist ein *Erzeugendensystem* von $S$. Im Falle $S=V$ spannt $A$ den ganzen Raum $V$ auf.
+* Sind $S$ und $T$ Unterräume von $V$, dann ist die *Summe* $S+T$ definiert durch
 
   $$S+T := \mathop{span} S \cup T.$$
-* Die (endlich vielen) Elemente $x_1, \ldots, x_n\in X$ heissen *linear unabhängig*, wenn aus
+* Die (endlich vielen) Elemente $x_1, \ldots, x_n\in V$ heissen *linear unabhängig*, wenn aus
 
   $$\alpha_1 x_1 + \ldots + \alpha_n x_n = 0\quad\text{stets}\quad \alpha_1 = \ldots = \alpha_n = 0$$
 
   folgt.
-* Sei $S$ ein Unterraum von $X$. Wir sagen, $S$ besitzt die *Dimension* $n$, $\mathop{dim} S = n$, wenn es $n$ linear unabhängige Elemente von $S$ gibt, aber $n+1$ Elemente von $S$ stets linear abhängig sind.
+* Sei $S$ ein Unterraum von $V$. Wir sagen, $S$ besitzt die *Dimension* $n$, $\mathop{dim} S = n$, wenn es $n$ linear unabhängige Elemente von $S$ gibt, aber $n+1$ Elemente von $S$ stets linear abhängig sind.
 
-  $S$ heisst *Basis* von $X$, wenn die Elemente von $S$ linear unabhängigsind und $\mathop{span} S = X$ gilt.
+  $S$ heisst *Basis* von $V$, wenn die Elemente von $S$ linear unabhängigsind und $\mathop{span} S = V$ gilt.
 
-  Besitzt $X$ keine endlich dimensionale Basis, nennt man $X$ *unendlich-dimeansional* ($\mathop{dim} X = \infty$).
+  Besitzt $V$ keine endlich dimensionale Basis, nennt man $V$ *unendlich-dimeansional* ($\mathop{dim} V = \infty$).
 ```
 
 **Bemerkungen**: Die oben erwähnten Funktionenräume $C[a,b]$, $C^k[a,b]$, Polynome sind unendlich-dimensional. Ebenso ist der Folgenraum $l_p$ unendlich-dimensional:
@@ -599,28 +599,28 @@ Wie in der linearen Algebra sind folgende Begriffe analog definiert
 Im folgenden sind wir an Räumen interessiert, für welche eine lineare Struktur und eine Metrik gegeben ist.
 
 ```{admonition} Definition: normierter Raum
-Sei $X$ ein metrischer und linearer Raum. Zu dem sei die Metrik $d$ von $X$ *translationsinvariant*
+Sei $V$ ein metrischer und linearer Raum. Zu dem sei die Metrik $d$ von $V$ *translationsinvariant*
 
-$$d(x+z, y+z) = d(x,y)\quad\forall\ x,y,z\in X$$
+$$d(x+z, y+z) = d(x,y)\quad\forall\ x,y,z\in V$$
 und *homogen*
 
-$$d(\alpha x, \alpha y) = |\alpha| d(x,y)\quad \forall\ \alpha\in\mathbb{K}, x,y\in X.$$
-Dann nennt man $X$ einen *normierten Raum*. Der durch
+$$d(\alpha x, \alpha y) = |\alpha| d(x,y)\quad \forall\ \alpha\in\mathbb{K}, x,y\in V.$$
+Dann nennt man $V$ einen *normierten Raum*. Der durch
 
-$$\|x\| := d(x,0)\quad \forall\ x\in X$$
+$$\|x\| := d(x,0)\quad \forall\ x\in V$$
 erklärte Ausdruck heisst *Norm* von $x$.
 ```
 
 **Bemerkungen**: 
-* Neben der kurzen Schreibweise $X$, verwendet man häufig auch die Bezeichnung $(X, \|\cdot\|)$. Der Punkt in $\|\cdot\|$ ist als Platzhalter zu verstehen.
-* Führt man den normierten Raum $X$ mit Hilfe einer Norm ein, so ist durch
+* Neben der kurzen Schreibweise $V$, verwendet man häufig auch die Bezeichnung $(V, \|\cdot\|)$. Der Punkt in $\|\cdot\|$ ist als Platzhalter zu verstehen.
+* Führt man den normierten Raum $V$ mit Hilfe einer Norm ein, so ist durch
 
-  $$d(x,y) = \|x-y\|\quad\text{für alle}\ x,y\in X$$
-  eine Metrik in $X$ gegeben.
+  $$d(x,y) = \|x-y\|\quad\text{für alle}\ x,y\in V$$
+  eine Metrik in $V$ gegeben.
 
 
 ```{admonition} Folgerung
-Ein normierter Raum $(X, \|\cdot\|)$ ist ein linearer Raum, auf dem eine Norm $\|\cdot\|$ erklärt ist, die für alle $x,y\in X$ und $\alpha \in \mathbb{K}$
+Ein normierter Raum $(V, \|\cdot\|)$ ist ein linearer Raum, auf dem eine Norm $\|\cdot\|$ erklärt ist, die für alle $x,y\in V$ und $\alpha \in \mathbb{K}$
 
 $$\begin{split}
 \|x\| & \ge 0,\quad \|x\|=0\quad \text{genau dann, wenn $x=0$ ist},\\
@@ -632,7 +632,7 @@ erfüllt.
 Damit können wir einen wichtigen Begriff der Funktionalanalysis einführen, den Banachraum:
 
 ```{admonition} Definition: Banachraum
-*Vollständig normierte* Räume $X$ sind diejenigen, für die jede Cauchy-Folge in $X$ gegen ein Element in $X$ konvergiert.
+*Vollständig normierte* Räume $V$ sind diejenigen, für die jede Cauchy-Folge in $V$ gegen ein Element in $V$ konvergiert.
 
 Ein vollständiger normierter Raum heisst *Banachraum*.
 ```
@@ -645,10 +645,10 @@ Ein vollständiger normierter Raum heisst *Banachraum*.
 * $l_p\ (1\le p < \infty)$ mit der Norm $\|x\| = \left(\sum_{k=1}^{\infty} |x_k|^p \right)^{1/p}$
 
 ```{admonition} Definition: abzählbare Basis
-Man sagt, dass $X$ eine *abzählbare Basis* $\{x_k\}_{k=1}^{\infty}$ mit $x_k \in X$ besitzt, falls jedes $x\in X$ eindeutig in der Form $x = \sum_{k=1}^{\infty} \alpha_k\,x_k$ darstellbar ist, wobei die Konvergenz bezüglich der Norm von $X$ zu verstehen ist.
+Man sagt, dass $V$ eine *abzählbare Basis* $\{x_k\}_{k=1}^{\infty}$ mit $x_k \in V$ besitzt, falls jedes $x\in V$ eindeutig in der Form $x = \sum_{k=1}^{\infty} \alpha_k\,x_k$ darstellbar ist, wobei die Konvergenz bezüglich der Norm von $V$ zu verstehen ist.
 ````
 
-Lineare Räume können durchaus verschieden normiert werden. Als Beispiel betrachte dazu den Raum $X=\mathbb{R}^n$ mit den Normen
+Lineare Räume können durchaus verschieden normiert werden. Als Beispiel betrachte dazu den Raum $V=\mathbb{R}^n$ mit den Normen
 
 $$\begin{split}
 \|x\|_1 & = \sum_{k=1}^n |x_k|\quad\text{(Betragsnorm)}\\
@@ -693,7 +693,7 @@ Zwei Normen $\|\cdot\|_a$ und $\|\cdot\|_b$ heissen *äquivalent*, wenn jede bez
 Im endlich dimensionalen gilt ein pauschaler Satz:
 
 ```{admonition} Satz
-Alle Normen in einem **endlich**-dimensionalen Raum $X$ sind äquivalent.
+Alle Normen in einem **endlich**-dimensionalen Raum $V$ sind äquivalent.
 ```
 
 Dieses Resultat gilt für unendlich-dimensionale Räume **nicht**. Als Beispiel sei der lineare Raum $C[a,b]$ mit der Maximumsnorm und der Quadratnorm erwähnt. Die beiden Normen sind nicht äquivalent, vgl. das Gegenbeispiel {eq}`eq:Gegenbeispiel`. 
@@ -701,7 +701,7 @@ Dieses Resultat gilt für unendlich-dimensionale Räume **nicht**. Als Beispiel 
 Mit diesem Satz folgt
 
 ```{admonition} Satz
-Jeder endlich-dimensionale normierte Raum $X$ ist vollständig, also ein Banachraum.
+Jeder endlich-dimensionale normierte Raum $V$ ist vollständig, also ein Banachraum.
 ```
 
 ## Skalarprodukträume. Hilberträume
@@ -709,9 +709,9 @@ Jeder endlich-dimensionale normierte Raum $X$ ist vollständig, also ein Banachr
 Das aus der linearen Algebra bekannte Skalarprodukt lässt sich auch auf unendlich-dimensionale Räume übertragen. Wir definieren ganz allgemein
 
 ```{admonition} Definition: Skalarprodukt, Skalarproduktraum
-Unter einem *Skalarproduktraum* versteht man einen linearen Raum $X$ über $\mathbb{K}$, in dem ein *Skalarprodukt* $(x,y)$ mit folgenden Eigenschaften definiert ist: Für beliebige $x,y,z \in X$ und $\alpha\in\mathbb{K}$ ist
+Unter einem *Skalarproduktraum* versteht man einen linearen Raum $V$ über $\mathbb{K}$, in dem ein *Skalarprodukt* $(x,y)$ mit folgenden Eigenschaften definiert ist: Für beliebige $x,y,z \in V$ und $\alpha\in\mathbb{K}$ ist
 
-$$(\cdot, \cdot) : X \times X \to \mathbb{K}$$
+$$(\cdot, \cdot) : V \times V \to \mathbb{K}$$
 
 und es gilt
 
@@ -723,9 +723,9 @@ $$\begin{split}
 \end{split}$$ (eq:eigenschaftenskalarprodukt)
 ```
 
-Beispielsweise lässt sich auf $X=C[a,b]$ Menge der reellwertigen stetigen Funktionen auf dem Intervall $[a,b]$ durch
+Beispielsweise lässt sich auf $V=C[a,b]$ Menge der reellwertigen stetigen Funktionen auf dem Intervall $[a,b]$ durch
 
-$$(x,y) := \int_a^b x(t)\,y(t) dt\quad x,y \in X$$ (eq:L2SkalarProdukt)
+$$(x,y) := \int_a^b x(t)\,y(t) dt\quad x,y \in V$$ (eq:L2SkalarProdukt)
 
 ein Skalarprodukt definieren.
 
@@ -734,7 +734,7 @@ Weise die Eigenschaften {eq}`eq:eigenschaftenskalarprodukt` für das Skalarprodu
 ```
 
 ```{admonition} Satz
-Es sei $X$ ein Skalarproduktraum. Für beliebige $x,y,z\in X$ und $\alpha \in \mathbb{K}$ gilt
+Es sei $V$ ein Skalarproduktraum. Für beliebige $x,y,z\in V$ und $\alpha \in \mathbb{K}$ gilt
 
 $$\begin{split}(x, \alpha y) & = \overline{\alpha} (x,y)\\
 (x, y+z) & = (x,y) + (x,z)\end{split}$$
@@ -743,7 +743,7 @@ $$\begin{split}(x, \alpha y) & = \overline{\alpha} (x,y)\\
 **Beweis**: selber durchführen.
 
 ```{admonition} Satz: induzierte Norm
-In jedem Skalarproduktraum $X$ lässt sich durch
+In jedem Skalarproduktraum $V$ lässt sich durch
 
 $$\|x\| := \sqrt{(x,x)}$$
 
@@ -753,7 +753,7 @@ eine Norm definieren. Man bezeichnet sie als *die durch das Skalarprodukt* $(x,y
 Der Beweis lässt sich einfach mit Hilfe der *Schwarz'schen Ungleichung* durchführen.
 
 ```{admonition} Satz: Schwarzsche Ungleichung
-Es sei $X$ ein Skalarproduktraum. Dann gilt für alle $x,y\in X$
+Es sei $V$ ein Skalarproduktraum. Dann gilt für alle $x,y\in V$
 
 $$|(x,y)| \le \|x\|\,\|y\|.$$
 ```
@@ -761,7 +761,7 @@ $$|(x,y)| \le \|x\|\,\|y\|.$$
 Die Beweise sind dem Leser überlassen (vgl. {cite:p}`burg_wille_haf_meister_PDE` S. 43, 44).
 
 ```{admonition} Satz
-Sei $X$ ein Skalarproduktraum. Ferner seien $\{x_n\}$ und $\{y_n\}$ Folgen aus $X$ mit $x_n \to x$ und $y_n \to y$ für $n\to\infty$, wobei die Konvergenz im Sinne der induzierten Norm zu verstehen ist. Dann gilt
+Sei $V$ ein Skalarproduktraum. Ferner seien $\{x_n\}$ und $\{y_n\}$ Folgen aus $V$ mit $x_n \to x$ und $y_n \to y$ für $n\to\infty$, wobei die Konvergenz im Sinne der induzierten Norm zu verstehen ist. Dann gilt
 
 $$(x_n, y_n) \to (x,y)\quad\text{für}\quad n\to\infty,$$
 
@@ -769,9 +769,9 @@ dh. das Skalarprodukt ist eine stetige Funktion bezüglich der Normkonvergenz.
 ```
 
 ```{admonition} Definition: Hilbertraum
-Ein Skalarproduktraum $X$, der bezüglich der durch das Skalarprodukt induzierten Norm
+Ein Skalarproduktraum $V$, der bezüglich der durch das Skalarprodukt induzierten Norm
 
-$$\|x\| = \sqrt{(x,x)}\quad\text{für}\ x\in X$$
+$$\|x\| = \sqrt{(x,x)}\quad\text{für}\ x\in V$$
 vollständig ist, heisst *Hilbertraum*.
 ```
 
@@ -798,33 +798,33 @@ vollständig ist, heisst *Hilbertraum*.
 Viele Eigenschaften des euklischen Raumes $\mathbb{R}^n$, die mit dem Skalarprodukt zusammenhängen, können auf einen beliebigen Hilbertraum übertragen werden. Der Begriff der Ortohogonalität ist dabei sehr zentral.
 
 ```{admonition} Definition: orthogonal
-Es sei $X$ ein Hilbertraum.
+Es sei $V$ ein Hilbertraum.
 
-* Zwei Elemente $x,y \in X$ heissen *orthogonal* ($x\perp y$), wenn
+* Zwei Elemente $x,y \in V$ heissen *orthogonal* ($x\perp y$), wenn
 
   $$(x,y) = 0$$
   
   gilt.
-* Zwei Teilmengen $A,B \subset X$ heissen *orthogonal* ($A\perp B$), wenn
+* Zwei Teilmengen $A,B \subset V$ heissen *orthogonal* ($A\perp B$), wenn
   
   $$(x,y) = 0 \quad \forall\ x\in A, y\in B$$
 
   gilt.
-* Sei $M\subset X$, dann heisst
+* Sei $M\subset V$, dann heisst
 
-  $$M^\perp := \{y\in X | (x,y)=0\quad\forall\,x\in M\}$$
+  $$M^\perp := \{y\in V | (x,y)=0\quad\forall\,x\in M\}$$
 
   *Orthogonalraum* von $M$.
-* Sei $X'$ ein abgeschlossener Unterraum von $X$. $X''$ wird *orthogonales Komplement* von $X'$ genannt, wenn
+* Sei $V'$ ein abgeschlossener Unterraum von $V$. $V''$ wird *orthogonales Komplement* von $V'$ genannt, wenn
 
-  $$X''\perp X' \quad \text{und}\quad X' \oplus X'' = X$$
+  $$V''\perp V' \quad \text{und}\quad V' \oplus V'' = V$$
   gilt. Mit $\oplus$ ist die direkte Summe bezeichnet.
 ```
 
 Es gilt
 
 ```{admonition} Satz: Pythagoras
-Es sei $X$ ein Hilbertraum und seien $x,y \in X$ mit $x\perp y$. Dann gilt
+Es sei $V$ ein Hilbertraum und seien $x,y \in V$ mit $x\perp y$. Dann gilt
 
 $$\|x+y\|^2 = \|x\|^2 + \|y\|^2.$$
 ```
@@ -832,7 +832,7 @@ $$\|x+y\|^2 = \|x\|^2 + \|y\|^2.$$
 **Beweis**: Einfaches Nachrechnen.
 
 ```{admonition} Satz
-Es sei $X$ ein Hilbertraum und $M$ eine beliebige Teilmenge von $X$. Dann ist der Orthogonalraum $M^\perp$ von $M$ ein abgeschlossener Unterraum von $X$.
+Es sei $V$ ein Hilbertraum und $M$ eine beliebige Teilmenge von $V$. Dann ist der Orthogonalraum $M^\perp$ von $M$ ein abgeschlossener Unterraum von $V$.
 ```
 
 Für den Beweis sei auf {cite:p}`burg_wille_haf_meister_PDE` S. 50 verwiesen.
@@ -840,22 +840,22 @@ Für den Beweis sei auf {cite:p}`burg_wille_haf_meister_PDE` S. 50 verwiesen.
 Wir kommen nun auf das Approximationsproblem aus {ref}`BestapproximationMetrisch` zurück und können die Struktureigenschaften des Hilbertraumes nutzen:
 
 ```{admonition} Satz
-Es sei $X'$ ein abgeschlossener Unterraum von $X$ und $x\in X$ beliebig. 
-* Dann existiert genau ein $x_0 \in X'$ mit
+Es sei $V'$ ein abgeschlossener Unterraum von $V$ und $x\in V$ beliebig. 
+* Dann existiert genau ein $x_0 \in V'$ mit
 
-  $$\|x-x_0\| = \min_{x'\in X'} \|x-x'\|,$$
+  $$\|x-x_0\| = \min_{x'\in V'} \|x-x'\|,$$
 
-  dh. zu jedem $x\in X$ gibt es genau ein bestapproximierendes Element bezüglich $X'$.
-* Es gilt $x_0\in X$ ist genau dann bestapproximierend an $x\in X$, wenn
+  dh. zu jedem $x\in V$ gibt es genau ein bestapproximierendes Element bezüglich $V'$.
+* Es gilt $x_0\in V$ ist genau dann bestapproximierend an $x\in V$, wenn
 
-  $$(x-x_0,y) = 0\quad \forall y\in X'$$
+  $$(x-x_0,y) = 0\quad \forall y\in V'$$
   gilt.
 ```
 
-Für den Fall, dass $X'$ endlich-dimensional ist, lässt sich das bestapproximierende Element konstruieren. Es gilt
+Für den Fall, dass $V'$ endlich-dimensional ist, lässt sich das bestapproximierende Element konstruieren. Es gilt
 
 ```{admonition} Satz
-Sei $X'\subset X$ mit $\dim X' < \infty$ ein Unterraum des Hilbertraumes $X$ und sei $x_1, \ldots, x_n$ eine Basis von $X'$. Dann lässt sich das eindeutig bestimmte bestapproximierende Element $x_0\in X'$ an $x\in X$ in der Form
+Sei $V'\subset V$ mit $\dim V' < \infty$ ein Unterraum des Hilbertraumes $V$ und sei $x_1, \ldots, x_n$ eine Basis von $V'$. Dann lässt sich das eindeutig bestimmte bestapproximierende Element $x_0\in V'$ an $x\in V$ in der Form
 
 $$x_0 = \sum_{k=1}^n \lambda_k x_k$$
 
@@ -880,7 +880,7 @@ Die Koeffzienten $\lambda_i$ nennt man auch Fourierkoeffizienten!
 > Wir werden zeigen, dass sich mit Hilfe des Schmidtschen Orthogonalisierungsverfahrens aus $n$ linear unabhängigen Elementen stets ein Orthogonalsystem konstruieren lässt.
 
 ```{admonition} Definition: Orthonormalsystem (ONS)
-Es sei $X$ ein Hilbertraum. Man nennt die Folge $\{x_k\}_{k\in\mathbb{N}}$ ein (abzählbares) *Orthonormalsystem* (kurz ONS) von $X$, wenn 
+Es sei $V$ ein Hilbertraum. Man nennt die Folge $\{x_k\}_{k\in\mathbb{N}}$ ein (abzählbares) *Orthonormalsystem* (kurz ONS) von $V$, wenn 
 
 $$(x_j, x_k) = \delta_{i k} = \begin{cases}
 0\quad \text{für}\ i\not= k\\
@@ -900,7 +900,7 @@ ein ONS.
 Es gilt ganz allgemein:
 
 ```{admonition} Satz: Orthogonalisierungsverfahren nach Erhard Schmidt
-Gegeben sei eine abzählbare (nicht zwingend endliche) linear unabhängige Folge $\{y_k\} \subset X$ aus dem Hilbertraum $X$. Dann gibt es ein ONS aus $n$ bzw. abzählbar unendlich viele Elementen $\{x_k\}$ so, dass der von der Folge $\{y_k\}$ aufgespannte (abgeschlossene) Unterraum mit dem der Folge $\{x_k\}$ aufgespannten (abgeschlossene) Unterraum übereinstimmt.
+Gegeben sei eine abzählbare (nicht zwingend endliche) linear unabhängige Folge $\{y_k\} \subset V$ aus dem Hilbertraum $V$. Dann gibt es ein ONS aus $n$ bzw. abzählbar unendlich viele Elementen $\{x_k\}$ so, dass der von der Folge $\{y_k\}$ aufgespannte (abgeschlossene) Unterraum mit dem der Folge $\{x_k\}$ aufgespannten (abgeschlossene) Unterraum übereinstimmt.
 ```
 
 Der Beweis beruht auf der Konstruktion: sei
@@ -927,8 +927,8 @@ Die Elemente eines Hilbertraumes können mit Hilfe eines vollständigen Orthogon
 
 ```{admonition} Satz: Fourierentwicklung
 
-Sei $X$ ein Hilbertraum mit einem vollständigen ONS $\{x_k\}_{k\in\mathbb{N}}$.
-* Dann lässt sich jedes $x\in X$ in der Summenform
+Sei $V$ ein Hilbertraum mit einem vollständigen ONS $\{x_k\}_{k\in\mathbb{N}}$.
+* Dann lässt sich jedes $x\in V$ in der Summenform
 
   $$x = \sum_{k=1}^\infty a_k\,x_k\quad\text{Fourierentwicklung von $x$}$$
 
@@ -937,20 +937,20 @@ Sei $X$ ein Hilbertraum mit einem vollständigen ONS $\{x_k\}_{k\in\mathbb{N}}$.
   $$a_k = (x,x_k)\in\mathbb{K}$$
 
   darstellen und die Reihe $\sum_{k=1}^\infty |a_k|^2$ ist konvergent.
-* Umgekehrt gibt es zu jeder Zahlenfolge $\{a_k\}_{k\in\mathbb{N}}$ in $\mathbb{K}$, für die $\sum_{k=1}^\infty |a_k|^2$ konvergiert, genau ein $x\in X$ mit $x=\sum_{k=1}^\infty a_k x_k$.
+* Umgekehrt gibt es zu jeder Zahlenfolge $\{a_k\}_{k\in\mathbb{N}}$ in $\mathbb{K}$, für die $\sum_{k=1}^\infty |a_k|^2$ konvergiert, genau ein $x\in V$ mit $x=\sum_{k=1}^\infty a_k x_k$.
 ```
 
 **Bemerkung**: Aufgrund der Darstellung $x = \sum_{k=1}^\infty a_k\,x_k$ nennt man ein vollständiges ONS auch eine *Hilbertraumbasis*.
 
 ```{admonition} Satz: Struktur von Hilberträumen
-Es sei $X$ ein Hilbertraum und $\{x_k\}_{k\in\mathbb{N}}$ ein (abzählbares) ONS in $X$. Dann sind die folgenden Aussagen äquivalent:
-* $X = \overline{\underset{k\in\mathbb{N}}{\bigoplus} \mathop{span}(x_k)}$.
+Es sei $V$ ein Hilbertraum und $\{x_k\}_{k\in\mathbb{N}}$ ein (abzählbares) ONS in $V$. Dann sind die folgenden Aussagen äquivalent:
+* $V = \overline{\underset{k\in\mathbb{N}}{\bigoplus} \mathop{span}(x_k)}$.
 * Das ONS $\{x_k\}_{k\in\mathbb{N}}$ ist abgeschlossen.
-* Für alle $x\in X$ gilt die *Parsevalsche Gleichung*
+* Für alle $x\in V$ gilt die *Parsevalsche Gleichung*
 
   $$\sum_{k=1}^\infty |(x,x_k)|^2 = \|x\|^2\quad\text{(Vollständigkeitsrelation)}$$
 
-* Jedes Element $x\in X$ besitzt die Fourierentwicklung
+* Jedes Element $x\in V$ besitzt die Fourierentwicklung
 
   $$x = \sum_{k=1}^\infty (x,x_k)\,x_k.$$
 ```

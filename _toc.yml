@@ -34,6 +34,12 @@ parts:
     numbered: true
     chapters:
     - file: NumerikPDE/NumerikPDE.md
+      sections:
+      - file: NumerikPDE/EinstiegsBeispiel.md
+      - file: NumerikPDE/finiteElementeMethode.md
+      - file: NumerikPDE/LinearEquationSolvers.md
+      - file: NumerikPDE/ParabolicPDE.md
+      - file: NumerikPDE/hyperbolicPDE.md
   - caption: Anwendungen
     numbered: true
     chapters:

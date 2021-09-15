@@ -216,10 +216,42 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../NumerikPDE/NumerikPDE.html">
    9. Numerik für partielle Differentialgleichungen
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumerikPDE/EinstiegsBeispiel.html">
+     9.1. Finite Elemente Methode Einstiegsbeispiele
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumerikPDE/finiteElementeMethode.html">
+     9.2. Methode der finiten Elemente
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumerikPDE/LinearEquationSolvers.html">
+     9.3. Linear Equation Solvers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumerikPDE/ParabolicPDE.html">
+     9.4. Parabolic partial differential equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumerikPDE/hyperbolicPDE.html">
+     9.5. Second order hyperbolic equations: wave equations
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -517,11 +549,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ -6,   4,   2, -10,  -2],
-       [  8,   6,   5,   2,  -1],
-       [ -9,   1,  -3, -10,  -4],
-       [ -1,   3,  -7,  -4, -10],
-       [ -6,   7,  -4, -13, -11]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ -7,   0,  -2,  -7,  -2],
+       [ -6,  -8,   8,   2,  16],
+       [ -8,   7,   3, -15,  -4],
+       [ -9,  -6,  -4,  -3,   2],
+       [  6,  -9,   8,  15,  17]])
 </pre></div>
 </div>
 </div>
@@ -548,11 +580,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.41095388+0.j, -0.46986446+0.j],
-       [ 0.7020055 +0.j, -0.05701507+0.j],
-       [-0.29105162+0.j,  0.52687953+0.j],
-       [ 0.41095388+0.j,  0.46986446+0.j],
-       [ 0.29105162+0.j, -0.52687953+0.j]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.22200386-3.06305453e-01j, -0.22200386+3.06305453e-01j],
+       [-0.29437823+3.06305453e-01j, -0.29437823-3.06305453e-01j],
+       [ 0.51638209+0.00000000e+00j,  0.51638209-0.00000000e+00j],
+       [ 0.22200386+3.06305453e-01j,  0.22200386-3.06305453e-01j],
+       [-0.51638209+1.11022302e-16j, -0.51638209-1.11022302e-16j]])
 </pre></div>
 </div>
 </div>
@@ -564,11 +596,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 6.66133815e-16+0.j,  1.11022302e-15+0.j],
-       [-1.31006317e-14+0.j,  0.00000000e+00+0.j],
-       [ 3.77475828e-15+0.j,  0.00000000e+00+0.j],
-       [-1.24344979e-14+0.j, -2.88657986e-15+0.j],
-       [-1.17683641e-14+0.j, -1.66533454e-15+0.j]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-8.88178420e-16+2.33146835e-15j, -8.88178420e-16-2.33146835e-15j],
+       [ 3.55271368e-15-6.66133815e-16j,  3.55271368e-15+6.66133815e-16j],
+       [-5.32907052e-15+5.66213743e-15j, -5.32907052e-15-5.66213743e-15j],
+       [ 1.99840144e-15-3.33066907e-16j,  1.99840144e-15+3.33066907e-16j],
+       [ 5.77315973e-15-5.10702591e-15j,  5.77315973e-15+5.10702591e-15j]])
 </pre></div>
 </div>
 </div>
@@ -580,7 +612,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.2878587085651816e-14, 1.7763568394002505e-15]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[8.188600426433445e-15, 8.188600426433445e-15]
 </pre></div>
 </div>
 </div>
@@ -599,11 +631,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.60752172,  0.07692439],
-       [ 0.47753949,  0.52149404],
-       [ 0.12998222, -0.59841843],
-       [ 0.60752172, -0.07692439],
-       [-0.12998222,  0.59841843]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.19847993,  0.57931487],
+       [-0.41386334, -0.57333859],
+       [ 0.61234327, -0.00597628],
+       [ 0.19847993, -0.57931487],
+       [-0.61234327,  0.00597628]])
 </pre></div>
 </div>
 </div>
@@ -615,11 +647,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4.27435864e-15,  4.44089210e-16],
-       [-2.30371278e-15, -3.10862447e-15],
-       [ 4.99600361e-15,  1.77635684e-15],
-       [-1.66533454e-16, -4.44089210e-16],
-       [ 4.85722573e-15, -6.66133815e-16]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 8.88178420e-16, -1.56472058e-15],
+       [ 5.32907052e-15,  1.41553436e-15],
+       [ 4.44089210e-16, -2.68535194e-15],
+       [ 2.22044605e-15, -2.43208231e-15],
+       [ 3.66373598e-15,  2.41993925e-15]])
 </pre></div>
 </div>
 </div>
@@ -631,7 +663,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4.9960036108132044e-15, 2.886579864025407e-15]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5.329070518200751e-15, 3.3029134982598407e-15]
 </pre></div>
 </div>
 </div>
@@ -645,8 +677,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.        +0.j, 0.03946208+0.j],
-       [0.        +0.j, 0.99922107+0.j]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.        +0.j        , 0.43706182-0.09166465j],
+       [0.        +0.j        , 0.89474832+0.j        ]])
 </pre></div>
 </div>
 </div>
@@ -659,8 +691,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.73318104+0.j,  0.68117931+0.j],
-       [ 0.65171587+0.j, -0.75949069+0.j]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.57353092+0.00295537j, -0.17838296-0.94251576j],
+       [ 0.59291683+0.10574366j, -0.00578669+0.94145489j]])
 </pre></div>
 </div>
 </div>
@@ -672,11 +704,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-4.44089210e-16+0.j, -5.13478149e-16+0.j],
-       [-5.55111512e-16+0.j, -4.44089210e-16+0.j],
-       [ 1.11022302e-16+0.j,  1.11022302e-16+0.j],
-       [ 2.22044605e-16+0.j,  1.52655666e-16+0.j],
-       [ 7.77156117e-16+0.j,  4.44089210e-16+0.j]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.09196059-0.01819359j, -1.11549898+0.0531027j ],
+       [ 0.10197112-0.03793664j,  1.20462461-0.05255488j],
+       [-0.01001054+0.05613023j, -0.08912563-0.00054781j],
+       [ 0.09196059+0.01819359j,  1.11549898-0.0531027j ],
+       [ 0.01001054-0.05613023j,  0.08912563+0.00054781j]])
 </pre></div>
 </div>
 </div>
@@ -690,8 +722,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.0000000e+00, -6.9388939e-17],
-       [ 0.0000000e+00, -1.0000000e+00]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.00000000e+00, 2.22044605e-16],
+       [0.00000000e+00, 1.00000000e+00]])
 </pre></div>
 </div>
 </div>
@@ -704,8 +736,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.7588991 +0.j,  0.68064872+0.j],
-       [ 0.65120823+0.j, -0.73260994-0.j]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.84236519-0.00517763j,  0.84236519+0.00517763j],
+       [-0.09461396-0.53051134j, -0.09461396+0.53051134j]])
 </pre></div>
 </div>
 </div>
@@ -717,11 +749,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 7.21644966e-16+0.j,  0.00000000e+00+0.j],
-       [ 5.55111512e-16+0.j,  8.32667268e-17+0.j],
-       [-1.11022302e-16+0.j,  0.00000000e+00+0.j],
-       [-3.88578059e-16+0.j, -1.11022302e-16+0.j],
-       [-9.43689571e-16+0.j, -2.22044605e-16+0.j]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-3.60822483e-16-5.55111512e-17j, -3.60822483e-16+5.55111512e-17j],
+       [ 5.55111512e-17-1.11022302e-16j,  5.55111512e-17+1.11022302e-16j],
+       [ 4.44089210e-16-1.79131868e-16j,  4.44089210e-16+1.79131868e-16j],
+       [ 2.77555756e-17+2.77555756e-16j,  2.77555756e-17-2.77555756e-16j],
+       [-3.33066907e-16-5.00683684e-17j, -3.33066907e-16+5.00683684e-17j]])
 </pre></div>
 </div>
 </div>
