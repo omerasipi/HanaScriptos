@@ -20,8 +20,12 @@ Zum Einstieg in die Methode der finite Elemente kommen wir auf das skalare Randw
 
 $$\begin{split}
 -u''(x) & = f(x)\quad\forall\ x\in (0,1)\\
-u(0) & = u(1) = 0
+u(0) & = u(1) = 0.
 \end{split}$$ (eq:starkeGleichungBeispiel)
+
+Die analytische Lösung ist gegeben durch
+
+$$u(x) = -\frac{1}{2} x (x-1).$$ 
 
 Wir multiplitzieren die Differentialgleichung mit einer beliebigen Testfunktion $v(x)\in C_0^\infty(0,1)$ und integrieren über das Intervall $(0,1)$.
 
@@ -43,6 +47,11 @@ $$\varphi_i(x) = \begin{cases}
 \frac{x-x_{i-1}}{x_i-x_{i-1}}\quad \text{für}\ x \in (x_{i-1},x_i)\\
 \frac{x_{i+1}-x}{x_{i+1}-x_{i}}\quad \text{für}\ x \in (x_{i},x_{i+1})\\
 0\quad \text{sonst}\end{cases}$$
+
+```{code-cell} ipython3
+def uanalytic(x):
+    return -0.5*x*(x-1)
+```
 
 ```{code-cell} ipython3
 :tags: [hide-cell, remove-output]
@@ -227,8 +236,11 @@ ui
 ```{code-cell} ipython3
 :tags: [hide-cell, remove-output]
 
+xp = np.linspace(0,1,400)
 fig, ax = plt.subplots(figsize=(6, 2))
-ax.plot(xi,ui)
+ax.plot(xi,ui,label='FEM Lösung')
+ax.plot(xp,uanalytic(xp),label='exakte Lösung')
+ax.legend()
 glue("FEM_1d_p1_solutionexmp_fig", fig, display=False)
 ```
 
@@ -244,6 +256,108 @@ Lösung des Randwertproblem mit Hilfe 1. Ordnung FEM
 ```{admonition} Aufgaben
 * Wie lautet das Gleichungssystem, wenn für die Integration der rechten Seite die Trapezregel benutzt wird?
 * Berechne die Lösung mit Hilfe der finiten Differenzen Methode und vergleiche die beiden Systeme.
+```
+
++++
+
+Dasselbe nun mit NGSolve
+
++++
+
+* Wir erstellen als erstes ein eindimensionales Mesh.
+
+```{code-cell} ipython3
+from netgen.meshing import Mesh as NGMesh # Vorsicht es gibt Mesh auch in ngsolve!
+from netgen.meshing import MeshPoint, Pnt, Element1D, Element0D
+from ngsolve import *
+```
+
+```{code-cell} ipython3
+m = NGMesh(dim=1)
+
+# Anzahl Teilintervalle
+N = 5
+
+# Punkte für die Zerlegung auf dem Intervall [0,1]
+pnums = []
+for i in range(0, N+1):
+    pnums.append (m.Add (MeshPoint (Pnt(i/N, 0, 0))))
+
+# Jedes 1D-Element (Teilintervall) kann einem Material zugeordnet
+# werden. In unserem Fall gibt es nur ein Material.
+idx = m.AddRegion("material", dim=1)
+for i in range(0,N):
+    m.Add (Element1D ([pnums[i],pnums[i+1]], index=idx))
+
+# Linkes und Rechtes Ende sind Randwertpunkte (0D-Elemente)
+idx_left = m.AddRegion("left", dim=0)
+idx_right = m.AddRegion("right", dim=0)
+
+m.Add (Element0D (pnums[0], index=idx_left))
+m.Add (Element0D (pnums[N], index=idx_right))
+
+# Damit haben wir das Mesh definiert
+mesh = Mesh(m)
+```
+
+Nun erstellen wir einen $H^1$ Funktionenraum mit Hilfe dieses 1D Mesh und den Dirichlet Randpunkte `left` und `right`.
+
+```{code-cell} ipython3
+V = H1(mesh,order = 1, dirichlet='left|right')
+u,v = V.TnT()
+```
+
+$u,v$ sind Trial und Test Funktionen für die Definition der Linear- und Bilinearfunktion
+
+```{code-cell} ipython3
+a = BilinearForm(V)
+a += grad(u)*grad(v)*dx
+
+f = LinearForm(V)
+f += CoefficientFunction(1)*v*dx
+```
+
+Damit sind die beiden Operatoren definiert, jedoch noch nicht berechnet. Das Berechnen nennt man auch **assembling** Zusammenstellen. Wir werden später sehen, was damit gemeint ist.
+
+```{code-cell} ipython3
+a.Assemble()
+f.Assemble();
+```
+
+Die Matrix und der Vektor der Bilinear- und Linearform beinhaltet sämtliche Freiheitsgrade, insbesondere also auch die Randpunkte. Diese sind jedoch durch die Dirichletrandwerte gegeben und müssen nicht berechnet werden. Dem werden wir beim Lösen des Systems rechnungtragen.
+
+```{code-cell} ipython3
+print(a.mat)
+```
+
+```{code-cell} ipython3
+print(f.vec)
+```
+
+Die Lösung selber wird in einer `GridFunction` gespeichert. Die Trial und Test Functions haben zwar die gleiche Struktur, jedoch keinen Memory. Hier sind nur die Freiheitsgrade etc. des FE-Raumes gespeichert. Für die Lösung benötigen wir eine GridFunction. In der Auswertung dieser wird Linearkombination der Basisfunktionen automatisch berechnet.
+
+```{code-cell} ipython3
+gfu = GridFunction(V)
+```
+
+Berechnung der FEM Lösung mit NGSolve:
+
+```{code-cell} ipython3
+gfu.vec.data = a.mat.Inverse(freedofs=V.FreeDofs())*f.vec
+```
+
+Bei der Ausführung des Befehls wird nicht die Matrix Invertiert und von links an den Vektor multipliziert. Das wäre numerisch viel zu aufwändig. Auch wenn die Notation anderes behauptet, es wird nur das Gleichungssystem gelöst.
+
+Es folgt das selbe Resultat wie oben:
+
+```{code-cell} ipython3
+:tags: [hide-input]
+xp = np.linspace(0,1,400)
+plt.plot(xp,[gfu(mesh(xi,0)) for xi in xp],label='numerische Lösung')
+plt.plot(xp, uanalytic(xp),label='exakte Lösung')
+plt.legend()
+plt.grid()
+plt.show()
 ```
 
 ## Zweidimensionaler Fall
@@ -454,4 +568,3 @@ gfu.vec.data = A.mat.Inverse(freedofs=V.FreeDofs())*f.vec
 ```{code-cell} ipython3
 Draw(gfu,mesh,'u');
 ```
-
