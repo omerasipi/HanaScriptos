@@ -37,6 +37,10 @@ parts:
       sections:
       - file: NumerikPDE/EinstiegsBeispiel.md
       - file: NumerikPDE/finiteElementeMethode.md
+        sections:
+        - file: NumerikPDE/FEMElemente1d.md
+        - file: NumerikPDE/FEMElemente2d.ipynb
+      - file: NumerikPDE/Regularity.ipynb
       - file: NumerikPDE/LinearEquationSolvers.md
       - file: NumerikPDE/ParabolicPDE.md
       - file: NumerikPDE/hyperbolicPDE.md

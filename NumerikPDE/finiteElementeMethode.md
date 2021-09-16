@@ -200,7 +200,142 @@ name: fig-FEMlocalBasisProductp13
 Lokale Kombinationen $\varphi_j \cdot \varphi_k$ der nodalen FEM Basisfunktionen auf dem Einheitsintervall $[0,1]$.
 ```
 
-## A posteriori error estimates
+Die **globalen Matrizen** können daher mit lokalen Elementmatrizen wie folgt berechnet werden
 
-* ZZ-error estimator
+$$\begin{split}
+M & = \sum_{i=1}^n h_i \int_0^1 \tilde{\varphi}_j(t)\cdot \tilde{\varphi}_k(t)dt\\
+A & = \sum_{i=1}^n \frac{1}{h_i} \int_0^1 \dot{\tilde{\varphi}}_j(t)\cdot \dot{\tilde{\varphi}}_k(t)dt
+\end{split}$$
 
+Man nennt die Matrix
+
+$$S_e = \int_0^1 \tilde{\varphi}_j'(x)\cdot \tilde{\varphi}_j'(x) dx$$
+
+**Steiffigkeits-Elementmatrix**
+
+und 
+
+$$M_e = \int_0^1 \tilde{\varphi}_j(x)\cdot \tilde{\varphi}_j(x) dx$$
+
+**Massen-Elementmatrix**.
+
+Die Dimension ist vom Polynomgrad $p$ abhängig. In den Tabellen {numref}`chap:1dFEMElemente` sind die $S_e, M_e$ für die Polynomgrade $p=1,2,3$ berechnet, analog zur Abbildung {numref}`fig-FEMlocalBasisProductp13`.
+
+```{admonition} Aufgabe
+Berechne die Elementmatrizen basierend auf den Lagrange Polynome bezogen auf das Einheitsintervall $[0,1]$ für
+
+* Steifigkeitsmatrix
+
+  $$A_{i,j} = \int_0^1 \varphi_i'(x) \varphi_j'(x)\,dx$$
+
+* Massenmatrix
+
+  $$M_{i,1} = \int_0^1 \varphi_i(x) \varphi_j(x)\,dx$$
+
+für die Ordnungen (Polynom Grad der Basisfunktionen) $p = 1, \ldots, 3$.
+```
+
+```{admonition} Aufgabe
+Berechne die (globale) System Matrix und Vektor das Problem {eq}`eq:schwacheGleichungBeispiel` mit Hilfe der lokalen Matrizen. 
+```
+
+### Zweidimensionaler Fall
+
+Eine reguläre Triangulierung $\mathcal{T} = \{T_1, \ldots, T_M\}$ eines Gebiets $\Omega$ ist die Zerlegung in Dreiecke $T_i$ so, dass $\bar{\Omega} = \cup_i T_i$ und $T_i\cap T_j$ ist
+* entweder leer
+* oder hat eine gemeinsame Kante.
+
+In einem erweiterten Sinne kann die Triangulierung aus verschiedenen Elemente bestehen: Dreiecke, Vierecke, (Tetraeder, Hexeder, Prismen, Pyramiden im dreidimensionalen). Die finite Elemente werden typischerweise, wie wir es im eindimensionalen gemacht haben, auf einem Referenzelement definiert. Die einzelnen Elemente der Zerlegung können mit Hilfe einer affinen Transformation und dem Referenzelement beschrieben werden. 
+
+Die Koordinaten Transformation im zweidimensionalen erfordert etwas mehr Rechenaufwand.
+
+```{figure} KoordinatenTransformation2d.png
+---
+align: left
+height: 250px
+name: fig-KoordinatenTransformation2d
+---
+
+Transformation auf Einheitsdreieck in $2D$
+```
+
+Ein Dreieck $T_i$ in allgemeiner Lage mit den Eckpunkten $P_1(x_1,y_1)$, $P_2(x_2,y_2)$ und  $P_3(x_3,y_3)$, welche im Gegenuhrzeigersinn fortlaufend numeriert seien, wie dies in Abb. {numref}`fig-KoordinatenTransformation2d` erfolgte, kann mittels der linearen Transformation
+
+$$\begin{split}
+x & = x_1 + (x_2-x_1)\, \xi + (x_3-x_1)\, \eta\\
+y & = y_1 + (y_2-y_1)\, \xi + (y_3-y_1)\, \eta
+\end{split}$$
+
+bijektiv auf das Einheitsdreieck $T$ abgebildet werden. Das Flächenelement $dx dy$ kann mit der Jacobi-Determinante
+
+$$J = (x_2-x_1)(y_3-y_1) - (x_3-x_1)(y_2-y_1)$$
+
+der Transformation durch
+
+$$dx\, dy = J\, d\xi\, d\eta$$
+
+ersetzt werden. Die partiellen Ableitungen transformieren sich nach der Kettenregel gemäss
+
+$$\begin{split}
+u_x & = u_\xi \xi_x + u_\eta \eta_x\\
+u_y & = u_\xi \xi_y + u_\eta \eta_y.
+\end{split}$$
+
+Die Gebietesintegrale transformieren sich somit
+
+$$\int_{T_i} \nabla \varphi_j \cdot \nabla \varphi_k dx dy = a \underbrace{\int_T (\partial_\xi\varphi_j) (\partial_\xi\varphi_k) dx}_{=:S_1} + b \underbrace{2 \int_T (\partial_\xi\varphi_j) (\partial_\eta\varphi_k) dx}_{S_2} + c \underbrace{\int_T (\partial_\eta\varphi_j) (\partial_\eta\varphi_k) dx}_{S_3}$$
+
+mit
+
+$$\begin{split}
+a & = \frac{1}{J} ((x_3-x_1)^2+(y_3-y_1)^2)\\
+b & = -\frac{1}{J} ((x_3-x_1)(x_2-x_1)+(y_3-y_1)(y_2-y_1))\\
+c & = \frac{1}{J} ((x_2-x_1)^2 + (y_2-y_1)^2)\\
+J & = (x_2-x_1)(y_3-y_1) - (x_3-x_1)(y_2-y_1)
+\end{split}$$
+
+Für die Elementmatrizen mit lokalen Basisfunktionen gegeben durch Polynomen 1. Ordnung ergibt sich
+
+$$\begin{split}
+S_e & = a S_1 + b S_2 + c S_3\\
+M_e & = J S_4
+\end{split}$$
+
+mit
+
+$$\begin{split}
+S_1 & = \frac{1}{2}\begin{pmatrix}
+ 1 & -1 & 0\\
+ -1 & 1 & 0\\
+ 0 & 0 & 0	
+ \end{pmatrix}
+\quad
+S_2 = \frac{1}{2}\begin{pmatrix}
+ 2 & -1 & -1\\
+ -1 & 0 & 1\\
+ -1 & 1 & 0	
+ \end{pmatrix}\\
+ S_3 & = \frac{1}{2}\begin{pmatrix}
+ 1 & 0 & -1\\
+ 0 & 0 & 0\\
+ -1 & 0 & 1	
+ \end{pmatrix}
+ \quad
+ S_4 = \frac{1}{24}\begin{pmatrix}
+ 2 & 1 & 1\\
+ 1 & 2 & 1\\
+ 1 & 1 & 2	
+ \end{pmatrix}.
+\end{split}$$
+
+> Es erweist sich mathematisch wie auch Software technisch als bedeutend effizienter, die Berechnung der System Matrizen über die Triangulierung zu berechnen und die einzelnen Beiträge in der globalen Matrix aufzukummulieren. Diesen Prozess nennt man **Assembling**.
+>
+> Allgemein können wir dies in der Form
+>
+> $$A = \sum_{T \in \mathcal{T}} C_T A_T C_T^t$$
+>
+> und 
+>
+> $$f = \sum_{T \in \mathcal{T}} C_T f_T$$
+>
+> schreiben, wobei $C_T$ die Verknüpfung zwischen lokalen und globalen Funktionen darstellt.

@@ -20,7 +20,7 @@ Das folgende Beispiel folgt dem analogen aus dem interaktiven Kurs von Joachim S
 
 ``````{margin}
 <br/><br/><br/><br/>
-```{note}
+```{admonition} Begriffe:
 - Poisson Gleichung
 - Dirichlet Randbedingung
 - Meshing
@@ -77,7 +77,7 @@ Draw(mesh);
 
 ``````{margin}
 <br/><br/><br/><br/>
-```{note}
+```{admonition} Begriffe:
 - starke Gleichung
 - schwache Gleichung
 - Testfunktion
@@ -130,7 +130,7 @@ Der Gewinn der schwachen Formulierung ist, dass wir das Problem mit der zweiten 
 
 ``````{margin}
 <br/><br/><br/><br/>
-```{note}
+```{admonition} Begriffe:
 - Sobolev Raum $H^1$
 - Funktionenraum $L_2$
 - Norm, Skalarprodukt
@@ -179,7 +179,7 @@ Dieser abstrakte Formalismus von Hilber Räumen, Bilinear- und Linearformen pass
 
 ``````{margin}
 <br/><br/><br/><br/>
-```{note}
+```{admonition} Begriffe:
 - Finite Elemente Methode
 - Diskretisierungsfehler
 ```
