@@ -352,6 +352,7 @@ Es folgt das selbe Resultat wie oben:
 
 ```{code-cell} ipython3
 :tags: [hide-input]
+
 xp = np.linspace(0,1,400)
 plt.plot(xp,[gfu(mesh(xi,0)) for xi in xp],label='numerische Lösung')
 plt.plot(xp, uanalytic(xp),label='exakte Lösung')

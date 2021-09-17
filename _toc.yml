@@ -5,7 +5,7 @@ format: jb-book
 root: intro
 parts:
   - caption: Einführung
-    numbered: true
+    numbered: 3
     chapters:
     - file: Introduction/Introduction.md
       sections:
@@ -14,7 +14,7 @@ parts:
       - file: Introduction/StatischesMagnetfeld.md
     - file: Introduction/Software.md
   - caption: Funktionalanalysis
-    numbered: true
+    numbered: 3
     chapters:
     - file: Funktionalanalysis/GrundlegendeRaeume.md
       sections:
@@ -24,14 +24,14 @@ parts:
     - file: Funktionalanalysis/Sobolevraeume.md
     - file: Funktionalanalysis/Variationsrechnung.md
   - caption: Partielle Differentialgleichungen
-    numbered: true
+    numbered: 3
     chapters:
     - file: PDE/IntroPDE.md
       sections:
       - file: PDE/QuadratischeFormen.ipynb
     - file: PDE/Modellierung.md
   - caption: Numerik PDE
-    numbered: true
+    numbered: 3
     chapters:
     - file: NumerikPDE/NumerikPDE.md
       sections:
@@ -40,10 +40,16 @@ parts:
         sections:
         - file: NumerikPDE/FEMElemente1d.md
         - file: NumerikPDE/FEMElemente2d.ipynb
-      - file: NumerikPDE/Regularity.ipynb
       - file: NumerikPDE/LinearEquationSolvers.md
+        sections:
+        - file: NumerikPDE/MatrixStrukturMesh.ipynb
+        - file: NumerikPDE/RichardsonVerfahren.ipynb
+        - file: NumerikPDE/JacobiGauss_SeideVerfahren.ipynb
+        - file: NumerikPDE/GradientenVerfahren.ipynb
+        - file: NumerikPDE/CGVerfahren.ipynb
+      - file: NumerikPDE/Regularity.ipynb
   - caption: Anwendungen
-    numbered: true
+    numbered: 3
     chapters:
     - file: Applications/Applications.md
       sections:
@@ -51,6 +57,6 @@ parts:
       - file: NumerikPDE/ParabolicPDE.md
       - file: NumerikPDE/hyperbolicPDE.md
   - caption: Appendix
-    numbered: false
+    numbered: 3
     chapters:
     - file: Appendix.md
