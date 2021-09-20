@@ -86,6 +86,8 @@ Die Geometrie hat folgende Ränder (innere und äussere):
 print (mesh.GetBoundaries())
 ```
 
+## Numerische Lösung
+
 ```{code-cell} ipython3
 V = H1(mesh, order=3, dirichlet="b|r")
 u = V.TrialFunction()
