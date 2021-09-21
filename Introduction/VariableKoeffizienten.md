@@ -28,7 +28,7 @@ from ngsolve.webgui import Draw
 Ein Setup mit unterschiedlicher Wärmeleitungskoeffizienten wir mit Hilfe der Gleichung
 
 $$
--\opdiv \lambda(x) \nabla u(x) = f(x)
+-\opdiv (\lambda(x) \nabla u(x)) = f(x)
 $$
 
 modelliert, wobei $\lambda=\lambda(x)$ der ortsabhängige Wärmeleitungskoeffizient ist. Der zugehörige Wärmefluss  

@@ -297,7 +297,7 @@ gegeben.
 
 Die punktweise Konvergenz erweist sich für die Analysis als zu schwach. Als Beispiel dazu betrachten wir die Folge der Funktionen $x_n \subset C(\mathbb{R})$
 
-$$x_n(t) = \frac{1}{1+x^{2n}},\quad n=1,2,3,\ldots$$
+$$x_n(t) = \frac{1}{1+t^{2n}},\quad n=1,2,3,\ldots$$
 
 Wie im Python Code unten leicht zu sehen ist, konvergiert die Folge punktweise gegen
 

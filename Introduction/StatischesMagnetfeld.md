@@ -58,8 +58,6 @@ mesh.Curve(5)
 Draw (mesh, clipping = { "pnt" : (0,0,0), "vec" : (0,1,0) });
 ```
 
-+++
-
 ## Magnetostatisches Problem
 
 +++
@@ -80,7 +78,6 @@ wobei $A$ das gesuchte Vektorpotential und $j$ eine externe Stromdichte sei.
 Wir können wiederum eine schwache Gleichung berechnen, wobei der geeignete Funktionenraum in dem Fall durch den $H(\mathop{curl})$ gegeben ist. Die schwache Gleichung lautet
 
 $$\int_\Omega \mu^{-1}(x) \mathop{curl} A \cdot \mathop{curl} \Psi dx = \int_\Omega j(x)\cdot \Psi dx\quad \forall\  \Psi\in H(\mathop{curl}, \Omega).$$ (eq:magnetostatic)
-
 
 ```{code-cell} ipython3
 V = HCurl(mesh,order=3)
