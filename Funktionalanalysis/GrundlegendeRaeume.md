@@ -181,7 +181,12 @@ $$\begin{split}d_{\text{max}} : V \times V & \to \mathbb{R}^+\\
 eine Metrik definiert (*Maximumsmetrik*).
 ```
 
-**Beispiel**:
+**Beispiel**: Betrachte $x(t), y(t)$ gegeben durch
+
+$$\begin{split}
+x(t) & = t^2\\
+y(t) & = t\,(1-t) + \frac{2}{1+\left(50\,\big(t-\frac{1}{2}\big)\right)^2}.
+\end{split}$$
 
 ```{code-cell} ipython3
 :tags: [hide-input]
@@ -227,7 +232,7 @@ $$d_p(x,y) := \left(\int_a^b |x(t)-y(t)|^p dt\right)^{1/p},\quad 1\le p < \infty
 
 so wird $V$ mit dieser *Integralmetrik* zu einem metrischen Raum. Der Beweis nutzt die Minkowski-Ungleichung für Integrale
 
-$$\left(\int_a^b |u(t)-v(t)|^p dt\right)^{1/p} \le \left(\int_a^b |u(t)|^p dt\right)^{1/p} + \left(\int_a^b |v(t)|^p dt\right)^{1/p}.$$
+$$\left(\int_a^b |u(t)+v(t)|^p dt\right)^{1/p} \le \left(\int_a^b |u(t)|^p dt\right)^{1/p} + \left(\int_a^b |v(t)|^p dt\right)^{1/p}.$$
 
 **Beispiel**:
 
@@ -540,7 +545,7 @@ x + x' & = & 0 & \quad\text{Negatives zu $x$}\\
 
 Beispiele für lineare Räume:
 
-* Die Mengen $\mathbb{R}^n$, \mathbb{C}^n$ sind wohl bekannt.
+* Die Mengen $\mathbb{R}^n$, $\mathbb{C}^n$ sind wohl bekannt.
 * Menge $C[a,b]$ aller reellwertigen *stetigen* Funktionen:
   
   $$\begin{split}

@@ -42,7 +42,7 @@ definiert.
 ```
 **Bemerkung**: Mit der Norm von $T$ lässt sich die Ungleichung {eq}`eq:beschrlinop` auch in der Form
 
-$$\|T x\|_W \le \|T\|_{V\to W}\ \|x\|_V$$
+$$\|T x\|_W \le \|T\|_{V\to W}\ \|x\|_V$$ (eq:operatornormungleichung)
 
 schreiben. Die Operatornorm lässt sich anstelle der Schreibweise {eq}`eq:operatornorm` auch durch
 
