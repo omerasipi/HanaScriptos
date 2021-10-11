@@ -21,7 +21,11 @@ parts:
       - file: Funktionalanalysis/BeispielOrthogonalisierungSchmidt.ipynb
       - file: Funktionalanalysis/BeispielFourierEntwicklung.ipynb
     - file: Funktionalanalysis/LineareOperatoren.md
+      sections:
+      - file: Funktionalanalysis/BeispielLineareOperatoren.ipynb
     - file: Funktionalanalysis/Sobolevraeume.md
+      sections:
+      - file: Funktionalanalysis/Beispiel-H1_Norm.ipynb
     - file: Funktionalanalysis/Variationsrechnung.md
   - caption: Partielle Differentialgleichungen
     numbered: 3

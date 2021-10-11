@@ -50,6 +50,10 @@ $$\|T\|_{V\to W} = \sup_{\substack{x\in V\\x\not= 0}} \frac{\|T x\|_W}{\|x\|_V} 
 
 schreiben.
 
+:::{seealso}
+[Beispiel zur Operatornorm.](BeispielLineareOperatoren.ipynb)
+:::
+
 Zwischen stetigen und beschränkten Operatoren besteht der Zusammenhang
 
 ```{admonition} Satz
@@ -167,7 +171,7 @@ $$\|F x\| = |F x| = |(x,y_0)| \le \|x\|\,\|y_0\|\quad\forall\ x\in V.$$
 
 Damit folgt
 
-$$\frac{\|F x\|}{\|x\|} \le \|y_0\|\quad \forall x\in V,$$
+$$\frac{\|F x\|}{\|x\|} \le \|y_0\|\quad \forall x\in V,\ \text{mit}\,x\not= 0$$
 
 sprich $F$ ist ein beschränktes lineares Funktional, $F\in V^*$ mit $\|F\| \le \|y_0\|$. Da für $x=y_0$
 

@@ -866,7 +866,11 @@ $$x_0 = \sum_{k=1}^n \lambda_k x_k$$
 
 darstellen, wobei die Koeffizienten $\lambda_1, \ldots, \lambda_n$ durch das lineare Gleichungssystem
 
-$$(x-x_0,x_i) = (x,x_i) - \sum_{k=1}^n \lambda_k (x_k,x_i) = 0 \quad i = 1, \ldots, n$$ (eq:bestapproxHilbert)
+$$(x-x_0,x_i) = 0 \quad i = 1, \ldots, n$$
+
+und mit $x_0$ eingesetzt
+
+$$(x,x_i) - \sum_{k=1}^n \lambda_k (x_k,x_i) = 0 \quad i = 1, \ldots, n$$ (eq:bestapproxHilbert)
 
 gegeben sind.
 ```

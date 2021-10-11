@@ -116,11 +116,11 @@ $$g(x) = \begin{cases}
 1\quad \text{für}\ 0 \le x \le 1\\
 -1\quad \text{für}\ 1 < x \le 2\end{cases}$$
 
-Es gilt
+Für alle $v\in C_0^\infty[0,1]$ gilt
 
 $$\begin{split}
 -\int_0^2 u(x)v'(x) dx & = - \int_0^1 x v'(x) dx - \int_1^2 (2-x) v'(x) dx \\
-& =  \int_0^1 x' v(x) dx - \big[x v(x)\big]_0^1 + \int_1^2 (2-x)' v(x) dx - \big[(2-x) v(x)\big]_1^2\\
+& =  \int_0^1 \left(\frac{d}{dx}x\right) v(x) dx - \big[x v(x)\big]_0^1 + \int_1^2 \left(\frac{d}{dx}2-x\right) v(x) dx - \big[(2-x) v(x)\big]_1^2\\
 & =  \int_0^1 1 v(x) dx - 1 v(1) + 0 + \int_1^2 (-1) v(x) dx - 0 + 1 v(1)\\
 & = \int_0^2 g(x) v(x) dx.
 \end{split}$$
@@ -161,3 +161,7 @@ $$\|u\|_{H^1(\Omega)} := \left(\sum_{|\alpha|\le 1} \int_\Omega |D^\alpha u(x)|^
 und das Skalarprodukt
 
 $$(u,v)_{H^1(\Omega)} = \sum_{|\alpha|\le 1} (D^\alpha u,D^\alpha v)_{L_2} = \sum_{|\alpha|\le 1} \int_\Omega D^\alpha u(x) D^\alpha v(x) dx$$
+
+:::{seealso}
+[Beispiel zur $H_1$ Norm und Skalarprodukt.](Beispiel-H1_Norm.ipynb)
+:::
