@@ -16,6 +16,8 @@ kernelspec:
 
 Das Kapitel baut auf dem Buch {cite:p}`VariationsrechnungKielhoefer` auf.
 
+**Bemerkung**: Sämtliche Aussagen im Kapitel können auch für stückweise stetige oder stetig differenzierbare Funktionen gezeigt werden. Der Einfachheit schreiben wir jedoch nur $C^0[a,b]$ bzw. $C^1[a,b]$.
+
 ## Einführendes Beispiel
 
 Wir beginnen mit einem eindimensionalen Problem: gesucht ist $u\in C^1(a,b)$ so, dass
@@ -24,7 +26,7 @@ $$J(u) = \int_a^b \left(\frac{1}{2} u'(x)^2 - f(x) u(x)\right) dx \to \min$$
 
 gilt. 
 
-Wie in der Analysis reeller Funktionen soll für das Beispiel ein notwendiges Kriterium für eine Extremalstelle des Funktionals berechnet werden. Für die Herleitung gehen wir davon aus, dass $u(x)$ ein Minimierer des Funktionals $J$ ist. Diesen stören wir mit einer beliebigen Funktion $v(x) \in C_0^\infty(a,b)$. Das bedeutet, dass $v$ beliebig oft stetig differenzierbar ist und $v(a) = v(b) = 0$ gilt. Wir betrachten daher $J(u(x) + \varepsilon v(x))$. Falls $u(x)$ eine Extremalstelle ist, so muss
+Wie in der Analysis reeller Funktionen soll für das Beispiel ein notwendiges Kriterium für eine Extremalstelle des Funktionals berechnet werden. Für die Herleitung gehen wir davon aus, dass $u(x)$ ein Minimierer des Funktionals $J$ ist. Diesen stören wir mit einer beliebigen Funktion $v(x) \in C_0^\infty(a,b)$. Das bedeutet, dass $v$ beliebig oft stetig differenzierbar ist und $v(a) = v(b) = 0$ gilt. Wir betrachten daher $J(u(x) + \varepsilon v(x))$. Falls $u(x)$ eine Extremalstelle ist, so muss für alle $v(x) \in C_0^\infty(a,b)$
 
 $$\frac{d}{d\varepsilon} J(u(x) + \varepsilon v(x))\big|_{\epsilon = 0} = 0$$
 
@@ -59,11 +61,19 @@ und somit
 
 $$ \int_a^b \left(- u''(x) - f(x)\right) v(x) dx = 0\quad \forall v \in C_0^\infty(a,b).$$
 
-Der **Fundamentalsatz der Variationsrechnung** besagt, dass die Gleichung nur dann erfüllt sein kann, wenn die **starke Gleichung**
+Der **Fundamental-Lemma der Variationsrechnung** besagt, dass die Gleichung nur dann erfüllt sein kann, wenn die **starke Gleichung**
 
 $$- u''(x) - f(x) = 0\quad\text{oder}\quad - u''(x) = f(x)$$
 
 gilt.
+
+```{admonition} Satz: Fundamental-Lemme der Variationsrechnung
+Ist $g\in C[a,b]$ und gilt
+
+$$\int_a^b g(x) h(x) dx = 0\quad \text{für alle}\ h\in C_0^{\infty}(a,b),$$
+
+so folgt $g(x) = 0$ für alle $x\in[a,b]$.
+```
 
 Wie aus dem Beispiel zu sehen ist, sind die Ansprüche an die Regularität in der starken Gleichung in der Regel grösser als die der schwachen Gleichung. Für skalare Funktionen ist das in der Regel kein grösseres Problem. Hingegen im Mehrdimensionalen führt dies zur Regularitätstheorie. Es muss studiert werden, wann eine schwache Lösung auch eine starke ist. Dies hängt im Mehrdimensionalen mit unter auch vom Gebiet $\Omega \subset \mathbb{R}^n$ ab.
 

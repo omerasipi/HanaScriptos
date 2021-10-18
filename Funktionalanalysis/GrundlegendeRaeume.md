@@ -415,11 +415,15 @@ Betrachten wir ein paar Beispiele:
 
    versehen ist vollständig.
 
-Dagegen ist $C[a,b]$ bezüglich der Integralmetrik
+```{admonition} Bemerkung
+$C[a,b]$ ist bezüglich der Integralmetrik
 
 $$d(x,y) = \left(\int_a^b |x(t)-y(t)|^p dt \right)^{1/p},\quad 1\le p < \infty$$ (eq:LpMetrik)
 
-**nicht** vollständig. Wir betrachten dazu für $p=2$ auf $C[0,1]$ folgendes Gegenbeispiel:
+**nicht** vollständig.
+```
+
+Wir betrachten dazu für $p=2$ auf $C[0,1]$ folgendes Gegenbeispiel:
 
 Sei $t\in[0,1]$
 
@@ -472,7 +476,7 @@ $$d^2(x_n,y) = \int_0^1 |x_n(t)-y(t)|^2 dt \ge \int_0^{(2M)^{-1/\alpha}} |x_n(t)
 
 im Widerspruch zur Annahme, dass $\{x_n(t)\}$ gegen $y(t)$ konvergiert. Damit ist die Behauptung bewiesen. $\Box$
 
-Die Tatsache, daß $C[a,b]$, versehen mit einer Integralmetrik, kein vollständiger metrischer Raum ist, bedeutet einen schwerwiegenden Mangel dieses Raumes. Jedoch gibt es mehrere Wege der Vervollständigung:
+Die Tatsache, daß $C[a,b]$, versehen mit einer Integralmetrik, kein vollständiger metrischer Raum ist, bedeutet einen **schwerwiegenden Mangel** dieses Raumes. Jedoch gibt es mehrere Wege der Vervollständigung (vgl. Kapitel {numref}`chap:L2Raum`):
 
 1. Man erweitert die Klasse $C[a,b]$ zur Klasse der auf $[a,b]$ Lebesgue-integrierbaren Funktionen und interpretiert das in {eq}`eq:LpMetrik` auftretende Integral im Lebesgueschen Sinn. Dadurch gelangt man zum vollständigen metrischen Raum $L_p[a, b]$ (vgl. {cite:p}`heuser_Analysis2`, S. 109).
 2. Ein anderer Weg besteht darin, dass der vollständige Erweiterungsraum als Menge von linearen Funktionalen auf einem geeigneten Grundraum nach dem Vorbild der Distributionentheorie aufgefasst wird.

@@ -3,6 +3,7 @@
 Im Kapitel stellen wir die für die Behandlung von partiellen Differentialgleichungen geeigneten *Funktionenräume* vor.
 In den Beispielen für Hilberträume wurde erwähnt, dass der Funktionenraum der stetigen Funktionen versehen mit der Quadratnorm $\|x\|_2 = \sqrt{\int_a^b |x(t)|^2 dt}$ nicht vollständig und damit kein Banachraum ist. Das Problem muss für die Behandlung der partiellen Differentialgleichungen gelöst werden und führt uns zu den sogenannten Sobolevräumen.
 
+(chap:L2Raum)=
 ## Hilbertraum $L_2(\Omega)$
 
 Da der Fokus in der Bearbeitung von partiellen Differentialgleichungen liegt, werden wir im Folgenden Funktionen auf beliebigen $n$ dimensionalen Gebieten $\Omega \subset \mathbb{R}^n$ und nicht nur zwingend auf Intervallen $[a,b] \subset \mathbb{R}$ betrachten.
