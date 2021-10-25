@@ -169,14 +169,14 @@ $$\frac{d}{dx} \partial_{u'} F(x,u,u') =  \partial_{u} F(x,u,u').$$ (eq:StarkeEu
 ```
 
 **Bemerkungen**:
-* Wir haben den Satz für stetige Funktionen auf ganz $[a,b]$ notiert. Das ganze lässt sich leicht auf stückweise stetige Funktionen verallgemeinern.
+* Wir haben den Satz für stetige Funktionen auf ganz $[a,b]$ notiert. Das Resultat lässt sich auf stückweise stetige Funktionen verallgemeinern.
 
 * Im hier notierten Fall von Funktionen in *einer* Variablen $x$ gilt, dass eine Lösung der schwachen Gleichung
 
   $$\int_a^b \left(\partial_{u} F(x,u,u')\cdot v + \partial_{u'} F(x,u,u')\cdot v' \right) dx = 0\quad \forall\ v\in C_0^1(a,b)$$
 
   auch Lösung der starken Gleichung {eq}`eq:StarkeEulerLagrangeGleichung` ist.
-* Ist die Lagrange-Funktion nicht explizit von $x$ abhängig, können wir die Lagrange-Gleichung umformen - vorausgesetzt die Regularität von $y$ erlaubt ein zweimaliges Ableiten.
+* Ist die Lagrange-Funktion nicht explizit von $x$ abhängig, können wir die Lagrange-Gleichung umformen - vorausgesetzt die Regularität von $u$ erlaubt ein zweimaliges Ableiten.
 
   Es gilt
 
@@ -282,13 +282,13 @@ Der Integrand des Funktional {eq}`eq:bernoulliproblemfunktion` ist für $x=0$ un
 
 $$\begin{split}
 D = C[0,b] & \cap C^1(0,b] \cap \{y(0) = 0, y(b) = B\}\\
-& \cap \{y > 0 \text{in}\ (0,b]\} \cap \{J(y^) < \infty\}.\end{split}$$
+& \cap \{y > 0\, \text{in}\ (0,b]\} \cap \{J(y) < \infty\}.\end{split}$$
 
 Die Lagrange-Funktion hat im Beispiel die spezielle Eigenschaft, dass sie nicht explizit von $x$ abhängig ist. Daher benutzen wir die Form {eq}`eq:ELGSpezialfall`, womit die Differentialgleichung
 
 $$y'(x) = \frac{\sqrt{2r- y(x)}}{\sqrt{y(x)}}\quad \text{mit}\ 2r = \frac{1}{c_1^2}>0$$(eq:dglbernoulli)
 
-folgt. Die Differentialgleichung kann in dieser nicht geschlossen gelöst werden. Daher wechseln wir wieder in die parametrische Form
+folgt. Die Differentialgleichung kann in dieser Form nicht geschlossen gelöst werden. Daher wechseln wir wieder in die parametrische Form
 
 $$(x,y(x)) = (\hat{x}(s), \hat{y}(s)),\quad x\in[0,b],\ s \in [s_0,s_b],$$
 
@@ -306,7 +306,7 @@ $$\begin{split}
 \hat{x}(s) & = r\cdot (s - \sin(s))\\
 \hat{y}(s) & = r\cdot (1 - \cos(s))\end{split}$$
 
-für $s\in [0,s_b]$ Lösung und damit Lösungskurve der Aufgabe ist. Die Bahnkurve wird Brachystochrone genannt und durch eine Zykloide beschrieben. Der Parameter $r$ ist gegeben durch
+für $s\in [0,s_b]$ Lösung und damit Lösungskurve der Aufgabe ist. Die Bahnkurve wird **Brachystochrone** genannt und durch eine Zykloide beschrieben. Der Parameter $r$ ist gegeben durch
 
 $$r = \frac{B}{1-\cos(s_b)}$$
 
@@ -352,9 +352,9 @@ Die Funktion $f(s_b)$ ist monoton wachsend. Für $b/B \ge \pi/2$ gilt $s_b \in [
 ```{code-cell} ipython3
 :tags: [hide-input]
 
-sbi = np.linspace(0,sb,400)
+si = np.linspace(0,sb,400)
 
-plt.plot(r*(sbi-np.sin(sbi)),-r*(1-np.cos(sbi)))
+plt.plot(r*(si-np.sin(si)),-r*(1-np.cos(si)))
 plt.grid()
 plt.gca().set_aspect(1)
 plt.xlabel('x')
