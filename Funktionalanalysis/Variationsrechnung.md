@@ -215,7 +215,7 @@ also eine Gerade zwischen den beiden Punkten. Die beiden Integrationskonstanten 
 Analog zur Analysis reeller Funktionen kann auf für Funktionale unter geeigneten Voraussetzungen ein Kriterium, die zweite Variation, berechnet werden. Es gilt der Satz
 
 ```{admonition} Satz
-Sei die Lagrange-Funktion {eq}`eq:EulerLagrageFunktional` zweimal bezüglich den letzten beiden Variablen stetig partiell differenzierbar. Dann ist die zweite Variateion gegeben durch die Bilinearform
+Sei die Lagrange-Funktion {eq}`eq:EulerLagrageFunktional` zweimal bezüglich den letzten beiden Variablen stetig partiell differenzierbar. Dann ist die zweite Variateion oder zweite Fréchet-Ableitung gegeben durch die Bilinearform
 
 $$\delta^2 J(u)(v,v) = \int_a^b \partial_{u,u}F(x,u,u') v^2 + 2 \partial_{u,u'} F(x,u,u') v v' + \partial_{u',u'} F(x,u,u') v'^2 dx.$$
 
