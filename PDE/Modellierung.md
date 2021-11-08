@@ -205,7 +205,7 @@ $$\frac{\partial \rho v}{\partial t} = \nabla p.$$
 
 Vernachlässigt man kleine Schwankungen gegenüber dem grossen stationären Wert in der Dichte, so erhalten wir
 
-$$\frac{\partial (\rho_0 + \rho_s(x,t)) v}{\partial t} \approx \frac{\partial \rho_0 v}{\partial t} = \nabla (p_0 + p_s(x,t)) = \nabla p_s(x,t)$$
+$$\frac{\partial}{\partial t}(\rho_0 + \rho_s(x,t)) v \approx \frac{\partial}{\partial t}\rho_0 v = \nabla (p_0 + p_s(x,t)) = \nabla p_s(x,t)$$
 
 und 
 

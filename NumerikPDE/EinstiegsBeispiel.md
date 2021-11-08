@@ -20,14 +20,25 @@ Zum Einstieg in die Methode der finite Elemente kommen wir auf das skalare Randw
 
 $$\begin{split}
 -u''(x) & = f(x)\quad\forall\ x\in (0,1)\\
-u(0) & = u(1) = 0.
+u(0) & = u(1) = 0,
 \end{split}$$ (eq:starkeGleichungBeispiel)
 
-Die analytische Lösung ist gegeben durch
+mit $f(x) = 1$.
+
+Die analytische Lösung erhalten wir in dem Fall leicht. Durch zweimaliges Integrieren der rechten Seite erhalten wir ein Polynom  2. Grades
+
+$$u(x) = \frac{1}{2} x^2 + C_1 x + C_2.$$
+
+Durch Einsetzen der Randbedingungen folgt die analytische Lösung
 
 $$u(x) = -\frac{1}{2} x (x-1).$$ 
 
-Wir multiplitzieren die Differentialgleichung mit einer beliebigen Testfunktion $v(x)\in C_0^\infty(0,1)$ und integrieren über das Intervall $(0,1)$.
+```{code-cell} ipython3
+def uanalytic(x):
+    return -0.5*x*(x-1)
+```
+
+Für die numerische Lösung multiplitzieren wir die Differentialgleichung mit einer beliebigen Testfunktion $v(x)\in C_0^\infty(0,1)$ und integrieren über das Intervall $(0,1)$
 
 $$-\int_0^1 u''(x) v(x)\,dx = \int_0^1 f(x) v(x)\,dx \quad\text{für alle}\ v\in C_0^\infty(0,1).$$
 
@@ -47,11 +58,6 @@ $$\varphi_i(x) = \begin{cases}
 \frac{x-x_{i-1}}{x_i-x_{i-1}}\quad \text{für}\ x \in (x_{i-1},x_i)\\
 \frac{x_{i+1}-x}{x_{i+1}-x_{i}}\quad \text{für}\ x \in (x_{i},x_{i+1})\\
 0\quad \text{sonst}\end{cases}$$
-
-```{code-cell} ipython3
-def uanalytic(x):
-    return -0.5*x*(x-1)
-```
 
 ```{code-cell} ipython3
 :tags: [hide-cell, remove-output]
