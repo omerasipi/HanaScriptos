@@ -57,7 +57,9 @@ Wir diskretisieren nun das Intervall $(0,1)$ in Teilintervalle $(x_{i-1},x_i)$ f
 $$\varphi_i(x) = \begin{cases}
 \frac{x-x_{i-1}}{x_i-x_{i-1}}\quad \text{für}\ x \in (x_{i-1},x_i)\\
 \frac{x_{i+1}-x}{x_{i+1}-x_{i}}\quad \text{für}\ x \in (x_{i},x_{i+1})\\
-0\quad \text{sonst}\end{cases}$$
+0\quad \text{sonst,}\end{cases}$$
+
+mit welchen wir den Sobolevraum $H_0^1(0,1)$ approximieren.
 
 ```{code-cell} ipython3
 :tags: [hide-cell, remove-output]

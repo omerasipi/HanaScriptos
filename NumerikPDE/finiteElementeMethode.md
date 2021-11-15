@@ -47,8 +47,8 @@ $$\int_\Omega \nabla u\cdot\nabla v\, dx = \int_\Omega f(x) v(x) dx + \int_{\Ga
 Um den Satz von Lax-Milgram anwenden zu können, wählen wir
 
 * $V = H^1(\Omega)$ mit der Norm $\|v\|_V = \left(\|v\|_{L_2}^2 + \|\nabla v\|_{L_2}^2\right)^{1/2}$
-* $V_0 = \{v\in V\ |\ v=0 \text{auf}\ \Gamma_D\}$
-* $V_g = \{v\in V\ |\ v=u_g \text{auf}\ \Gamma_D\}$
+* $V_0 = \{v\in V\ |\ v=0\, \text{auf}\ \Gamma_D\}$
+* $V_g = \{v\in V\ |\ v=u_g\, \text{auf}\ \Gamma_D\}$
 
   Für ein beliebiges $\tilde{u}_g\in V$ mit $\tilde{u}_g = u_g$ auf dem Rand $\Gamma_D$ ist $V_g = \tilde{u}_g + V_0$.
 * Linearform $b: V\to\mathbb{R}$ gegeben durch
@@ -332,7 +332,7 @@ S_2 = \frac{1}{2}\begin{pmatrix}
 >
 > Allgemein können wir dies in der Form
 >
-> $$A = \sum_{T \in \mathcal{T}} C_T A_T C_T^t$$
+> $$A = \sum_{T \in \mathcal{T}} C_T A_T C_T^T$$
 >
 > und 
 >

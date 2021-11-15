@@ -99,27 +99,27 @@ $$
 - \int_\Omega \Delta u(x) v(x) dx = \int_\Omega f(x) v(x) dx
 $$
 
-Mit Hilfe der partiellen Integration im Mehrdimensionalen (Satz von Gauss auf das Vektorfeld $\nabla u\, v$ angewandt):
+Mit Hilfe der partiellen Integration im Mehrdimensionalen (Satz von Gauss auf das Vektorfeld $\nabla u(x)\, v(x)$ angewandt):
 
 $$
-\int_{\partial \Omega} n \nabla u \, v\, dA = \int_\Omega \opdiv (\nabla u \, v) dx
-= \int_{\Omega} \Delta u v + \nabla u \nabla v dx
+\int_{\partial \Omega} n \nabla u(x) \, v(x)\, dA = \int_\Omega \opdiv (\nabla u(x) \, v(x)) dx
+= \int_{\Omega} \Delta u(x) v(x) + \nabla u(x) \nabla v(x) dx
 $$
 
 können wir die linke Seite in der Form
 
 $$
-\int_\Omega \nabla u \nabla v - \int_{\partial \Omega} \frac{\partial u}{\partial n} v = \int_\Omega f v
+\int_\Omega \nabla u(x) \nabla v(x)\, dx - \int_{\partial \Omega} \frac{\partial u(x)}{\partial n} v(x)\, dA = \int_\Omega f(x) v(x)\, dx
 $$
 
 schreiben.
 
 Im Fall der Dirichlet Randbedingung können wir Testfunktionen $v$ benutzen, für welche $v(x) = 0$ auf dem Rand $\partial\Omega$ gilt.
 
-Wir erhalten damit das **schwache Problem**: Finde $u\in V$ so, dass $u=0$ auf $\partial\Omega$ und
+Wir erhalten damit das **schwache Problem**: Finde $u(x)\in V$ so, dass $u=0$ auf $\partial\Omega$ und
 
 $$
-\int_\Omega \nabla u\cdot \nabla v dx = \int_\Omega f v dx
+\int_\Omega \nabla u(x)\cdot \nabla v(x) dx = \int_\Omega f(x) v(x) dx
 $$ (eq:weakPoisson)
 
 für alle Testfunktionen $v$ mit $v=0$ auf $\partial\Omega$ erfüllt ist.
