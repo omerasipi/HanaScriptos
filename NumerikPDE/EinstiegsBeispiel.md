@@ -46,9 +46,9 @@ Mit Hilfe der partiellen Integration erhalten wir die schwache Gleichung
 
 $$\int_0^1 u'(x) v'(x)\,dx - \underbrace{\big[u'(x) v(x)\big]_0^1}_{=0\, \text{da}\, v(0)=v(1)=0} = \int_0^1 f(x) v(x)\,dx \quad\text{für alle}\ v\in C_0^\infty(0,1).$$
 
-> Gesucht ist eine Funktion $u(x)$ so, dass $u(0)=u(1)=0$ und
->
-> $$\int_0^1 u'(x) v'(x)\,dx  = \int_0^1 f(x) v(x)\,dx \quad\text{für alle}\ v\in C_0^\infty(0,1).$$ (eq:schwacheGleichungBeispiel)
+Gesucht ist eine Funktion $u(x)$ so, dass $u(0)=u(1)=0$ und
+
+$$\int_0^1 u'(x) v'(x)\,dx  = \int_0^1 f(x) v(x)\,dx \quad\text{für alle}\ v\in C_0^\infty(0,1).$$ (eq:schwacheGleichungBeispiel)
 
 Um der Gleichung zu genügen, muss die Lösung $u$ nicht zwingend eine zweimal stetig differenzierbare Funktion sein. Anstelle dessen werden $u$ und $v$ jeweils einmal differenziert. Die Funktionen liegen im Sobolev-Raum $H_0^1(0,1)$. Die rechte Seite muss ebenfalls nicht mehr zwingend stetig sein. Es reicht, wenn die Funktion $f$ quadratisch integrierbar ist, daher $f\in L_2(0,1)$. Die finite Elemente Methode benutzt die eingeführte verallgemeinerte Ableitung {eq}`eq:VerallgemeinerteAbleitung`. Wir erhalten Lösungen, welche nicht immer zwingend auch Lösung der starken Gleichung {eq}`eq:starkeGleichungBeispiel` sein müssen.
 
@@ -60,6 +60,8 @@ $$\varphi_i(x) = \begin{cases}
 0\quad \text{sonst,}\end{cases}$$
 
 mit welchen wir den Sobolevraum $H_0^1(0,1)$ approximieren.
+
+### Direkte (numpy) Lösung
 
 ```{code-cell} ipython3
 :tags: [hide-cell, remove-output]
@@ -119,13 +121,13 @@ FEM 1d affine Basisfunktionen
 
 Für die schwache Gleichung {eq}`eq:schwacheGleichungBeispiel` erhalten wir das endlich dimensionale mit finite Elemente diskrete Problem
 
-> Gesucht ist eine Funktion
->
-> $$u_h(x) = \sum_{i=0}^n u_i \, \varphi_i(x)$$
->
-> so, dass $u(0) = u(1) = 0$ und 
->
-> $$\int_0^1 u_h'(x) \varphi_j'(x)\,dx  = \int_0^1 f(x) \varphi_j(x)\,dx \quad\text{für alle}\ j = 1, \ldots, n-1.$$ (eq:diskreteschwacheGleichungBeispiel)
+Gesucht ist eine Funktion
+
+$$u_h(x) = \sum_{i=0}^n u_i \, \varphi_i(x)$$
+
+so, dass $u(0) = u(1) = 0$ und 
+
+$$\int_0^1 u_h'(x) \varphi_j'(x)\,dx  = \int_0^1 f(x) \varphi_j(x)\,dx \quad\text{für alle}\ j = 1, \ldots, n-1.$$ (eq:diskreteschwacheGleichungBeispiel)
 
 Setzt man die Darstellung für $u_h$ ein, so folgt
 
@@ -266,11 +268,9 @@ Lösung des Randwertproblem mit Hilfe 1. Ordnung FEM
 * Berechne die Lösung mit Hilfe der finiten Differenzen Methode und vergleiche die beiden Systeme.
 ```
 
-+++
+### NGSolve Lösung
 
-Dasselbe nun mit NGSolve
-
-+++
+Das selbe nun mit NGSolve
 
 * Wir erstellen als erstes ein eindimensionales Mesh.
 
@@ -507,33 +507,17 @@ Die Matrix $A$ ist "sparse" gespeichert. Das bedeutet, dass nur die Matrix Eintr
 print(A.mat)
 ```
 
-Wir können diese Matrix (zumindest solange sie klein ist!) auch als "dense" Matrix betrachten:
+Wir können diese Matrix (zumindest solange sie klein ist!) auch als vollbesetzte "dense" Matrix betrachten:
 
 ```{code-cell} ipython3
 rows,cols,vals = A.mat.COO()
-```
 
-```{code-cell} ipython3
 denseA = np.zeros((np.max(rows)+1,np.max(rows)+1))
 k=0
 for i,j in zip(rows,cols):
     denseA[i,j] = vals[k]
     k+=1
-```
 
-```{code-cell} ipython3
-from pandas import DataFrame
-```
-
-```{code-cell} ipython3
-df = DataFrame(data = denseA)
-df.replace(0,"")
-df.style.format('{:.1f}').set_table_attributes('style="font-size: 10px"')
-```
-
-Graphisch:
-
-```{code-cell} ipython3
 plt.spy(denseA)
 plt.show()
 ```
@@ -548,6 +532,7 @@ for v in mesh.vertices:
     plt.text(*v.point,v,color='red')
 plt.gca().set_axis_off()
 plt.gca().set_aspect(1)
+plt.show()
 ```
 
 ```{code-cell} ipython3
@@ -556,14 +541,7 @@ reducedDenseA = []
 for i in ind:
     reducedDenseA.append(denseA[i,ind])
 reducedDenseA = np.array(reducedDenseA)
-reduceddf = DataFrame(data=reducedDenseA,columns=ind,index=ind)
-reduceddf.replace(0,"")
-reduceddf.style.format('{:.1f}').set_table_attributes('style="font-size: 10px"')
-```
 
-Graphisch:
-
-```{code-cell} ipython3
 plt.spy(reducedDenseA)
 plt.show()
 ```

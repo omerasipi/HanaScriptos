@@ -16,7 +16,9 @@ kernelspec:
 
 Das Kapitel baut auf dem Buch {cite:p}`VariationsrechnungKielhoefer` auf.
 
-**Bemerkung**: Sämtliche Aussagen im Kapitel können auch für stückweise stetige oder stetig differenzierbare Funktionen gezeigt werden. Der Einfachheit schreiben wir jedoch nur $C^0[a,b]$ bzw. $C^1[a,b]$.
+```{prf:remark}
+Sämtliche Aussagen im Kapitel können auch für stückweise stetige oder stetig differenzierbare Funktionen gezeigt werden. Der Einfachheit schreiben wir jedoch nur $C^0[a,b]$ bzw. $C^1[a,b]$.
+```
 
 ## Einführendes Beispiel
 
@@ -67,7 +69,8 @@ $$- u''(x) - f(x) = 0\quad\text{oder}\quad - u''(x) = f(x)$$
 
 gilt.
 
-```{admonition} Satz: Fundamental-Lemme der Variationsrechnung
+```{prf:theorem} Fundamental-Lemma der Variationsrechnung
+:label: my-thm-FundamentalLemma
 Ist $g\in C[a,b]$ und gilt
 
 $$\int_a^b g(x) h(x) dx = 0\quad \text{für alle}\ h\in C_0^{\infty}(a,b),$$
@@ -79,7 +82,9 @@ Wie aus dem Beispiel zu sehen ist, sind die Ansprüche an die Regularität in de
 
 Im Beispiel sind ein paar Grundkonzepte enthalten, welche wir wie folgt festhalten
 
-```{admonition} Definition: Gâteaux-differenzierbar
+```{prf:definition} Gâteaux-differenzierbar
+:label: my-def-Gateaux
+
 Sei $X$ ein Banachraum. Existiert für $J: X \to \mathbb{R}$ ein gegebenes Funktional
 
 $$G'(\varepsilon=0) = \lim_{\varepsilon \to 0} \frac{J(u + \varepsilon v) - J(u)}{\varepsilon},$$
@@ -89,7 +94,9 @@ so ist $J$ in $u$ in Richtung $v$ Gâteaux-differenzierbar und die Ableitung wir
 
 Das Gâteaux-Differential muss nicht zwingend linear noch stetig in $v$ sein. 
 
-```{admonition} Definition: Fréchet-Ableitung
+```{prf:definition} Fréchet-Ableitung
+:label: my-def-Frechet
+
 Existiert $dJ(u,v)$ in $u\in D \subset X$ für $v\in X$ und ist $dJ(u,v)$ linear in $v$, so heisst $dJ(u,v)$ die **erste Variation** oder **Fréchet-Ableitung** von $J$ in Richtung $v$. Wir schreiben in dem Fall 
 
 $$dJ(u,v) = \delta J(u) v = J'(u) v.$$
@@ -135,7 +142,9 @@ $$J(u) = \int_a^b F(x,u,u') dx,$$ (eq:EulerLagrageFunktional)
 
 welches auf $C^1(a,b)$ definiert ist.
 
-```{admonition} Definition: lokaler Minimierer
+```{prf:definition} lokaler Minimierer
+:label: my-def-lokminimierer
+
 Sei $X$ ein Banachraum. Eine Funktion $u\in X$ heisst lokaler Minimierere für das Funktional $J : X \to \mathbb{R}$, falls
 
 $$J(u) \le J(v)\quad\text{für alle}\ v\in X\ \text{mit}\ \|u-v\|_X < \delta$$
@@ -162,13 +171,15 @@ $$J'(u) v = \int_a^b \left(\partial_{u} F(x,u,u') - \frac{d}{dx} \partial_{u'} F
 
 Wir können damit folgenden Satz festhalten:
 
-```{admonition} Satz
+```{prf:theorem}
+:label: my-thm-EulerLagrangeGleichung
+
 Die Funktion $u\in C^1(a,b)$ sei ein lokaler Minimierer für das Funktional {eq}`eq:EulerLagrageFunktional` und die Lagrange-Funktion $F: [a,b] \times \mathbb{R} \times \mathbb{R}$ sei stetig und bezüglich der letzten beiden Variablen stetig partiell differenzierbar. Dann gilt die **Euler-Lagrange-Gleichung**
 
 $$\frac{d}{dx} \partial_{u'} F(x,u,u') =  \partial_{u} F(x,u,u').$$ (eq:StarkeEulerLagrangeGleichung)
 ```
 
-**Bemerkungen**:
+```{prf:remark}
 * Wir haben den Satz für stetige Funktionen auf ganz $[a,b]$ notiert. Das Resultat lässt sich auf stückweise stetige Funktionen verallgemeinern.
 
 * Im hier notierten Fall von Funktionen in *einer* Variablen $x$ gilt, dass eine Lösung der schwachen Gleichung
@@ -189,6 +200,7 @@ $$\frac{d}{dx} \partial_{u'} F(x,u,u') =  \partial_{u} F(x,u,u').$$ (eq:StarkeEu
   $$F(u,u') - u' F_{u'}(u,u') = c_1\quad\text{für}\, x\in [a,b]$$ (eq:ELGSpezialfall)
 
   ist.
+```
 
 ## Beispiele zur Lösung der Euler-Lagrange-Gleichung
 
@@ -214,7 +226,9 @@ also eine Gerade zwischen den beiden Punkten. Die beiden Integrationskonstanten 
 
 Analog zur Analysis reeller Funktionen kann auf für Funktionale unter geeigneten Voraussetzungen ein Kriterium, die zweite Variation, berechnet werden. Es gilt der Satz
 
-```{admonition} Satz
+```{prf:theorem}
+:label: my-thm-ZweitVariation
+
 Sei die Lagrange-Funktion {eq}`eq:EulerLagrageFunktional` zweimal bezüglich den letzten beiden Variablen stetig partiell differenzierbar. Dann ist die zweite Variateion oder zweite Fréchet-Ableitung gegeben durch die Bilinearform
 
 $$\delta^2 J(u)(v,v) = \int_a^b \partial_{u,u}F(x,u,u') v^2 + 2 \partial_{u,u'} F(x,u,u') v v' + \partial_{u',u'} F(x,u,u') v'^2 dx.$$

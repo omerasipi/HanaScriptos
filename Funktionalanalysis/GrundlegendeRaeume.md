@@ -18,7 +18,8 @@ In den Modulen linearen Algebra, Analysis und Numerik wurden Vektorräume und No
 
 Beginnen wir mit dem Begriff der Vektorräume. Um diesen definieren zu können, benötigen wir einen Zahlenkörper. In aller Regel benutzen wir die reellen Zahlen $\mathbb{R}$. Wir legen mit dem folgenden Axiom fest, was die reellen Zahlen sind:
 
-```{admonition} Definition: reelle Zahlen
+```{prf:definition} reelle Zahlen
+:label: my-def-reelleZahlen
 
 Es existiere eine Menge $\mathbb{R}$ mit folgenden Eigenschaften:
 - Es existieren Operationen
@@ -82,13 +83,17 @@ Es existiere eine Menge $\mathbb{R}$ mit folgenden Eigenschaften:
 
 Im Allgemeinen ist ein (Zahlen)-Körper über eine Gruppe wie folgt definiert:
 
-```{admonition} Definition: Gruppe
+```{prf:definition} Gruppe
+:label: my-def-Gruppe
+
 Ein Tupel $(G, \cdot)$ bestehend aus einer Menge $G$ und einer Verknüpfung $\cdot : G \to G$ heisst *Gruppe*, falls die Verknüpfung assoziativ ist, ein neutrales Element $e\in G$ existiert und für alle $a \in G$ ein $b\in G$ exisitert so dass $a\cdot b = b\cdot a = e$ gilt. Ist die Verknüpfung kommutativ, nennt man die Gruppe kommutativ.
 ```
 
 Ein Körper lässt sich somit wie folgt allgemein definieren:
 
-```{admonition} Definition: Körper
+```{prf:definition} Körper
+:label: my-def-Koerper
+
 Ein *Körper* ist eine Tripel $(K, +, \cdot)$ mit folgenden Eigenschaften:
 
 - $(K, +)$ ist eine kommutative Gruppe mit neutralem Element $0_K$.
@@ -106,7 +111,9 @@ Beispiele für Körper sind folgende Tupel
 
 Mit Hilfe eines Körpers können wir nun einen $\mathbb{K}$-Vektorraum wie folgt definieren:
 
-```{admonition} Definition: $\mathbb{K}-Vektorraum$
+```{prf:definition} $\mathbb{K}-Vektorraum$
+:label: my-def-KVR
+
 Ein $\mathbb{K}$-Vektorraum ist ein Tripel $(V, +, \cdot)$ mit den Eigenschaften
 
 1. $(V,+)$ ist eine kommutative Gruppe
@@ -120,7 +127,7 @@ Ein $\mathbb{K}$-Vektorraum ist ein Tripel $(V, +, \cdot)$ mit den Eigenschaften
     wobei $\alpha, \beta\in\mathbb{K},\ x, y\in V$. 
 ```
 
-```{admonition} Bemerkung
+```{prf:remark}
 Wenn man in einem allgemeinen Kontext von Vektoren spricht, so meint man damit die Elemente eines Vektorraumes. Spricht man von Skalaren, so sind die Elemente des zugrundeliegenden Körpers gemeint.
 ```
 
@@ -161,7 +168,8 @@ $$d(x_n,x_0) = |x_n-x_0| < \varepsilon$$
 
 für alle $n \ge n_0$ gilt.
 
-```{admonition} Definition: Metrik
+```{prf:definition} Metrik
+:label: my-def-Metrik
 
 Eine nichtleere Menge $V$ mit *Elemente* $x, y, z, \ldots$ heisst ein *metrischer Raum*, wenn jedem Paar $x, y \in V$ eine reelle Zahl $d(x,y)$, genannt *Abstand* oder *Metrik*, zugeordnet ist, mit den Eigenschaften: Für alle $x,y,z\in V$ gilt
 
@@ -226,7 +234,9 @@ $$\int_a^b |x(t)|^p dt, \quad 1\le p < \infty$$
 
 im Riemannschen Sinne existiert. Setzen wir für $x(t), y(t)\in V$
 
-```{admonition} Definition: Integralmetrik
+```{prf:definition} Integralmetrik
+:label: my-def-intmetrik
+
 $$d_p(x,y) := \left(\int_a^b |x(t)-y(t)|^p dt\right)^{1/p},\quad 1\le p < \infty$$
 ```
 
@@ -268,7 +278,9 @@ definiert. Zeige:
 
 Die topologischen Begriffe wie *offene Kugel*, *innerer Punkt*, *Häufungspunkt*, *abgeschlossen*, *beschränkt* lassen sich mit Hilfe der Metrix $d$ für einen metrischen Raum $(V,d)$ direkt aus dem aus der Analysis bekannten $\mathbb{R}^n$ übertragen.
 
-```{admonition} Definition: Konvergenz
+```{prf:definition} Konvergenz
+:label: my-def-Konvergenz
+
 Eine Folge $\{x_n\}\subset V$ von Elemente aus $V$ heisst *konvergent*, wenn es ein $x_0\in V$ gibt mit
 
 $$d(x_n,x_0) \to 0\quad \text{für}\quad n\to\infty,$$
@@ -292,7 +304,9 @@ Es folgt damit $d(x_0,y_0)=0$ und damit $x_0 = y_0$.
 
 Wir starten mit einem intuitiven Begriff der Konvergenz für Funktionenfolgen:
 
-```{admonition} Definition: Punktweise Konvergenz
+```{prf:definition} Punktweise Konvergenz
+:label: my-def-PWkonv
+
 Man nennt eine Funktionenfolge $\{x_n(t)\} \subset C[a,b]$ *punktweise konvergent*, wenn für jedes $t\in [a,b]$ die Zahlenfolge $x_1(t), x_2(t), \ldots $ konvergiert. Die *Grenzfunktion* $x$ ist dabei durch
 
 $$\lim_{n\to\infty} x_n(t) = x(t)\quad\text{für jedes}\quad t\in [a,b]$$
@@ -355,7 +369,9 @@ plt.show()
 
 Für ein $\varepsilon < 1$ (Sprunghöhe) finden wir kein $n_0$ so, dass der Abstand zur Grenzfunktion der Bedingung genügt. Die Funktionenfolge ist daher nicht konvergent bezüglich der Maximumsmetrik.
 
-```{admonition} Definition: Gleichmässige Konvergenz
+```{prf:definition} Gleichmässige Konvergenz
+:label: my-def-glkonv
+
 Die Konvergenz in $(C[a,b],d_{\max})$ nennt man **gleichmässige** Konvergenz auf dem Intervall $[a,b]$.
 ```
 
@@ -367,7 +383,9 @@ Ist eine stetige Funktionenfolge gleichmässig konvergent, so ist die Grenzfunkt
 
 Der Begriff der Cauchy-Folge folge kann direkt auf metrische Räume übertragen werden:
 
-```{admonition} Definition: Cauchy-Folge
+```{prf:definition} Cauchy-Folge
+:label: my-def-CauchyFolge
+
 Eine Folge $\{x_n\}$ aus dem metrischen Raum $V$ heisst *Cauchy-Folge*, wenn
 
 $$\lim_{m,n\to\infty} d(x_n,x_m) = 0$$
@@ -377,11 +395,14 @@ ist, dh. wenn es zu jedem $\varepsilon > 0$ eine natürliche Zahl $n_0 = n_0(\va
 $$d(x_n,x_m) < \varepsilon\quad\text{für alle}\quad n,m \ge n_0.$$
 ```
 
-```{admonition} Satz
+```{prf:theorem}
+:label: my-thm-konvFolgeCauchy
+
 Jede konvergente Folge im metrischen Raum $V$ ist auch eine Cauchy-Folge.
 ```
 
-**Beweis**: Aus der Konvergenz der Folge $\{x_n\}$ folgt: Zu jedem $\varepsilon>0$ gibt es ein $n_0 = n_0(\varepsilon)\in\mathbb{N}$ und ein $x_0\in V$ mit
+````{prf:proof}
+Aus der Konvergenz der Folge $\{x_n\}$ folgt: Zu jedem $\varepsilon>0$ gibt es ein $n_0 = n_0(\varepsilon)\in\mathbb{N}$ und ein $x_0\in V$ mit
 
 $$d(x_n,x_0) < \varepsilon\quad\text{und}\quad d(x_m,x_0) < \varepsilon$$
 
@@ -389,7 +410,8 @@ für alle $n,m \ge n_0$. Mit Hilfe der Dreiecksungleichung folgt
 
 $$d(x_n,x_m) \le d(x_n,x_0) + d(x_0,x_m) = d(x_n,x_0) + d(x_m,x_0) < 2 \varepsilon$$
 
-für alle $n,m \ge n_0$. $\Box$
+für alle $n,m \ge n_0$.
+````
 
 Die Umkehrung gilt im allgemeinen nicht.
 
@@ -397,7 +419,9 @@ Die Umkehrung gilt im allgemeinen nicht.
 
 Das führt uns zu einem neuen Begriff, der **Vollständigkeit**. Wir interessieren uns insbesondere für diejenigen metrischen Räume, in denen Cauchy-Folgen konvergieren.
 
-```{admonition} Definition: Vollständig
+```{prf:definition} Vollständig
+:label: my-def-vollstaendig
+
 Ein metrischer Raum $V$ heisst *vollständig*, wenn jede Cauchy-Folge in $V$ gegen ein Element von $V$ konvergiert.
 ```
 
@@ -415,7 +439,7 @@ Betrachten wir ein paar Beispiele:
 
    versehen ist vollständig.
 
-```{admonition} Bemerkung
+```{prf:remark}
 $C[a,b]$ ist bezüglich der Integralmetrik
 
 $$d(x,y) = \left(\int_a^b |x(t)-y(t)|^p dt \right)^{1/p},\quad 1\le p < \infty$$ (eq:LpMetrik)
@@ -484,11 +508,15 @@ Die Tatsache, daß $C[a,b]$, versehen mit einer Integralmetrik, kein vollständi
 
 Wir definieren kompakt für metrische Räume wie folgt
 
-```{admonition} Definition: Kompakt
+```{prf:definition} Kompakt
+:label: my-def-komapkt
+
 Sein $V$ ein metrischer Raum. $W \subset V$ heisst *kompakt*, wenn jede Folge $\{x_n\}$ aus $W$ eine Teilfolge enthält, die gegen ein Grenzelement $x\in W$ konvergiert.
 ```
 
-```{admonition} Satz
+```{prf:theorem}
+:label: my-thm-komapkt
+
 Jede kompakte Teilmenge $W$ eines metrischen Raumes $V$ ist beschränkt und abgeschlossen.
 ````
 
@@ -503,11 +531,13 @@ In der Approximationstheorie stellt sich das Grundproblem: In einem metrischen R
 
 Zur Erinnerung:
 
-```{admonition} Definition: Supremum, Infimum
+```{prf:definition} Supremum, Infimum
+:label: my-def-supinf
+
 Sei $W\subset \mathbb{R}$, dann bezeichnet man mit dem *Supremum* von $W$ die kleinste reelle Zahl $\lambda$ mit $x\le \lambda$ für alle $x\in W$. Analog bezeichnet man mit dem *Infimum* die grösste reelle Zahl $\mu$ mit $x\ge \mu$ für alle $x\in W$.
 ```
 
-```{admonition} Satz
+```{prf:theorem}
 Es sei $V$ ein metrischer Raum und $W$ eine **kompakte** Teilmenge von $V$. Dann gibt es zu jedem festen Punkt $y \in V$ einen Punkt $x_0 \in W$, der von $y$ kleinsten Abstand hat.
 ````
 
@@ -529,7 +559,9 @@ Bestapproximation
 
 Bis jetzt haben wir sehr wenig Eigenschaften eines Raumes benötigt. Was uns noch fehlt, sind abgesehen vom Abstand der Elemente noch *algebraische* Eigenschaften (addieren, multiplizieren, etc.). Dazu definieren wir den *linearen Raum* (oder *Vektorraum*) wie folgt.
 
-```{admonition} Definition: linearer Raum
+```{prf:definition} linearer Raum
+:label: my-def-linraum
+
 Ein *linearer Raum* (oder *Vektorraum*) über einem Körper $\mathbb{K}$ besteht aus einer nichtleeren Menge $V$, sowie
 
 * einer Vorschrift, die jedem Paar $(x,y)$ mit $x,y \in V$ genau ein Element $x+y\in V$ zuordnet (*Addition*)
@@ -570,7 +602,9 @@ Beispiele für lineare Räume:
   
 Wie in der linearen Algebra sind folgende Begriffe analog definiert
 
-```{admonition} Definition: Unterraum, lineare Mannigfaltigkeit, lineare Hülle / Span, linear unabhängig, Dimension, Basis
+```{prf:definition} Unterraum, lineare Mannigfaltigkeit, lineare Hülle / Span, linear unabhängig, Dimension, Basis
+:label: my-def-URMannigf
+
 * Eine nicht leere Teilmenge $S$  von $V$ heisst *Unterraum* von $V$, wenn für bel. $x,y \in S$  und $\lambda \in \mathbb{K}$ stets
 
   $$x+y \in S\quad\text{und}\quad \lambda x \in S$$
@@ -598,16 +632,20 @@ Wie in der linearen Algebra sind folgende Begriffe analog definiert
   Besitzt $V$ keine endlich dimensionale Basis, nennt man $V$ *unendlich-dimeansional* ($\mathop{dim} V = \infty$).
 ```
 
-**Bemerkungen**: Die oben erwähnten Funktionenräume $C[a,b]$, $C^k[a,b]$, Polynome sind unendlich-dimensional. Ebenso ist der Folgenraum $l_p$ unendlich-dimensional:
+```{prf:remark}
+Die oben erwähnten Funktionenräume $C[a,b]$, $C^k[a,b]$, Polynome sind unendlich-dimensional. Ebenso ist der Folgenraum $l_p$ unendlich-dimensional:
 
 > Man betrachte
 >
 > $$x^{(k)} = \{0, \ldots, 0, 1, 0, \ldots \}\in l_p$$
 > mit 1 an der Stelle $k$.
+```
 
 Im folgenden sind wir an Räumen interessiert, für welche eine lineare Struktur und eine Metrik gegeben ist.
 
-```{admonition} Definition: normierter Raum
+```{prf:definition} normierter Raum
+:label: my-def-normRaum
+
 Sei $V$ ein metrischer und linearer Raum. Zu dem sei die Metrik $d$ von $V$ *translationsinvariant*
 
 $$d(x+z, y+z) = d(x,y)\quad\forall\ x,y,z\in V$$
@@ -620,13 +658,13 @@ $$\|x\| := d(x,0)\quad \forall\ x\in V$$
 erklärte Ausdruck heisst *Norm* von $x$.
 ```
 
-**Bemerkungen**: 
+```{prf:remark}
 * Neben der kurzen Schreibweise $V$, verwendet man häufig auch die Bezeichnung $(V, \|\cdot\|)$. Der Punkt in $\|\cdot\|$ ist als Platzhalter zu verstehen.
 * Führt man den normierten Raum $V$ mit Hilfe einer Norm ein, so ist durch
 
   $$d(x,y) = \|x-y\|\quad\text{für alle}\ x,y\in V$$
   eine Metrik in $V$ gegeben.
-
+```
 
 ```{admonition} Folgerung
 Ein normierter Raum $(V, \|\cdot\|)$ ist ein linearer Raum, auf dem eine Norm $\|\cdot\|$ erklärt ist, die für alle $x,y\in V$ und $\alpha \in \mathbb{K}$
@@ -640,7 +678,9 @@ erfüllt.
 
 Damit können wir einen wichtigen Begriff der Funktionalanalysis einführen, den Banachraum:
 
-```{admonition} Definition: Banachraum
+```{prf:definition} Banachraum
+:label: my-def-Banachraum
+
 *Vollständig normierte* Räume $V$ sind diejenigen, für die jede Cauchy-Folge in $V$ gegen ein Element in $V$ konvergiert.
 
 Ein vollständiger normierter Raum heisst *Banachraum*.
@@ -653,7 +693,9 @@ Ein vollständiger normierter Raum heisst *Banachraum*.
 * $C^k[a,b]$ mit der Norm $\|x\| := \max_{a\le t \le b} |x(t)| + \max_{a\le t \le b} |x'(t)| + \ldots + \max_{a\le t \le b} |x^{(k)}(t)|.$  
 * $l_p\ (1\le p < \infty)$ mit der Norm $\|x\| = \left(\sum_{k=1}^{\infty} |x_k|^p \right)^{1/p}$
 
-```{admonition} Definition: abzählbare Basis
+```{prf:definition} abzählbare Basis
+:label: my-def-abzBasis
+
 Man sagt, dass $V$ eine *abzählbare Basis* $\{x_k\}_{k=1}^{\infty}$ mit $x_k \in V$ besitzt, falls jedes $x\in V$ eindeutig in der Form $x = \sum_{k=1}^{\infty} \alpha_k\,x_k$ darstellbar ist, wobei die Konvergenz bezüglich der Norm von $V$ zu verstehen ist.
 ````
 
@@ -701,7 +743,9 @@ Zwei Normen $\|\cdot\|_a$ und $\|\cdot\|_b$ heissen *äquivalent*, wenn jede bez
 
 Im endlich dimensionalen gilt ein pauschaler Satz:
 
-```{admonition} Satz
+```{prf:theorem}
+:label: my-thm-normaequiv
+
 Alle Normen in einem **endlich**-dimensionalen Raum $V$ sind äquivalent.
 ```
 
@@ -709,7 +753,9 @@ Dieses Resultat gilt für unendlich-dimensionale Räume **nicht**. Als Beispiel 
 
 Mit diesem Satz folgt
 
-```{admonition} Satz
+```{prf:theorem}
+:label: my-thm-enddimbanach
+
 Jeder endlich-dimensionale normierte Raum $V$ ist vollständig, also ein Banachraum.
 ```
 
@@ -717,7 +763,9 @@ Jeder endlich-dimensionale normierte Raum $V$ ist vollständig, also ein Banachr
 
 Das aus der linearen Algebra bekannte Skalarprodukt lässt sich auch auf unendlich-dimensionale Räume übertragen. Wir definieren ganz allgemein
 
-```{admonition} Definition: Skalarprodukt, Skalarproduktraum
+```{prf:definition} Skalarprodukt, Skalarproduktraum
+:label: my-def-skalarprodukt
+
 Unter einem *Skalarproduktraum* versteht man einen linearen Raum $V$ über $\mathbb{K}$, in dem ein *Skalarprodukt* $(x,y)$ mit folgenden Eigenschaften definiert ist: Für beliebige $x,y,z \in V$ und $\alpha\in\mathbb{K}$ ist
 
 $$(\cdot, \cdot) : V \times V \to \mathbb{K}$$
@@ -742,16 +790,22 @@ ein Skalarprodukt definieren.
 Weise die Eigenschaften {eq}`eq:eigenschaftenskalarprodukt` für das Skalarprodukt {eq}`eq:L2SkalarProdukt` nach.
 ```
 
-```{admonition} Satz
+```{prf:theorem}
+:label: my-thm-skal
+
 Es sei $V$ ein Skalarproduktraum. Für beliebige $x,y,z\in V$ und $\alpha \in \mathbb{K}$ gilt
 
 $$\begin{split}(x, \alpha y) & = \overline{\alpha} (x,y)\\
 (x, y+z) & = (x,y) + (x,z)\end{split}$$
 ```
 
-**Beweis**: selber durchführen.
+````{prf:proof}
+Selber durchführen.
+````
 
-```{admonition} Satz: induzierte Norm
+```{prf:theorem} induzierte Norm
+:label: my-thm-indnorm
+
 In jedem Skalarproduktraum $V$ lässt sich durch
 
 $$\|x\| := \sqrt{(x,x)}$$
@@ -761,7 +815,9 @@ eine Norm definieren. Man bezeichnet sie als *die durch das Skalarprodukt* $(x,y
 
 Der Beweis lässt sich einfach mit Hilfe der *Schwarz'schen Ungleichung* durchführen.
 
-```{admonition} Satz: Schwarzsche Ungleichung
+```{prf:theorem} Schwarzsche Ungleichung
+:label: my-thm-schwarz
+
 Es sei $V$ ein Skalarproduktraum. Dann gilt für alle $x,y\in V$
 
 $$|(x,y)| \le \|x\|\,\|y\|.$$
@@ -769,7 +825,9 @@ $$|(x,y)| \le \|x\|\,\|y\|.$$
 
 Die Beweise sind dem Leser überlassen (vgl. {cite:p}`burg_wille_haf_meister_PDE` S. 43, 44).
 
-```{admonition} Satz
+```{prf:theorem}
+:label: my-thm-skalstetig
+
 Sei $V$ ein Skalarproduktraum. Ferner seien $\{x_n\}$ und $\{y_n\}$ Folgen aus $V$ mit $x_n \to x$ und $y_n \to y$ für $n\to\infty$, wobei die Konvergenz im Sinne der induzierten Norm zu verstehen ist. Dann gilt
 
 $$(x_n, y_n) \to (x,y)\quad\text{für}\quad n\to\infty,$$
@@ -777,7 +835,9 @@ $$(x_n, y_n) \to (x,y)\quad\text{für}\quad n\to\infty,$$
 dh. das Skalarprodukt ist eine stetige Funktion bezüglich der Normkonvergenz.
 ```
 
-```{admonition} Definition: Hilbertraum
+```{prf:definition} Hilbertraum
+:label: my-def-Hilbertraum
+
 Ein Skalarproduktraum $V$, der bezüglich der durch das Skalarprodukt induzierten Norm
 
 $$\|x\| = \sqrt{(x,x)}\quad\text{für}\ x\in V$$
@@ -806,7 +866,9 @@ vollständig ist, heisst *Hilbertraum*.
 
 Viele Eigenschaften des euklischen Raumes $\mathbb{R}^n$, die mit dem Skalarprodukt zusammenhängen, können auf einen beliebigen Hilbertraum übertragen werden. Der Begriff der Ortohogonalität ist dabei sehr zentral.
 
-```{admonition} Definition: orthogonal
+```{prf:definition} orthogonal
+:label: my-def-orthogonal
+
 Es sei $V$ ein Hilbertraum.
 
 * Zwei Elemente $x,y \in V$ heissen *orthogonal* ($x\perp y$), wenn
@@ -832,15 +894,20 @@ Es sei $V$ ein Hilbertraum.
 
 Es gilt
 
-```{admonition} Satz: Pythagoras
+```{prf:theorem} Pythagoras
+:label: my-thm-pythagoras
+
 Es sei $V$ ein Hilbertraum und seien $x,y \in V$ mit $x\perp y$. Dann gilt
 
 $$\|x+y\|^2 = \|x\|^2 + \|y\|^2.$$
 ```
+````{prf:proof}
+Einfaches Nachrechnen.
+````
 
-**Beweis**: Einfaches Nachrechnen.
+```{prf:theorem}
+:label: my-thm-unterraum
 
-```{admonition} Satz
 Es sei $V$ ein Hilbertraum und $M$ eine beliebige Teilmenge von $V$. Dann ist der Orthogonalraum $M^\perp$ von $M$ ein abgeschlossener Unterraum von $V$.
 ```
 
@@ -848,7 +915,9 @@ Für den Beweis sei auf {cite:p}`burg_wille_haf_meister_PDE` S. 50 verwiesen.
 
 Wir kommen nun auf das Approximationsproblem aus {ref}`BestapproximationMetrisch` zurück und können die Struktureigenschaften des Hilbertraumes nutzen:
 
-```{admonition} Satz
+```{prf:theorem}
+:label: my-thm-eigabUR
+
 Es sei $V'$ ein abgeschlossener Unterraum von $V$ und $x\in V$ beliebig. 
 * Dann existiert genau ein $x_0 \in V'$ mit
 
@@ -863,7 +932,9 @@ Es sei $V'$ ein abgeschlossener Unterraum von $V$ und $x\in V$ beliebig.
 
 Für den Fall, dass $V'$ endlich-dimensional ist, lässt sich das bestapproximierende Element konstruieren. Es gilt
 
-```{admonition} Satz
+```{prf:theorem}
+:label: my-thm-bestapprox
+
 Sei $V'\subset V$ mit $\dim V' < \infty$ ein Unterraum des Hilbertraumes $V$ und sei $x_1, \ldots, x_n$ eine Basis von $V'$. Dann lässt sich das eindeutig bestimmte bestapproximierende Element $x_0\in V'$ an $x\in V$ in der Form
 
 $$x_0 = \sum_{k=1}^n \lambda_k x_k$$
@@ -879,7 +950,9 @@ $$(x,x_i) - \sum_{k=1}^n \lambda_k (x_k,x_i) = 0 \quad i = 1, \ldots, n$$ (eq:be
 gegeben sind.
 ```
 
-**Bemerkung**: Bildet $x_k$, $k=1,\ldots, n$ ein *Orthonormalsystem*
+```{prf:remark}
+Bildet $x_k$, $k=1,\ldots, n$ ein *Orthonormalsystem*
+```
 
 $$(x_i,x_k) = \delta_{i k} = \begin{cases}
 0\quad \text{für}\ i\not= k\\
@@ -892,7 +965,9 @@ Die Koeffzienten $\lambda_i$ nennt man auch Fourierkoeffizienten!
 
 > Wir werden zeigen, dass sich mit Hilfe des Schmidtschen Orthogonalisierungsverfahrens aus $n$ linear unabhängigen Elementen stets ein Orthogonalsystem konstruieren lässt.
 
-```{admonition} Definition: Orthonormalsystem (ONS)
+```{prf:definition} Orthonormalsystem (ONS)
+:label: my-def-ONS
+
 Es sei $V$ ein Hilbertraum. Man nennt die Folge $\{x_k\}_{k\in\mathbb{N}}$ ein (abzählbares) *Orthonormalsystem* (kurz ONS) von $V$, wenn 
 
 $$(x_j, x_k) = \delta_{i k} = \begin{cases}
@@ -912,7 +987,9 @@ ein ONS.
 
 Es gilt ganz allgemein:
 
-```{admonition} Satz: Orthogonalisierungsverfahren nach Erhard Schmidt
+```{prf:theorem} Orthogonalisierungsverfahren nach Erhard Schmidt
+:label: my-thm-ErhardSchmidt
+
 Gegeben sei eine abzählbare (nicht zwingend endliche) linear unabhängige Folge $\{y_k\} \subset V$ aus dem Hilbertraum $V$. Dann gibt es ein ONS aus $n$ bzw. abzählbar unendlich viele Elementen $\{x_k\}$ so, dass der von der Folge $\{y_k\}$ aufgespannte (abgeschlossene) Unterraum mit dem der Folge $\{x_k\}$ aufgespannten (abgeschlossene) Unterraum übereinstimmt.
 ```
 
@@ -930,7 +1007,9 @@ $$x_{k+1} = \frac{z_{k+1}}{\|z_{k+1}\|}$$
 
 folgt $\mathop{span}\{y_1, \ldots, y_{k+1}\} = \mathop{span}\{x_1,\ldots, x_{k+1}\}$.
 
-**Bemerkung**: Das Verfahren wird auch in der Numerik angewandt.
+```{prf:remark}
+Das Verfahren wird auch in der Numerik angewandt.
+```
 
 :::{seealso}
 [Beispiel für das Orthogonalisierungsverfahren.](BeispielOrthogonalisierungSchmidt.ipynb)
@@ -938,7 +1017,8 @@ folgt $\mathop{span}\{y_1, \ldots, y_{k+1}\} = \mathop{span}\{x_1,\ldots, x_{k+1
 
 Die Elemente eines Hilbertraumes können mit Hilfe eines vollständigen Orthogonalsystems dargestellt werden. Dies gelingt mit Hilfe der _verallgemeinerten Fourierreihen_:
 
-```{admonition} Satz: Fourierentwicklung
+```{prf:theorem} Fourierentwicklung
+:label: my-thm-Fourierentwicklung
 
 Sei $V$ ein Hilbertraum mit einem vollständigen ONS $\{x_k\}_{k\in\mathbb{N}}$.
 * Dann lässt sich jedes $x\in V$ in der Summenform
@@ -953,9 +1033,13 @@ Sei $V$ ein Hilbertraum mit einem vollständigen ONS $\{x_k\}_{k\in\mathbb{N}}$.
 * Umgekehrt gibt es zu jeder Zahlenfolge $\{a_k\}_{k\in\mathbb{N}}$ in $\mathbb{K}$, für die $\sum_{k=1}^\infty |a_k|^2$ konvergiert, genau ein $x\in V$ mit $x=\sum_{k=1}^\infty a_k x_k$.
 ```
 
-**Bemerkung**: Aufgrund der Darstellung $x = \sum_{k=1}^\infty a_k\,x_k$ nennt man ein vollständiges ONS auch eine *Hilbertraumbasis*.
+```{prf:remark}
+Aufgrund der Darstellung $x = \sum_{k=1}^\infty a_k\,x_k$ nennt man ein vollständiges ONS auch eine *Hilbertraumbasis*.
+```
 
-```{admonition} Satz: Struktur von Hilberträumen
+```{prf:theorem} Struktur von Hilberträumen
+:label: my-thm-StrukturHR
+
 Es sei $V$ ein Hilbertraum und $\{x_k\}_{k\in\mathbb{N}}$ ein (abzählbares) ONS in $V$. Dann sind die folgenden Aussagen äquivalent:
 * $V = \overline{\underset{k\in\mathbb{N}}{\bigoplus} \mathop{span}(x_k)}$.
 * Das ONS $\{x_k\}_{k\in\mathbb{N}}$ ist abgeschlossen.

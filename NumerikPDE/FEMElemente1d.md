@@ -65,7 +65,11 @@ for order in [1,2,3]:
     plt.show()
 ```
 
-Für die Steifigkeit-Elementmatrizen erhalten wir
+Für die Steifigkeit-Elementmatrizen
+
+$$A_{i,j} = \int_0^1 \varphi_i'(x) \varphi_j'(x) dx$$
+
+erhalten wir
 
 ```{code-cell} ipython3
 :tags: [hide-input]
@@ -78,7 +82,11 @@ for order in [1,2,3]:
     print()
 ```
 
-Für die Massen-Elementmatrizen erhalten wir
+Für die Massen-Elementmatrizen
+
+$$A_{i,j} = \int_0^1 \varphi_i(x) \varphi_j(x) dx$$
+
+erhalten wir
 
 ```{code-cell} ipython3
 :tags: [hide-input]

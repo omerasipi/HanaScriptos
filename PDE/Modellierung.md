@@ -62,7 +62,7 @@ $$f(x) = r(x) +  \mathop{div} q(x).$$
 
 Setzt man die Terme für $q(x)$ und $r(x)$ ein, so erhalten wir die partielle Differentialgleichung zweiter Ordnung
 
-> $$-\mathop{div}(k\,\nabla T(x)) + \alpha\, T(x) = f(x) + \alpha\, T_0(x)\quad \forall\,x\in\Omega.$$
+$$-\mathop{div}(k\,\nabla T(x)) + \alpha\, T(x) = f(x) + \alpha\, T_0(x)\quad \forall\,x\in\Omega.$$
 
 Die möglichen Randbedingungen sind
 
@@ -78,7 +78,9 @@ Die möglichen Randbedingungen sind
 
   $$-k\,\frac{\partial T}{\partial n}(x) + \alpha\, T(x) = g(x)\quad \forall x\in\Gamma_R.$$
 
-**Bemerkung**: Die hier vorgestellte Bilanzierung lässt sich analog in beliebig dimensionale Räume übertragen und gilt daher identisch auch im $\mathbb{R}^3$.
+```{prf:remark}
+Die hier vorgestellte Bilanzierung lässt sich analog in beliebig dimensionale Räume übertragen und gilt daher identisch auch im $\mathbb{R}^3$.
+```
 
 ## Partielle Differentialgleichungen erster Ordnung
 
@@ -131,7 +133,9 @@ $$u(x) = u_g(x)\quad \text{für}\ x\in\Gamma_{\text{in}}.$$
 
 Am Ausflussrand ergibt sich die Konzentration aus der Differentialgleichung.
 
-**Bemerkung**: Für die numerische Berechnung von Lösungen dieses Types von partiellen Differentialgleichungen bieten sich Finite Volumen Methoden (FVM) an. Die Methoden haben den Vorteil, dass die Massenerhalten per Konstruktion exakt erfüllt wird, was bei gewöhnlichen Finite Element Methoden nicht per se gegeben ist. Neue diskontinuierliche FEM Methoden lösen dieses Problem. In diesem Kurs können wir auf die Thematik nicht eingehen.
+```{prf:remark}
+Für die numerische Berechnung von Lösungen dieses Types von partiellen Differentialgleichungen bieten sich Finite Volumen Methoden (FVM) an. Die Methoden haben den Vorteil, dass die Massenerhalten per Konstruktion exakt erfüllt wird, was bei gewöhnlichen Finite Element Methoden nicht per se gegeben ist. Neue diskontinuierliche FEM Methoden lösen dieses Problem. In diesem Kurs können wir auf die Thematik nicht eingehen.
+```
 
 ```{seealso}
 [Discontinuous Galerkin Discretizations for linear transport](https://docu.ngsolve.org/latest/i-tutorials/unit-3.3-scalardg/scalardg.html)

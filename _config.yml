@@ -47,7 +47,6 @@ launch_buttons:
   # colab_url                 : "" # The URL of Google Colab (https://colab.research.google.com)
 
 sphinx:
-  extra_extensions: [sphinx_multitoc_numbering]
   config:
     language: de
     html_js_files :
@@ -55,3 +54,6 @@ sphinx:
       - webgui.js
     html_show_copyright: false
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  extra_extensions:
+    - sphinx_multitoc_numbering
+    - sphinx_proof

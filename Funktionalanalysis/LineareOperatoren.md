@@ -6,7 +6,9 @@ $$T(x) = T x = y,$$
 
 wobei $T: V \to W$ eine "lineare Abbildung", $V, W$ normierte Räume sind und $y\in W$ ein gegeben ist.
 
-```{admonition} Definition: lineare Abbildung
+```{prf:definition} lineare Abbildung
+:label: my-def-linabb
+
 Die _Abbildung_ $T$ des normierten Raumes $V$ in den normierten Raum $W$ heisst _linear_, wenn für alle $x,y \in V$ und alle $\alpha \in \mathbb{K}$
 
 $$T(x+y) = T x + T y$$
@@ -16,7 +18,9 @@ $$T(x+y) = T x + T y$$
 
 Analog zum Stetigkeitsbegriff aus der Analysis definiert man die Stetigkeit und Beschränktheit bei linearen Operatoren wie folgt:
 
-```{admonition} Definition: stetig
+```{prf:definition} stetig
+:label: my-def-stetig
+
 Sei $T: V\to W$ ein linearer Operator und $V, W$ normierte Räume. Der lineare Operator $T$ heisst *stetig* in $x_0\in V$, wenn es zu jedem $\varepsilon > 0$ ein $\delta = \delta(\epsilon, x_0)>0$ gibt, so dass
 
 $$\| T x- T x_0\|_W < \varepsilon\quad\text{für alle}\ x\in V \quad\text{mit}\ \|x-x_0\|_V < \delta$$
@@ -24,7 +28,9 @@ $$\| T x- T x_0\|_W < \varepsilon\quad\text{für alle}\ x\in V \quad\text{mit}\ 
 gilt. Man nennt $T$ *stetig in* $V$, wenn $T$ in jedem Punkt von $V$ stetig ist.
 ```
 
-```{admonition} Definition: beschränkt
+```{prf:definition} beschränkt
+:label: my-def-beschraenkt
+
 Es seien $V, W$ normierte Räume. Der lineare Operator $T: V \to W$ heisst *beschränkt*, wenn es eine Konstante $C>0$ mit
 
 $$\|T x\|_W \le C\, \|x\|_V\quad\forall\,x\in V$$ (eq:beschrlinop)
@@ -33,14 +39,18 @@ gibt.
 
 Die Menge aller linearen Abbildungen mit der sogenannten Operatornorm versehen, liefert uns wieder einen normierten Vektorraum. Die Operatornorm (vgl. Matrixnorm aus der Numerik oder linearen Algebra) ist gegeben durch
 
-```{admonition} Definition: Operatornorm
+```{prf:definition} Operatornorm
+:label: my-def-opnorm
+
 Die kleinste Zahl $C>0$ für die {eq}`eq:beschrlinop` gilt, heisst *Operatornorm von* $T$ und ist durch
 
 $$\|T\|_{V\to W} := \sup_{\substack{x\in V\\x\not= 0}} \frac{\|T x\|_W}{\|x\|_V}$$ (eq:operatornorm)
 
 definiert.
 ```
-**Bemerkung**: Mit der Norm von $T$ lässt sich die Ungleichung {eq}`eq:beschrlinop` auch in der Form
+
+```{prf:remark}
+Mit der Norm von $T$ lässt sich die Ungleichung {eq}`eq:beschrlinop` auch in der Form
 
 $$\|T x\|_W \le \|T\|_{V\to W}\ \|x\|_V$$ (eq:operatornormungleichung)
 
@@ -49,6 +59,7 @@ schreiben. Die Operatornorm lässt sich anstelle der Schreibweise {eq}`eq:operat
 $$\|T\|_{V\to W} = \sup_{\substack{x\in V\\x\not= 0}} \frac{\|T x\|_W}{\|x\|_V} = \sup_{\|x\|_V \le 1} \|T x\|_W$$
 
 schreiben.
+```
 
 :::{seealso}
 [Beispiel zur Operatornorm.](BeispielLineareOperatoren.ipynb)
@@ -56,13 +67,15 @@ schreiben.
 
 Zwischen stetigen und beschränkten Operatoren besteht der Zusammenhang
 
-```{admonition} Satz
+```{prf:theorem}
+:label: my-thm-beschrstetig
+
 Sei $T: V\to W$ ein linearer Operator und $V,W$ normierte Räume. Dann gilt
 
 $$T\ \text{ist beschränkt} \quad\Leftrightarrow \quad T\ \text{ist stetig.}$$
 ```
 
-**Beweis**:
+````{prf:proof}
 a) Sei $T$ beschränkt durch $C>0$ und $x_0\in V$ beliebig. Wir zeigen nun, dass es zu jedem $\varepsilon>0$ ein $\delta=\delta(x_0)$ gibt, so dass
 
 $$\| T x - T x_0\|_W < \epsilon\quad \forall \|x -x_0\|_V < \delta.$$
@@ -75,11 +88,17 @@ b) Sei nun $T$ auf $V$ stetig. Wir zeigen im Widerspruch, dass $T$ beschränkt i
 
 $$\|T y_k\|_W = \left\| T\left(\frac{x_k}{k \|x_k\|_V}\right)\right\|_W = \frac{\|T x_k\|_W}{k \|x_k\|_V} > 1$$ (eq:bewstetigbeschraenkt)
 
-für alle $k\in \mathbb{N}$. Andererseits gilt: $\|y_k\|_V = \frac{1}{k} \to 0$ für $k\to \infty$ bzw. $y_k \to 0$. Aus der Stetigkeit von $T$ in $0$ folgt $T y_k \to 0$ für $k\to\infty$, was im Widerspruch zu {eq}`eq:bewstetigbeschraenkt` steht. $\Box$
+für alle $k\in \mathbb{N}$. Andererseits gilt: $\|y_k\|_V = \frac{1}{k} \to 0$ für $k\to \infty$ bzw. $y_k \to 0$. Aus der Stetigkeit von $T$ in $0$ folgt $T y_k \to 0$ für $k\to\infty$, was im Widerspruch zu {eq}`eq:bewstetigbeschraenkt` steht.
+````
 
-> Bei linearen Operatoren sind Stetigkeit und Beschränktheit äquivalente Eigenschaften.
+```{prf:remark}
+Bei linearen Operatoren sind Stetigkeit und Beschränktheit äquivalente Eigenschaften.
+```
 
-**Beispiel**: Sei $V=W=C[a,b]$, $f\in C[a,b]$ und $\|f\| = \max_{a\le x \le b} |f(x)|$. Betrachte den *Integraloperator* $T$ mit
+```{prf:example}
+:label: my-example
+
+Sei $V=W=C[a,b]$, $f\in C[a,b]$ und $\|f\| = \max_{a\le x \le b} |f(x)|$. Betrachte den *Integraloperator* $T$ mit
 
 $$(T f)(x) := \int_a^b K(x,y) f(y) dy,\quad x\in [a,b]$$
 
@@ -102,8 +121,11 @@ mit $K: [a,b] \times [a,b] \to \mathbb{R}$ stetigem *Kern*.
   Damit ist $T$ bezüglich der Maximumsnorm beschränkt. Es gilt
 
   $$\|T\| = \sup_{\|f\|=1} \|T f\| \le M\, (b-a).$$
+```
 
-```{admonition} Satz
+```{prf:theorem}
+:label: my-thm-opnorm
+
 Seien $V, W$ normierte Räume und mit $L(V,W)$ die Menge aller beschränkten linearen Operatoren von $V$ in $W$ bezeichnet. Dann ist $L(V,W)$ bezüglich der Operatornorm
 
 $$\|T\| = \sup_{\substack{x\in V\\x\not= 0}} \frac{\|T x\|_W}{\|x\|_V}$$
@@ -118,13 +140,17 @@ Ist $V$ ein normierter Raum und $W$ ein *Banachraum*, dann ist $L(V,W)$ ein Bana
 
 Wir betrachten nun spezielle lineare Operatoren, welche in den zugrunde liegenden Zahlenkörper abbilden.
 
-```{admonition} Definition: lineares Funktional
+```{prf:definition} lineares Funktional
+:label: my-def-linfunktional
+
 Sei $V$ ein normierter Raum. Dann nennt man den linearen Operator $F: V \to \mathbb{K}$ ($\mathbb{R}$ oder $\mathbb{C}$) *lineares Funktional*.
 ```
 
 Wir werden den Begriff **Linearform** für lineare Funktionale und die **Bilinearform** im Folgenden häufig antreffen. 
 
-```{admonition} Definition: Linearform, Bilinearform
+```{prf:definition} Linearform, Bilinearform
+:label: my-def-linbilinform
+
 * Linearform $f(\cdot)$ ist eine Abbildung
 
   $$\begin{split} f: V & \to \mathbb{K}\\
@@ -136,7 +162,7 @@ Wir werden den Begriff **Linearform** für lineare Funktionale und die **Bilinea
   (u,v) & \mapsto A(u,v)\quad \text{linear in $u$ und $v$.}\end{split}$$ (eq:Bilinearform)
 ```
 
-**Bemerkungen**:
+```{prf:remark}
 * Die Linearform ist ein äquivalenter Begriff für ein lineares Funktional.
 
 * Der Stetigkeitsbegriff linearer Operatoren auf das lineare Funktional bzw. Linearform und auf die Bilinearform angewandt bedeutet:
@@ -148,6 +174,7 @@ Wir werden den Begriff **Linearform** für lineare Funktionale und die **Bilinea
   * die Bilinearform $A(u,v)$ heisst *stetig*, falls
 
     $$\exists\ C>0:\quad |A(u,v)| \le C\ \|u\|_V\,\|v\|_V\quad \forall\ u,v\in V.$$
+```
 
 Normiert man $\mathbb{K}$ mit
 
@@ -183,7 +210,9 @@ $$\|F\| = \sup_{\substack{x\in V\\x\not= 0}} \frac{\|F x\|}{\|x\|} = \|y_0\|.$$
 
 Wir kommen nun zum Rieszschen Darstellungssatz: Beschränkte lineare Funktionale eines Hilbertraumes $V$ lassen sich besonders einfach darstellen. Die Darstellung aus obigem Beispiel erfasst **alle** beschränkten linearen Funktionale. Es gilt
 
-```{admonition} Satz: Darstellungssatz von Riesz
+```{prf:theorem} Darstellungssatz von Riesz
+:label: my-thm-Riesz
+
 Sei $V$ ein Hilbertraum und $F\in V^*$ beliebig. Dann gibt es ein *eindeutig* bestimmtes $y\in V$, so dass $F$ die Darstellung
 
 $$F x = (x,y)\quad\forall x\in V$$
@@ -191,5 +220,6 @@ $$F x = (x,y)\quad\forall x\in V$$
 besitzt.
 ```
 
-**Bemerkung**: Dieser Satz ist das zentrale Ergebnis der Hilbertraum-Theorie. Neben seiner Bedeutung als Darstellungssatz kann er auch als Existenz- und Eindeutigkeitsprinzip aufgefasst werden. Diese Bedeutung des Rieszschen Satzes ist Grundlage für die moderne Theorie der elliptischen partiellen Differentialgleichungen (vgl. auch {numref}`chap:konvergenzanalyse`).
-
+```{prf:remark}
+Dieser Satz ist das zentrale Ergebnis der Hilbertraum-Theorie. Neben seiner Bedeutung als Darstellungssatz kann er auch als Existenz- und Eindeutigkeitsprinzip aufgefasst werden. Diese Bedeutung des Rieszschen Satzes ist Grundlage für die moderne Theorie der elliptischen partiellen Differentialgleichungen (vgl. auch {numref}`chap:konvergenzanalyse`).
+```

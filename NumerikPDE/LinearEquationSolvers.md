@@ -37,7 +37,9 @@ und die Schur-Komplement Gleichung um $u_2$ zu bestimmen
 
 $$\underbrace{(A_{22} - A_{21}A_{11}^{-1}A_{12})}_{=S}\,u_2 = f_2 - A_{21} A_{11}^{-1} f_1.$$
 
-```{admonition} Definition: Schur-Komplement
+```{prf:definition} Schur-Komplement
+:label: my-def-SchurKompl
+
 Die Matrix
 
 $$S = A_{22} - A_{21}A_{11}^{-1}A_{12}$$

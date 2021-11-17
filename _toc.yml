@@ -57,9 +57,9 @@ parts:
     chapters:
     - file: Applications/Applications.md
       sections:
-      - file: NumerikPDE/KonvektionsDiffusionsgleichungen.md
-      - file: NumerikPDE/ParabolicPDE.md
-      - file: NumerikPDE/hyperbolicPDE.md
+      - file: Applications/KonvektionsDiffusionsgleichungen.md
+      - file: Applications/ParabolicPDE.md
+      - file: Applications/hyperbolicPDE.md
   - caption: Appendix
     numbered: 3
     chapters:

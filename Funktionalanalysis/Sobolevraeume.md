@@ -10,7 +10,9 @@ Da der Fokus in der Bearbeitung von partiellen Differentialgleichungen liegt, we
 
 Sei daher das Integrationsgebiet bzw. der Definitionsbereich der Funktion gegeben durch $\Omega$ eine beliebige (nichtleere) offene Menge in $\mathbb{R}^n$. Mit $C(\Omega)$ bezeichnen wir die Menge aller stetigen Funktionen auf $\Omega$.
 
-```{admonition} Definition: Support
+```{prf:definition} Support
+:label: my-def-support
+
 Für $f\in C(\Omega)$ definieren wir den *Träger* oder *Support* von $f$ durch
 
 $$\mathop{Tr} f := \overline{\{x\in\mathbb{R}^n | f(x) \not=0 \}}.$$
@@ -31,7 +33,9 @@ name: fig-mehrdimensionalesIntegral
 Berechnung von $\int_\Omega f(x) dx$ in $\mathbb{R}^2$.
 ```
 
-```{admonition} Definition: $C_0^\infty(\Omega)$ und $L_2(\Omega)$
+```{prf:definition} $C_0^\infty(\Omega)$ und $L_2(\Omega)$
+:label: my-def-C0inftyL2
+
 Mit $C_0^\infty(\Omega)$ bezeichnen wir die Menge aller Funktionen, welche in $\Omega$ beliebig oft stetig differenzierbar sind und einen beschränkten in $\Omega$ enthaltenen Support haben.
 
 Mit der Quadratnorm
@@ -49,7 +53,9 @@ Man kann zeigen, dass sich die klassischen Funktionen aus $C_0^\infty(\Omega)$ i
 
 Man sagt in dem Fall, $C_0^\infty(\Omega)$ ist in $L_2(\Omega)$ *eingebettet*. Es gilt
 
-```{admonition} Satz
+```{prf:theorem}
+:label: my-thm-L2
+
 Es gilt:
 * $C_0^\infty(\Omega)$ liegt dicht in $L_2(\Omega)$
 * $\overline{C_0^\infty(\Omega)}$ ist vollständig.
@@ -60,7 +66,9 @@ Es gilt:
 
 Mit den Sobolevräumen kommt nun die Ableitung von Elemente aus dem $L_2(\Omega)$ ins Spiel. Wir definieren den Sobolevraum $H^k(\Omega)$ wie folgt
 
-```{admonition} Definition: Sobolevraum $H^k(\Omega)$
+```{prf:definition} Sobolevraum $H^k(\Omega)$
+:label: my-def-Sobolevraum
+
 Unter dem Sovolevraum $H^k(\Omega)$ versteht man den linearen Raum aller linearen Funktionale $F$ auf $C_0^\infty(\Omega)$, für die $F$ und sämtliche Ableitungen $D^pF$ der Ordnung $|p|\le m$ zu $L_2(\Omega)$ gehören:
 
 $$H^k(\Omega) := \{F\in L_2(\Omega) | D^p F \in L_2(\Omega), |p|\le k\}.$$
@@ -99,7 +107,9 @@ $$\frac{\partial}{\partial x} F_u = - F_u (\frac{\partial \varphi}{\partial x})\
 Damit können wir eine verallgemeinerte Ableitung definieren, welche auch auf Funktionen $u(x)$, welche selber nicht im klassischen Sinne differenzierbar sind, anwendbar ist:
 
 
-```{admonition} Definition: Verallgemeinerte Ableitung (generalized derivative)
+```{prf:definition} Verallgemeinerte Ableitung (generalized derivative)
+:label: my-def-VerallgAbleitung
+
 Für $u\in L_2(\Omega)$ definieren wir $g \in L_2(\Omega)$ als die verallgemeinerte Ableitung $D^pu$ von $u$ wobei
 
 $$\int_\Omega g(x) \varphi(x) dx = (-1)^{|p|} \int_\Omega u(x) D^p\varphi dx\quad \forall\ \varphi\in C_0^\infty(\Omega).$$ (eq:VerallgemeinerteAbleitung)
@@ -138,7 +148,7 @@ Der Raum $L_1^{\text{loc}}$ beinhaltet Funktionen, welche sich sehr schlecht in 
 
 $$\int_{\mathbb{R}^n} 1 dx = \infty.$$
 
-```{admonition} Definition: Sobolev Räume $W_p^k(\Omega)$
+```{prf:definition} Sobolev Räume $W_p^k(\Omega)$
 Sei $k\in\mathbb{N}_0$ und $1 \le p < \infty$, dann definieren wir die Sobolev Normen mit
 
 $$\|u\|_{W_p^k(\Omega)} := \left(\sum_{|\alpha|\le k} \int_\Omega |D^\alpha u(x)|^p dx \right)^{1/p}$$
@@ -150,7 +160,9 @@ $$W_p^k(\Omega) = \big\{u\in L_1^{\text{loc}}(\Omega) | \|u\|_{W_p^k(\Omega)} < 
 
 Ohne Beiweis gilt der Satz
 
-```{admonition} Satz
+```{prf:theorem}
+:label: my-thm-Sobolev
+
 Die Sobolev Räume $W_p^k(\Omega)$ sind Banach Räume. Die Sobolev Räume $W_2^k(\Omega) = H^k(\Omega)$ sind Hilberträume.
 ```
 
