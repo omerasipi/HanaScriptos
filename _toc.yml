@@ -44,6 +44,7 @@ parts:
         sections:
         - file: NumerikPDE/FEMElemente1d.md
         - file: NumerikPDE/FEMElemente2d.ipynb
+        - file: NumerikPDE/FEM1D_Assembling_HighOrder.ipynb
       - file: NumerikPDE/LinearEquationSolvers.md
         sections:
         - file: NumerikPDE/MatrixStrukturMesh.ipynb

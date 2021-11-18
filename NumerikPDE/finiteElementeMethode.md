@@ -35,7 +35,7 @@ Der folgende Satz von Lax-Milgram liefert uns die Existenz von Lösungen für un
 ```{prf:theorem} Satz von Lax-Milgram
 :label: my-thm-LaxMilgram
 
-Sei $V$ ein Hilbertraum, $f: V\to \mathbb{K}$ eine stetige Linearform und $A: V\times V\to \mathbb{K}$ eine stetige Bilinearform. Zu dem sei $A$ auf einem Teilraum $V_0\subset V$ **koerziv**. Dann hat das Variationsproblem: gesucht $u\in V_g$ so, dass
+Sei $V$ ein Hilbertraum, $f: V\to \mathbb{K}$ eine **stetige** Linearform und $A: V\times V\to \mathbb{K}$ eine **stetige** Bilinearform. Zu dem sei $A$ auf einem Teilraum $V_0\subset V$ **koerziv**. Dann hat das Variationsproblem: gesucht $u\in V_g$ so, dass
 
 $$A(u,v) = f(v)\quad \forall v\in V_0$$
 
@@ -43,7 +43,7 @@ und $V_g$ eine lineare Mannigfaltigkeit, gegeben durch
 
 $$V_g = u_g + V_0 := \{u_g + v_0\,|\, v_0\in V_0\}$$
 
-eine *eindeutige* Lösung.
+eine **eindeutige** Lösung.
 ```
 
 Wir betrachten das etwas allgemeinere Problem als in der Gleichung {eq}`eq:weakProblemPoisson2` zugrunde liegende: 
@@ -179,7 +179,7 @@ $$ (eq:femlokalglobal)
 
 Sei nun $\tilde{\varphi}(t)$ die auf dem Einheitsintervall $[0,1]$ definierte Basisfunktion, dann gilt
 
-$$\tilde{\varphi}(t) = \varphi(\sigma_i(t)).$$
+$$\tilde{\varphi}(t) = \varphi(\sigma_i(t)).$$ (eq:femlokalbasisfkt)
 
 Für die Ableitung folgt somit
 
@@ -228,7 +228,7 @@ Man nennt die Matrix
 
 $$A_e = \int_0^1 \tilde{\varphi}_j'(x)\cdot \tilde{\varphi}_k'(x) dx \quad \text{für}\ j,k = 0, \ldots, p$$
 
-**Elementsteiffigkeitsmatrix**
+**Elementsteifigkeitsmatrix**
 
 und 
 
@@ -273,6 +273,10 @@ Das Assembling der Systemmatrix (Matrix der Bilinearform) des Einstiegsbeispiels
 ```{code-cell} ipython3
 :tags: [hide-cell, remove-output]
 import numpy as np
+from pandas import DataFrame
+def highlight_ortho(s):
+    is_ortho = np.abs(s) < 1e-13
+    return ['background-color: yellow' if v else '' for v in is_ortho]
 import matplotlib.pyplot as plt
 from myst_nb import glue
 
@@ -280,7 +284,7 @@ def uanalytic(x):
     return -0.5*x*(x-1)
 ```
 ```{code-cell} ipython3
-# Elementsteiffigkeitsmatrix
+# Elementsteifigkeitsmatrix
 order = 1
 Ae = np.array([[1,-1],[-1,1]])
 
@@ -374,8 +378,6 @@ name: FEM_1d_p1_solutionexmp_fig2
 FEM 1d affine Basisfunktionen
 ```
 
-
-
 ### Zweidimensionaler Fall
 
 Eine reguläre Triangulierung $\mathcal{T} = \{T_1, \ldots, T_M\}$ eines Gebiets $\Omega$ ist die Zerlegung in Dreiecke $T_i$ so, dass $\bar{\Omega} = \cup_i T_i$ und $T_i\cap T_j$ ist
@@ -403,76 +405,135 @@ x & = x_1 + (x_2-x_1)\, \xi + (x_3-x_1)\, \eta\\
 y & = y_1 + (y_2-y_1)\, \xi + (y_3-y_1)\, \eta
 \end{split}$$
 
-bijektiv auf das Einheitsdreieck $T$ abgebildet werden. Das Flächenelement $dx dy$ kann mit der Jacobi-Determinante
+bijektiv auf das Einheitsdreieck $T$ abgebildet werden. Für das Dreieck $T_i$ gegeben durch die drei Punkte $\vec{p}_{i,1}, \vec{p}_{i,2}, \vec{p}_{i,3}$ definieren wir die Matrix
 
-$$J = (x_2-x_1)(y_3-y_1) - (x_3-x_1)(y_2-y_1)$$
+$$A_i = (\vec{p}_{i,2}-\vec{p}_{i,1},\ \vec{p}_{i,3}-\vec{p}_{i,1}) \in \mathbb{R}^{2\times 2}.$$
 
-der Transformation durch
+Damit können wir die Transformation wie folgt schreiben
 
-$$dx\, dy = J\, d\xi\, d\eta$$
+$$\begin{array}{rl}\sigma_i : T & \to  T_i\\
+\vec{t} & \mapsto \begin{pmatrix}x\\ y\end{pmatrix} = \sigma_i(\xi,\eta) = \vec{p}_{i,1} + A_i\cdot \begin{pmatrix}\xi\\\eta\end{pmatrix}\end{array}$$
 
-ersetzt werden. Die partiellen Ableitungen transformieren sich nach der Kettenregel gemäss
+bzw. die inverse Transformation
+
+$$\begin{array}{rl}\sigma_i^{-1} : T_i & \to T\\
+\vec{x} & \mapsto \begin{pmatrix}\xi\\ \eta\end{pmatrix} = \sigma_i^{-1}(x,y) = A_i^{-1}\cdot\left(\begin{pmatrix}x\\ y\end{pmatrix} - \vec{p}_{i,1}\right)\end{array} 
+$$
+
+
+Das Flächenelement $dx dy$ kann mit der Jacobi-Determinante $J = \det A_i$ der Transformation durch $dx\, dy = J\, d\xi\, d\eta$ ersetzt werden. Die Basisfunktion $\varphi$ auf dem Element $T_i$ kann (analog zum eindimensionalen Fall) mit Hilfe der Basisfunktion $\tilde{\varphi}$ auf dem Referenzelement beschrieben werden. Es gilt
+
+$$\varphi(\vec{x}) = \tilde{\varphi}(\sigma_i^{-1}(\vec{x})).$$ (eq:femlokalbasisfkt2d)
+
+analog zu {eq}`eq:femlokalbasisfkt`. Für die Jacobimatrix folgt mit Hilfe der Kettenregel
+
+$$D\varphi(\vec{x}) = D\tilde{\varphi}(\sigma_i^{-1}(\vec{x}))\cdot \underbrace{D\sigma_i^{-1}(\vec{x})}_{=A_i^{-1}}$$
+
+und damit für den Gradient
+
+$$\nabla \varphi(\vec{x}) = D\varphi(\vec{x})^T = (D\tilde{\varphi}(\sigma_i^{-1}(\vec{x}))\cdot A_i^{-1})^T = {A_i^{-1}}^T\cdot \nabla \tilde{\varphi}(\sigma_i^{-1}(\vec{x})).$$
+
+Für das Gebietesintegral folgt somit
+
+$$\int_{T_i} \nabla \varphi_j(\vec{x})\cdot \nabla \varphi_k(\vec{x}) dx dy = \int_{T} \nabla \tilde{\varphi}_j(\vec{t})\cdot C_i\cdot \nabla \tilde{\varphi}_k(\vec{t})\, J\, d\xi d\eta$$ (eq:Elementsteifigkeitmatrix2d)
+
+mit 
+
+$$C_i = {A_i^{-1}}\cdot {A_i^{-1}}^T$$
+
+und für die Massenmatrix
+
+$$\int_{T_i} \varphi_j(\vec{x})\cdot \varphi_k(\vec{x}) dx dy = \int_{T} \tilde{\varphi}_j(\vec{t}) \tilde{\varphi}_k(\vec{t})\, J\, d\xi d\eta.$$ (eq:Elementmassenmatrix2d)
+
+**Beispiel**: Betrachten wir Basisfunktionen erster Ordnung 
 
 $$\begin{split}
-u_x & = u_\xi \xi_x + u_\eta \eta_x\\
-u_y & = u_\xi \xi_y + u_\eta \eta_y.
-\end{split}$$
+\tilde{\varphi}_0(\xi,\eta) & = 1-\xi-\eta\\
+\tilde{\varphi}_1(\xi,\eta) & = \xi\\
+\tilde{\varphi}_2(\xi,\eta) & = \eta\end{split}$$
 
-Die Gebietesintegrale transformieren sich somit
+auf dem Einheitsdreieck, gegeben durch die Punkte $(0,0), (1,0), (0,1)$.
 
-$$\int_{T_i} \nabla \varphi_j \cdot \nabla \varphi_k dx dy = a \underbrace{\int_T (\partial_\xi\varphi_j) (\partial_\xi\varphi_k) dx}_{=:S_1} + b \underbrace{2 \int_T (\partial_\xi\varphi_j) (\partial_\eta\varphi_k) dx}_{S_2} + c \underbrace{\int_T (\partial_\eta\varphi_j) (\partial_\eta\varphi_k) dx}_{S_3}$$
+```{code-cell} ipython3
+# Basisfunktionen auf dem Referenzelement
+def myshape(t, j):
+    xi, eta = t
+    if j == 0:
+        return 1-xi-eta
+    elif j == 1:
+        return xi
+    else:
+        return eta
 
-mit
+# Gradienten der Basisfunktionen auf dem Referenzelement
+def Dmyshape(t, j):
+    if j == 0:
+        return np.array([-1,-1])
+    elif j == 1:
+        return np.array([1,0])
+    else:
+        return np.array([0,1])
+```
 
-$$\begin{split}
-a & = \frac{1}{J} ((x_3-x_1)^2+(y_3-y_1)^2)\\
-b & = -\frac{1}{J} ((x_3-x_1)(x_2-x_1)+(y_3-y_1)(y_2-y_1))\\
-c & = \frac{1}{J} ((x_2-x_1)^2 + (y_2-y_1)^2)\\
-J & = (x_2-x_1)(y_3-y_1) - (x_3-x_1)(y_2-y_1)
-\end{split}$$
+Die inverse Jacobi-Matrix der Transformation ist gegeben durch
 
-Für die Elementmatrizen mit lokalen Basisfunktionen gegeben durch Polynomen 1. Ordnung ergibt sich
+```{code-cell} ipython3
+def invDsigma(p1,p2,p3):
+    return np.linalg.inv(np.array([(p2-p1),(p3-p1)]).T)
+```
 
-$$\begin{split}
-S_e & = a S_1 + b S_2 + c S_3\\
-M_e & = J S_4
-\end{split}$$
+Damit können wir für ein beliebiges Dreieck die Elementsteifigkeitsmatrix {eq}`eq:Elementsteifigkeitmatrix2d` wie folgt berechnen
 
-mit
+```{code-cell} ipython3
+# Berechnung der C_i Matrix und Jacobi Determinante
+def CnJ(p1,p2,p3):
+    A = np.array([(p2-p1),(p3-p1)]).T
+    invA = np.linalg.inv(A)
+    return invA@invA.T, np.linalg.det(A)
 
-$$\begin{split}
-S_1 & = \frac{1}{2}\begin{pmatrix}
- 1 & -1 & 0\\
- -1 & 1 & 0\\
- 0 & 0 & 0	
- \end{pmatrix}
-\quad
-S_2 = \frac{1}{2}\begin{pmatrix}
- 2 & -1 & -1\\
- -1 & 0 & 1\\
- -1 & 1 & 0	
- \end{pmatrix}\\
- S_3 & = \frac{1}{2}\begin{pmatrix}
- 1 & 0 & -1\\
- 0 & 0 & 0\\
- -1 & 0 & 1	
- \end{pmatrix}
- \quad
- S_4 = \frac{1}{24}\begin{pmatrix}
- 2 & 1 & 1\\
- 1 & 2 & 1\\
- 1 & 1 & 2	
- \end{pmatrix}.
-\end{split}$$
+# Gebietsintegration über Einheitsdreieck
+from scipy.integrate import dblquad
+def quadT(f):
+    return dblquad(f, 0, 1, 0, lambda x: 1-x)[0]
 
-> Es erweist sich mathematisch wie auch Software technisch als bedeutend effizienter, die Berechnung der System Matrizen über die Triangulierung zu berechnen und die einzelnen Beiträge in der globalen Matrix aufzukummulieren. Diesen Prozess nennt man **Assembling**.
->
-> Allgemein können wir dies in der Form
->
-> $$A = \sum_{T \in \mathcal{T}} C_T A_T C_T^T$$
->
-> und 
->
-> $$f = \sum_{T \in \mathcal{T}} C_T f_T$$
->
-> schreiben, wobei $C_T$ die Verknüpfung zwischen lokalen und globalen Funktionen darstellt.
+# Integration über Dreieck gegeben durch (1,1), (1.5,-1), (2,1.2)
+Ci, Ji = CnJ(np.array([1,1]),np.array([1.5,-1]),np.array([2,1.2]))
+
+Ai = np.array([[ quadT(lambda x,y: Dmyshape([x,y], j)@Ci@Dmyshape([x,y], k)*Ji)
+           for k in range(3)] for j in range(3)])
+Ai = DataFrame(Ai)
+Ai.style.\
+    apply(highlight_ortho).\
+    set_table_attributes('style="font-size: 12px"')
+```
+
+Für die Elementmassenmatrix {eq}`eq:Elementmassenmatrix2d` folgt
+
+```{code-cell} ipython3
+Bi = np.array([[ quadT(lambda x,y: myshape([x,y], j)*myshape([x,y], k)*Ji)
+           for k in range(3)] for j in range(3)])
+Bi = DataFrame(Bi)
+Bi.style.\
+    apply(highlight_ortho).\
+    set_table_attributes('style="font-size: 12px"')
+```
+
+Das Assembling des Gesamtsystems erfolgt mit dem Algorithmus {prf:ref}`my-alg-AssemnlingBilinearform` und der Abbildung der Freiheitsgrade $T$ analog zu {eq}`eq:lokalglobalMapping` für den zweidimensionalen Fall
+
+$$T: \{0,1,\ldots, n\} \times \{0,1,2\} \to \{0,1,\ldots, N\},$$
+
+wobei $N$ im Fall von Elemente erster Ordnung die Anzahl Knoten und $n$ die Anzahl Elemente (Dreiecke).
+
+```{prf:remark}
+Es erweist sich mathematisch wie auch Software technisch als bedeutend effizienter, die Berechnung der System Matrizen über die Triangulierung zu berechnen und die einzelnen Beiträge in der globalen Matrix aufzukummulieren. Diesen Prozess nennt man **Assembling**.
+
+Allgemein können wir dies in der Form
+
+$$A = \sum_{T \in \mathcal{T}} C_T A_T C_T^T$$
+
+und 
+
+$$f = \sum_{T \in \mathcal{T}} C_T f_T$$
+
+schreiben, wobei $C_T$ die Verknüpfung zwischen lokalen und globalen Funktionen darstellt.
+```
