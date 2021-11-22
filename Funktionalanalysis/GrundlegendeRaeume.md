@@ -128,6 +128,8 @@ Ein $\mathbb{K}$-Vektorraum ist ein Tripel $(V, +, \cdot)$ mit den Eigenschaften
 ```
 
 ```{prf:remark}
+:label: my-rm-vektoren
+
 Wenn man in einem allgemeinen Kontext von Vektoren spricht, so meint man damit die Elemente eines Vektorraumes. Spricht man von Skalaren, so sind die Elemente des zugrundeliegenden Körpers gemeint.
 ```
 
@@ -440,6 +442,8 @@ Betrachten wir ein paar Beispiele:
    versehen ist vollständig.
 
 ```{prf:remark}
+:label: my-rm-integeralmetrik
+
 $C[a,b]$ ist bezüglich der Integralmetrik
 
 $$d(x,y) = \left(\int_a^b |x(t)-y(t)|^p dt \right)^{1/p},\quad 1\le p < \infty$$ (eq:LpMetrik)
@@ -633,6 +637,8 @@ Wie in der linearen Algebra sind folgende Begriffe analog definiert
 ```
 
 ```{prf:remark}
+:label: my-rm-unendlichdimfuncraeume
+
 Die oben erwähnten Funktionenräume $C[a,b]$, $C^k[a,b]$, Polynome sind unendlich-dimensional. Ebenso ist der Folgenraum $l_p$ unendlich-dimensional:
 
 > Man betrachte
@@ -659,6 +665,8 @@ erklärte Ausdruck heisst *Norm* von $x$.
 ```
 
 ```{prf:remark}
+:label: my-rm-grmetrik
+
 * Neben der kurzen Schreibweise $V$, verwendet man häufig auch die Bezeichnung $(V, \|\cdot\|)$. Der Punkt in $\|\cdot\|$ ist als Platzhalter zu verstehen.
 * Führt man den normierten Raum $V$ mit Hilfe einer Norm ein, so ist durch
 
@@ -951,6 +959,8 @@ gegeben sind.
 ```
 
 ```{prf:remark}
+:label: my-rm-orthogonalsystem
+
 Bildet $x_k$, $k=1,\ldots, n$ ein *Orthonormalsystem*
 ```
 
@@ -1008,6 +1018,8 @@ $$x_{k+1} = \frac{z_{k+1}}{\|z_{k+1}\|}$$
 folgt $\mathop{span}\{y_1, \ldots, y_{k+1}\} = \mathop{span}\{x_1,\ldots, x_{k+1}\}$.
 
 ```{prf:remark}
+:label: my-rm-numschmidt
+
 Das Verfahren wird auch in der Numerik angewandt.
 ```
 
@@ -1034,6 +1046,8 @@ Sei $V$ ein Hilbertraum mit einem vollständigen ONS $\{x_k\}_{k\in\mathbb{N}}$.
 ```
 
 ```{prf:remark}
+:label: my-rm-hilbertbasis
+
 Aufgrund der Darstellung $x = \sum_{k=1}^\infty a_k\,x_k$ nennt man ein vollständiges ONS auch eine *Hilbertraumbasis*.
 ```
 

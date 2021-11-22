@@ -17,6 +17,8 @@ kernelspec:
 Das Kapitel baut auf dem Buch {cite:p}`VariationsrechnungKielhoefer` auf.
 
 ```{prf:remark}
+:label: my-rm-var1
+
 Sämtliche Aussagen im Kapitel können auch für stückweise stetige oder stetig differenzierbare Funktionen gezeigt werden. Der Einfachheit schreiben wir jedoch nur $C^0[a,b]$ bzw. $C^1[a,b]$.
 ```
 

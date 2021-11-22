@@ -157,6 +157,8 @@ print('L2 error = ', errorCont)
 ```
 
 ```{prf:remark}
+:label: my-rm-KonvDiffEq
+
 Auch im 2D, 3D muss man bei Konvektions-Diffusionsgleichungen sehr vorsichtig sein. Das Problem zeigt sich dort ebenso. Sallop formuliert entsteht das Problem, wenn die Dynamik der Lösung mit dem gegebenen Mesh nicht abgebildet werden kann. Der numerische Ansatz wird **instabil**.
 ```
 

@@ -262,6 +262,8 @@ Die **globalen Matrizen** können daher mit lokalen Elementmatrizen wie folgt be
 ```
 
 ```{prf:remark}
+:label: my-rm-numpde1
+
 * Im Fall, dass die zu lösende Differentialgleichung konstante Koeffizienten hat, kann die Elementmatrix vorab berechnet werden.
 * Sind ortsabhängige Koeffizienten vorhanden, muss die Elementmatrix für jedes Element lokal berechnet werden. Die Definition der Basisfunktionen (shape functions) erfolgt auch in dem Fall nur auf dem Referenzelement.
 ```
@@ -433,17 +435,17 @@ und damit für den Gradient
 
 $$\nabla \varphi(\vec{x}) = D\varphi(\vec{x})^T = (D\tilde{\varphi}(\sigma_i^{-1}(\vec{x}))\cdot A_i^{-1})^T = {A_i^{-1}}^T\cdot \nabla \tilde{\varphi}(\sigma_i^{-1}(\vec{x})).$$
 
-Für das Gebietesintegral folgt somit
+Für die Elementsteifigkeitsmatrix folgt somit
 
-$$\int_{T_i} \nabla \varphi_j(\vec{x})\cdot \nabla \varphi_k(\vec{x}) dx dy = \int_{T} \nabla \tilde{\varphi}_j(\vec{t})\cdot C_i\cdot \nabla \tilde{\varphi}_k(\vec{t})\, J\, d\xi d\eta$$ (eq:Elementsteifigkeitmatrix2d)
+$$\int_{T_i} \nabla \varphi_j(\vec{x})\cdot \nabla \varphi_k(\vec{x}) dx dy = \int_{T} \nabla \tilde{\varphi}_j(\vec{t})\cdot C_i\cdot \nabla \tilde{\varphi}_k(\vec{t})\, J_i\, d\xi d\eta \quad \text{für}\ j,k = 0,1,\ldots, N_e$$ (eq:Elementsteifigkeitmatrix2d)
 
 mit 
 
 $$C_i = {A_i^{-1}}\cdot {A_i^{-1}}^T$$
 
-und für die Massenmatrix
+und für die Elementmassenmatrix
 
-$$\int_{T_i} \varphi_j(\vec{x})\cdot \varphi_k(\vec{x}) dx dy = \int_{T} \tilde{\varphi}_j(\vec{t}) \tilde{\varphi}_k(\vec{t})\, J\, d\xi d\eta.$$ (eq:Elementmassenmatrix2d)
+$$\int_{T_i} \varphi_j(\vec{x})\cdot \varphi_k(\vec{x}) dx dy = \int_{T} \tilde{\varphi}_j(\vec{t}) \tilde{\varphi}_k(\vec{t})\, J_i\, d\xi d\eta \quad \text{für}\ j,k = 0,1,\ldots, N_e.$$ (eq:Elementmassenmatrix2d)
 
 **Beispiel**: Betrachten wir Basisfunktionen erster Ordnung 
 
@@ -452,7 +454,7 @@ $$\begin{split}
 \tilde{\varphi}_1(\xi,\eta) & = \xi\\
 \tilde{\varphi}_2(\xi,\eta) & = \eta\end{split}$$
 
-auf dem Einheitsdreieck, gegeben durch die Punkte $(0,0), (1,0), (0,1)$.
+auf dem Einheitsdreieck, gegeben durch die Punkte $(0,0), (1,0), (0,1)$. In dem Fall gilt $N_e = 2$.
 
 ```{code-cell} ipython3
 # Basisfunktionen auf dem Referenzelement
@@ -507,6 +509,35 @@ Ai.style.\
     set_table_attributes('style="font-size: 12px"')
 ```
 
+Die Matrix $C_i$ kann analytisch berechnet werden so, womit die Invertierung hinfällig wird. Für $C_i\cdot J_i^2$ erhalten wir
+
+```{code-cell} ipython3
+:tags: [hide-input]
+from sympy import symbols, Matrix
+p1x,p1y, p2x,p2y, p3x,p3y, = symbols('p_1_x,p_1_y,p_2_x,p_2_y,p_3_x,p_3_y')
+p1 = np.array([p1x,p1y])
+p2 = np.array([p2x,p2y])
+p3 = np.array([p3x,p3y])
+A=Matrix(np.array([p2-p1,p3-p1]).T).as_immutable()
+J = A.det()
+invA=A.inverse().simplify()
+CJ2=invA@invA.T*J**2
+CJ2.simplify()
+```
+
+und damit
+
+$$C_i = \frac{1}{J_i^2} \begin{pmatrix}a_i & -c_i\\ -c_i & b_i\end{pmatrix}$$
+
+mit
+
+$$\begin{split}
+a_i & = \|\vec{p}_{i,3}-\vec{p}_{i,1}\|^2 = (p_{i,3,x}-p_{i,1,x})^2+(p_{i,3,y}-p_{i,1,y})^2\\
+b_i & = \|\vec{p}_{i,2}-\vec{p}_{i,1}\|^2 = (p_{i,2,x}-p_{i,1,x})^2+(p_{i,2,y}-p_{i,1,y})^2\\
+c_i & = (p_{i,2,x}-p_{i,1,x})(p_{i,3,x}-p_{i,1,x}) + (p_{i,2,y}-p_{i,1,y})(p_{i,3,y}-p_{i,1,y})\\
+J_i & = (p_{i,2,x}-p_{i,1,x})(p_{i,3,y}-p_{i,1,y}) - (p_{i,3,x}-p_{i,1,x})(p_{i,2,y}-p_{i,1,y}).
+\end{split}$$
+
 Für die Elementmassenmatrix {eq}`eq:Elementmassenmatrix2d` folgt
 
 ```{code-cell} ipython3
@@ -525,6 +556,8 @@ $$T: \{0,1,\ldots, n\} \times \{0,1,2\} \to \{0,1,\ldots, N\},$$
 wobei $N$ im Fall von Elemente erster Ordnung die Anzahl Knoten und $n$ die Anzahl Elemente (Dreiecke).
 
 ```{prf:remark}
+:label: my-rm-numpde2
+
 Es erweist sich mathematisch wie auch Software technisch als bedeutend effizienter, die Berechnung der System Matrizen über die Triangulierung zu berechnen und die einzelnen Beiträge in der globalen Matrix aufzukummulieren. Diesen Prozess nennt man **Assembling**.
 
 Allgemein können wir dies in der Form

@@ -50,6 +50,8 @@ definiert.
 ```
 
 ```{prf:remark}
+:label: my-rm-opnorm
+
 Mit der Norm von $T$ lässt sich die Ungleichung {eq}`eq:beschrlinop` auch in der Form
 
 $$\|T x\|_W \le \|T\|_{V\to W}\ \|x\|_V$$ (eq:operatornormungleichung)
@@ -92,6 +94,8 @@ für alle $k\in \mathbb{N}$. Andererseits gilt: $\|y_k\|_V = \frac{1}{k} \to 0$ 
 ````
 
 ```{prf:remark}
+:label: my-rm-stetigbeschraenkt
+
 Bei linearen Operatoren sind Stetigkeit und Beschränktheit äquivalente Eigenschaften.
 ```
 
@@ -163,6 +167,8 @@ Wir werden den Begriff **Linearform** für lineare Funktionale und die **Bilinea
 ```
 
 ```{prf:remark}
+:label: my-rm-linearform
+
 * Die Linearform ist ein äquivalenter Begriff für ein lineares Funktional.
 
 * Der Stetigkeitsbegriff linearer Operatoren auf das lineare Funktional bzw. Linearform und auf die Bilinearform angewandt bedeutet:
@@ -221,5 +227,7 @@ besitzt.
 ```
 
 ```{prf:remark}
+:label: my-rm-ergebnishilbertraumtheorie
+
 Dieser Satz ist das zentrale Ergebnis der Hilbertraum-Theorie. Neben seiner Bedeutung als Darstellungssatz kann er auch als Existenz- und Eindeutigkeitsprinzip aufgefasst werden. Diese Bedeutung des Rieszschen Satzes ist Grundlage für die moderne Theorie der elliptischen partiellen Differentialgleichungen (vgl. auch {numref}`chap:konvergenzanalyse`).
 ```

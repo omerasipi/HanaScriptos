@@ -206,7 +206,8 @@ A = []
 for i in range(1,n):
     ai = []
     for j in range(1,n):
-        aij = quad(lambda x:dphi(i,np.array(x))*dphi(j,np.array(x)), 0, 1,)[0]
+        # Ohne points=xi wird die Integration ab n>15 instabil.
+        aij = quad(lambda x:dphi(i,np.array(x))*dphi(j,np.array(x)), 0, 1,points=xi)[0]
         ai.append(aij)
     A.append(ai)
 A = np.array(A,dtype=float)
@@ -238,7 +239,7 @@ Die FEM Lösung $u(x)$ ist somit gegeben durch die Lösung des Gleichungssystems
 ```{code-cell} ipython3
 ui = np.zeros_like(xi)
 
-# um die Wahl der linearen Gleichunslöser kümmern wir uns später:
+# um die Wahl der linearen Gleichungslöser kümmern wir uns später:
 ui[1:-1] = np.linalg.solve(A,fi)
 ui
 ```
