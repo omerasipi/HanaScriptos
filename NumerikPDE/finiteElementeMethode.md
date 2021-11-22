@@ -527,7 +527,7 @@ CJ2.simplify()
 
 und damit
 
-$$C_i = \frac{1}{J_i^2} \begin{pmatrix}a_i & -c_i\\ -c_i & b_i\end{pmatrix}$$
+$$C_i = \frac{1}{J_i^2} \begin{pmatrix}a_i & -c_i\\ -c_i & b_i\end{pmatrix}$$ (eq:Transmatrix2d1)
 
 mit
 
@@ -536,7 +536,7 @@ a_i & = \|\vec{p}_{i,3}-\vec{p}_{i,1}\|^2 = (p_{i,3,x}-p_{i,1,x})^2+(p_{i,3,y}-p
 b_i & = \|\vec{p}_{i,2}-\vec{p}_{i,1}\|^2 = (p_{i,2,x}-p_{i,1,x})^2+(p_{i,2,y}-p_{i,1,y})^2\\
 c_i & = (p_{i,2,x}-p_{i,1,x})(p_{i,3,x}-p_{i,1,x}) + (p_{i,2,y}-p_{i,1,y})(p_{i,3,y}-p_{i,1,y})\\
 J_i & = (p_{i,2,x}-p_{i,1,x})(p_{i,3,y}-p_{i,1,y}) - (p_{i,3,x}-p_{i,1,x})(p_{i,2,y}-p_{i,1,y}).
-\end{split}$$
+\end{split}$$ (eq:Transmatrix2d2)
 
 Für die Elementmassenmatrix {eq}`eq:Elementmassenmatrix2d` folgt
 

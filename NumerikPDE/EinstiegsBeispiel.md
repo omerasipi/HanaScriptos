@@ -102,7 +102,7 @@ def phi(i,x,xi=xi):
 xp = np.linspace(a,b,400)
 fig, ax = plt.subplots(figsize=(6, 2))
 for i in range(n+1):
-    ax.plot(xp,phi(i,xp),label=r'$\varphi_'+str(i+1)+'$')
+    ax.plot(xp,phi(i,xp),label=r'$\varphi_'+str(i)+'$')
 ax.legend(loc='upper right', bbox_to_anchor=(1.2, 1))
 glue("FEM_1d_p1_fig", fig, display=False)
 glue("FEM_1d_p1_n",n,display=False)
@@ -181,7 +181,7 @@ def dphi(i,x,xi=xi):
 
 fig, ax = plt.subplots(figsize=(6, 2))
 for i in range(n+1):
-    ax.plot(xp,dphi(i,xp),label=r'$\varphi_'+str(i+1)+'\'(x)$')
+    ax.plot(xp,dphi(i,xp),label=r'$\varphi_'+str(i)+'\'(x)$')
 ax.legend(loc='upper right', bbox_to_anchor=(1.25, 1.05))
 glue("FEM_1d_p1_deriv_fig", fig, display=False)
 ```

@@ -182,6 +182,8 @@ $$\frac{d}{dx} \partial_{u'} F(x,u,u') =  \partial_{u} F(x,u,u').$$ (eq:StarkeEu
 ```
 
 ```{prf:remark}
+:label: my-rm-var2
+
 * Wir haben den Satz für stetige Funktionen auf ganz $[a,b]$ notiert. Das Resultat lässt sich auf stückweise stetige Funktionen verallgemeinern.
 
 * Im hier notierten Fall von Funktionen in *einer* Variablen $x$ gilt, dass eine Lösung der schwachen Gleichung
