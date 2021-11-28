@@ -45,11 +45,12 @@ parts:
         - file: NumerikPDE/FEMElemente1d.md
         - file: NumerikPDE/FEMElemente2d.ipynb
         - file: NumerikPDE/FEM1D_Assembling_HighOrder.ipynb
+      - file: NumerikPDE/Konvergenzanalyse.md
     - file: NumerikPDE/LinearEquationSolvers.md
       sections:
       - file: NumerikPDE/MatrixStrukturMesh.ipynb
       - file: NumerikPDE/RichardsonVerfahren.ipynb
-      - file: NumerikPDE/JacobiGauss_SeideVerfahren.ipynb
+      - file: NumerikPDE/JacobiGauss_SeidelVerfahren.ipynb
       - file: NumerikPDE/GradientenVerfahren.ipynb
       - file: NumerikPDE/CGVerfahren.ipynb
   - caption: Anwendungen

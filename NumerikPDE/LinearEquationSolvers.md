@@ -15,6 +15,7 @@ Typische Eigenschaften der Gleichungssysteme sind
 * Die Matrix hat **Bandstruktur**. Direkte Gleichungslöser wie z.B. LR-Verfahren für tridiagonal Matrizen haben mit Verwendung der Bandstruktur einen Rechenaufwand von 1D $O(N)$, 2D $O(N^2)$ und in 3D $O(N^{7/3})$.
 * Die Matrix ist oft **symmetrisch und positiv definit**, das ist bei vielen FEM Diskretisierungen von elliptischen, parabolischen und hyperbolischen PDE's der Fall.
 
+
 ## Direkte Gleichungslöser
 
 Die FEM Matrix der Dimension hat nach geeignetem Umordnen (Nummerierung der Knoten, Dreiecke, etc.) oft eine Block-Struktur. Im Gegensatz zu direkten Löser basierend auf Faktorisierungsmethoden, wie z.B. die oben erwähnte LR-Zerlegung, können Block-eliminations Methoden noch effizienter sein.
@@ -90,9 +91,10 @@ In der Praxis bedeutet das in aller Regel, dass 2D Probleme einfach mit direkten
 
 In Bezug auf Rechenzeit und **Speicherbedarf** oft viel effizientere Alternativen zur direkten Lösung von linearen Gleichungssystemen sind **iterative Verfahren** (insbesondere im 3D). Ausgehend von einem Startwert wird die näherungsweise Lösung iterativ verbessert. Die Verfahren benötigen nur Matrix-Vektorprodukte $A\cdot x$.
 
-Werden von der Matrix $A$ nur die Nicht-Null Elemente gespeichert, so ist der Rechenaufwand für das Matrix-Vektorprodukt lediglich $O(N)$.
+Werden von der Matrix $A$ nur die Nicht-Null Elemente gespeichert, so ist der Rechenaufwand für das Matrix-Vektorprodukt lediglich $O(N)$. Als mögliches Format für dünn besetzte Matrizen (sparse matrices) sei das [Compressed Sparse Row (CSR)](https://de.wikipedia.org/wiki/Compressed_Row_Storage) (vgl. auch [scipy sparse](https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html)) erwähnt. Wir werden dieses in den Anwendungen benutzen.
 
-Im folgenden betrachten wir das Randwertproblem auf dem Einheitsquadrat
+
+In den folgenden Anwendungen unterschiedlicher iterativer Verfahren betrachten wir das Randwertproblem auf dem Einheitsquadrat
 
 $$-\Delta u + 10\, u = 1\quad x\in\Omega = [0,1]^2$$
 
@@ -102,10 +104,9 @@ $$\int_\Omega \big(\nabla u \nabla v\, + 10\,u\, v\big) dx = \int_\Omega 1\,v\,d
 
 ```{seealso}
 * [Richardson Verfahren](RichardsonVerfahren.ipynb)
-* [Jacobi-Verfahren und Gauss-Seidel Verfahren](JacobiGauss_SeideVerfahren.ipynb)
-* [Gradienten Verfahren](JacobiGauss_SeideVerfahren.ipynb)
-* [Konjugiertes Gradienten Verfahren](GradientenVerfahren.ipynb)
-* [CG - Verfahren](CGVerfahren.ipynb)
+* [Jacobi-Verfahren und Gauss-Seidel Verfahren](JacobiGauss_SeidelVerfahren.ipynb)
+* [Gradienten Verfahren](GradientenVerfahren.ipynb)
+* [Konjugiertes Gradienten (CG) Verfahren](CGVerfahren.ipynb)
 ```
 
 ```{glue:figure} FEM_RichardsonVerfahren_fig

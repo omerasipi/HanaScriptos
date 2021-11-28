@@ -538,12 +538,7 @@ plt.show()
 
 ```{code-cell} ipython3
 ind = np.arange(freedofsnp.shape[0])[freedofsnp]
-reducedDenseA = []
-for i in ind:
-    reducedDenseA.append(denseA[i,ind])
-reducedDenseA = np.array(reducedDenseA)
-
-plt.spy(reducedDenseA)
+plt.spy(denseA[np.ix_(ind,ind)])
 plt.show()
 ```
 
