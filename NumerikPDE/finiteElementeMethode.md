@@ -14,9 +14,7 @@ kernelspec:
 
 # Methode der finiten Elemente
 
-## Assembling
-
-### Eindimensionaler Fall
+## Eindimensionaler Fall
 
 Im eindimensionalen Fall ist eine Zerlegung des Rechengebietes gegeben durch die Teilintervalle $T_i = [x_i,x_{i+1}]$, wobei die Punkte
 
@@ -250,7 +248,7 @@ name: FEM_1d_p1_solutionexmp_fig2
 FEM 1d affine Basisfunktionen
 ```
 
-### Zweidimensionaler Fall
+## Zweidimensionaler Fall
 
 Eine reguläre Triangulierung $\mathcal{T} = \{T_1, \ldots, T_M\}$ eines Gebiets $\Omega$ ist die Zerlegung in Dreiecke $T_i$ so, dass $\bar{\Omega} = \cup_i T_i$ und $T_i\cap T_j$ ist
 * entweder leer
