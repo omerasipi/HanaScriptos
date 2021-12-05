@@ -58,8 +58,9 @@ parts:
     chapters:
     - file: Applications/Applications.md
       sections:
-      - file: Applications/KonvektionsDiffusionsgleichungen.md
+      - file: Applications/NichtlinearesEinstiegsbeispiel.ipynb
       - file: Applications/ParabolicPDE.md
+      - file: Applications/KonvektionsDiffusionsgleichungen.md
       - file: Applications/hyperbolicPDE.md
   - caption: Appendix
     numbered: 3
