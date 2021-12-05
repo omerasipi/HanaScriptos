@@ -285,12 +285,12 @@ u(t,x) & = u_D\quad\text{für}\ x\in \partial\Omega
 Das Strömungsfeld $b$ nennt man wind, wir definieren dieses gegeben als
 
 $$b(x,y) = v_0 \begin{pmatrix}
--(y-1.25)\, \left(1-\left(\frac{x}{4}\right)*x/4\right)\\
-(x-2) y/2.5\,\left(1-\left(\frac{y}{2.5}\right)\right)\end{pmatrix}$$
+-\frac{(y-1.25)}{1.25}\, \left(1-\left(\frac{x}{4}\right)\,\frac{x}{4}\right)\\
+\frac{(x-2)}{2} \frac{y}{2.5}\,\left(1-\left(\frac{y}{2.5}\right)\right)\end{pmatrix}$$
 
 ```{code-cell} ipython3
-v0 = 0.5
-b = v0*CoefficientFunction((-(y-1.25)*(1-(x/4))*x/4, (x-2)*y/2.5*(1-y/2.5)))
+v0 = 2
+b = v0*CoefficientFunction((-(y-1.25)/1.25*(1-(x/4))*x/4, (x-2)/2*y/2.5*(1-y/2.5)))
 Draw(b,mesh,"wind");
 from ngsolve.internal import visoptions
 visoptions.scalfunction = "wind:0"
@@ -364,7 +364,7 @@ time+=t_intermediate
 ```
 
 ```{code-cell} ipython3
-Draw(gfu3-gfu2,mesh,'Differenz')
+Draw(gfu3-gfu2,mesh,'Differenz');
 ```
 
 Im Bereich vor dem Radiator ist es bedeutend kühler, hingegen durch den Abtransport der Wärme oberhalb bedeutend wärmer. Für die zeitliche Entwicklung der Tempertur der beiden Ansätze erhalten den folgenden Verlauf
@@ -394,5 +394,3 @@ plt.ylabel('T [°]')
 plt.title('zeitlicher Verlauf der mittleren Temperatur')
 plt.show()
 ```
-
-**Bemerkung:** Der beschleunigende Effekt wird zum Beispiel in einem Backofen mit der Umluft Funktion ausgenutzt.
