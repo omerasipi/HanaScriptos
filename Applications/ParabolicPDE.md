@@ -12,26 +12,29 @@ kernelspec:
   name: python3
 ---
 
-# Parabolic partial differential equations
+# Parabolische partielle Differentialgleichungen
 
 Wir betrachten die parabolische Differentialgleichung
 
-$$\begin{split}\partial_t u(t,x) - \operatorname{div}(k(x)\, u(t,x)) & = q(t,x)\quad \text{für}\ x\in \Omega\\
-u(t,x) & = u_D\quad\text{für}\ x\in \partial\Omega
+$$\begin{split}\partial_t u(t,x) - \operatorname{div}(k(x)\, \nabla u(t,x)) & = q(t,x)\quad \text{für}\ x\in \Omega\\
+u(t,x) & = u_D(x)\quad\text{für}\ x\in \Gamma_D\\
+k(x)\,\partial_n u(t,x) & = g(t,x)\quad\text{für}\ x\in \Gamma_N\\
+u(0,x) & = u_0(t,x)\quad\text{für}\ x\in \Omega
 \end{split}$$ (eq:parabolischeDGLApplication)
 
+mit den gegebenen Rand $\partial\Omega = \Gamma_D \cup \Gamma_N$. In dem Fall muss $\Gamma_D\not=\emptyset$ nicht gefordert werden.
+
+Als Anwendung der parabolischen Gleichung betrachten wir den Temperaturverlauf in einem Raum (2d Querschnitt) mit einem Radiator, wobei wir für Raumseite beim Radiator eine Temperatur von 5°C als Dirichletrandwert vorgeben. Die restlichen Seiten des Raumes seien optimal isoliert, was wir mit der Neumann Randbedingung beschreiben können.
+
 ```{code-cell} ipython3
+:tags: [hide-cell, remove-output]
+
 from netgen.geom2d import CSG2d, Circle, Rectangle
 from ngsolve import *
 from ngsolve.webgui import Draw
-```
-
-```{code-cell} ipython3
 import numpy as np
 import matplotlib.pyplot as plt
 ```
-
-Als Anwendung der parabolischen Gleichung betrachten wir den Temperaturverlauf in einem Raum (2d Querschnitt) mit einem Radiator, wobei wir für Raumseite beim Radiator eine Temperatur von 5°C als Dirichletrandwert vorgeben. Die restlichen Seiten des Raumes seien optimal isoliert, was wir mit der Neumann Randbedingung beschreiben können.
 
 ```{code-cell} ipython3
 geo = CSG2d()
@@ -223,9 +226,7 @@ while t_intermediate < tstep - 0.5 * dt:
     gfu.vec.data = gfu_D.vec
     gfu.vec.data += invmstar * res 
     t_intermediate += dt
-    #print("\r",time+t_intermediate,end="")
     scene.Redraw()
-#print("")
 time+=t_intermediate
 ```
 
@@ -264,9 +265,7 @@ while t_intermediate < tstep - 0.5 * dt:
     t_intermediate += dt
     T.append(gfu2(mip))
     Tmean.append(1/Aair*Integrate(gfu2, mesh, definedon = mesh.Materials('raum')))
-    #print("\r",time+t_intermediate,end="")
     scene2.Redraw()
-#print("")
 time+=t_intermediate
 ```
 
@@ -346,7 +345,6 @@ scene3 = Draw(gfu3,mesh,'u');
 ```
 
 ```{code-cell} ipython3
-%%time
 t_intermediate=0 # time counter within one block-run
 # Temperatur in Raummitte
 Tkonv = [gfu3(mip)]
@@ -357,19 +355,20 @@ while t_intermediate < tstep - 0.5 * dt:
     t_intermediate += dt
     Tkonv.append(gfu3(mip))
     TkonvMean.append(1/Aair*Integrate(gfu3, mesh, definedon = mesh.Materials('raum')))
-    #print("\r",time+t_intermediate,end="")
     scene3.Redraw()
-#print("")
 time+=t_intermediate
 ```
+
+Im Bereich vor dem Radiator ist es bedeutend kühler, hingegen durch den Abtransport der Wärme oberhalb bedeutend wärmer.
 
 ```{code-cell} ipython3
 Draw(gfu3-gfu2,mesh,'Differenz');
 ```
 
-Im Bereich vor dem Radiator ist es bedeutend kühler, hingegen durch den Abtransport der Wärme oberhalb bedeutend wärmer. Für die zeitliche Entwicklung der Tempertur der beiden Ansätze erhalten den folgenden Verlauf
+Für die zeitliche Entwicklung der Tempertur der beiden Ansätze erhalten den folgenden Verlauf
 
 ```{code-cell} ipython3
+:tags: [hide-input]
 plt.axhline(Tstat,c='gray',label='stationäre Temperatur ohne Konvektion')
 plt.axhline(Tstat2,c='gray',label='stationäre Temperatur mit Konvektion')
 plt.plot(dt*np.arange(len(T)),T,label='Temperatur ohne Konvektion')
@@ -383,6 +382,7 @@ plt.show()
 ```
 
 ```{code-cell} ipython3
+:tags: [hide-input]
 plt.axhline(TstatMean,c='gray',label='stationäre Temperatur ohne Konvektion')
 plt.axhline(Tstat2Mean,c='gray',label='stationäre Temperatur mit Konvektion')
 plt.plot(dt*np.arange(len(Tmean)),Tmean,label='Temperatur ohne Konvektion')
