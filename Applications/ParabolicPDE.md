@@ -163,20 +163,20 @@ Es stellt sich die Frage, für welches $t$ wir $\nabla u$ auswerten.
 
 * Für $\nabla u(t)$ folgt das **explizite** Euler Verfahren. Durch Separation der bekannten Grössen auf die rechte Seite und der unbekannten auf die linke Seite folgt
 
-  $$\int_\Omega u(t+\Delta)\,v\,dx = \int_\Omega u(t) v dx + \Delta t \left(\int_\Omega f(t+\Delta t)\,v\,dx - \int_\Omega k\,\nabla u(t)\cdot\nabla v\,dx\right)\quad \forall \ v \in H_0^1(\Omega)$$
+  $$\int_\Omega u(t+\Delta t)\,v\,dx = \int_\Omega u(t) v dx + \Delta t \left(\int_\Omega f(t+\Delta t)\,v\,dx - \int_\Omega k\,\nabla u(t)\cdot\nabla v\,dx\right)\quad \forall \ v \in H_0^1(\Omega)$$
 
   In dem Fall können wir durch einfache Vektor Addition den zeitlichen Verlauf berechnen. Das Verfahren ist jedoch für grosse $\Delta t$ nicht stabil. Wir benutzen daher diesen Ansatz nicht.
 * Für $\nabla u(t+\Delta t)$ folgt das **implizite** Euler Verfahren
 
-  $$\int_\Omega (u(t+\Delta)-u(t))\,v\,dx + \Delta t \int_\Omega k\,\nabla u(t+\Delta t)\cdot\nabla v\,dx = \Delta t \int_\Omega f\,v\,dx\quad \forall \ v \in H_0^1(\Omega).$$ (eq:weakparabolischeDGLApplicationImplizit)
+  $$\int_\Omega (u(t+\Delta t)-u(t))\,v\,dx + \Delta t \int_\Omega k\,\nabla u(t+\Delta t)\cdot\nabla v\,dx = \Delta t \int_\Omega f\,v\,dx\quad \forall \ v \in H_0^1(\Omega).$$ (eq:weakparabolischeDGLApplicationImplizit)
 
   Separieren wir wiederum bekanntes und unbekanntes auf die rechte bzw. linke Seite der Gleichung so folgt das Gleichungssystem
   
-  $$\int_\Omega u(t+\Delta)\,v\,dx + \Delta t \int_\Omega k\,\nabla u(t+\Delta t)\cdot\nabla v\,dx = \int_\Omega u(t)\,v\,dx + \Delta t \int_\Omega f\,v\,dx\quad \forall \ v \in H_0^1(\Omega),$$
+  $$\int_\Omega u(t+\Delta t)\,v\,dx + \Delta t \int_\Omega k\,\nabla u(t+\Delta t)\cdot\nabla v\,dx = \int_\Omega u(t)\,v\,dx + \Delta t \int_\Omega f\,v\,dx\quad \forall \ v \in H_0^1(\Omega),$$
 
   welches wir in jedem Zeitschritt lösen müssen. Diskret können wir das System auch als
   
-  $$\underbrace{(M + \Delta t\ A)}_{=:M^*}\cdot u_{n+1} = M\cdot u_n + f$$
+  $$\underbrace{(M + \Delta t\ A)}_{=:M^*}\cdot u_{n+1} = M\cdot u_n + \Delta t f$$ (eq:eulerimplizitParabolisch)
   
   mit der Massenmatrix $M$ für die Bilinearform $\int u\,v dx$ und der Steiffigkeitsmatrix $A$ für die Bilinearform $\int \nabla u\cdot \nabla v\, dx$.
 
@@ -217,7 +217,7 @@ res = gfu.vec.CreateVector()
 tstep = 600 # time that we want to step over within one block-run
 ```
 
-$M^*\cdot(u_{0,n+1}+u_D) = M\cdot u_n + f$
+$M^*\cdot(u_{0,n+1}+u_D) = M\cdot u_n + \Delta t\, f$
 
 ```{code-cell} ipython3
 t_intermediate=0 # time counter within one block-run
