@@ -4,13 +4,16 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.10.3
 kernelspec:
   display_name: Python 3
   language: python
   name: python3
 ---
 
-# Hyperbolische Gleichungen zweiter Ordnung: Wellen Gleichung
+# Hyperbolische partielle Differentialgleichung
+
 
 In der Struktur Dynamik und auch anderen Anwendungen trifft man oft auf Systeme von der semidiskreten Form
 
@@ -19,6 +22,8 @@ $$M \ddot{d} + C \dot{d} + K d = F,$$ (eq:SemidiscrethyperbolicPDE)
 wobei $M$ die Massenmatrix, $C$ eine viskose Dämpfung, $K$ die Steifigkeitsmatrix und $F$ ein Vektor gegeben durch die angewandten Kräfte ist. Wir nehmen an, dass $M, C, K$ symmetrisch sind. Die Massenmatrix $M$ sei positiv definit und $C, K$ positiv-semidefinit. Für die vollständige Beschreibung des Anfangswertproblems {eq}`eq:SemidiscrethyperbolicPDE` benötigen wir Anfangswerte für
 
 $$d(0) = d_0\quad \text{und}\quad \dot{d}(0) = v_0.$$
+
+## Newmark Verfahren
 
 Die wohl am meisten benutzten Verfahren gehöhren in die Familie der **Newmark Verfahren**:
 
@@ -61,7 +66,7 @@ Für $\beta = \frac{1}{4}$ und $\gamma = \frac{1}{2}$ wird quasi die mittlere Be
 
 ```
 
-## Anwendung
+## Anwendung
 
 Wir betrachten als Anwendung die Wellengleichung
 
@@ -84,19 +89,23 @@ import matplotlib.pyplot as plt
 
 ```{code-cell} ipython3
 from netgen.geom2d import CSG2d, Circle
-circle = Circle((0,0),1,bc='wall')
+circle = Circle((0,0),2,bc='wall')
 geo = CSG2d()
 geo.Add(circle)
 ```
 
 ```{code-cell} ipython3
 #mesh = Mesh(unit_square.GenerateMesh(maxh=0.05))
-mesh = Mesh(geo.GenerateMesh(maxh=0.1))# etwas grob 0.05
-V = H1(mesh,order = 2, dirichlet='wall')#'bottom|right|top|left')
+mesh = Mesh(geo.GenerateMesh(maxh=0.3))# etwas grob 0.15
+V = H1(mesh,order = 4, dirichlet='wall')#'bottom|right|top|left')
 u,v = V.TnT()
 gfu = GridFunction(V)
 gfv = GridFunction(V)# 1. Zeitableitung
 gfa = GridFunction(V)# 2. Zeitableitung
+```
+
+```{code-cell} ipython3
+V.ndof
 ```
 
 ```{code-cell} ipython3
@@ -116,11 +125,15 @@ $$f(t) = e^{-((x-x_0)^2+(y-y_0)^2)/\tau^2}$$
 ```{code-cell} ipython3
 x0=0
 y0=0
-f = 5000*exp(-((x-x0)**2+(y-y0)**2)/0.001)
+f = 5000*exp(-((x-x0)**2+(y-y0)**2)/0.01)
 
 F = LinearForm(V)
 F += f*v*dx
 F.Assemble();
+```
+
+```{code-cell} ipython3
+Draw(f,mesh,'f')
 ```
 
 Sei $M^* = M + \beta\, \Delta t^2\, K$. Wir wählen die Trapezmethode:
@@ -129,15 +142,19 @@ Sei $M^* = M + \beta\, \Delta t^2\, K$. Wir wählen die Trapezmethode:
 beta = 1/4
 gamma = 1/2
 
-dt = 1/125#0
+dt = 1/125.0
 mstar = K.mat.CreateMatrix()
-mstar.AsVector().data = M.mat.AsVector() + dt * K.mat.AsVector()
+mstar.AsVector().data = M.mat.AsVector() + beta*dt**2 * K.mat.AsVector()
 ```
 
 Wir berechnen nun die zeitabhängige Lösung.
 
 ```{code-cell} ipython3
 scene = Draw(gfu,mesh,'u', min=-2,max=2,autoscale=False)
+```
+
+```{code-cell} ipython3
+freq=1/(10*dt)*2
 ```
 
 ```{code-cell} ipython3
@@ -156,23 +173,30 @@ b = gfu.vec.CreateVector()
 mip = mesh(0,0)
 ui = [gfu(mip)]
 ti = [t]
-while t < T:
-    #F.Assemble() # könnte hier vermieden werden!
-    # predictors berechnne
-    utilde.data = gfu.vec + dt * gfv.vec + dt**2/2*(1-2*beta)*gfa.vec
-    vtilde.data = gfv.vec + (1-gamma)*dt*gfa.vec
-    # a neu berechnen
-    if t < dt: # ein Impuls
-        b.data = F.vec - K.mat*utilde
-    else:
-        b.data = - K.mat*utilde
-    gfa.vec.data = mstar.Inverse(freedofs=V.FreeDofs())*b
-    # corrector berechnen
-    gfu.vec.data = utilde + beta*dt**2*gfa.vec
-    gfv.vec.data = vtilde + gamma*dt*gfa.vec
-    # Redraw
-    scene.Redraw()
-    ui.append(gfu(mip))
-    ti.append(t)
-    t+=dt
+with TaskManager():
+    while t < T:
+        #F.Assemble() # muss bei zeitabhängiger Linearform aufgerufen werden.
+        # predictors berechnne
+        utilde.data = gfu.vec + dt * gfv.vec + dt**2/2*(1-2*beta)*gfa.vec
+        vtilde.data = gfv.vec + (1-gamma)*dt*gfa.vec
+        # a neu berechnen
+        if t < 1/(2*freq): # ein Impuls
+            b.data = F.vec
+            b.data *= np.sin(2*np.pi*freq*t)**2
+            b.data -= K.mat*utilde
+        else:
+            b.data = - K.mat*utilde
+        gfa.vec.data = mstar.Inverse(freedofs=V.FreeDofs(),inverse='sparsecholesky')*b
+        # corrector berechnen
+        gfu.vec.data = utilde + beta*dt**2*gfa.vec
+        gfv.vec.data = vtilde + gamma*dt*gfa.vec
+        # Redraw
+        scene.Redraw()
+        ui.append(gfu(mip))
+        ti.append(t)
+        t+=dt
+```
+
+```{code-cell} ipython3
+
 ```
