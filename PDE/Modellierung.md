@@ -172,7 +172,7 @@ $$\int_B c\, T(x,t+\tau) dx - \int_B c\, T(x,t) dx = \int_t^{t+\tau} \int_B f(x,
 
 Da die Bilanz für alle Zeitintervalle $(t,t+\tau)$ und für alle Kontrollvolumina $B\subset \Omega$ gilt, gilt unter Annahme glatter Funktionen die Gleichheit punktweise. Wir erhalten die parabolische PDE
 
-$$c\,\frac{\partial u}{\partial t}(x,t) - \mathop{div}(k\, \nabla T(x,t)) = f(x, t).$$
+$$c\,\frac{\partial T}{\partial t}(x,t) - \mathop{div}(k\, \nabla T(x,t)) = f(x, t).$$
 
 ## Hyperbolische partielle Differentialgleichungen
 
@@ -242,7 +242,7 @@ Ein paar Beispiele mit unterschiedlichen Randbedingungen für die Wellengleichun
 
 * ```{figure} ../movies/Wellengleichung1D.mp4
   ---
-  align: left
+  align: center
   height: 250px
   name: fig-Wellengleichung1d
   ---
@@ -250,7 +250,7 @@ Ein paar Beispiele mit unterschiedlichen Randbedingungen für die Wellengleichun
   ```
 * ```{figure} ../movies/movieDirichletRB2D.mpg
   ---
-  align: left
+  align: center
   height: 250px
   name: fig-Wellengleichung2dDirichlet
   ---
@@ -258,7 +258,7 @@ Ein paar Beispiele mit unterschiedlichen Randbedingungen für die Wellengleichun
   ```
 * ```{figure} ../movies/movieNeumannRB2D.mpg
   ---
-  align: left
+  align: center
   height: 250px
   name: fig-Wellengleichung2dNeumann
   ---

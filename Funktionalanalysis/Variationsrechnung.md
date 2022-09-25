@@ -38,7 +38,7 @@ gelten.
 
 ```{figure} GateauxAbleitung.png
 ---
-align: left
+align: center
 height: 250px
 name: fig-GateauxAbleitung
 ---
@@ -259,7 +259,7 @@ Der Punkt $B$ liegt trivialerweise unterhalb von $A$. Entsprechend wählen wir e
 
 ```{figure} BrachystochroneProblem.png
 ---
-align: left
+align: center
 height: 250px
 name: fig-BrachystochroneProblem
 ---

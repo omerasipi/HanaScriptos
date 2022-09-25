@@ -39,7 +39,7 @@ Ein Account kann selbständig kreiert werden, wobei dieser authentifiziert wird.
 
 ```{figure} native_auth_flow.png
 ---
-align: left
+align: center
 height: 250px
 name: native_auth_flow
 ---

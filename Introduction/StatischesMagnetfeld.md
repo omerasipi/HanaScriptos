@@ -79,6 +79,13 @@ Wir können wiederum eine schwache Gleichung berechnen, wobei der geeignete Funk
 
 $$\int_\Omega \mu^{-1}(x) \mathop{curl} A \cdot \mathop{curl} \Psi dx = \int_\Omega j(x)\cdot \Psi dx\quad \forall\  \Psi\in H(\mathop{curl}, \Omega).$$ (eq:magnetostatic)
 
+``````{margin}
+<br/><br/><br/><br/>
+```{admonition} Begriffe:
+- HCurl Finite Elemente
+```
+``````
+
 ```{code-cell} ipython3
 V = HCurl(mesh,order=3)
 u,v = V.TnT()
@@ -119,6 +126,14 @@ a += nu*curl(u)*curl(v)*dx + 1e-6*nu*u*v*dx
 f = LinearForm(V)
 f += w * v * dx("coil")
 ```
+
+``````{margin}
+<br/><br/><br/><br/>
+```{admonition} Begriffe:
+- Preconditioner
+- Interative Solver
+```
+``````
 
 Da das Problem abhängig von Mesh Grösse und Polynomordnung der FEM Basisfunktionen schon recht gross werden kann, benutzen wir einen iterativen Solver:
 

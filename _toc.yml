@@ -18,13 +18,20 @@ parts:
     chapters:
     - file: Funktionalanalysis/GrundlegendeRaeume.md
       sections:
+      - file: Funktionalanalysis/Vektorraeume.md
+      - file: Funktionalanalysis/Banachraeume.md
+      - file: Funktionalanalysis/Hilbertraeume.md
       - file: Funktionalanalysis/BeispielOrthogonalisierungSchmidt.ipynb
       - file: Funktionalanalysis/BeispielFourierEntwicklung.ipynb
     - file: Funktionalanalysis/LineareOperatoren.md
       sections:
+      - file: Funktionalanalysis/BeschraenkteOperatoren.md
       - file: Funktionalanalysis/BeispielLineareOperatoren.ipynb
+      - file: Funktionalanalysis/LineareFunktionale.md
     - file: Funktionalanalysis/Sobolevraeume.md
       sections:
+      - file: Funktionalanalysis/L2Raum.md
+      - file: Funktionalanalysis/SobolevRaeumeDetails.md
       - file: Funktionalanalysis/Beispiel-H1_Norm.ipynb
     - file: Funktionalanalysis/Variationsrechnung.md
   - caption: Partielle Differentialgleichungen
@@ -32,6 +39,8 @@ parts:
     chapters:
     - file: PDE/IntroPDE.md
       sections:
+      - file: PDE/Beispiele.md
+      - file: PDE/Klassifikation.md
       - file: PDE/QuadratischeFormen.ipynb
     - file: PDE/Modellierung.md
   - caption: Numerik PDE
@@ -48,6 +57,8 @@ parts:
       - file: NumerikPDE/Konvergenzanalyse.md
     - file: NumerikPDE/LinearEquationSolvers.md
       sections:
+      - file: NumerikPDE/DirectSolver.md
+      - file: NumerikPDE/IterativeSolver.md
       - file: NumerikPDE/MatrixStrukturMesh.ipynb
       - file: NumerikPDE/RichardsonVerfahren.ipynb
       - file: NumerikPDE/JacobiGauss_SeidelVerfahren.ipynb

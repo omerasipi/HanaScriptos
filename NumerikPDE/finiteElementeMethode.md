@@ -69,7 +69,7 @@ Das Produkt $\tilde{\varphi}_j(t)\cdot \tilde{\varphi}_k(t)$ ist für fast alle 
 
 ```{figure} fembasissupport.png
 ---
-align: left
+align: center
 height: 400px
 name: fig-fembasissupport
 ---
@@ -79,7 +79,7 @@ Produkt $\varphi_j \cdot \varphi_k$ auf dem Intervall $[0,1]$ für stückweise P
 
 ```{figure} FEMlocalBasisProductp13.png
 ---
-align: left
+align: center
 height: 400px
 name: fig-FEMlocalBasisProductp13
 ---
@@ -260,7 +260,7 @@ Die Koordinaten Transformation im zweidimensionalen erfordert etwas mehr Rechena
 
 ```{figure} KoordinatenTransformation2d.png
 ---
-align: left
+align: center
 height: 250px
 name: fig-KoordinatenTransformation2d
 ---
