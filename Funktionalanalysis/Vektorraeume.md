@@ -94,7 +94,7 @@ Ein Körper lässt sich somit wie folgt allgemein definieren:
 Ein *Körper* ist eine Tripel $(K, +, \cdot)$ mit folgenden Eigenschaften:
 
 - $(K, +)$ ist eine kommutative Gruppe mit neutralem Element $0_K$.
-- $(K, \cdot)$ ist eine kommutative Gruppe mit neutralem Element $1_K$.
+- $(K\setminus\{0_K\}, \cdot)$ ist eine kommutative Gruppe mit neutralem Element $1_K$.
 - (Distributivgesetz) Für alle $a,b,c\in K$ gilt
 
 $$\begin{split}a\cdot (b+c) & = a\cdot b + a\cdot c\\
