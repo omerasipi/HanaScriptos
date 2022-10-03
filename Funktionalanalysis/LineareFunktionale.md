@@ -59,7 +59,8 @@ $$\|\alpha\| := |\alpha|,\quad\alpha\in\mathbb{K}$$
 
 so ist $\mathbb{K}$ ein Banachraum und damit die Menge aller beschränkten linearen Funktionale auf $V$ ein Banachraum. Dieser Raum ist insbesondere im Zusammenhang mit partiellen Differentialgleichungen sehr wichtig.
 
-```{admonition} Dualraum von $V$
+```{prf:definition} Dualraum von $V$
+:label: my-def-dualraum
 Der Banachraumm $L(V,\mathbb{K})$ aller beschränkten linearen Funktionale auf $V$ heisst der zu $V$ *konjugierte* oder *duale Raum* und wird mit $V^*$ oder $V'$ bezeichnet.
 ```
 

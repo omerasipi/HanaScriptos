@@ -56,7 +56,7 @@ $$L_2(\Omega) := (C_0^\infty(\Omega), \|\cdot\|_2)^*.$$
 
 Man kann zeigen, dass sich die klassischen Funktionen aus $C_0^\infty(\Omega)$ in $L_2(\Omega)$ wiederfinden. Mathematisch bedeutet das, dass $C_0^\infty(\Omega)$ als Unterraum von $L_2(\Omega)$ aufgefasst werden kann.
 
-> $$C_0^\infty(\Omega) \subset L_2(\Omega)$$
+$$C_0^\infty(\Omega) \subset L_2(\Omega)$$
 
 Man sagt in dem Fall, $C_0^\infty(\Omega)$ ist in $L_2(\Omega)$ *eingebettet*. Es gilt
 

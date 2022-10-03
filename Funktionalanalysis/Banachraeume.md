@@ -10,7 +10,7 @@ kernelspec:
   name: python3
 ---
 
-## Normierte Räume. Banachräume
+# Normierte Räume. Banachräume
 
 Bis jetzt haben wir sehr wenig Eigenschaften eines Raumes benötigt. Was uns noch fehlt, sind abgesehen vom Abstand der Elemente noch *algebraische* Eigenschaften (addieren, multiplizieren, etc.). Dazu definieren wir den *linearen Raum* (oder *Vektorraum*) wie folgt.
 
@@ -92,10 +92,10 @@ Wie in der linearen Algebra sind folgende Begriffe analog definiert
 
 Die oben erwähnten Funktionenräume $C[a,b]$, $C^k[a,b]$, Polynome sind unendlich-dimensional. Ebenso ist der Folgenraum $l_p$ unendlich-dimensional:
 
-> Man betrachte
->
-> $$x^{(k)} = \{0, \ldots, 0, 1, 0, \ldots \}\in l_p$$
-> mit 1 an der Stelle $k$.
+Man betrachte
+
+$$x^{(k)} = \{0, \ldots, 0, 1, 0, \ldots \}\in l_p$$
+mit 1 an der Stelle $k$.
 ```
 
 Im folgenden sind wir an Räumen interessiert, für welche eine lineare Struktur und eine Metrik gegeben ist.
