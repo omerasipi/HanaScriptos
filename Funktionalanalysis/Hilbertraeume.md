@@ -205,7 +205,6 @@ gegeben sind.
 :label: my-rm-orthogonalsystem
 
 Bildet $x_k$, $k=1,\ldots, n$ ein *Orthonormalsystem*
-```
 
 $$(x_i,x_k) = \delta_{i k} = \begin{cases}
 0\quad \text{für}\ i\not= k\\
@@ -215,8 +214,9 @@ so folgt aus {eq}`eq:bestapproxHilbert` sofort
 $$\lambda_i = (x,x_i)\quad i = 1, \ldots,n.$$
 
 Die Koeffzienten $\lambda_i$ nennt man auch Fourierkoeffizienten!
+```
 
-> Wir werden zeigen, dass sich mit Hilfe des Schmidtschen Orthogonalisierungsverfahrens aus $n$ linear unabhängigen Elementen stets ein Orthogonalsystem konstruieren lässt.
+Wir werden zeigen, dass sich mit Hilfe des Schmidtschen Orthogonalisierungsverfahrens aus $n$ linear unabhängigen Elementen stets ein Orthogonalsystem konstruieren lässt.
 
 ```{prf:definition} Orthonormalsystem (ONS)
 :label: my-def-ONS
@@ -234,8 +234,8 @@ erfüllt ist.
 * Im $l_2$ bilden die Folgen $\{1,0,0,\ldots\}$, $\{0,1,0,\ldots\},\ldots $ ein ONS.
 * Für den (nicht vollständigen) reellen Skalarproduktraum $C[0,2\pi]$ bilden die trigonometrischen Funktionen
 
-$$\frac{1}{\sqrt{2\pi}}, \frac{1}{\sqrt{\pi}} \cos t, \frac{1}{\sqrt{\pi}} \sin t, \frac{1}{\sqrt{\pi}} \cos 2t, \frac{1}{\sqrt{\pi}} \sin 2t, \ldots $$
-ein ONS.
+  $$\frac{1}{\sqrt{2\pi}}, \frac{1}{\sqrt{\pi}} \cos t, \frac{1}{\sqrt{\pi}} \sin t, \frac{1}{\sqrt{\pi}} \cos 2t, \frac{1}{\sqrt{\pi}} \sin 2t, \ldots $$
+  ein ONS.
 * Weitere Beispiele sind Hermitesche und Legendresche Polynome.
 
 Es gilt ganz allgemein:
