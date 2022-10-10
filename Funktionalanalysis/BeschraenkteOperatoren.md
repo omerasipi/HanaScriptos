@@ -116,7 +116,8 @@ mit $K: [a,b] \times [a,b] \to \mathbb{R}$ stetigem *Kern*.
 
   und somit
 
-  $$\|T f|| = \max_{x\in[a,b]} |(T f)(x)| \le \max_{x\in[a,b]} \int_a^b |K(x,y)| |f(y)| dy \le M\,\max_{x\in[a,b]} |f(x)|\ \int_a^b 1 dy = M\,(b-a)\,\|f\|.$$
+  $$\begin{split}\|T f|| & = \max_{x\in[a,b]} |(T f)(x)| \le \max_{x\in[a,b]} \int_a^b |K(x,y)| |f(y)| dy \\
+   & \le M\,\max_{x\in[a,b]} |f(x)|\ \int_a^b 1 dy = M\,(b-a)\,\|f\|.\end{split}$$
 
   Damit ist $T$ bezüglich der Maximumsnorm beschränkt. Es gilt
 

@@ -36,7 +36,7 @@ $$F_u \varphi = \int_0^1 u(t) \varphi(t) dt\quad \text{für}\ \varphi\in C_0^\in
 
 Die Ableitung $\frac{\partial}{\partial x} F_u$ definieren wir wie folgt:
 
-> $$\frac{\partial}{\partial x} F_u := F_{\frac{\partial u}{\partial x}}$$
+$$\frac{\partial}{\partial x} F_u := F_{\frac{\partial u}{\partial x}}$$
 
 Mit der Definition und partieller Integration erhalten wir
 
@@ -74,6 +74,27 @@ Die schwache Ableitung $g(x) := D^1u(x)$ ist die stückweise definierte Ableitun
 $$g(x) = \begin{cases}
 1\quad \text{für}\ 0 \le x \le 1\\
 -1\quad \text{für}\ 1 < x \le 2\end{cases}$$
+
+````{code-cell} ipython3
+:tags: [hide-input]
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+xp = np.linspace(0,2,400)
+yp = np.zeros_like(xp)
+yp[xp<1] = xp[xp<1]
+yp[1<=xp] = 2-xp[1<=xp] 
+dyp = np.zeros_like(xp)
+dyp[xp<1] = 1
+dyp[1<=xp] = -1 
+
+plt.plot(xp,yp,label=r'$u(x)$')
+plt.plot(xp,dyp,label=r'$g(x)$')
+plt.legend()
+plt.grid()
+plt.show()
+````
 
 Für alle $v\in C_0^\infty[0,1]$ gilt
 
