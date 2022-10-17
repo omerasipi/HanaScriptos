@@ -24,4 +24,8 @@ wobei $T: V \to W$ eine "lineare Abbildung", $V, W$ normierte Räume sind und $y
 Die _Abbildung_ $T$ des normierten Raumes $V$ in den normierten Raum $W$ heisst _linear_, wenn für alle $x,y \in V$ und alle $\alpha \in \mathbb{K}$
 
 $$T(x+y) = T x + T y$$
+und
+
+$$T(\alpha\, x) = \alpha\, T(x)$$
+gilt.
 ```

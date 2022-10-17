@@ -263,7 +263,7 @@ folgt $\mathop{span}\{y_1, \ldots, y_{k+1}\} = \mathop{span}\{x_1,\ldots, x_{k+1
 ```{prf:remark}
 :label: my-rm-numschmidt
 
-Das Verfahren wird auch in der Numerik angewandt. Als wichtiges Beispiel sei die Arnoldi Iteration für die Berechnung von Eigenwerten erwähnt.
+Das Verfahren wird auch in der Numerik angewandt als wichtiges Beispiel sei die Arnoldi Iteration für die Berechnung von **Eigenwerten** erwähnt. Ebenso kann das Verfahren für die Berechnung der **QR-Zerlegung** benutzt werden. Wobei zu erwähnen ist, dass die Householder-Transformation numerisch stabiler ist.
 ```
 
 :::{seealso}

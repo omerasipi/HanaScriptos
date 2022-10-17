@@ -61,7 +61,7 @@ so ist $\mathbb{K}$ ein Banachraum und damit die Menge aller beschränkten linea
 
 ```{prf:definition} Dualraum von $V$
 :label: my-def-dualraum
-Der Banachraumm $L(V,\mathbb{K})$ aller beschränkten linearen Funktionale auf $V$ heisst der zu $V$ *konjugierte* oder *duale Raum* und wird mit $V^*$ oder $V'$ bezeichnet.
+Der Banachraumm $L(V,\mathbb{K})$ aller beschränkten linearen Funktionale auf $V$ heisst der zu $V$ *konjugierte* oder *duale Raum* und wird mit $V^*$ oder $V'$ bezeichnet. Die Elemente des Dual-Raumes bezeichnet man als Distributionen. 
 ```
 
 **Beispiel**: Sei $V$ ein Hilbertraum und $y_0$ ein beliebiges (festes) Element aus $V$. Für $x\in V$ wird durch

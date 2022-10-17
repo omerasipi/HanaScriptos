@@ -132,7 +132,7 @@ Ohne Beiweis gilt der Satz
 ```{prf:theorem}
 :label: my-thm-Sobolev
 
-Die Sobolev Räume $W_p^k(\Omega)$ sind Banach Räume. Die Sobolev Räume $W_2^k(\Omega) = H^k(\Omega)$ sind Hilberträume.
+Die Sobolev Räume $W_p^k(\Omega)$ sind Banach Räume. Der Sobolev Raum $W_2^k(\Omega) = H^k(\Omega)$ ist ein Hilbertraum.
 ```
 
 **Beispiel**:
