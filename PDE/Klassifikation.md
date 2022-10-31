@@ -28,7 +28,7 @@ $$\sum_{i,j=1}^d s_i a_{i,j} s_j     + \sum_{i=1}^d b_i s_i + c = 0$$
 
 eine quadratische Form im $\mathbb{R}^d$. Wir unterscheiden folgende Fälle:
 
-* Im Fall, dass $a = (a_{i,j})$ eine (positive oder negative) definite Matrix ist, ist die Form eine Ellipse. Die entsprechende PDE heisst in dem Fall **elliptisch**. Als einfaches Beispiel betrachte $a = \mathbb{1}, b=0$ und $c=0$. In dem Fall folgt die Poisson Gleichung
+* Im Fall, dass $a = (a_{i,j})$ eine (positiv oder negativ) definite Matrix ist, ist die Form eine Ellipse. Die entsprechende PDE heisst in dem Fall **elliptisch**. Als einfaches Beispiel betrachte $a = \mathbb{1}, b=0$ und $c=0$. In dem Fall folgt die Poisson Gleichung
 
   $$- \sum_{i=1}^d \frac{\partial^2u(x)}{\partial x_i^2} = f.$$
 
