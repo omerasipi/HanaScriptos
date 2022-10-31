@@ -240,7 +240,7 @@ $$\int_\Omega \delta u\,v\,dx + \Delta t \int_\Omega k\,\nabla \delta u\cdot\nab
 
 Für das diskrete System folgt
   
-$$\underbrace{(M + \Delta t\ A)}_{=:M^*}\cdot \delta u_{n+1} = f - A\cdot u_n.$$
+$$\underbrace{(M + \Delta t\ A)}_{=:M^*}\cdot \delta u_{n+1} = \Delta t\, f - \Delta t\, A\cdot u_n.$$
 
 Die Form hat den entscheidenden Vorteil, dass die Dirichletrandwerte nicht in jedem Zeitschritt berechnet werden müssen. Wir sparen uns daher eine Matrix Multiplikation und Vektor Initialisierung.
 
