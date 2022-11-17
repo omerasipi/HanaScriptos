@@ -25,11 +25,7 @@ mit Dirichlet Randwerte $u=0$ auf $\partial\Omega$. Das schwache Problem lautet:
 
 $$\int_\Omega \big(\nabla u \nabla v\, + 10\,u\, v\big) dx = \int_\Omega 1\,v\,dx\quad \forall\ v\in H_0^1(\Omega).$$
 
-```{seealso}
-* [Richardson Verfahren](RichardsonVerfahren.ipynb)
-* [Jacobi-Verfahren und Gauss-Seidel Verfahren](JacobiGauss_SeidelVerfahren.ipynb)
-* [Gradienten Verfahren](GradientenVerfahren.ipynb)
-* [Konjugiertes Gradienten (CG) Verfahren](CGVerfahren.ipynb)
+```{tableofcontents}
 ```
 
 ```{glue:figure} FEM_RichardsonVerfahren_fig

@@ -51,19 +51,22 @@ parts:
       - file: NumerikPDE/EinstiegsBeispiel.md
       - file: NumerikPDE/finiteElementeMethode.md
         sections:
+        - file: NumerikPDE/FEMEindimensional.md
+        - file: NumerikPDE/FEMZweidimensional.md
         - file: NumerikPDE/FEMElemente1d.md
         - file: NumerikPDE/FEMElemente2d.ipynb
         - file: NumerikPDE/FEM1D_Assembling_HighOrder.ipynb
-      - file: NumerikPDE/Konvergenzanalyse.md
+    - file: NumerikPDE/Konvergenzanalyse.md
     - file: NumerikPDE/LinearEquationSolvers.md
       sections:
+      - file: NumerikPDE/MatrixStrukturMesh.ipynb
       - file: NumerikPDE/DirectSolver.md
       - file: NumerikPDE/IterativeSolver.md
-      - file: NumerikPDE/MatrixStrukturMesh.ipynb
-      - file: NumerikPDE/RichardsonVerfahren.ipynb
-      - file: NumerikPDE/JacobiGauss_SeidelVerfahren.ipynb
-      - file: NumerikPDE/GradientenVerfahren.ipynb
-      - file: NumerikPDE/CGVerfahren.ipynb
+        sections:
+        - file: NumerikPDE/RichardsonVerfahren.ipynb
+        - file: NumerikPDE/JacobiGauss_SeidelVerfahren.ipynb
+        - file: NumerikPDE/GradientenVerfahren.ipynb
+        - file: NumerikPDE/CGVerfahren.ipynb
   - caption: Anwendungen
     numbered: 3
     chapters:
@@ -73,6 +76,7 @@ parts:
       - file: Applications/ParabolicPDE.md
       - file: Applications/KonvektionsDiffusionsgleichungen.md
       - file: Applications/hyperbolicPDE.md
+      - file: Applications/EigenSystemSolver.md
   - caption: Appendix
     numbered: 3
     chapters:
