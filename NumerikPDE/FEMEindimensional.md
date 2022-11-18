@@ -194,7 +194,7 @@ Mit Hilfe des lokal-global Mapping {eq}`eq:lokalglobalMapping` und den Referenz 
 Für das Beispiel folgt:
 
 ```{code-cell} ipython3
-from scipy.integrate import quad
+from scipy.integrate import fixed_quad
 # Referenz Elementfunktionen
 def phi(t,i):
     if i == 0:
@@ -216,7 +216,9 @@ f = np.zeros(N)
 # Loop über Elemente (Assembling)
 for i in range(n):
     # berechne lokaler Vektor
-    fe = [quad(lambda t: func(sigma(t,i))*phi(t,j), 0,1)[0] for j in range(order+1)]
+    fe = [np.sum([fixed_quad(lambda t: func(sigma(t,i))*phi(t,j),
+                             xi[k],xi[k+1],n=2*order)[0]
+                  for k in range(n)]) for j in range(order+1)]
     for j in range(order+1):
         f[T[i,j]] += h[i]*fe[j]
 f

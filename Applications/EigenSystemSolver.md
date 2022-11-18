@@ -44,7 +44,7 @@ Diese Probleme besitzen abzählbar viele positive Eigenwerte
 
 $$0 < \lambda_1 < \lambda_2 \le \lambda_3 \le \ldots \lambda_n \to \infty.$$
 
-Die Grundfrequenz der Dirichlet- und Robin-Probleme spielt eine zentrale Rolle in der Analyse und in physikalischen Anwendungen. Sie kann durch das Rayleigh-Prinzip charakterisiert werden
+Die Grundfrequenz der Dirichlet- und Robin-Probleme spielt eine zentrale Rolle in der Analysis und in physikalischen Anwendungen. Sie kann durch das Rayleigh-Prinzip charakterisiert werden
 
 $$\lambda_1^D = \min_{u\in H_0^1(\Omega)} R(u) = \min_{u\in H_0^1(\Omega)} \frac{\int_\Omega |\nabla u|^2 dx}{\int_\Omega u^2 dx}$$ (eq:RayleighQuotientDirichlet)
 
@@ -207,12 +207,6 @@ plt.xlabel('Iteration')
 plt.ylabel('Residuum / Fehler')
 plt.xticks(range(0,errD.shape[0]))
 plt.show()
-```
-
-Für die Konvergenzrate erhalten wir:
-
-```{code-cell} ipython3
-np.round(np.log10((lamD[1]/(2*np.pi**2)-1)/(lamD[0]/(2*np.pi**2)-1)),2)
 ```
 
 ### Preconditioned Inverse Iteration (PINVIT)

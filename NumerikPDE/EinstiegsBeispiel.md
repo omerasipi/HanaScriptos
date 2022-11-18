@@ -200,14 +200,15 @@ Für das konkrete Beispiel erhalten wir für die Matrixkoeffizienten die Matrix 
 ```{code-cell} ipython3
 :tags: [hide-input]
 
-from scipy.integrate import quad
+from scipy.integrate import fixed_quad
 
 A = []
 for i in range(1,n):
     ai = []
     for j in range(1,n):
-        # Ohne points=xi wird die Integration ab n>15 instabil.
-        aij = quad(lambda x:dphi(i,np.array(x))*dphi(j,np.array(x)), 0, 1,points=xi)[0]
+        # Integration über die Elemente mit Hilfe der Gauss-Quadratur
+        aij = np.sum([fixed_quad(lambda x:dphi(i,np.array(x))*dphi(j,np.array(x)), xi[k], xi[k+1],n=2)[0]
+                      for k in range(n)])
         ai.append(aij)
     A.append(ai)
 A = np.array(A,dtype=float)
@@ -229,7 +230,9 @@ def f(x):
 
 fi = []
 for j in range(1,n):
-    fi.append(quad(lambda x:f(np.array(x))*phi(j,np.array(x)), 0, 1,)[0])
+    fi.append(np.sum([fixed_quad(lambda x:f(np.array(x))*phi(j,np.array(x)),
+                                 xi[k], xi[k+1],n=2)[0]
+                      for k in range(n)]))
 fi = np.array(fi,dtype=float)
 fi
 ```
