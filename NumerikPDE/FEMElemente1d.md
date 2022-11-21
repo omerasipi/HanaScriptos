@@ -93,7 +93,7 @@ for order in range(1,maxorder+1):
 
 Für die Massen-Elementmatrizen
 
-$$A_{i,j} = \int_0^1 \varphi_i(x) \varphi_j(x) dx$$
+$$M_{i,j} = \int_0^1 \varphi_i(x) \varphi_j(x) dx$$
 
 erhalten wir
 
@@ -152,9 +152,6 @@ for order in range(1,maxorder+1):
         gfu.vec[:] = 0
         gfu.vec[k] = 1
         plt.plot(xp,gfu(mesh(xp)),label=r'$\varphi_'+str(k)+'$')
-    plt.axvline(0.5,c='gray')
-    plt.axvline(0.25,c='gray')
-    plt.axvline(0.75,c='gray')
     plt.legend()
     plt.title('order = '+str(order))
     plt.grid()
@@ -198,7 +195,7 @@ for order in range(1,maxorder+1):
 
 Für die Massen-Elementmatrizen
 
-$$A_{i,j} = \int_0^1 \varphi_i(x) \varphi_j(x) dx$$
+$$M_{i,j} = \int_0^1 \varphi_i(x) \varphi_j(x) dx$$
 
 erhalten wir
 
