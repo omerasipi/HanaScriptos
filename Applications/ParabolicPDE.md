@@ -277,7 +277,7 @@ Draw(gfu-gfu_stat,mesh,'Differenz');
 
 Wir erweitern das parabolische Problem noch durch einen konvektiven Term. Daher eine Strömung, welche die Temperatur im Raum verteilt.
 
-$$\begin{split}\partial_t u(t,x) - \operatorname{div}(k(x)\, u(t,x)) + b\cdot \nabla u & = q(t,x)\quad \text{für}\ x\in \Omega\\
+$$\begin{split}\partial_t u(t,x) - \operatorname{div}(k(x)\, \nabla u(t,x)) + b\cdot \nabla u & = q(t,x)\quad \text{für}\ x\in \Omega\\
 u(t,x) & = u_D\quad\text{für}\ x\in \partial\Omega
 \end{split}$$
 
