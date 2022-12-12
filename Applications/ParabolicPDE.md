@@ -5,9 +5,9 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.10.3
+    jupytext_version: 1.14.0
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -27,9 +27,7 @@ mit den gegebenen Rand $\partial\Omega = \Gamma_D \cup \Gamma_N$. In dem Fall mu
 Als Anwendung der parabolischen Gleichung betrachten wir den Temperaturverlauf in einem Raum (2d Querschnitt) mit einem Radiator, wobei wir für Raumseite beim Radiator eine Temperatur von 5°C als Dirichletrandwert vorgeben. Die restlichen Seiten des Raumes seien optimal isoliert, was wir mit der Neumann Randbedingung beschreiben können.
 
 ```{code-cell} ipython3
-:tags: [hide-cell, remove-output]
-
-from netgen.geom2d import CSG2d, Circle, Rectangle
+from netgen.occ import OCCGeometry, Rectangle, MoveTo, Glue, X
 from ngsolve import *
 from ngsolve.webgui import Draw
 import numpy as np
@@ -37,18 +35,17 @@ import matplotlib.pyplot as plt
 ```
 
 ```{code-cell} ipython3
-geo = CSG2d()
-raum = Rectangle( pmin=(0,0), pmax=(4,2.5), mat="raum", bc="bc_raum", right='right')
-radiator = Rectangle( pmin=(3.8,0.2), pmax=(3.9,1), mat="radiator", bc="bc_radiator" )
-air = raum-radiator
-
-# add top level objects to geometry
-geo.Add(air)
-geo.Add(radiator)
-
-mesh = Mesh( geo.GenerateMesh(maxh=0.2))
-mesh.Curve(3) # Polynome 3. Grad für gekrümmte Geometrie
-Draw(mesh);
+raum = Rectangle(4,2.5).Face()
+raum.name = 'raum'
+raum.edges.name = 'bc_raum'
+raum.edges.Max(X).name = 'right'
+radiator = MoveTo(3.8,0.2).Rectangle(0.1,0.8).Face()
+radiator.edges.name = 'inner'
+radiator.name = 'radiator'
+air = raum - radiator
+air.name = 'raum'
+geom = Glue([air, radiator])
+mesh = Mesh(OCCGeometry(geom, dim=2).GenerateMesh(maxh = 0.2))
 ```
 
 Die schwache Gleichung für {eq}`eq:parabolischeDGLApplication` lautet
@@ -369,6 +366,7 @@ Für die zeitliche Entwicklung der Tempertur der beiden Ansätze erhalten den fo
 
 ```{code-cell} ipython3
 :tags: [hide-input]
+
 plt.axhline(Tstat,c='gray',label='stationäre Temperatur ohne Konvektion')
 plt.axhline(Tstat2,c='gray',label='stationäre Temperatur mit Konvektion')
 plt.plot(dt*np.arange(len(T)),T,label='Temperatur ohne Konvektion')
@@ -383,6 +381,7 @@ plt.show()
 
 ```{code-cell} ipython3
 :tags: [hide-input]
+
 plt.axhline(TstatMean,c='gray',label='stationäre Temperatur ohne Konvektion')
 plt.axhline(Tstat2Mean,c='gray',label='stationäre Temperatur mit Konvektion')
 plt.plot(dt*np.arange(len(Tmean)),Tmean,label='Temperatur ohne Konvektion')
