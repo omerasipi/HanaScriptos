@@ -38,7 +38,7 @@ auf dem Einheitsquadrat für unterschiedliche Randbedingungen
 
 - und die vom Parameter $\alpha$ abhängige Robin Randbedingung
 
-  $$u(x) = 0\qquad\text{für}\ x\in \partial\Omega.$$
+  $$\partial_n u(x) + \alpha\,u(x) = 0\qquad\text{für}\ x\in \partial\Omega.$$
 
 Diese Probleme besitzen abzählbar viele positive Eigenwerte
 
