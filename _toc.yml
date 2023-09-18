@@ -11,7 +11,7 @@ parts:
       sections:
       - file: Introduction/PoissonGleichung.md
       - file: Introduction/VariableKoeffizienten.md
-      - file: Introduction/StatischesMagnetfeld.md
+      - file: Introduction/Espressotasse2d.md
     - file: Introduction/Software.md
   - caption: Funktionalanalysis
     numbered: 3

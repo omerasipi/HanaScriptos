@@ -10,4 +10,5 @@ beschäftigen. Um einen kleinen Einblick und Motivation in die Thematik zu gewä
 
 -   [Die Poisson Gleichung](PoissonGleichung.md)
 -   [Variable Koeffizienten](VariableKoeffizienten.md)
+-   [Wärmeleitung: Vergleich Isolationstasse / Keramiktasse](Espressotasse2d.md)
 -   [Magnetostatisches Feld](StatischesMagnetfeld.md)

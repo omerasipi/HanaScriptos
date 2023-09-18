@@ -102,7 +102,7 @@ $$
 Mit Hilfe der partiellen Integration im Mehrdimensionalen (Satz von Gauss auf das Vektorfeld $\nabla u(x)\, v(x)$ angewandt):
 
 $$
-\int_{\partial \Omega} n \nabla u(x) \, v(x)\, dA = \int_\Omega \opdiv (\nabla u(x) \, v(x)) dx
+\int_{\partial \Omega} n\cdot \nabla u(x) \, v(x)\, dA = \int_\Omega \opdiv (\nabla u(x) \, v(x)) dx
 = \int_{\Omega} \Delta u(x) v(x) + \nabla u(x) \nabla v(x) dx
 $$
 

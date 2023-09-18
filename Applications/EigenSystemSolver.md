@@ -22,7 +22,7 @@ from ngsolve.webgui import Draw
 import scipy.linalg
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy import random
+from numpy import random
 ```
 
 ## Rayleigh-Quotient

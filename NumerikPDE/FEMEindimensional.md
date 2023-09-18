@@ -224,7 +224,7 @@ for i in range(n):
 f
 ```
 
-Mit der Berücksichtigung der Dirichlet Randbedingung folgt die numerische Lösung, abgebildet in der Abbildung {numref}`FEM_1d_p1_solutionexmp_fig2`.
+Mit der Berücksichtigung der Dirichlet Randbedingung folgt die numerische Lösung, abgebildet in der Abbildung {numref}`fig-FEM_1d_p1_solutionexmp_fig2`.
 
 ```{code-cell} ipython3
 :tags: [hide-cell, remove-output]
@@ -242,7 +242,7 @@ glue("FEM_1d_p1_solutionexmp_fig2", fig, display=False)
 ```{glue:figure} FEM_1d_p1_solutionexmp_fig2
 ---
 figwidth: 400px
-name: FEM_1d_p1_solutionexmp_fig2
+name: fig-FEM_1d_p1_solutionexmp_fig2
 ---
 
 FEM 1d affine Basisfunktionen
