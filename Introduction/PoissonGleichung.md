@@ -103,13 +103,13 @@ Mit Hilfe der partiellen Integration im Mehrdimensionalen (Satz von Gauss auf da
 
 $$
 \int_{\partial \Omega} n\cdot \nabla u(x) \, v(x)\, dA = \int_\Omega \opdiv (\nabla u(x) \, v(x)) dx
-= \int_{\Omega} \Delta u(x) v(x) + \nabla u(x) \nabla v(x) dx
+= \int_{\Omega} \Delta u(x) v(x) + \nabla u(x)\cdot \nabla v(x) dx
 $$
 
 können wir die linke Seite in der Form
 
 $$
-\int_\Omega \nabla u(x) \nabla v(x)\, dx - \int_{\partial \Omega} \frac{\partial u(x)}{\partial n} v(x)\, dA = \int_\Omega f(x) v(x)\, dx
+\int_\Omega \nabla u(x)\cdot \nabla v(x)\, dx - \int_{\partial \Omega} \frac{\partial u(x)}{\partial n} v(x)\, dA = \int_\Omega f(x) v(x)\, dx
 $$
 
 schreiben.
@@ -163,7 +163,7 @@ $$H_0^1 = \{u\in H^1 | u|_{\partial \Omega} = 0\}.$$
 
 Wir betrachten nun die Gleichung {eq}`eq:weakPoisson`. Die linke Seite stellt eine **Bilinearform** $A: H^1\times H^1 \to \mathbb{R}$
 
-$$A(u,v) = \int_\Omega \nabla u\cdot\nabla v$$
+$$A(u,v) = \int_\Omega \nabla u\cdot\nabla v\,dx$$
 
 dar und die rechte Seite eine **Linearform** $f:H^1 \to \mathbb{R}$
 
@@ -250,7 +250,7 @@ f.Assemble();
 
 Das Lösen des finite Elementproblems {eq}`eq:FEMProblemPoisson` resultiert somit im Lösen des linearen Gleichungssystems
 
-$$A u = f$$
+$$A\cdot u = f$$
 
 ```{code-cell} ipython3
 gfu.vec.data = a.mat.Inverse(freedofs=V.FreeDofs()) * f.vec

@@ -28,12 +28,7 @@ from ngsolve.webgui import Draw
 
 Zur praktischen Illustration der Poisson-Gleichung betrachten wir die Wärmeleitung. In der Anwendung wollen wir den Unterschied zwischen einer doppelwandigen Esspressotasse und einer normalen illustrieren. Dabei betrachten wir die Temperaturverteilung im Raum, wobei die Wärmeleitung vom Ort abhängig ist. Damit können unterschiedliche Objekte wie die Luft, Isolation, das Glas und der Kaffee beschrieben bzw. modelliert werden.
 
-Die Wärmeleitung wird in der Physik als Diffusionsprozess beschrieben. Mathematisch kann man solche Prozesse mit Hilfe der Poisson-Gleichung modellieren. Wir betrachten daher ein skalares Temperaturfeld $T: \Omega \to \mathbb{R}$ welches dem Randwertproblem
-
-$$\begin{split}-\mathop{div}(\lambda(x) \nabla T(x)) & = q(x)\quad\text{für}\ x\in\Omega\\
-T(x) & = T_0(x)\quad\text{für}\ x\in\Gamma_D\end{split}$$(eq:waermeleitungstationaer)
-
-genügt. Das Gebiet $\Omega$ kann im zwei- oder dreidimensionalen Raum liegen.  
+Das Gebiet $\Omega$ kann im zwei- oder dreidimensionalen Raum liegen.  
 
 ```{figure} Kaffeetassen.jpeg
 ---
@@ -43,6 +38,32 @@ name: Kaffeetassen
 ---
 Unterschiedliche Espressotassen 
 ```
+
+Die Wärmeleitung wird in der Physik als Diffusionsprozess beschrieben. Mathematisch kann man solche Prozesse mit Hilfe der Poisson-Gleichung modellieren. Wir betrachten daher ein skalares Temperaturfeld $T: \Omega \to \mathbb{R}$ welches dem Randwertproblem
+
+$$\begin{split}-\mathop{div}(\lambda(x) \nabla T(x)) & = q(x)\quad\text{für}\ x\in\Omega\\
+T(x) & = T_0(x)\quad\text{für}\ x\in\Gamma_D\end{split}$$(eq:waermeleitungstationaer)
+
+genügt, wobei $\lambda=\lambda(x)$ der ortsabhängige Wärmeleitungskoeffizient ist. Der zugehörige Wärmefluss  
+
+$$q = -\lambda \nabla T$$(eq:waermefluss)
+
+ist gegeben durch den Gradient der Temperatur $\nabla T$. Im Fall, dass $\lambda$ diskontinuierlich ist, wird die Gleichung im Sinne von Distributionen verstanden. Dies beinhaltet Interface Bedingungen: Die Temperatur auf der linken und rechten Seite sind gleich und der Wärmefluss der linken in die rechte Seite müssen gleich gross sein:  
+
+$$\begin{split}
+T_l & = & T_r \\
+\lambda_l \frac{\partial T_r}{\partial n} & = & \lambda_r \frac{\partial T_r}{\partial n}
+\end{split}$$
+
+Für $T_0 = 0$ ist die variationelle Form des Problems gegeben durch: finde $T \in H_0^1(\Omega)$ mit
+
+$$
+\int_\Omega \lambda(x) \nabla T\cdot \nabla v dx = \int_\Omega q\, v dx
+$$
+
+Diskontinuierliche Koeffizienten bilden kein Problem. Beide Interface Bedingungen werden erfüllt:
+* Stetigkeit der Temperatur $T$ durch die Stetigkeit der Ansatzfunktionenraumes
+* Stetigkeit des Wärmeflusses in einem schwachen Sinne, durch Neumann Randbedingungen.
 
 
 ## Geometrie und Mesh
@@ -181,7 +202,7 @@ Das geometrische Modell und dessen mathematische Beschreibung als Mesh ist damit
 ## Stationäre Wärmeleitung
 ### Ortsabhängige Wärmeleitung
 
-Die stationäre Wärmeverteilung kann wie oben erwähnt mit Hilfe der Poisson-Gleichung modelliert werden. Es wird dabei vorausgesetzt, dass die Wärme sich diffusiv im Raum verteilt. In dem Ansatz wird keine Wärmestrahlung oder Konvektion berücksichtigt. Wir gehen davon aus, dass es keine Luftströmung aufgrund von Temperaturdifferenzen in der Luft gibt, welche die Wärme weg transportieren würde. Wie gut die wärme geleitet wird, hängt vom Medium ab. Die Wärmeleitung ist somit vom Ort abhängig. Wir benutzen folgende Werte für die Wärmeleitung:
+Die stationäre Wärmeverteilung kann wie oben erwähnt mit Hilfe der Poisson-Gleichung modelliert werden. Es wird dabei vorausgesetzt, dass die Wärme sich diffusiv im Raum verteilt. In dem Ansatz wird keine Wärmestrahlung oder Konvektion berücksichtigt. Wir gehen davon aus, dass es keine Luftströmung aufgrund von Temperaturdifferenzen in der Luft gibt, welche die Wärme weg transportieren würde. Wie gut die Wärme geleitet wird, hängt vom Medium ab. Wir benutzen folgende Werte für die Wärmeleitung:
 
 1. Fall Isolationstasse: wir gehen von Luft als relativ schlechter Wärmeleiter im Innern der Tasse aus.
 
@@ -190,7 +211,7 @@ lam_mat = {'glas': 20, 'isolator': 0.0262, 'liquid': 0.597, 'air': 0.0262}
 lam = CoefficientFunction([lam_mat[mat] for mat in mesh.GetMaterials()])
 ```
 
-2. Fall Keramiktasse: Der Isolator ist keiner, wir setzen die Wärmeleitung auf Glas (für Keramik).
+2. Fall Keramiktasse: kein Isolator, wir setzen die Wärmeleitung auf Glas (für Keramik).
 
 ```{code-cell} ipython3
 lam_mat2 = {'glas': 20, 'isolator': 20, 'liquid': 0.597, 'air': 0.0262}
@@ -243,26 +264,48 @@ f.Assemble()
 
 Damit haben wir letztlich ein lineares Gleichungssystem
 
-$$A \cdot u = b$$
+$$A \cdot T = b$$
 
 zu lösen. Für die numerischen Lösungen gibt es in `ngsolve` sogenannte `GridFunction`'s.
 
 ```{code-cell} ipython3
-gfu = GridFunction(V)
-gfu2 = GridFunction(V)
+gfT = GridFunction(V)
+gfT2 = GridFunction(V)
 
-gfu.vec.data += a.mat.Inverse(freedofs=V.FreeDofs())*f.vec
-gfu2.vec.data += a2.mat.Inverse(freedofs=V.FreeDofs())*f.vec
+gfT.vec.data += a.mat.Inverse(freedofs=V.FreeDofs())*f.vec
+gfT2.vec.data += a2.mat.Inverse(freedofs=V.FreeDofs())*f.vec
 ```
 
 Die beiden Lösungen illustrieren sehr schön den Unterschied zwischen diesen beiden Tassen. Die Temperatur in der Isolationstasse ist viel höher als in der Keramiktasse. Dieses Resultat lehrt uns auch die Erfahrung, dass in der Isdolationstasse der Kaffee bedeutend länger warm ist, als in der Keramiktasse.
 
-```{code-cell} ipython3
-Draw(gfu,min=0,max=60);
-```
+1. Temperaturverteilung für die Isolationstasse
 
 ```{code-cell} ipython3
-Draw(gfu2,min=0,max=60);
+Draw(gfT,min=0,max=60);
 ```
+
+2. Temperaturverteilung für die Keramiktasse
+
+```{code-cell} ipython3
+Draw(gfT2,min=0,max=60);
+```
+
+Wir können auch den Wärmefluss visualisieren und erhalten mit {eq}`eq:waermefluss`:
+
+1. Wärmefluss für die Isolationstasse
+
+```{code-cell} ipython3
+q = -lam*grad(gfT)
+Draw(q,mesh,'q');
+```
+
+2. Wärmefluss für die Keramiktasse
+
+```{code-cell} ipython3
+q2 = -lam2*grad(gfT2)
+Draw(q2,mesh,'q2');
+```
+
+Durch aktivieren der Vektoren in der Visualisierung kann man sehr schön den Unterschied sehen. Im Fall der Isolationstasse wird der direkte Wärmefluss zum unteren Rand unterdrückt, was eine viel bessere Isolation bewirkt und damit natürlich auch einen warmen Kaffee garantiert.
 
 Wir werden dieses Beispiel später im Semester wieder aufgreifen und noch näher an der Realität ansetzen und insbesondere zeitabhängig betrachten. In dieser alltäglich praktischen Anwendung sehen Sie das Potential des Moduls. Während dem Semester werden wir die benutzten Begriffe einführungen und letztlich in der Lage sein, praktische Anwendungen modellieren und rechnen zu können.
