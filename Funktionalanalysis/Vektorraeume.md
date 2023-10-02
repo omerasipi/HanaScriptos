@@ -104,7 +104,7 @@ $$\begin{split}a\cdot (b+c) & = a\cdot b + a\cdot c\\
 Beispiele für Körper sind folgende Tupel
 
 - $(\mathbb{R}, +, \cdot)$ und $(\mathbb{Q}, +, \cdot)$  mit der üblichen Addition und Multiplikation,
-- $(\mathbb{Z}, +, \cdot)$ bildet **keine** Gruppe.
+- $(\mathbb{Z}, +, \cdot)$ bildet **keinen** Körper.
 
 Mit Hilfe eines Körpers können wir nun einen $\mathbb{K}$-Vektorraum wie folgt definieren:
 
@@ -256,7 +256,7 @@ plt.show()
 ```
 
 ```{admonition} Aufgabe
-Berechne die Integralmetrik für $p=2$ und $p=1/2$ für das Beispiel oben.
+Berechne die Integralmetrik für $p=2$ für das Beispiel oben.
 ```
 
 ```{admonition} Aufgabe
@@ -528,7 +528,7 @@ Die Umkehrung gilt im allgemeinen nicht.
 
 In der Approximationstheorie stellt sich das Grundproblem: In einem metrischen Raum $V$ sei eine Teilmenge $W$ und ein fester Punkt $y\in V$ vorgegeben. Zu bestimmen ist ein Punkt $x_0 \in W$, der von $y$ minimalen Abstand hat. Das Problem beginnt schon damit, dass es nicht klar, ist, dass es einen solchen Punkt überhaupt gibt:
 
-> Betrachte den Raum $(\mathbb{R}, d)$ mit $d(x_1,x_2) = |x_1-x_2|$. Die Teilmenge $W$ sei gegeben durch $W = (0,1)$ und $y=2$. In $W$ gibt es keinen Punkt $x_0$, für den $d(x_0,2)$ minimal ist ($1\not\in W$). 
+> Beispiel: Betrachte den Raum $(\mathbb{R}, d)$ mit $d(x_1,x_2) = |x_1-x_2|$. Die Teilmenge $W$ sei gegeben durch $W = (0,1)$ und $y=2$. In $W$ gibt es keinen Punkt $x_0$, für den $d(x_0,2)$ minimal ist ($1\not\in W$). 
 
 Zur Erinnerung:
 

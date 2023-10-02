@@ -51,8 +51,8 @@ $$q = -\lambda \nabla T$$(eq:waermefluss)
 ist gegeben durch den Gradient der Temperatur $\nabla T$. Im Fall, dass $\lambda$ diskontinuierlich ist, wird die Gleichung im Sinne von Distributionen verstanden. Dies beinhaltet Interface Bedingungen: Die Temperatur auf der linken und rechten Seite sind gleich und der Wärmefluss der linken in die rechte Seite müssen gleich gross sein:  
 
 $$\begin{split}
-T_l & = & T_r \\
-\lambda_l \frac{\partial T_r}{\partial n} & = & \lambda_r \frac{\partial T_r}{\partial n}
+T_l & = T_r \\
+\lambda_l \frac{\partial T_r}{\partial n} & = \lambda_r \frac{\partial T_r}{\partial n}
 \end{split}$$
 
 Für $T_0 = 0$ ist die variationelle Form des Problems gegeben durch: finde $T \in H_0^1(\Omega)$ mit

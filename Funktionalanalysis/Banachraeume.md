@@ -28,7 +28,7 @@ x + y & = & y + x & \quad\text{Kommutativgesetz} \\
 x + 0 & = & x & \quad\text{Nullelement} \\
 x + x' & = & 0 & \quad\text{Negatives zu $x$}\\
 (\lambda + \mu) x & = &  \lambda x + \mu x & \quad\text{1. Distributivgesetz}\\
-\lambda (x+y) & = &  \lambda x + \mu x & \quad\text{2. Distributivgesetz}\\
+\lambda (x+y) & = &  \lambda x + \lambda y & \quad\text{2. Distributivgesetz}\\
 (\lambda \mu) x & = & \lambda (\mu x) & \quad\text{Assoziativgesetz}\\
 1 x & = & x & \quad\text{mit $1\in\mathbb{K}$}
 \end{array}$$
@@ -49,11 +49,11 @@ Beispiele für lineare Räume:
 * $C^k[a,b]$ Menge aller reellwertigen $k$-mal stetig differenzierbare Funktionen.
 * $C^{\infty}[a,b]$ Menge aller beliebig oft stetig differenzierbare Funktionen.
 * Menge aller Polynome
-* Menge $l_p$ aller Zahlenfolgen $x = \{x_k\}$, für die $\sum_{k=1}^{\infty} |x_k|^p < \infty$ konvergiert:
+* Menge $l_p$ aller Zahlenfolgen $x = \{x_k\}_{k\in\mathbb{N}}$, für die $\sum_{k=1}^{\infty} |x_k|^p < \infty$ konvergiert:
 
   $$\begin{split}
-  x+y & = \{x_k\} + \{y_k\} = \{x_k + y_k\}\\
-  \lambda x & = \lambda \{x_k\} = \{\lambda x_k\},\quad \lambda\in\mathbb{R}\end{split}$$
+  x+y & = \{x_k\}_{k\in\mathbb{N}} + \{y_k\}_{k\in\mathbb{N}} = \{x_k + y_k\}_{k\in\mathbb{N}}\\
+  \lambda x & = \lambda \{x_k\}_{k\in\mathbb{N}} = \{\lambda x_k\}_{k\in\mathbb{N}},\quad \lambda\in\mathbb{R}\end{split}$$
   
 Wie in der linearen Algebra sind folgende Begriffe analog definiert
 
