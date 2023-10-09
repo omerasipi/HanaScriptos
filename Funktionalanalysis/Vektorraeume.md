@@ -434,7 +434,7 @@ Betrachten wir ein paar Beispiele:
 
 2. $C[a,b]$ mit der Maximumsmetrik
 
-   $$d(x,y) = \max{a\le t\le b} |x(t)-y(t)|$$
+   $$d(x,y) = \max_{a\le t\le b} |x(t)-y(t)|$$
 
    versehen ist vollständig.
 

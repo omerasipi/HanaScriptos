@@ -20,12 +20,14 @@ parts:
       - file: Funktionalanalysis/Vektorraeume.md
       - file: Funktionalanalysis/Banachraeume.md
       - file: Funktionalanalysis/Hilbertraeume.md
-      - file: Funktionalanalysis/BeispielOrthogonalisierungSchmidt.ipynb
-      - file: Funktionalanalysis/BeispielFourierEntwicklung.ipynb
+        sections:
+        - file: Funktionalanalysis/BeispielOrthogonalisierungSchmidt.ipynb
+        - file: Funktionalanalysis/BeispielFourierEntwicklung.ipynb
     - file: Funktionalanalysis/LineareOperatoren.md
       sections:
       - file: Funktionalanalysis/BeschraenkteOperatoren.md
-      - file: Funktionalanalysis/BeispielLineareOperatoren.ipynb
+        sections:
+        - file: Funktionalanalysis/BeispielLineareOperatoren.ipynb
       - file: Funktionalanalysis/LineareFunktionale.md
     - file: Funktionalanalysis/Sobolevraeume.md
       sections:
