@@ -18,6 +18,8 @@ parts:
     - file: Funktionalanalysis/GrundlegendeRaeume.md
       sections:
       - file: Funktionalanalysis/Vektorraeume.md
+        sections:
+        - file: Funktionalanalysis/LebesgueIntegral.ipynb
       - file: Funktionalanalysis/Banachraeume.md
       - file: Funktionalanalysis/Hilbertraeume.md
         sections:

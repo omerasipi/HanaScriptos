@@ -503,7 +503,7 @@ im Widerspruch zur Annahme, dass $\{x_n(t)\}$ gegen $y(t)$ konvergiert. Damit is
 
 Die Tatsache, daß $C[a,b]$, versehen mit einer Integralmetrik, kein vollständiger metrischer Raum ist, bedeutet einen **schwerwiegenden Mangel** dieses Raumes. Jedoch gibt es mehrere Wege der Vervollständigung (vgl. Kapitel {numref}`chap:L2Raum`):
 
-1. Man erweitert die Klasse $C[a,b]$ zur Klasse der auf $[a,b]$ Lebesgue-integrierbaren Funktionen und interpretiert das in {eq}`eq:LpMetrik` auftretende Integral im Lebesgueschen Sinn. Dadurch gelangt man zum vollständigen metrischen Raum $L_p[a, b]$ (vgl. {cite:p}`heuser_Analysis2`, S. 109).
+1. Man erweitert die Klasse $C[a,b]$ zur Klasse der auf $[a,b]$ Lebesgue-integrierbaren Funktionen und interpretiert das in {eq}`eq:LpMetrik` auftretende Integral im Lebesgueschen Sinn (vgl. Illustration Lebesgue Integral {numref}`chap:IllustrationLebesgue`). Dadurch gelangt man zum vollständigen metrischen Raum $L_p[a, b]$ (vgl. {cite:p}`heuser_Analysis2`, S. 109).
 2. Ein anderer Weg besteht darin, dass der vollständige Erweiterungsraum als Menge von linearen Funktionalen auf einem geeigneten Grundraum nach dem Vorbild der Distributionentheorie aufgefasst wird.
 3. Ein weiterer Weg besteht in der abstrakten Konstruktion eines vollständigen Erweiterungsraums mit Hilfe von Cauchy-Folgen. Auf diese Weise lässt sich **jeder** nichtvollständige metrische Raum vervollständigen (vgl. {cite:p}`heuser_FA`, S. 251)
 
