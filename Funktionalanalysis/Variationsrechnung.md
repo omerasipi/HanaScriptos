@@ -156,7 +156,7 @@ mit einer Konstante $\delta > 0$ gilt.
 
 Analog wird ein lokaler Maximierer definiert. Man beschränkt sich in der Regel auf Minimierer und betrachtet für Maximierer das Funktional $-J$.
 
-Wir betrachten nun das Funktional {eq}`eq:EulerLagrageFunktional` und berechnen die Gâteaux-Ableitung für beliebiges $v\in C_0^1(a,b)$
+Wir betrachten nun das Funktional {eq}`eq:EulerLagrageFunktional` und berechnen die Gâteaux-Ableitung für beliebiges $v\in C_0^\infty(a,b)$
 
 $$\begin{split}
 \frac{d}{d\varepsilon} J(u+\varepsilon v)\big|_{\varepsilon=0} & = \frac{d}{d\varepsilon} \int_a^b F(x,u+\varepsilon v,u'+\varepsilon v') dx \Big|_{\varepsilon=0}\\
@@ -167,7 +167,7 @@ Partielle Integration des zweiten Summanden liefert
 
 $$J'(u) v = \int_a^b \left(\partial_{u} F(x,u,u')\cdot v - \frac{d}{dx} \partial_{u'} F(x,u,u')\cdot v\right) dx + \left[ \partial_{u'} F(x,u,u')\cdot v \right]_a^b.$$
 
-Da $v\in C_0^1(a,b)$ folgt $v(a) = v(b) = 0$ und damit
+Da $v\in C_0^\infty(a,b)$ folgt $v(a) = v(b) = 0$ und damit
 
 $$J'(u) v = \int_a^b \left(\partial_{u} F(x,u,u') - \frac{d}{dx} \partial_{u'} F(x,u,u')\right)\cdot v dx.$$
 
@@ -188,7 +188,7 @@ $$\frac{d}{dx} \partial_{u'} F(x,u,u') =  \partial_{u} F(x,u,u').$$ (eq:StarkeEu
 
 * Im hier notierten Fall von Funktionen in *einer* Variablen $x$ gilt, dass eine Lösung der schwachen Gleichung
 
-  $$\int_a^b \left(\partial_{u} F(x,u,u')\cdot v + \partial_{u'} F(x,u,u')\cdot v' \right) dx = 0\quad \forall\ v\in C_0^1(a,b)$$
+  $$\int_a^b \left(\partial_{u} F(x,u,u')\cdot v + \partial_{u'} F(x,u,u')\cdot v' \right) dx = 0\quad \forall\ v\in C_0^\infty(a,b)$$
 
   auch Lösung der starken Gleichung {eq}`eq:StarkeEulerLagrangeGleichung` ist.
 * Ist die Lagrange-Funktion nicht explizit von $x$ abhängig, können wir die Lagrange-Gleichung umformen - vorausgesetzt die Regularität von $u$ erlaubt ein zweimaliges Ableiten.
@@ -235,7 +235,8 @@ Analog zur Analysis reeller Funktionen kann auf für Funktionale unter geeignete
 
 Sei die Lagrange-Funktion {eq}`eq:EulerLagrageFunktional` zweimal bezüglich den letzten beiden Variablen stetig partiell differenzierbar. Dann ist die zweite Variateion oder zweite Fréchet-Ableitung gegeben durch die Bilinearform
 
-$$\delta^2 J(u)(v,v) = \int_a^b \partial_{u,u}F(x,u,u') v^2 + 2 \partial_{u,u'} F(x,u,u') v v' + \partial_{u',u'} F(x,u,u') v'^2 dx.$$
+$$\begin{split}\delta^2 J(u)(v,w) = \int_a^b \Big[ & \Big(\partial_{u,u}F(x,u,u') - \frac{d}{dx} \partial_{u',u}F(x,u,u')\Big) v w\\
+& + \partial_{u',u'}F(x,u,u') v' w' \Big] dx\end{split}$$
 
 Für einen lokalen Minimierer $u$ gilt neben der notwendigen Bedingung $J'(u) v = 0$ die **hinreichende Bedingung von Legendre**
 
@@ -243,7 +244,7 @@ $$\partial_{u',u'} F(x,u,u') \ge 0\quad \forall\ x\in [a,b].$$
 
 Gilt für alle $w \in D\subset C^1(a,b) \cap \{w(a)=A, w(b)=B\}$
 
-$$\delta^2 J(w)(v,v) \ge 0\quad \forall\ v \in C_0^1(a,b),$$
+$$\delta^2 J(w)(v,v) \ge 0\quad \forall\ v \in C_0^\infty(a,b),$$
 
 so ist $u$ ein globaler Minimierer von $J$ auf $D$.
 ```
