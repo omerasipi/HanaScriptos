@@ -138,13 +138,8 @@ Am Ausflussrand ergibt sich die Konzentration aus der Differentialgleichung.
 ```{prf:remark}
 :label: my-rm-mod2
 
-Für die numerische Berechnung von Lösungen dieses Types von partiellen Differentialgleichungen bieten sich Finite Volumen Methoden (FVM) an. Die Methoden haben den Vorteil, dass die Massenerhalten per Konstruktion exakt erfüllt wird, was bei gewöhnlichen Finite Element Methoden nicht per se gegeben ist. Neue diskontinuierliche FEM Methoden lösen dieses Problem. In diesem Kurs können wir auf die Thematik nicht eingehen.
+Für die numerische Berechnung von Lösungen dieses Types von partiellen Differentialgleichungen bieten sich Finite Volumen Methoden (FVM) an. Die Methoden haben den Vorteil, dass die Massenerhalten per Konstruktion exakt erfüllt wird, was bei gewöhnlichen Finite Element Methoden nicht per se gegeben ist. Neue diskontinuierliche FEM Methoden lösen dieses Problem. In diesem Kurs gehen wir auf die Thematik nicht ein.
 ```
-
-```{seealso}
-[Discontinuous Galerkin Discretizations for linear transport](https://docu.ngsolve.org/latest/i-tutorials/unit-3.3-scalardg/scalardg.html)
-```
-
 
 ## Parabolische partielle Differentialgleichungen
 
@@ -238,30 +233,14 @@ $$\frac{\partial^2 p_s}{\partial t^2} = c^2 \Delta p_s(x,t).$$
 die Wellengleichung für $p_2$, wobei für die Quelle $f=0$ gilt. Eine harte, Schall reflektierende Wand kann durch die Randbedingung $v\cdot n = 0$ modelliert werden.
 
 ``````{seealso}
-Ein paar Beispiele mit unterschiedlichen Randbedingungen für die Wellengleichung
+Das folgende Beispiel zeigt die Wellengleichung 1d mit unterschiedlichen Randbedingungen.
 
-* ```{figure} ../movies/Wellengleichung1D.mp4
-  ---
-  align: center
-  height: 250px
-  name: fig-Wellengleichung1d
-  ---
-  1d Beispiel Vergleich Neumann / Dirichlet Randbedingungen
-  ```
-* ```{figure} ../movies/movieDirichletRB2D.mpg
-  ---
-  align: center
-  height: 250px
-  name: fig-Wellengleichung2dDirichlet
-  ---
-  2d Beispiel mit Dirichlet Randbedingungen
-  ```
-* ```{figure} ../movies/movieNeumannRB2D.mpg
-  ---
-  align: center
-  height: 250px
-  name: fig-Wellengleichung2dNeumann
-  ---
-  2d Beispiel mit Neumann Randbedingungen
-  ```
+```{figure} ../movies/Wellengleichung1D.mp4
+---
+align: center
+width: 200px
+name: fig-Wellengleichung1d
+---
+1d Beispiel Vergleich Neumann / Dirichlet Randbedingungen
+```
 ``````

@@ -89,7 +89,7 @@ Im Beispiel sind ein paar Grundkonzepte enthalten, welche wir wie folgt festhalt
 
 Sei $X$ ein Banachraum. Existiert für $J: X \to \mathbb{R}$ ein gegebenes Funktional
 
-$$G'(\varepsilon=0) = \lim_{\varepsilon \to 0} \frac{J(u + \varepsilon v) - J(u)}{\varepsilon},$$
+$$J'(\varepsilon=0) = \frac{d}{d\varepsilon} J(u + \varepsilon v)\big|_{\varepsilon = 0} = \lim_{\varepsilon \to 0} \frac{J(u + \varepsilon v) - J(u)}{\varepsilon},$$
 
 so ist $J$ in $u$ in Richtung $v$ Gâteaux-differenzierbar und die Ableitung wird als $dJ(u,v)$ bezeichnet.
 ```
