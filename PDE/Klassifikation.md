@@ -16,7 +16,7 @@ Wie wir in den Beispielen gesehen haben, führen wichtige in den Anwendungen auf
 
 Die generelle Form einer linearen PDE 2. Ordnung definieren wir wie folgt: finde $u: \Omega \subset \mathbb{R}^d \to \mathbb{R}$ so, dass
 
-$$- \sum_{i,j=1}^d \frac{\partial}{\partial x_i}\left(a_{i,j}(x) \frac{\partial u(x)}{\partial x_j}\right) + \sum_{i=1}^d b_i(x) \frac{\partial u(x)}{\partial x_i} + c(x) u(x) = f(x)$$ (eq:generellPDE)
+$$\sum_{i,j=1}^d \frac{\partial}{\partial x_i}\left(a_{i,j}(x) \frac{\partial u(x)}{\partial x_j}\right) + \sum_{i=1}^d b_i(x) \frac{\partial u(x)}{\partial x_i} + c(x) u(x) = f(x)$$ (eq:generellPDE)
 
 Die Koeffizienten $a_{i,j}(x), b_i(x), c(x)$ und die rechte Seite $f(x)$ sind gegebene Funktionen. Zusätzlich sind verschiedene Typen von Randbedingungen notwendig. Das Verhalten der PDE hängt im wesentlichen vom Typ des Differential Operators
 
@@ -24,13 +24,14 @@ $$L := \sum_{i,j=1}^d \frac{\partial}{\partial x_i}\left(a_{i,j} \frac{\partial 
 
 ab. Ersetzt man $\frac{\partial}{\partial x_i}$ mit $s_i$, dann beschreibt
 
-$$\sum_{i,j=1}^d s_i a_{i,j} s_j     + \sum_{i=1}^d b_i s_i + c = 0$$
+$$\begin{split}G:\mathbb{R}^d & \to \mathbb{R}\\
+s & \mapsto G(s) = \sum_{i,j=1}^d s_i a_{i,j} s_j + \sum_{i=1}^d b_i s_i + c\end{split}$$
 
-eine quadratische Form im $\mathbb{R}^d$. Wir unterscheiden folgende Fälle:
+eine allgemeine quadratische Form. Die Form der Niveaumengen wird zur Klassifikation benutzt. Wir unterscheiden daher die drei folgenden Fälle:
 
-* Im Fall, dass $a = (a_{i,j})$ eine (positiv oder negativ) definite Matrix ist, ist die Form eine Ellipse. Die entsprechende PDE heisst in dem Fall **elliptisch**. Als einfaches Beispiel betrachte $a = \mathbb{1}, b=0$ und $c=0$. In dem Fall folgt die Poisson Gleichung
+* Im Fall, dass $a = (a_{i,j})$ eine (positiv oder negativ) definite Matrix ist, ist die Form eine Ellipse. Die entsprechende PDE heisst in dem Fall **elliptisch**. Als einfaches Beispiel betrachte $a = -\mathbb{1}, b=0$ und $c=0$. In dem Fall folgt die Poisson Gleichung
 
-  $$- \sum_{i=1}^d \frac{\partial^2u(x)}{\partial x_i^2} = f.$$
+  $$- \sum_{i=1}^d \frac{\partial^2u(x)}{\partial x_i^2} = f(x)\qquad\text{oder kompakt}\qquad = -\triangle u(x) = f(x).$$
 
   Elliptische PDE benötigen Randbedingungen.
 
@@ -40,11 +41,11 @@ eine quadratische Form im $\mathbb{R}^d$. Wir unterscheiden folgende Fälle:
 
 * Ist die Matrix $a$ semi-definite und $b^T\cdot \xi \not= 0 $ für $\xi\in \mathop{kern}(a)$, dann beschreibt die Form eine Parabel. In dem Fall sprechen wir von einer **parabolischen** PDE. Ein Beispiel dazu ist
 
-  $$-\sum_{i=1}^{d-1} \frac{\partial^2u}{\partial x_i^2} + \frac{\partial u}{\partial x_d} = f$$
+  $$-\sum_{i=1}^{d-1} \frac{\partial^2u}{\partial x_i^2}(x) + \frac{\partial u}{\partial x_d}(x) = f(x)$$
 
-  Oft entspricht die separate Richtung der Zeit und wird typischer weise wie folgt geschrieben
+  Oft entspricht die separate Richtung der *Zeit* und wird typischer weise wie folgt geschrieben
   
-  $$\dot{u}(t,x) - \Delta u(t,x) = f,$$
+  $$\dot{u}(t,x) - \Delta u(t,x) = f(t,x),$$
 
   wobei hier die Reihenfolge der Summanden vertauscht wurde.
   Dieser Typ von Gleichungen benötigt Randbedingungen auf dem $d-1$ dimensionalen Rand und Anfangswerte für die andere Richtung.
@@ -55,9 +56,9 @@ eine quadratische Form im $\mathbb{R}^d$. Wir unterscheiden folgende Fälle:
 
 * Hat die Matrix $a$ $d-1$ positive und einen negativen (oder visa versa) Eigenwerte, dann beschreibt die Form ein Hyperboloid. Man nennt die PDE **hyperbolisch**. Das einfachste Beispiel ist gegeben durch
 
-  $$-\sum_{i=1}^{d-1} \frac{\partial^2u}{\partial x_i^2} + \frac{\partial^2 u}{\partial x_d^2} = f$$
+  $$-\sum_{i=1}^{d-1} \frac{\partial^2u}{\partial x_i^2}(x) + \frac{\partial^2 u}{\partial x_d^2}(x) = f(x)$$
 
-  Auch hier ist die andere Richtung typischerweise die physikalische Zeit:
+  Auch hier ist die andere Richtung typischerweise die physikalische *Zeit*:
 
   $$\ddot{u}(t,x) - \Delta u(t,x) = f.$$ (eq:exmpparabolclass)
 
@@ -69,7 +70,7 @@ eine quadratische Form im $\mathbb{R}^d$. Wir unterscheiden folgende Fälle:
 
 * Falls die Matrix $a$ null ist, degeneriert die PDE zu einer PDE erster Ordnung
 
-  $$\sum_{i=1}^d b_i \frac{\partial u}{\partial x_i} + c u = f$$ (eq:exmphyperbolclass)
+  $$\sum_{i=1}^d b_i \frac{\partial u}{\partial x_i}(x) + c u(x) = f(x)$$ (eq:exmphyperbolclass)
   
   Auf einem Teil des Randes sind in dem Fall Randwerte erforderlich.
 

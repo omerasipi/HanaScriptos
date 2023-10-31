@@ -44,7 +44,8 @@ parts:
       sections:
       - file: PDE/Beispiele.md
       - file: PDE/Klassifikation.md
-      - file: PDE/QuadratischeFormen.ipynb
+        sections:
+        - file: PDE/QuadratischeFormen.ipynb
     - file: PDE/Modellierung.md
   - caption: Numerik PDE
     numbered: 3
