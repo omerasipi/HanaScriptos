@@ -28,11 +28,7 @@ q(x) & \quad\text{Wärmefluss [J/(m s)]} &
 f(x) & \quad\text{Wärmequelle [J/(m$^2$ s)]}
 \end{align}$$
 
-Sei $L$ ein Linienstück mit beliebig orientiertem Normalvektor $n$, dann ist die Wärmemenge, die pro Zeiteinheit durch das Linienstück in die durch $n$ definierte Richtung fliesst, definiert durch
-
-$$\int_L q(x)\cdot n\, dx.$$
-
-Für den Wärmefluss $q$ (Vektor) nehmen wir das Fourier'sche Gesetz an
+Für den Wärmefluss $q$ (Vektor) nehmen wir das *Fourier'sche Gesetz* an
 
 $$q(x) = -k\, \nabla T.$$
 
