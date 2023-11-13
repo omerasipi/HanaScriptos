@@ -5,9 +5,9 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.10.3
+    jupytext_version: 1.15.2
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -31,7 +31,7 @@ $$u(x) = \frac{1}{2} x^2 + C_1 x + C_2.$$
 
 Durch Einsetzen der Randbedingungen folgt die analytische Lösung
 
-$$u(x) = -\frac{1}{2} x (x-1).$$ 
+$$u(x) = -\frac{1}{2} x (x-1).$$
 
 ```{code-cell} ipython3
 def uanalytic(x):
@@ -133,16 +133,16 @@ Setzt man die Darstellung für $u_h$ ein, so folgt
 
 $$\sum_{i=0}^n u_i\ \int_0^1 \varphi_i'(x) \varphi_j'(x)\,dx  = \int_0^1 f(x) \varphi_j(x)\,dx \quad\text{für alle}\ j = 1, \ldots, n-1.$$ 
 
-Wir definieren die Matrix $A$ und den Vektor $f$
+Wir definieren die Matrix $A$ und den Vektor $b$
 
 $$\begin{split}
 A_{j,i} & = \int_0^1 \varphi_i'(x) \varphi_j'(x)\,dx\\
-f_j & = \int_0^1 f(x) \varphi_j(x)\,dx
+b_j & = \int_0^1 f(x) \varphi_j(x)\,dx
 \end{split}$$ (eq:linBilinForm1dproblem)
 
 und erhalten so das (reduzierte) lineare Gleichungssystem für die Koeffizienten $u_1, \ldots, u_{n-1}$
 
-$$\sum_{i=1}^{n-1} A_{j,i} u_i = f_j \quad \forall\ j=1, \ldots, n-1.$$(eq:FEM1dLinOrderSys)
+$$\sum_{i=1}^{n-1} A_{j,i} u_i = b_j \quad \forall\ j=1, \ldots, n-1.$$(eq:FEM1dLinOrderSys)
 
 Um die Matrix $A$ aufzustellen werden die Ableitungen der Basisfunktionen $\varphi_i$ benötigt. Gehen wir wie im Beispiel oben {numref}`fig-FEM1dBasisFkt` von einer konstanten Unterteilung aus, so gilt
 
@@ -203,9 +203,9 @@ Für das konkrete Beispiel erhalten wir für die Matrixkoeffizienten die Matrix 
 from scipy.integrate import fixed_quad
 
 A = []
-for i in range(1,n):
+for i in range(0,n+1):
     ai = []
-    for j in range(1,n):
+    for j in range(0,n+1):
         # Integration über die Elemente mit Hilfe der Gauss-Quadratur
         aij = np.sum([fixed_quad(lambda x:dphi(i,np.array(x))*dphi(j,np.array(x)), xi[k], xi[k+1],n=2)[0]
                       for k in range(n)])
@@ -228,23 +228,23 @@ def f(x):
     x = np.array(x)
     return np.ones_like(x)
 
-fi = []
-for j in range(1,n):
-    fi.append(np.sum([fixed_quad(lambda x:f(np.array(x))*phi(j,np.array(x)),
+b = []
+for j in range(0,n+1):
+    b.append(np.sum([fixed_quad(lambda x:f(np.array(x))*phi(j,np.array(x)),
                                  xi[k], xi[k+1],n=2)[0]
                       for k in range(n)]))
-fi = np.array(fi,dtype=float)
-fi
+b = np.array(b,dtype=float)
+b
 ```
 
-Die FEM Lösung $u(x)$ ist somit gegeben durch die Lösung des Gleichungssystems {eq}`eq:FEM1dLinOrderSys` mit der berechneten Matrix und Vektor. Es folgt
+Die FEM Lösung $u(x)$ ist somit gegeben durch die Lösung des Gleichungssystems {eq}`eq:FEM1dLinOrderSys` mit der berechneten Matrix und Vektor. Da die Randwerte gegeben sind, werden nur die inneren Freiheitsgrade benutzt. Es folgt
 
 ```{code-cell} ipython3
-ui = np.zeros_like(xi)
+u = np.zeros_like(xi)
 
 # um die Wahl der linearen Gleichungslöser kümmern wir uns später:
-ui[1:-1] = np.linalg.solve(A,fi)
-ui
+u[1:-1] = np.linalg.solve(A[1:-1,1:-1],b[1:-1])
+u
 ```
 
 ```{code-cell} ipython3
@@ -252,7 +252,7 @@ ui
 
 xp = np.linspace(0,1,400)
 fig, ax = plt.subplots(figsize=(6, 2))
-ax.plot(xi,ui,label='FEM Lösung')
+ax.plot(xi,u,label='FEM Lösung')
 ax.plot(xp,uanalytic(xp),label='exakte Lösung')
 ax.legend()
 glue("FEM_1d_p1_solutionexmp_fig", fig, display=False)
@@ -325,15 +325,16 @@ $u,v$ sind Trial und Test Funktionen für die Definition der Linear- und Bilinea
 a = BilinearForm(V)
 a += grad(u)*grad(v)*dx
 
-f = LinearForm(V)
-f += CoefficientFunction(1)*v*dx
+f = CoefficientFunction(1)
+b = LinearForm(V)
+b += f*v*dx
 ```
 
 Damit sind die beiden Operatoren definiert, jedoch noch nicht berechnet. Das Berechnen nennt man auch **assembling** Zusammenstellen. Wir werden später sehen, was damit gemeint ist.
 
 ```{code-cell} ipython3
 a.Assemble()
-f.Assemble();
+b.Assemble();
 ```
 
 Die Matrix und der Vektor der Bilinear- und Linearform beinhaltet sämtliche Freiheitsgrade, insbesondere also auch die Randpunkte. Diese sind jedoch durch die Dirichletrandwerte gegeben und müssen nicht berechnet werden. Dem werden wir beim Lösen des Systems rechnungtragen.
@@ -343,7 +344,7 @@ print(a.mat)
 ```
 
 ```{code-cell} ipython3
-print(f.vec)
+print(b.vec)
 ```
 
 Die Lösung selber wird in einer `GridFunction` gespeichert. Die Trial und Test Functions haben zwar die gleiche Struktur, jedoch keinen Memory. Hier sind nur die Freiheitsgrade etc. des FE-Raumes gespeichert. Für die Lösung benötigen wir eine GridFunction. In der Auswertung dieser wird Linearkombination der Basisfunktionen automatisch berechnet.
@@ -355,7 +356,7 @@ gfu = GridFunction(V)
 Berechnung der FEM Lösung mit NGSolve:
 
 ```{code-cell} ipython3
-gfu.vec.data = a.mat.Inverse(freedofs=V.FreeDofs())*f.vec
+gfu.vec.data = a.mat.Inverse(freedofs=V.FreeDofs())*b.vec
 ```
 
 Bei der Ausführung des Befehls wird nicht die Matrix Invertiert und von links an den Vektor multipliziert. Das wäre numerisch viel zu aufwändig. Auch wenn die Notation anderes behauptet, es wird nur das Gleichungssystem gelöst.
@@ -455,13 +456,13 @@ Die Ableitungen der Basisfunktionen sind stückweise konstante Funktionen. Über
 Visualisieren wir von $\nabla u$ die $x$-Komponente, so sollte, das einen Graph mit stückweise $\pm 4$ in den Elementen ergeben, welche in $x$-Richtung steigen bzw. fallen.
 
 ```{code-cell} ipython3
-Draw(grad(gfu),mesh,'du',eval=0);
+Draw(grad(gfu)[0],mesh);
 ```
 
 und in $y$ Richtung
 
 ```{code-cell} ipython3
-Draw(grad(gfu),mesh,'du',eval=1);
+Draw(grad(gfu)[1],mesh);
 ```
 
 Mit Hilfe von `ngsolve` können wir nun die Bilinearfunktion $A: V \times V \to \mathbb{R}$ und die Linearfunktion $f: V \to \mathbb{R}$ sehr einfach berechnen.
@@ -487,13 +488,14 @@ A += grad(u) * grad(v)*dx
 und analog für die Linearform
 
 $$\begin{split}
-f : V & \to \mathbb{R}\\
-    v & \mapsto f(v) = \int_\Omega f(x) v dx,
+b : V & \to \mathbb{R}\\
+    v & \mapsto b(v) = \int_\Omega f(x) v dx,
 \end{split}$$
 
 ```{code-cell} ipython3
-f = LinearForm(V)
-f += CoefficientFunction(1)*v*dx
+f = CoefficientFunction(1)
+b = LinearForm(V)
+b += f*v*dx
 ```
 
 Die gegebene Funktion $f(x)$ der rechten Seite können wir mit sogenannten `CoefficientFunction` definieren.
@@ -502,7 +504,7 @@ Damit haben wir die Bilinearform, welche im endlichdimensionalen mit Hilfe einer
 
 ```{code-cell} ipython3
 A.Assemble()
-f.Assemble();
+b.Assemble();
 ```
 
 Die Matrix $A$ ist "sparse" gespeichert. Das bedeutet, dass nur die Matrix Einträge gespeichert werden, für welche wir potentiell einen Eintrag erhalten. Für den ganzen Rest der Matrix wird der Speicher gar nicht allokiert. Grundsätzlich haben wir hier alle Freiheitsgrade:
@@ -548,7 +550,7 @@ plt.show()
 Lösen wir das System für die inneren Freiheitsgrade:
 
 ```{code-cell} ipython3
-gfu.vec.data = A.mat.Inverse(freedofs=V.FreeDofs())*f.vec
+gfu.vec.data = A.mat.Inverse(freedofs=V.FreeDofs())*b.vec
 ```
 
 ```{code-cell} ipython3

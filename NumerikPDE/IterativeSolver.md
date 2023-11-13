@@ -29,38 +29,37 @@ $$\int_\Omega \big(\nabla u \nabla v\, + 10\,u\, v\big) dx = \int_\Omega 1\,v\,d
 ```{tableofcontents}
 ```
 
-```{glue:figure} FEM_RichardsonVerfahren_fig
+```{figure} FEM_RichardsonVerfahren_fig.png
 :figwidth: 400px
-:name: fig-FEM_RichardsonVerfahren_fig
+:name: "FEM_RichardsonVerfahren_fig"
 
 Konvergenz Richardson Verfahrens
 ```
 
-```{glue:figure} FEM_JacobiVerfahren_fig
+```{figure} FEM_JacobiVerfahren_fig.png
 :figwidth: 400px
-:name: fig-FEM_JacobiVerfahren_fig
+:name: "fig-FEM_JacobiVerfahren_fig"
 
 Konvergenz Jacobi Verfahrens
 ```
 
-```{glue:figure} FEM_Gauss-SeidelVerfahren_fig
+```{figure} FEM_Gauss-SeidelVerfahren_fig.png
 :figwidth: 400px
-:name: fig-FEM_Gauss-SeidelVerfahren_fig
+:name: "fig-FEM_Gauss-SeidelVerfahren_fig"
 
 Konvergenz Gauss-Seidel Verfahrens
 ```
 
-```{glue:figure} FEM_GradientenVerfahren_fig
+```{figure} FEM_GradientenVerfahren_fig.png
 :figwidth: 400px
 :name: "fig-FEM_GradientenVerfahren_fig"
 
 Konvergenz Gradienten Verfahrens
 ```
 
-```{glue:figure} FEM_CGVerfahren_fig
+```{figure} FEM_CGVerfahren_fig.png
 :figwidth: 400px
-:name: "fig-FEM_CGVerfahren_fig"
-
+:name: "FEM_CGVerfahren_fig"
 
 Konvergenz CG Verfahrens
 ```

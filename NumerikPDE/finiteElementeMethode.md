@@ -1,4 +1,4 @@
-# Methode der finiten Elemente
+# Effiziente Berechnung der FEM-Systemmatrix
 
 Die Idee der Methode der finiten Elemente ist nun bekannt. Im einführenden Beispiel wurde direkt mit Hilfe der sogenannten globalen Basisfunktionen die Systemmatrix bzw. Rechteseite berechnet. Die Frage stellt sich jedoch, wie man diese möglichst universal anwendbar, daher für beliebige Gebietszerlegungen beschreiben kann, ohne komplizierte Konstruktion der (globalen) Basisfunktionen.
 

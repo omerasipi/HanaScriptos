@@ -247,3 +247,4 @@ name: fig-FEM_1d_p1_solutionexmp_fig2
 
 FEM 1d affine Basisfunktionen
 ```
+

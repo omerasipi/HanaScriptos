@@ -5,9 +5,9 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.10.3
+    jupytext_version: 1.15.2
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -19,6 +19,7 @@ kernelspec:
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -43,13 +44,14 @@ verschiedener Ordnung als FEM Basis Funktionen:
 def lagrangePoly(x,j,order):
     xi = np.linspace(0,1,order+1)
     J = np.delete(np.arange(order+1),j)
-    return np.product([(x-xi[i])/(xi[j]-xi[i]) for i in J],axis=0)
+    return np.prod([(x-xi[i])/(xi[j]-xi[i]) for i in J],axis=0)
 ```
 
 Die Polynome sind gegeben durch:
 
 ```{code-cell} ipython3
 :tags: [hide-input]
+
 maxorder = 4
 for order in range(1,maxorder+1):
     print('Order = ',order)
@@ -59,6 +61,7 @@ for order in range(1,maxorder+1):
 
 ```{code-cell} ipython3
 :tags: [hide-input]
+
 xp = np.linspace(0,1,400)
 col = ['tab:blue','tab:orange','tab:green','tab:red','tab:purple','tab:brown','tab:pink']
 for order in range(1,maxorder+1):
@@ -80,6 +83,7 @@ erhalten wir
 
 ```{code-cell} ipython3
 :tags: [hide-input]
+
 for order in range(1,maxorder+1):
     print('order = ',order)
     m = [[integrate(lagrangePoly(x,i,order).diff()*lagrangePoly(x,j,order).diff(),(x,0,1))
@@ -99,6 +103,7 @@ erhalten wir
 
 ```{code-cell} ipython3
 :tags: [hide-input]
+
 for order in range(1,maxorder+1):
     print('order = ',order)
     m = [[integrate(lagrangePoly(x,i,order)*lagrangePoly(x,j,order),(x,0,1))
@@ -110,13 +115,13 @@ for order in range(1,maxorder+1):
         format('{:.3f}'))
 ```
 
-
 ## Hierarchische Basis Polynome
 
 NGSolve benutzt für die finite Elemente Räume höherer Ordnung immer die Basisfunktionen aus den Räumen niederer Ordnung und erweitert diese entsprechend.
 
 ```{code-cell} ipython3
 :tags: [hide-input]
+
 from netgen.meshing import Mesh as NGMesh # Vorsicht es gibt Mesh auch in ngsolve!
 from netgen.meshing import MeshPoint, Pnt, Element1D, Element0D
 from ngsolve import *
@@ -166,6 +171,7 @@ erhalten wir
 
 ```{code-cell} ipython3
 :tags: [hide-input]
+
 for order in range(1,maxorder+1):
     print('order = ',order)
     V = H1(mesh,order = order, dirichlet='left|right')
@@ -192,16 +198,15 @@ for order in range(1,maxorder+1):
         format('{:.4f}'))
 ```
 
-
 Für die Massen-Elementmatrizen
 
 $$M_{i,j} = \int_0^1 \varphi_i(x) \varphi_j(x) dx$$
 
 erhalten wir
 
-
 ```{code-cell} ipython3
 :tags: [hide-input]
+
 for order in range(1,maxorder+1):
     print('order = ',order)
     V = H1(mesh,order = order, dirichlet='left|right')
