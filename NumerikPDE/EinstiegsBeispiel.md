@@ -316,7 +316,11 @@ Nun erstellen wir einen $H^1$ Funktionenraum mit Hilfe dieses 1D Mesh und den Di
 
 ```{code-cell} ipython3
 V = H1(mesh,order = 1, dirichlet='left|right')
-u,v = V.TnT()
+u = V.TrialFunction()
+v = V.TestFunction()
+
+# abgekürzt
+# u,v = V.TnT()
 ```
 
 $u,v$ sind Trial und Test Funktionen für die Definition der Linear- und Bilinearfunktion
@@ -385,7 +389,7 @@ u & = 0 \quad\text{für}\ x\in \partial\Omega
 
 auf dem einheits Rechteck im $\mathbb{R}^2$. Analog zum Einstiegsbeispiel {numref}`ref:IntroPoissonSchwacheGleichung` folgt die schwache Gleichung
 
-$$\int_\Omega \nabla u \cdot \nabla \varphi_j dx = \int_\Omega f(x) \varphi_j dx \quad \text{für alle}\ j\in J$$
+$$\int_\Omega \nabla u \cdot \nabla \varphi_j dV = \int_\Omega f(x) \varphi_j dV \quad \text{für alle}\ j\in J$$
 
 wobei mit $J$ die Basisfunktionen bezeichnet sind, deren Maximum im Innern des Einheitsquadrats angenommen werden.
 
@@ -471,14 +475,17 @@ Es folgt für
 
 $$\begin{split}
 A : V \times V & \to \mathbb{R}\\
-    (u,v) & \mapsto A(u,v) = \int_\Omega \nabla u\cdot \nabla v dx,
+    (u,v) & \mapsto A(u,v) = \int_\Omega \nabla u\cdot \nabla v dV,
 \end{split}$$
 
-wobei hier $u,v$ stellvertretend für $\varphi_i, \varphi_j\in V$ steht
+wobei hier $u,v$ stellvertretend für $\varphi_i, \varphi_j\in V$ steht. Für die Definition der Bilinearfunktion stehen in `ngsolve` sogenannte Proxy-Funktionen zur Verfügung. Wobei zwischen $u$ und $v$ unterschieden werden muss. Für $u$ benutzen wir `TrialFunctions` und $v$ `TestFunctions`.
 
 ```{code-cell} ipython3
-u,v = V.TnT()
+u = V.TrialFunction()
+v = V.TestFunction()
 ```
+
+Damit können wir die Bilinearfunktion definieren, wobei in `ngsolve` das Volumenintegral $dV$ mit `dx` bezeichnet wird. Für Oberflächenintegrale steht `ds` zur Verfügung.
 
 ```{code-cell} ipython3
 A = BilinearForm(V)
@@ -489,7 +496,7 @@ und analog für die Linearform
 
 $$\begin{split}
 b : V & \to \mathbb{R}\\
-    v & \mapsto b(v) = \int_\Omega f(x) v dx,
+    v & \mapsto b(v) = \int_\Omega f(x) v dV,
 \end{split}$$
 
 ```{code-cell} ipython3

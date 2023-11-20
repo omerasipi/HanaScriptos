@@ -94,20 +94,20 @@ $$
 Nun integrieren wir über das gesamte Gebiet $\Omega$:
 
 $$
-- \int_\Omega \Delta u(x) v(x) dx = \int_\Omega f(x) v(x) dx
+- \int_\Omega \Delta u(x) v(x) dV = \int_\Omega f(x) v(x) dV
 $$
 
 Mit Hilfe der partiellen Integration im Mehrdimensionalen (Satz von Gauss auf das Vektorfeld $\nabla u(x)\, v(x)$ angewandt):
 
 $$
-\int_{\partial \Omega} n\cdot \nabla u(x) \, v(x)\, dA = \int_\Omega \opdiv (\nabla u(x) \, v(x)) dx
-= \int_{\Omega} \Delta u(x) v(x) + \nabla u(x)\cdot \nabla v(x) dx
+\int_{\partial \Omega} v(x)\, \nabla u(x)\cdot n \, dA = \int_\Omega \opdiv (v(x)\, \nabla u(x) ) dV
+= \int_{\Omega} v(x)\,\Delta u(x) + \nabla v(x)\cdot\nabla u(x) dV
 $$
 
 können wir die linke Seite in der Form
 
 $$
-\int_\Omega \nabla u(x)\cdot \nabla v(x)\, dx - \int_{\partial \Omega} \frac{\partial u(x)}{\partial n} v(x)\, dA = \int_\Omega f(x) v(x)\, dx
+\int_\Omega \nabla u(x)\cdot \nabla v(x)\, dV - \int_{\partial \Omega} \frac{\partial u(x)}{\partial n} v(x)\, dA = \int_\Omega f(x) v(x)\, dV
 $$
 
 schreiben.
@@ -117,7 +117,7 @@ Im Fall der Dirichlet Randbedingung können wir Testfunktionen $v$ benutzen, fü
 Wir erhalten damit das **schwache Problem**: Finde $u(x)\in V$ so, dass $u=0$ auf $\partial\Omega$ und
 
 $$
-\int_\Omega \nabla u(x)\cdot \nabla v(x) dx = \int_\Omega f(x) v(x) dx
+\int_\Omega \nabla u(x)\cdot \nabla v(x) dV = \int_\Omega f(x) v(x) dV
 $$ (eq:weakPoisson)
 
 für alle Testfunktionen $v$ mit $v=0$ auf $\partial\Omega$ erfüllt ist.
@@ -159,13 +159,13 @@ Damit macht es Sinn einen Unterraum $H_0^1$ mit homogenen Dirichlet Randbedingun
 
 $$H_0^1 = \{u\in H^1 | u|_{\partial \Omega} = 0\}.$$
 
-Wir betrachten nun die Gleichung {eq}`eq:weakPoisson`. Die linke Seite stellt eine **Bilinearform** $A: H^1\times H^1 \to \mathbb{R}$
+Wir betrachten nun die Gleichung {eq}`eq:weakPoisson`. Die linke Seite der Gleichung stellt eine **Bilinearform** $A: H^1\times H^1 \to \mathbb{R}$ angewandt auf $u$
 
-$$A(u,v) = \int_\Omega \nabla u\cdot\nabla v\,dx$$
+$$A(u,v) = \int_\Omega \nabla u(x)\cdot\nabla v(x)\,dV$$
 
 dar und die rechte Seite eine **Linearform** $f:H^1 \to \mathbb{R}$
 
-$$f(v) := \int_\Omega f(x) v(x) dx.$$
+$$f(v) := \int_\Omega f(x) v(x) dV.$$
 
 Wir können damit das schwache Problem auch wie folgt beschreiben
 
@@ -224,7 +224,7 @@ $$\text{finde}\ u\in \mathbb{R}^N: \quad \sum_{i=1}^N A(p_i,p_j) u_i = f(p_j)\qu
 
 Da die Basisfunktionen $p_i$ bekannt sind, können wir die Matrix $A\in\mathbb{R}^{N\times N}$ welche die Bilinearfunktion beschreibt berechnen. Die Matrix Einträge sind gegeben durch
 
-$$A_{j,i} = A(p_i,p_j) = \int_\Omega \nabla p_i\cdot \nabla p_j dx.$$
+$$A_{j,i} = A(p_i,p_j) = \int_\Omega \nabla p_i\cdot \nabla p_j dV.$$
 
 ```{code-cell} ipython3
 a = BilinearForm(V)
@@ -234,7 +234,7 @@ a.Assemble();
 
 Die Linearform $f$ kann durch den Vektor $f\in\mathbb{R}^N$ 
 
-$$f_j = f(p_j) = \int_\Omega f(x)p_j(x)dx$$
+$$f_j = f(p_j) = \int_\Omega f(x)p_j(x)dV$$
 
 beschrieben werden.
 
