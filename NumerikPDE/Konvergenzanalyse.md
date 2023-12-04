@@ -35,7 +35,7 @@ Wir betrachten das etwas allgemeinere Problem als in der Gleichung {eq}`eq:weakP
 $$\begin{split}
 -\Delta u & = f(x)\quad\text{für}\ x\in \Omega\\
 u(x) & = u_g(x)\quad\text{für}\ x\in \Gamma_D\\
-\frac{\partial u}{\partial n}(x) & = g(x)\quad\text{für}\ x\in \Gamma_D.\end{split}$$
+\frac{\partial u}{\partial n}(x) & = g(x)\quad\text{für}\ x\in \Gamma_N.\end{split}$$
 
 Der Rand $\partial\Omega$ des Gebietes $\Omega$ ist gegeben durch $\partial\Omega = \Gamma_D \cup \Gamma_N$, wobei $\Gamma_D \not= \emptyset$. Wir lassen daher anstelle der homogenen Dirichlet Randwerte beliebige Dirichlet Randwerte auf einem nicht verschwindenden Teilrand $\Gamma_D$ zu. 
 Am Dirichletrand fordert man die Randbedingung $u(x) = u_g(x)$ explizit, entsprechend erlaubt man nur Testfunktionen mit $v(x)=0$ auf $\Gamma_D$. Am Neumannrand wird die Randbedingung $\frac{\partial u}{\partial n}(x) = g(x)$ eingesetzt. Testen und partiell Integrieren liefert
