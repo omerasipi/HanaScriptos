@@ -117,7 +117,8 @@ epsilon = Parameter(0.02)
 
 ```{code-cell} ipython3
 # Trial und Test Functions für die Definition
-u,v = V.TnT()
+u = V.TrialFunction()
+v = V.TestFunction()
 
 # Bilinearform
 a = BilinearForm(V)

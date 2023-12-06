@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.0
+    jupytext_version: 1.15.2
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -102,7 +102,7 @@ mR = BilinearForm(VR)
 mR += uR*vR*dx
 
 aR.Assemble()
-mR.Assemble()
+mR.Assemble();
 ```
 
 Wir starten die Inverse Iteration mit einem zufälligen Startwert:
@@ -156,7 +156,7 @@ mD = BilinearForm(VD)
 mD += uD*vD*dx
 
 aD.Assemble()
-mD.Assemble()
+mD.Assemble();
 ```
 
 Wir starten die Inverse Iteration mit einem zufälligen Startwert:
@@ -305,7 +305,7 @@ Als Vorkonditionierer benutzen wir einen Multigrid Vorkonditionierer. Um diesen 
 :tags: [remove-output]
 
 preR = Preconditioner(aR, "multigrid")
-aR.Assemble()
+aR.Assemble();
 ```
 
 ```{code-cell} ipython3
@@ -320,7 +320,7 @@ Ebenso für den Dirichlet-Fall müssen wir die Bilinearform neu Assemblieren, um
 :tags: [remove-output]
 
 preD = Preconditioner(aD, "multigrid")
-aD.Assemble()
+aD.Assemble();
 ```
 
 ```{code-cell} ipython3
@@ -345,7 +345,6 @@ plt.xlabel('Iteration')
 plt.ylabel('Residuum')
 plt.show()
 ```
-
 
 ### Numerische Berechnung von mehreren Eigenwerte und -vektoren
 
@@ -437,14 +436,13 @@ gfuD.vecs[0].data *= np.sign(gfuD(mesh(0.5,0.5)))
 Draw(gfuD)
 ```
 
-
 ## Zurück zum Rayleigh-Quotient
 
 Der Rayleigh-Quotient für das Robin-Eigenwertproblem {eq}`eq:RayleighQuotientRobin` ist vom Parameter $\alpha$ abhängig. Für $\alpha \to \infty$ konvergiert $\lambda_1^R(\alpha) \to \lambda_1^D$, dem Rayleigh-Quotienten für das Dirichlet-Eigenwertproblem {eq}`eq:RayleighQuotientDirichlet`. Wir berechnen diese Abhängigkeit für das Einheitsquadrat:
 
 ```{code-cell} ipython3
 :tags: [hide-input]
- 
+
 alphas = np.linspace(1e-4,500,200)
 lamRalphas = []
 gfuR = GridFunction(VR)

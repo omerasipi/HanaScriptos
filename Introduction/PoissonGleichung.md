@@ -189,7 +189,8 @@ $$V_h \subset H_0^1$$
 
 ```{code-cell} ipython3
 V = H1(mesh, order=1, dirichlet = '.*')
-u,v = V.TnT()
+u = V.TrialFunction()
+v = V.TestFunction()
 ```
 
 Wir suchen nun Lösungen für schwache Problem {eq}`eq:weakProblemPoisson2` im endlich dimensionalen Vektorraum $V_h$:

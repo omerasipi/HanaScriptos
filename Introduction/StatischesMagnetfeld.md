@@ -88,7 +88,8 @@ $$\int_\Omega \mu^{-1}(x) \mathop{curl} A \cdot \mathop{curl} \Psi dx = \int_\Om
 
 ```{code-cell} ipython3
 V = HCurl(mesh,order=3)
-u,v = V.TnT()
+u = V.TrialFunction()
+v = V.TestFunction()
 gfu = GridFunction(V)
 ```
 

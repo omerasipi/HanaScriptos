@@ -229,7 +229,8 @@ Die Lösung des Randwertproblems {eq}`eq:waermeleitungstationaer` suchen wir in 
 ```{code-cell} ipython3
 order = 3
 V = H1(mesh,order = order, dirichlet = 'bottom')
-u,v = V.TnT()
+u = V.TrialFunction()
+v = V.TestFunction()
 ```
 
 Damit haben wir das unendlichdimensionale Problem auf ein endlich dimensionales reduziert.

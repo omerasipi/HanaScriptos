@@ -76,7 +76,8 @@ mesh.GetBoundaries()
 
 ```{code-cell} ipython3
 V = H1(mesh, order=3, dirichlet="right")
-u,v = V.TnT()
+u = V.TrialFunction()
+v = V.TestFunction()
 ```
 
 Für den Radiator nehmen wir als Wärmequelle an:

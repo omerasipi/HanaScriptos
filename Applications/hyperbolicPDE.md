@@ -98,7 +98,8 @@ geo.Add(circle)
 #mesh = Mesh(unit_square.GenerateMesh(maxh=0.05))
 mesh = Mesh(geo.GenerateMesh(maxh=0.3))# etwas grob 0.15
 V = H1(mesh,order = 4, dirichlet='wall')#'bottom|right|top|left')
-u,v = V.TnT()
+u = V.TrialFunction()
+v = V.TestFunction()
 gfu = GridFunction(V)
 gfv = GridFunction(V)# 1. Zeitableitung
 gfa = GridFunction(V)# 2. Zeitableitung
