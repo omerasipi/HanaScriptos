@@ -77,6 +77,7 @@ parts:
     - file: Applications/Applications.md
       sections:
       - file: Applications/NichtlinearesEinstiegsbeispiel.ipynb
+      - file: Applications/ParabolicPDE-Espresso.md
       - file: Applications/ParabolicPDE.md
       - file: Applications/KonvektionsDiffusionsgleichungen.md
       - file: Applications/hyperbolicPDE.md

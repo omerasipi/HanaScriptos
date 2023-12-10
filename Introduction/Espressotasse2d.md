@@ -5,9 +5,9 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.10.3
+    jupytext_version: 1.15.2
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -24,6 +24,7 @@ from ngsolve import *
 from netgen.webgui import Draw as DrawShape
 from ngsolve.webgui import Draw
 ```
+
 ## Problemstellung
 
 Zur praktischen Illustration der Poisson-Gleichung betrachten wir die Wärmeleitung. In der Anwendung wollen wir den Unterschied zwischen einer doppelwandigen Esspressotasse und einer normalen illustrieren. Dabei betrachten wir die Temperaturverteilung im Raum, wobei die Wärmeleitung vom Ort abhängig ist. Damit können unterschiedliche Objekte wie die Luft, Isolation, das Glas und der Kaffee beschrieben bzw. modelliert werden.
@@ -70,7 +71,6 @@ Diskontinuierliche Koeffizienten bilden kein Problem. Beide Interface Bedingunge
 
 Als erstes definieren wir die Geometrie der Tasse, Flüssigkeit und Umgebung mit Hilfe des Open Cascade Technology (OCCT) Geometry Kernels.
 
-
 ```{code-cell} ipython3
 wp = WorkPlane()
 sPnts = [(0.024, 0.008),
@@ -90,7 +90,6 @@ face = wp.Close().Face()
 
 Das Innere ist durch die Orientierung des Randes gegeben. Setzen wir uns auf den Rand, so ist auf der linken Seite das Innere und auf der rechten das Äussere. Daher ist hier die Geometrie in positiver mathematischer Orientierung definiert.
 
-
 ```{code-cell} ipython3
 p = np.array(sPnts)
 plt.plot(p[:,0],p[:,1],'o-.')
@@ -101,13 +100,11 @@ plt.show()
 
 Damit erhalten wir die Tasse ohne Vakuum Bereich:
 
-
 ```{code-cell} ipython3
 DrawShape(face);
 ```
 
 Den inneren Vakuum Bereich definieren wir analog:
-
 
 ```{code-cell} ipython3
 wp2 = WorkPlane()
@@ -130,7 +127,6 @@ DrawShape(isolator);
 
 Das Glas ist daher gegeben durch die Boolsche Operaton `face - isolator`:
 
-
 ```{code-cell} ipython3
 glas = face-isolator
 
@@ -138,7 +134,6 @@ DrawShape(glas);
 ```
 
 Die Flüssigkeit wird ähnlich aufgebaut. Wir definieren ein Trapez und subtrahieren die Fläche der Tasse:
-
 
 ```{code-cell} ipython3
 wp3 = WorkPlane()
@@ -151,7 +146,6 @@ DrawShape(liquid);
 
 Und letztlich noch für die Luft analog:
 
-
 ```{code-cell} ipython3
 wp4 = WorkPlane()
 wp4.MoveTo(-.2,0).LineTo(.2,0).LineTo(.2,.25).LineTo(-.2,.25)
@@ -162,7 +156,6 @@ DrawShape(air);
 ```
 
 Alles zusammen geklebt `glue` liefert unser Modell. Um später die einzelnen Teilflächen / Gebiete mit verschiedenen Materialparameter versehen zu können definieren wir Namen. Ebenso können wir Ränder bezeichnen und die Feinheit des Meshes beeinflussen:
-
 
 ```{code-cell} ipython3
 air.faces.name = 'air'
@@ -224,7 +217,7 @@ $$\int_\Omega \lambda(x) \nabla T(x)\cdot\nabla v(x) dx = \int_\Omega q(x) v(x) 
 
 wobei wir die Randbedingung in dem Fall homogen auf $T_0 \equiv 0$ gesetzt haben. Wir betrachten daher die relative Temperaturänderung zur Umgebungstemperatur $T_0$. 
 
-Die Lösung des Randwertproblems {eq}`eq:waermeleitungstationaer` suchen wir in einem geeigneten Funktionenraum (in dem Fall der $H_0^1(\Omega)$, welchen wir später einführen werden). Der Funktionenraum ist unendlichdimensional, was numerisch nicht zielführend ist. Mit Hilfe von finiter Elemente Basisfunktionen führen wir eine Basis ein, welche den Funktionenraum approximiert und endlichdimensional ist. 
+Die Lösung des Randwertproblems {eq}`eq:waermeleitungstationaer` suchen wir in einem geeigneten Funktionenraum (in dem Fall der $H_0^1(\Omega)$, welchen wir später einführen werden). Der Funktionenraum ist unendlichdimensional, was numerisch nicht zielführend ist. Mit Hilfe von finiter Elemente Basisfunktionen führen wir eine Basis ein, welche den Funktionenraum approximiert und endlichdimensional ist.
 
 ```{code-cell} ipython3
 order = 3
@@ -239,7 +232,7 @@ Damit haben wir das unendlichdimensionale Problem auf ein endlich dimensionales 
 print('V.ndof = ',V.ndof)
 ```
 
-Wir betrachten nun die beiden verschiedenen Tassen, was zu unterschiedlichen Bilinearformen oder diskret in dem Fall Matrizen $A$ führt: 
+Wir betrachten nun die beiden verschiedenen Tassen, was zu unterschiedlichen Bilinearformen oder diskret in dem Fall Matrizen $A$ führt:
 
 ```{code-cell} ipython3
 # Isolationstasse
